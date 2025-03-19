@@ -1,0 +1,651 @@
+---
+layout: artigo
+title: Teorema de Bayes e o Paradoxo da Ilha 
+subtitle: Paradoxo
+author: Tertuliano Franco e Diogo S. D. da Silva 
+---
+<p>Por <span class="smallcaps">Paradoxo</span>, em Matemática,
+entende-se dois argumentos aparentemente corretos que são
+contraditórios. Neste artigo, veremos um paradoxo relacionado a
+probabilidade condicional, divertido e muito sutil, descrito por Ronald
+Meester em seu livro <span class="citation"
+data-cites="meester">(Meester 2008, Exemplo 1.5.6)</span>. E corrigimos
+neste artigo uma falha na explicação apresentada pelo autor citado.</p>
+<h1 id="probabilidade-condicional">Probabilidade Condicional</h1>
+<p>Não entraremos em detalhes a respeito do que é um espaço de
+probabilidade. Há muitos livros para isso; veja <span class="citation"
+data-cites="tertu">(Franco 2020)</span>, por exemplo. Mas não ter
+definições precisas não nos impede de seguir em frente e nos
+divertirmos... Matemática é uma atividade altamente não-linear!</p>
+<p>Sejam <span class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span> dois eventos de um espaço de
+probabilidade. Intuitivamente, <span class="math inline">\(A\)</span> e
+<span class="math inline">\(B\)</span> são dois conjuntos de resultados
+possíveis. Supondo que <span
+class="math inline">\(\mathbb{P}(B)&gt;0\)</span>, definimos a
+<em>probabilidade condicional de <span class="math inline">\(A\)</span>
+dado <span class="math inline">\(B\)</span></em> por <span
+class="math display">\[\mathbb{P}(A|B) = \frac{\mathbb{P}(A\cap
+B)}{\mathbb{P}(B)}\,.\]</span> Em palavras, a probabilidade condicional
+de <span class="math inline">\(A\)</span> dado <span
+class="math inline">\(B\)</span> consiste na probabilidade de <span
+class="math inline">\(A\)</span> acontecer, sabendo <em>a priori</em>
+que <span class="math inline">\(B\)</span> aconteceu.</p>
+<p>Por exemplo, considere o lançamento de um dado honesto, cujas faces
+contêm todos os números de <span class="math inline">\(1\)</span> a
+<span class="math inline">\(6\)</span>. Logo, cada número possui uma
+chance de <span class="math inline">\(1/6\)</span> de ser sorteado. Se
+alguém vê o resultado mostrado e diz (de maneira confiável) que este
+resultado é um número par, qual a probabilidade deste ser o número <span
+class="math inline">\(2\)</span>? Não é mais <span
+class="math inline">\(1/6\)</span>, e sim <span
+class="math inline">\(1/3\)</span>, porque, dado que o resultado é par,
+há apenas as possibilidades <span class="math inline">\(2\)</span>,
+<span class="math inline">\(4\)</span> e <span
+class="math inline">\(6\)</span>.</p>
+<p>Visualmente, podemos pensar na probabilidade condicional como a
+restrição do espaço amostral ao conjunto <span
+class="math inline">\(B\)</span>, veja a Figura <a href="#FigCondic"
+data-reference-type="ref" data-reference="FigCondic">1</a>.</p>
+<figure id="FigCondic">
+
+<figcaption>Intuitivamente, condicionar ao conjunto <span
+class="math inline">\(B\)</span> significa restringir o espaço amostral
+<span class="math inline">\(\Omega\)</span> ao evento <span
+class="math inline">\(B\)</span>.</figcaption>
+</figure>
+<p>Dizemos que dois eventos <span class="math inline">\(A\)</span> e
+<span class="math inline">\(B\)</span> são <em>independentes</em> se
+<span class="math display">\[\mathbb{P}(A\cap B) = \mathbb{P}(A) \cdot
+\mathbb{P}(B)\,.\]</span> A probabilidade condicional nos permite
+motivar a definição acima: como se pode verificar, dois eventos <span
+class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span> (para evitar chateação, suponha que
+ambos tenham probabilidades positivas) são independentes se, e somente
+se, ao condicionarmos na ocorrência de um deles, não alteramos a
+probabilidade do outro. Ou seja, se <span
+class="math inline">\(\mathbb{P}(A| B) = \mathbb{P}(A)\)</span> e <span
+class="math inline">\(\mathbb{P}(B| A) = \mathbb{P}(B)\)</span>.</p>
+<p>Como exemplo, pense em dois lançamentos sucessivos de um dado. Se
+<span class="math inline">\(A\)</span> é o evento <em>sair cara no
+primeiro lançamento</em> e <span class="math inline">\(B\)</span> é o
+evento <em>sair cara no segundo lançamento</em>, podemos verificar que
+<span class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span> são independentes.</p>
+<p>Também podemos definir independência (coletiva) de não apenas dois
+eventos, mas de uma quantidade finita ou mesmo infinita. Uma coleção de
+eventos é dita independente se, para qualquer subconjunto finito e não
+vazio de eventos dessa coleção, a probabilidade da interseção deles é
+igual ao produto das suas probabilidades.</p>
+<p>A seguir, vejamos o Teorema de Bayes, que sob certas hipóteses,
+<em>grosso modo</em> permite:</p>
+<p>1) escrever a probabilidade de um evento em termos de probabilidades
+condicionais deste evento com respeito a outros, e</p>
+<p>2) reconstruir a probabilidade condicional de <span
+class="math inline">\(B\)</span> dado <span
+class="math inline">\(A\)</span> a partir da probabilidade condicional
+de <span class="math inline">\(A\)</span> dado <span
+class="math inline">\(B\)</span>.</p>
+<div id="Bayes" class="theorem*">
+<p><strong>Teorema 1</strong> (Teorema de Bayes). <em>Sejam <span
+class="math inline">\(B_1,\ldots, B_n\)</span> eventos, todos de
+probabilidade positiva, que particionem o espaço <span
+class="math inline">\(\Omega\)</span>, ou seja, são disjuntos e sua
+união é igual a <span class="math inline">\(\Omega\)</span>. Dado um
+evento <span class="math inline">\(A\)</span>, vale que</em></p>
+<ol type="a">
+<li><p><em><span
+class="math inline">\(\mathbb{P}(A)=\displaystyle\sum_{k=1}^n
+\mathbb{P}(A|B_k)\cdot \mathbb{P}(B_k)\)</span>.</em></p></li>
+<li><p><em>Suponha que <span
+class="math inline">\(\mathbb{P}(A)&gt;0\)</span>. Então, para qualquer
+índice <span class="math inline">\(i=1, \ldots, n\)</span>, <span
+class="math display">\[\mathbb{P}(B_i|A)= \frac{\mathbb{P}(A|B_i)\cdot
+\mathbb{P}(B_i)}{\sum_{k=1}^n \mathbb{P}(A|B_k)\cdot
+\mathbb{P}(B_k)}\;.\]</span></em></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Como <span class="math inline">\(B_1,\ldots,
+B_n\)</span> particionam o espaço, temos que <span
+class="math inline">\(\Omega= \cup_{k=1}^n B_k\)</span>. Portanto, <span
+class="math inline">\(A=A\cap \Omega= \cup_{k=1}^n (A\cap B_k)\)</span>.
+Como os eventos <span class="math inline">\(B_k\)</span> são disjuntos,
+os eventos <span class="math inline">\(A\cap B_k\)</span> também são.
+Pela aditividade da probabilidade, temos que <span
+class="math inline">\(\mathbb{P}(A\cap \Omega)= \sum_{k=1}^n
+\mathbb{P}(A\cap B_k)\)</span>, o que mostra o item (a) do enunciado.
+Para o item (b), <span class="math display">\[\mathbb{P}(B_i|A)=
+\frac{\mathbb{P}(B_i\cap A)}{\mathbb{P}(A)}=\frac{\mathbb{P}(A|B_i)\cdot
+\mathbb{P}(B_i)}{\sum_{k=1}^n \mathbb{P}(A|B_k)\cdot
+\mathbb{P}(B_k)}\,,\]</span> onde, na segunda igualdade, usamos o item
+(a) no denominador. ◻</p>
+</div>
+<p><strong>Observação:</strong> O Teorema de Bayes também vale no caso
+de enumeráveis eventos <span class="math inline">\(B_1,
+B_2\ldots\)</span>, sendo a demonstração análoga.</p>
+<h1 id="o-assassinato">O Assassinato</h1>
+<p>Considere uma ilha com <span class="math inline">\(n+2\)</span>
+habitantes. Um deles é assassinado, restando portanto <span
+class="math inline">\(n+1\)</span> habitantes, e sabe-se que o assassino
+é um dos habitantes do local. Assuma que a probabilidade de um habitante
+qualquer ser o assassino seja igual a <span
+class="math inline">\(1/(n+1)\)</span>.</p>
+<p>Investigadores descobrem vestígios de sangue na cena do crime, não em
+quantidade suficiente para descobrir quem é o assassino, mas o bastante
+para estabelecer um certo perfil. Tipo sanguíneo, por exemplo, mas não
+DNA, que permitiria descobrir com certeza o culpado.</p>
+<p>Sabe-se que a probabilidade de cada ser humano ter este perfil
+sanguíneo é igual a <span class="math inline">\(p\)</span>, com <span
+class="math inline">\(0&lt;p&lt;1\)</span>, e seres humanos são
+independentes com relação a esta propriedade.</p>
+<p>Além disso, como o assassino está entre os habitantes, sabemos também
+que pelo menos um deles terá o perfil do assassino (ao menos o próprio
+assassino!).</p>
+<p>A polícia começa a investigar, um por um, <em>ao acaso</em>, os
+habitantes da ilha. O primeiro a ser investigado é a pessoa que
+chamaremos de Yplison, e verifica-se que Yplison tem o perfil encontrado
+na cena do crime. Condicionado a este evento, qual é a probabilidade de
+que esta pessoa Yplison seja o assassino? Em outras palavras, em quanto
+muda a probabilidade de Yplison ser o assassino dado este evento no qual
+verifica-se ter Yplison o perfil do assassino?</p>
+<p>Em outras palavras, denotando por <span
+class="math inline">\(Y\)</span> o evento <em>Yplison é o
+assassino</em>, e por <span class="math inline">\(S\)</span> o evento
+<em>Yplison tem o perfil sanguíneo encontrado na cena do crime</em>,
+quanto é <span class="math inline">\(\mathbb{P}(Y|S)\)</span>? Vejamos
+“soluções” para o problema.</p>
+<h1 id="a-primeira-solução">A Primeira Solução</h1>
+<p>Uma probabilidade condicional <span
+class="math inline">\(\mathbb{P}(\cdot|S)\)</span> é uma probabilidade
+(fato da vida: o aceitaremos sem demonstração, ainda que não seja
+difícil prová-lo). Denote então <span
+class="math inline">\(\mathbb{P}_S(\cdot)=\mathbb{P}(\cdot|S)\)</span>.
+Seja <span class="math inline">\(T_k\)</span> o evento no qual <span
+class="math inline">\(k\)</span> habitantes da ilha, dentre os <span
+class="math inline">\(n\)</span> habitantes (excluindo-se Yplison) têm o
+perfil sanguíneo do assassino.</p>
+<p>Usando a parte (a) do Teorema de Bayes, podemos deduzir que <span
+class="math display">\[\begin{aligned}
+\mathbb{P}_S(Y)&amp; =\sum_{k=0}^n \mathbb{P}_S(Y|T_k)\cdot
+\mathbb{P}_S(T_k)\,.
+\end{aligned}\]</span> Portanto, precisamos calcular <span
+class="math inline">\(\mathbb{P}_S(Y|T_k)\)</span> e <span
+class="math inline">\(\mathbb{P}_S(T_k)\)</span>. Comecemos pela
+segunda. Faremos o seguinte: denote por <span
+class="math inline">\(L\)</span> a lista de <span
+class="math inline">\(n+1\)</span> entradas, cada uma sendo zero ou um,
+indicando se o tipo sanguíneo de cada pessoa coincide com o tipo
+sanguíneo do assassino. Estas entradas são independentes, e cada uma
+possui probabilidade <span class="math inline">\(p\)</span> de valer
+<span class="math inline">\(1\)</span>. Seja <span
+class="math inline">\(E\in \{1,\ldots, n+1\}\)</span> o número
+(aleatório) que representa a posição que Yplison ocupa nesta lista
+(usamos a letra <span class="math inline">\(E\)</span> de <em>escolhido
+pela polícia</em>). Daí, temos que, para <span
+class="math inline">\(k\in \{0,\ldots, n\}\)</span>, <span
+class="math display">\[\begin{aligned}
+    \mathbb{P}_S(T_k) &amp;= \mathbb{P}\Big[\sum_{j\neq
+E}L_j=k\Big|L_E=1\Big]\notag\\
+    &amp;  = \frac{\mathbb{P}\Big[\sum_{j\neq
+E}L_j=k,L_E=1\Big]}{\mathbb{P}\big[L_E=1\big]},\label{tag}
+    
+\end{aligned}\]</span> em que a vírgula dentro da probabilidade no
+denominador acima denota a interseção dos eventos. Calculemos
+separadamente as probabilidade no denominador e no numerador acima. Para
+isto, basta separar o evento em função do valor que <span
+class="math inline">\(E\)</span> assume: <span
+class="math display">\[\begin{aligned}
+    \mathbb{P}\big[L_E=1\big] &amp; = \mathbb{P}\Big[L_E=1,
+\bigcup_{k=1}^{n+1} [E=k] \Big]\\
+    &amp;  = \mathbb{P}\Big[ \bigcup_{k=1}^{n+1}([L_E=1]\cap [E=k])
+\Big]\\
+    &amp;  = \sum_{k=1}^{n+1}\mathbb{P}\big( [L_E=1]\cap [E=k] \big)\\
+    &amp;  = \sum_{k=1}^{n+1}\mathbb{P}\big( [L_k=1]\cap [E=k] \big)\\
+    &amp;  \hspace{-0.2cm}\stackrel{\text{indep.}}{=}
+\sum_{k=1}^{n+1}\mathbb{P}\big[L_k=1\big] \cdot \mathbb{P}
+\big[E=k\big]\\  
+    &amp;  = \sum_{k=1}^{n+1}p \cdot \frac{1}{n+1} =p\,.
+    
+\end{aligned}\]</span></p>
+<p>Para encontrar a probabilidade que está no numerador de <a
+href="#tag" data-reference-type="eqref" data-reference="tag">[tag]</a>,
+fazemos um cálculo análogo separando o evento nos possíveis valores que
+<span class="math inline">\(E\)</span> assume: <span
+class="math display">\[\begin{aligned}
+    &amp;\mathbb{P}\Big[\sum_{j\neq E}L_j=k,L_E=1\Big]\\
+     &amp; = \mathbb{\displaystyle}\sum_{\ell
+=1}^{n+1}\mathbb{P}\Big[\sum_{j\neq E}L_j=k,L_E=1, E = \ell\Big]\\
+     &amp; = \mathbb{\displaystyle}\sum_{\ell =1}^{n+1}
+\mathbb{P}\Big[\sum_{j\neq \ell}L_j=k,L_\ell=1, E = \ell\Big]\\
+     &amp; \hspace{-0.2cm}\stackrel{\text{indep.}}{=} \frac{p}{n+1}
+\displaystyle\sum_{\ell =1}^{n+1} \mathbb{P}\Big[\sum_{j\neq
+\ell}L_j=k\Big].
+        
+\end{aligned}\]</span> É um exercício (ou faz parte de alguma aula) num
+curso básico de Combinatória provar que a soma de variáveis Bernoulli
+independentes com mesmo parâmetro é binomial. No nosso caso, isso
+corresponde a mostrar que <span
+class="math inline">\(\mathbb{P}\Big[\sum_{j\neq \ell}L_j=k\Big] =
+\binom{n}{k}p^k(1-p)^{n-k}\)</span>. Este é justamente o nosso caso,
+pois os <span class="math inline">\(L_j\)</span> valem zero ou um (são
+Bernoulli) e são independentes. A probabilidade de uma determinada
+sequência com <span class="math inline">\(k\)</span> uns e <span
+class="math inline">\(n-k\)</span> zeros é <span
+class="math inline">\(p^k(1-p)^{n-k}\)</span>. Mas temos que contar
+quantas sequências têm <span class="math inline">\(k\)</span> uns e
+<span class="math inline">\(n-k\)</span> zeros. Estas são <span
+class="math inline">\(\frac{n!}{k!(n-k)!}\)</span>, pois temos <span
+class="math inline">\(k\)</span> repetições de uns e <span
+class="math inline">\(n-k\)</span> repetições de zeros (permutação com
+repetição, veja <span class="citation" data-cites="tertu">(Franco
+2020)</span> por exemplo). Assim, deduzimos que <span
+class="math inline">\(\mathbb{P}\Big[\sum_{j\neq \ell}L_j=k\Big] =
+\binom{n}{k}p^k(1-p)^{n-k}\)</span> e, por conseguinte, que <span
+class="math display">\[\begin{aligned}
+&amp;\mathbb{P}\Big[\sum_{j\neq E}L_j=k,L_E=1\Big] =
+p\binom{n}{k}p^k(1-p)^{n-k}\,.
+    
+\end{aligned}\]</span> Dividindo as duas probabilidades correspondentes
+ao numerador e denominador de <a href="#tag" data-reference-type="eqref"
+data-reference="tag">[tag]</a>, obtemos simplesmente <span
+class="math display">\[\label{formula_binomial}
+     \mathbb{P}_S(T_k) = \binom{n}{k}p^k(1-p)^{n-k}\,.\]</span>
+Calculemos agora a primeira probabilidade requerida. Condicionado a
+<span class="math inline">\(T_k\)</span>, incluindo Yplison, temos <span
+class="math inline">\(k+1\)</span> pessoas com o perfil sanguíneo do
+assassino. Assim, Yplison terá a probabilidade de <span
+class="math inline">\(1/(k+1)\)</span> de ser o assassino. Ou seja,
+<span
+class="math display">\[\mathbb{P}_S(Y|T_k)=\frac{1}{k+1}\,.\]</span>
+Hum, a afirmação acima pode parecer um pouco forçada... para não deixar
+nenhuma sombra de dúvida, deixemos de preguiça e façamos as contas. Quem
+está na chuva é pra se molhar. Ou como diria Paulo Freire, ensinar é um
+ato de amor, logo um ato de coragem, não pode temer o debate. Denote por
+<span class="math inline">\(A\)</span> o número aleatório em <span
+class="math inline">\(\{1,\ldots, n+1\}\)</span> que corresponde ao
+assassino. Logo, o evento <em>Yplison é o assassino</em> é o evento
+<span class="math inline">\([E=A]\)</span>. Temos que <span
+class="math display">\[\begin{aligned}
+    &amp;\mathbb{P}_S(Y|T_k)\notag\\
+    &amp; = \mathbb{P} \Big[E=A\,\big| \sum_{j\neq E}L_j= k, L_E=L_A
+=1\Big]\notag\\
+    &amp;= \frac{\mathbb{P} \Big[E=A\,, \sum_{j\neq E}L_j= k, L_E=L_A
+=1\Big]}{\mathbb{P} \Big[\sum_{j\neq E}L_j= k, L_E=L_A
+=1\Big]}\,.\label{tag2}
+    
+\end{aligned}\]</span> Calculemos as probabilidades no numerador e
+denominador acima, começando pelo numerador: <span
+class="math display">\[\begin{aligned}
+    &amp;\mathbb{P} \Big[E=A\,, \sum_{j\neq E}L_j= k, L_E=L_A =1\Big]
+    \\
+    &amp;   = \frac{p}{n+1}\binom{n}{k}p^k(1-p)^{n-k}\,.
+    
+\end{aligned}\]</span> Para calcular o denominador, separamos nos
+eventos <span class="math inline">\([E=A]\)</span> e <span
+class="math inline">\([E\neq A]\)</span>, como segue: <span
+class="math display">\[\begin{aligned}
+&amp;\mathbb{P} \Big[\sum_{j\neq E}L_j= k, L_E=L_A =1\Big]\\
+&amp; =  \mathbb{P} \Big[E=A\,, \sum_{j\neq E}L_j= k, L_E=L_A =1\Big]\\
+  &amp; +  \mathbb{P} \Big[E\neq A\,, \sum_{j\neq E}L_j= k, L_E=L_A
+=1\Big]\\
+  &amp;=  \frac{p}{n+1}\binom{n}{k}p^k(1-p)^{n-k}\\
+  &amp;+  \frac{np^2}{n+1}\binom{n-1}{k-1}p^{k-1}(1-p)^{(n-1)-(k-1)}\,.
+    
+\end{aligned}\]</span> Fazendo o quociente entre numerador e
+denominador, inferimos que <span class="math display">\[\begin{aligned}
+    &amp;\mathbb{P}_S(Y|T_k)\\
+    &amp; =
+\frac{\frac{p}{n+1}\binom{n}{k}p^k(1-p)^{n-k}}{\frac{p}{n+1}\binom{n}{k}p^k(1-p)^{n-k}+
+\frac{np^2}{n+1}\binom{n-1}{k-1}p^{k-1}(1-p)^{n-k}}\\
+    &amp; = \frac{\binom{n}{k}}{\binom{n}{k}+n\binom{n-1}{k-1}} =
+\frac{\binom{n}{k}}{\binom{n}{k}+k\binom{n}{k}}=\frac{1}{k+1}\,,
+    
+\end{aligned}\]</span> como esperávamos (ufa!). Agora que já temos <span
+class="math inline">\(\mathbb{P}_S(T_k)\)</span> e <span
+class="math inline">\(\mathbb{P}_S(Y|T_k)\)</span>, podemos terminar a
+solução: <span class="math display">\[\begin{aligned}
+    \mathbb{P}_S(Y)&amp; =\sum_{k=0}^n \mathbb{P}_S(Y|T_k)\cdot
+\mathbb{P}_S(T_k)\\
+    &amp;= \sum_{k=0}^n \frac{1}{k+1}\binom{n}{k}p^k(1-p)^{n-k}\\
+    &amp;= \sum_{k=0}^n
+\frac{1}{(k+1)}\frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}\\
+        &amp;= \sum_{k=0}^n \frac{n!}{(k+1)!(n-k)!}p^k(1-p)^{n-k}\\
+    &amp; =
+\frac{1}{p(n+1)}\sum_{k=1}^{n+1}\binom{n+1}{k}p^k(1-p)^{(n+1)-k}\\
+    &amp; =\frac{1-(1-p)^{n+1}}{p(n+1)}\,.
+    
+\end{aligned}\]</span></p>
+<h1 id="a-segunda-solução">A Segunda Solução</h1>
+<p>Vamos usar a parte (b) do Teorema de Bayes para uma segunda solução.
+Ou seja, vamos “inverter” a probabilidade condicional. Denote por <span
+class="math inline">\(Y^\complement\)</span> o complementar de <span
+class="math inline">\(Y\)</span>, ou seja, <span
+class="math inline">\(Y^\complement = \Omega - Y\)</span>, que
+corresponde ao evento <em>Yplison não é o assassino</em>.</p>
+<p>Note que <span class="math inline">\(Y\)</span> e <span
+class="math inline">\(Y^\complement\)</span> formam uma partição do
+espaço amostral. Além disso, <span
+class="math inline">\(\mathbb{P}(S|Y)=1\)</span>, pois se Yplison é o
+assassino, o evento no qual ele tem o perfil sanguíneo tem probabilidade
+um. Por outro lado, se Yplison não é o assassino, a probabilidade
+condicional de Yplison ter o mesmo perfil sanguíneo do assassino é igual
+a <span class="math inline">\(p\)</span>. Logo, <span
+class="math inline">\(\mathbb{P}(S|Y^\complement)=p\)</span>. Daí,
+aplicando o item (b) do Teorema de Bayes, temos que <span
+class="math display">\[\begin{aligned}
+\displaystyle
+     \mathbb{P}(Y|S)&amp;
+=\frac{\mathbb{P}(S|Y)\mathbb{P}(Y)}{\mathbb{P}(S|Y)\mathbb{P}(Y)+
+\mathbb{P}(S|Y^\complement)\mathbb{P}(Y^\complement)}\\
+     &amp; = \frac{1\cdot \frac{1}{n+1}}{1\cdot \frac{1}{n+1}+p\cdot
+(1-\frac{1}{n+1})}\\
+     &amp; = \frac{\frac{1}{n+1}}{ \frac{1}{n+1}+p\cdot
+(\frac{n}{n+1})}\\
+     &amp;= \frac{1}{1+pn}\,.
+     
+\end{aligned}\]</span></p>
+<p>Muito mais fácil, né? Mas esta resposta não bate com a primeira
+solução! Temos um paradoxo, pois as duas parecem corretas. Onde está a
+falha?</p>
+<h1 id="a-terceira-solução">A Terceira Solução</h1>
+<p>Bem, como as respostas na primeira e segunda soluções não coincidem,
+pelo menos uma não pode estar correta. Mas qual seria? Antes de
+encontrar onde está o lapso, vejamos uma terceira solução, bastante
+simples e precisa, que nos indicará qual das duas soluções anteriores é
+a correta.</p>
+<p>Considere, como antes, <span class="math inline">\(E\in \{1,\ldots,
+n+1\}\)</span> a pessoa escolhida aleatoriamente pela polícia de maneira
+uniforme e <span class="math inline">\(A\in \{1,\ldots, n+1\}\)</span> o
+assassino, que também é aleatório e uniforme, e <span
+class="math inline">\(L \in \{0,1\}^{n+1}\)</span> a lista aleatória de
+zeros ou uns que determina o perfil sanguíneo de cada pessoa. Além
+disso, cada pessoa (ou seja, cada entrada de <span
+class="math inline">\(L\)</span>) é independente e tem probabilidade
+<span class="math inline">\(p\)</span> de ser igual a <span
+class="math inline">\(1\)</span>, e <span
+class="math inline">\(E\)</span>, <span class="math inline">\(A\)</span>
+e <span class="math inline">\(L\)</span> são independentes. Então <span
+class="math display">\[\begin{aligned}
+\mathbb{P}_S(Y) &amp; \;=\; \mathbb{P} \big[E=A\vert L_A=L_E=1\big]\\
+&amp; \;=\; \frac{\mathbb{P} \big[E=A, L_A=L_E=1\big]}{\mathbb{P}
+\big[L_A=L_E=1\big]}\,.
+\end{aligned}\]</span> O numerador acima é dado por <span
+class="math display">\[\begin{aligned}
+\mathbb{P} \big[E=A, L_A=L_E=1\big] = \frac{p}{n+1}
+\end{aligned}\]</span> e, para calcular o denominador, separamos nos
+eventos nos quais Yplison é o assassino ou não: <span
+class="math display">\[\begin{aligned}
+\mathbb{P} \big[L_A=L_E=1\big]  &amp; = \mathbb{P} \big[L_A=L_E=1,
+E=A\big]\\
+&amp; + \mathbb{P} \big[L_A=L_E=1, E\neq A\big]\\
+&amp; = \frac{p}{n+1}+ \Big(1-\frac{1}{n+1}\Big)p^2  \,.
+\end{aligned}\]</span> Dividindo os valores obtidos, chegamos em <span
+class="math display">\[\begin{aligned}
+\mathbb{P}_S(Y) = \frac{\frac{p}{n+1}}{ \frac{p}{n+1}+ \frac{np^2}{n+1}}
+= \frac{1}{1+pn}\,,
+\end{aligned}\]</span> que coincide com a segunda solução.</p>
+<h1 id="a-correção">A Correção</h1>
+<p>Por incrível que pareça, o erro na primeira solução por assim dizer,
+é mais de interpretação do problema do que de matemática. Isto o torna
+mais sutil e difícil de ser corrigido. Todos os passos nos cálculos
+mostrados na primeira solução são válidos.</p>
+<p>Como <span class="citation" data-cites="meester">(Meester 2008,
+página 26)</span> aponta corretamente, a falha na primeira solução tem a
+ver com a fórmula <a href="#formula_binomial"
+data-reference-type="eqref"
+data-reference="formula_binomial">[formula_binomial]</a> para a
+probabilidade <span class="math inline">\(\mathbb{P}_S(T_k)\)</span>.
+Contudo, comete um lapso em sua justificativa (que atire o primeiro
+livro aquele ou aquela que nunca errou uma demonstração). O autor diz
+que:</p>
+<blockquote>
+<p><em>In method (1), we said that the probability that there are <span
+class="math inline">\(k\)</span> other people with John Smiths’ profile
+is given by <a href="#formula_binomial" data-reference-type="eqref"
+data-reference="formula_binomial">[formula_binomial]</a>. This seems
+obvious, but is, in fact, not correct. The fact that the first person to
+be checked has the particular DNA profile, says something about the
+total number of individuals with this profile.</em></p>
+</blockquote>
+<p>Em tradução livre e adaptada:</p>
+<blockquote>
+<p><em>Na primeira solução, dissemos que a probabilidade de que <span
+class="math inline">\(k\)</span> pessoas, dentre aquelas excluindo-se
+Yplison, tenham o perfil sanguíneo é dado por <a
+href="#formula_binomial" data-reference-type="eqref"
+data-reference="formula_binomial">[formula_binomial]</a>. Isto parece
+óbvio, mas é, deveras, incorreto. O fato que a primeira pessoa
+verificada tem o perfil sanguíneo diz algo sobre o total de indivíduos
+com este perfil.</em></p>
+</blockquote>
+<p>Ou seja, <span class="citation" data-cites="meester">(Meester
+2008)</span> argumenta que Yplison testar positivo altera a distribuição
+da amostra, em outras palavras, causa um viés, e que a fórmula <a
+href="#formula_binomial" data-reference-type="eqref"
+data-reference="formula_binomial">[formula_binomial]</a> está errada por
+tal motivo. O seguinte argumento empírico parece fortalecer esta
+ideia:</p>
+<p>Imagine que você tem em mãos um saco de balas, que podem ser de
+morango ou de menta, de maneira independente com parâmetro <span
+class="math inline">\(p\)</span>. Se você enfia a mão no saco, e retira
+um punhado de balas, e todas as balas retiradas são de morango, então
+seria mais provável que as balas que restaram no saco sejam de morango,
+certo?</p>
+<p>Na vida real, é razoável pensar neste caso que retirar um punhado de
+balas, todas, de morango, enviesa a amostra. Se são <span
+class="math inline">\(100\)</span> balas no saco, e você tirou ao acaso
+<span class="math inline">\(98\)</span> balas, todas de morango, vale a
+pena apostar que as duas últimas também são de morango. Tal situação é
+muito comum em Estatística<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a>, onde o objetivo seria
+encontrar (estimar) o parâmetro <span class="math inline">\(p\)</span>,
+que não é conhecido. E se um punhado de balas causa um viés, uma única
+bala também causa. Podemos então transpor este argumento para o problema
+do assassino na ilha, onde esta única bala seria Yplison, que deu
+positivo.</p>
+<p>Mas este não é o caso no problema do ilha, onde <span
+class="math inline">\(p\)</span> é dado <em>a priori</em>! Se cada bala
+possui probabilidade <span class="math inline">\(p\)</span> e estas são
+independentes, retirar um punhado de balas, todas de morango, não afeta
+a distribuição das que restaram, que continuam sendo Bernoulli de
+parâmetro <span class="math inline">\(p\)</span>. Bem, para <span
+class="math inline">\(p=1/2\)</span>, digamos, retirar um montão de
+balas, todas de morango, é bem improvável. Mas caso isso aconteça, isso
+não afetará a distribuição das balas restantes! Foi precisamente isso
+que demonstramos ao provar <a href="#formula_binomial"
+data-reference-type="eqref"
+data-reference="formula_binomial">[formula_binomial]</a>. Bem, mostramos
+no caso de uma bala, mas vale também para um punhado de balas. Em
+resumo, a nossa prova de <a href="#formula_binomial"
+data-reference-type="eqref"
+data-reference="formula_binomial">[formula_binomial]</a> está correta
+sim.</p>
+<p>Então, qual o problema? Há um viés, de fato, mas não devido a Yplison
+testar positivo. O viés decorre da existência do assassino, que não foi
+considerada. Imagine que Yplison, que testou positivo, não é o
+assassino. Então o assassino está entre as outras <span
+class="math inline">\(n\)</span> pessoas, e isso sim causa um viés,
+porque o assassino tem o tipo sanguíneo encontrado na cena do crime.</p>
+<p>Em outras palavras, a fórmula <a href="#formula_binomial"
+data-reference-type="eqref"
+data-reference="formula_binomial">[formula_binomial]</a> foi deduzida
+corretamente, mas não representa o problema, porque condiciona apenas no
+evento em que Yplison testa positivo, e não considera a existência do
+assassino (que é positivo e que pode ou não ser Yplison). Eis a
+escondida, sutil falha de interpretação do enunciado na primeira
+solução. O evento em que condicionamos para encontrar <span
+class="math inline">\(\mathbb{P}_S(T_k)\)</span> deveria ser <span
+class="math inline">\([L_E=1, L_A=1]\)</span> e não <span
+class="math inline">\([L_E=1]\)</span>. Note que em <a href="#tag2"
+data-reference-type="eqref" data-reference="tag2">[tag2]</a>
+consideramos <span class="math inline">\([L_E=1, L_A=1]\)</span> no
+condicionamento, o que levou corretamente a <span
+class="math inline">\(\mathbb{P}_S(Y|T_k)=\frac{1}{k+1}\)</span>, bem
+como na terceira solução do problema que apresentamos.</p>
+<p>A seguir, recalculemos <span
+class="math inline">\(\mathbb{P}_S(T_k)\)</span> para corrigir a
+primeira solução. Para <span class="math inline">\(k\in \{0,\ldots,
+n\}\)</span>, <span class="math display">\[\begin{aligned}
+\mathbb{P}_S(T_k) &amp;= \mathbb{P}\Big[\sum_{j\neq E}L_j=k\Big|L_E=L_A=
+1\Big]\notag\\
+&amp;  = \frac{\mathbb{P}\Big[\sum_{j\neq
+E}L_j=k,L_E=L_A=1\Big]}{\mathbb{P}\big[L_E=L_A= 1\big]}\,.\label{tag3}
+\end{aligned}\]</span> O denominador em <a href="#tag3"
+data-reference-type="eqref" data-reference="tag3">[tag3]</a> é dado por
+<span class="math display">\[\begin{aligned}
+\mathbb{P}\big[L_E=L_A= 1\big] &amp; = \mathbb{P}\big[L_E=L_A= 1,
+E=A\big]\\
+&amp; + \mathbb{P}\big[L_E=L_A= 1, E\neq A\big]\\
+&amp; = \frac{p}{n+1}+\frac{p^2n}{n+1}\\
+\end{aligned}\]</span> e o numerador em <a href="#tag3"
+data-reference-type="eqref" data-reference="tag3">[tag3]</a> é dado por
+<span class="math display">\[\begin{aligned}
+&amp;\mathbb{P}\Big[\sum_{j\neq E}L_j=k,L_E=L_A=1, E=A\Big]\\
+&amp; +\mathbb{P}\Big[\sum_{j\neq E}L_j=k,L_E=L_A=1, E\neq A\Big]\\
+&amp;= \frac{p}{n+1}\binom{n}{k}p^k(1-p)^{n-k}\\
+&amp;+\frac{p^2n}{n+1}\binom{n-1}{k-1}p^{k-1}(1-p)^{(n-1)-(k-1)}\,.
+\end{aligned}\]</span> Fazendo o quociente, obtemos <span
+class="math display">\[\begin{aligned}
+\mathbb{P}_S(T_k) &amp;= \frac{k+1}{1+pn}\binom{n}{k}p^k(1-p)^{n-k}\,.
+\end{aligned}\]</span> E, usando esta expressão, podemos corrigir a
+segunda solução: <span class="math display">\[\begin{aligned}
+\mathbb{P}_S(Y)&amp; =\sum_{k=0}^n \mathbb{P}_S(Y|T_k)\cdot
+\mathbb{P}_S(T_k)\\
+&amp; = \sum_{k=0}^n
+\frac{1}{k+1}\cdot  \frac{k+1}{1+pn}\binom{n}{k}p^k(1-p)^{n-k}\\
+&amp;= \frac{1}{1+pn}\,.
+\end{aligned}\]</span></p>
+<h1 id="o-problema-das-crianças">O Problema das Crianças</h1>
+<p>Vejamos um problema de condicionamento famoso, o Problema das
+Crianças, e tracemos um paralelo com o problema anterior. Vejamos.</p>
+<p>Para aquecer, analisemos a seguinte questão. <em>Uma família tem duas
+crianças. Qual a probabilidade de serem duas meninas?</em></p>
+<p>Embora não tenha sido dito, é comum supor implicitamente
+indepêndencia e uniformidade em problemas assim. Logo, temos <span
+class="math inline">\(1/2 \times 1/2 = 1/4\)</span> como resposta.</p>
+<p>Continuando: <em>Uma família tem duas crianças. Dado que há pelo
+menos uma menina, qual a probabilidade (condicional) de serem duas
+meninas?</em></p>
+<p>Denote <span class="math inline">\(\Omega = \{(a,a), (o,o), (a, o) ,
+(a, o)\}\)</span> o espaço amostral, no qual <span
+class="math inline">\(a\)</span> representa gênero feminino, <span
+class="math inline">\(o\)</span> gênero masculino, a posição no par
+ordenado indica quem é mais velho, e assumamos que este espaço é
+equiprovável. Condicionar a saber que há pelo menos uma menina significa
+condicionar no evento <span class="math inline">\(B= \{(a,a), (a, o) ,
+(o, a)\}\)</span>. Usando a definição de probabilidade condicional,
+temos que <span
+class="math display">\[\mathbb{P}(\{(a,a)\}|B)=\frac{1/4}{1/4+1/4+1/4}=1/3\,.\]</span></p>
+<p>Vejamos agora o problema das crianças com sua respectiva
+pseudo-solução: <em>Uma família tem duas crianças e sabe-se que há pelo
+menos uma menina<a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>. Você toca a campainha e uma menina
+abre a porta. Como já sabíamos que havia pelo menos uma menina, isto não
+traz nenhuma informação adicional. Assim, a probabilidade de que sejam
+duas meninas continua sendo <span
+class="math inline">\(1/3\)</span>.</em></p>
+<p>Errado, a criança abrir a porta traz informação sim. É uma situação
+similar ao que fizemos na dedução de <a href="#formula_binomial"
+data-reference-type="eqref"
+data-reference="formula_binomial">[formula_binomial]</a>, condicionando
+na existência de uma pessoa positiva (que aqui corresponde a haver pelo
+menos uma menina). Inicialmente, cada pessoa era independente com
+probabilidade <span class="math inline">\(p\)</span>. Aí condicionamos
+em haver uma pessoa positiva (e o total de pessoas deixa de ter
+distribuição binomial). Depois testamos uma pessoa, Yplison, que dá
+positivo (a criança abre a porta e é uma menina). E isto torna a
+distribuição dos demais novamente binomial com o parâmetro original
+<span class="math inline">\(p\)</span>.</p>
+<p>Vejamos o argumento dado por Meester neste caso, que é bastante
+simples e ilustrativo. Meester argumenta que o espaço amostral <span
+class="math inline">\(\Omega = \{(a,a), (o,o), (a, o) , (a,
+o)\}\)</span> não é adequado, pois não caracteriza quem abriu a
+porta.</p>
+<p>Como espaço amostral, precisamos aqui de algo como <span
+class="math display">\[\begin{aligned}
+\overline{\Omega} = \{&amp; (a^*,a), (o^*,o), (a^*, o) , (o^*, a)\\
+&amp; (a,a^*), (o,o^*), (a, o^*) , (o, a^*)\}\,,
+\end{aligned}\]</span> onde o asterisco indica quem abre a porta. Por
+exemplo, o evento <span class="math inline">\(\{(o, a^*)\}\)</span>
+representa a primeira criança ser um menino, e a segunda criança ser
+menina e ter aberto a porta. Considere este espaço amostral com uma
+probabilidade equiprovável. Assim, o problema acima corresponde a
+descobrir a probabilidade de <span class="math inline">\(\{(a^*, a), (a,
+a^*)\}\)</span> condicionado ao evento <span class="math display">\[\{
+(a^*, o), (o, a^*), (a^*, a) , (a, a^*)\}\]</span> que é igual a <span
+class="math inline">\(1/2\)</span>, não a <span
+class="math inline">\(1/3\)</span>! Para encerrar, note que o Problema
+das Crianças não é o mesmo que o Problema da Ilha, pois não tem o viés
+da presença do assassino, que pode não ser Yplison.</p>
+<h1 id="conclusão">Conclusão</h1>
+<p>Paradoxos são ferramentas pedagógicas poderosas. Nada como um
+paradoxo para testar (nossos próprios) conhecimentos e profundidade de
+compreensão. Como disse o físicoNiels Bohr certa vez, “<em>Encontramos
+um paradoxo! Agora poderemos avançar!</em>”.</p>
+<h1 class="unnumbered" id="agradecimentos">Agradecimentos</h1>
+<p>Gostaríamos de agradecer a Milton Jara (IMPA) e a Renato dos Santos
+(UFMG) por discussões que contribuíram muito e também ao estudante
+Henrique Caldas que reportou um pequeno lapso em <span class="citation"
+data-cites="tertu">(Franco 2020)</span>, relacionado ao presente
+artigo.</p>
+<div class="wrapfigure">
+<p><span>L</span><span>1.7cm</span> <img src="tertuliano.jpeg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Tertuliano Franco é bacharel em Física pela UFBA, e mestre e doutor
+em Matemática pelo IMPA (2011). É professor do Departamento de
+Matemática do IME-UFBA desde 2012, com passagens diversas em
+universidades no exterior. Faz pesquisa em Probabilidade, especialmente
+a respeito de limites de escala de sistemas de partículas interagentes e
+suas conexões com Equações Diferenciais Parciais e Mecânica Estatística.
+Já orientou diversos alunos e alunas de iniciação científica, mestrado,
+doutorado e pós-doutorado, e é autor de um livro para a graduação em
+Matemática, “Princípios de Combinatória e Probabilidade”, publicado pela
+Coleção Matemática Universitária (IMPA) em 2020. É apaixonado pelo que
+faz, e também toca um pouco de gaita de boca. Seus vizinhos até hoje não
+reclamaram do barulho de sua gaita, de onde ele deduz estar agradando
+bastante, e segue tocando.</p>
+<div class="wrapfigure">
+<p><span>L</span><span>1.7cm</span> <img src="Diogo.jpg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Diogo S. Dórea da Silva é nascido e criado em Feira de Santana, e
+sofre pelo Fluminense de Feira desde tempos imemoriais. Cursou o
+bacharelado, mestrado e doutorado em Matemática pela UFBA, tendo sido
+orientado (ou desorientado, segundo o outro autor deste artigo) em todas
+as ocasiões pelo Professor Tertuliano Franco. Desde 2018, leciona no
+IFBA, Campus Valença. É um excelente professor e também exímio imitador
+de Ariano Suassuna (e de colegas também!).</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-tertu" class="csl-entry" role="listitem">
+Franco, T. 2020. <em>Princípios de Combinatória e Probabilidade</em>. 1ª
+ed. IMPA, Coleção Matemática Universitária.
+</div>
+<div id="ref-meester" class="csl-entry" role="listitem">
+Meester, R. 2008. <em>A Natural Introduction to Probability Theory</em>.
+2ª ed. Birkhäuser Verlag, Basel.
+</div>
+<div id="ref-Oakley_2017" class="csl-entry" role="listitem">
+Oakley, Ann. 2017. <span>“Sexo e Gênero.”</span> <em>Revista
+Feminismos</em> 4 (1).
+</div>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Em Estatística, o objetivo <em>grosso modo</em> é
+estimar a distribuição de probabilidade, que é desconhecida ou, ao
+menos, apenas parcialmente conhecida.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Mantivemos o enunciado original do problema por uma
+questão histórica. É importante ressaltar que questões de gênero são
+muito mais complexas e profundas do que simplesmente feminino/masculino.
+Veja a excelente referência <span class="citation"
+data-cites="Oakley_2017">(Oakley 2017)</span> sobre o assunto, por
+exemplo.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

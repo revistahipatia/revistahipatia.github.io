@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Revista de Matemática Hipátia</title>
+</head>
+<body>
+<header id="title-block-header">
+  <h1 class="title">Revista de Matemática Hipátia</h1>
+  <ul>
+   {% for item in page.editions %}
+   <li>
+     <a href="{{ item.url }}/index.html">{{ item.volnum }}</a>
+   </li>
+   {% endfor %}
+  </ul>
+</header>
+</body>
+</html>

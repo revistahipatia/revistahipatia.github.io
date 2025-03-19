@@ -1,0 +1,616 @@
+---
+layout: artigo
+title: Contando Paralelogramos e Outros Problemas
+subtitle: Problema
+author:
+---
+<h1 id="um-problema-de-motivação">Um problema de motivação</h1>
+<p>O leitor já deve ter se deparado alguma vez com problemas
+recreativos, mais popularmente conhecidos como <em>Puzzles</em> ou
+Quebra-cabeças, que contêm alguma pergunta divertida cuja solução
+depende de algum argumento matemático ou do emprego de alguma <span
+class="smallcaps">Técnica</span> inusitada. Esse é o propósito do
+exercício a seguir.</p>
+<div class="exercise">
+<p><strong>Exercício 1</strong>. <em>Um triminó é um retângulo <span
+class="math inline">\(3 \times 1\)</span>. Um monominó é um único
+quadrado <span class="math inline">\(1 \times 1\)</span>. Quais as
+possíveis posições de um monominó em uma cobertura de um tabuleiro <span
+class="math inline">\(8 \times 8\)</span> usando 21 triminós e 1
+monominó?</em></p>
+<figure>
+<img src="fig.png" />
+</figure>
+</div>
+<p>Convidamos o leitor a tentar resolvê-lo antes de continuar a ler nas
+próximas linhas a solução (inesperada) que envolverá números
+complexos.</p>
+<h1 id="preliminares">Preliminares</h1>
+<p>Dado um <span class="math inline">\(n\)</span> inteiro positivo, uma
+<span><em>raiz <span class="math inline">\(n\)</span>-ésima da
+unidade</em></span> é qualquer número complexo <span
+class="math inline">\(w\)</span> que satisfaz a equação</p>
+<p><span class="math display">\[\label{eq:complexos}
+x^n =1.\]</span></p>
+<p>Um desses números é <span class="math inline">\(w = \textrm{cos}
+\dfrac{2\pi}{n} + i \textrm{sen} \dfrac{2\pi}{n}\)</span> e qualquer
+outro que também satisfaz a equação é uma de suas potências:</p>
+<p><span class="math display">\[w^2, w^3, w^4, \ldots\]</span></p>
+<div class="center">
+
+</div>
+<p>Essas potências são os vértices de um polígono regular de <span
+class="math inline">\(n\)</span> lados com centro na origem. Existe uma
+estrutura algébrica atrelada às raízes de (<a href="#eq:complexos"
+data-reference-type="ref"
+data-reference="eq:complexos">[eq:complexos]</a>) que cria uma
+importante conexão com fenômenos de contagem. A primeira parte dessa
+estrutura é que o produto de quaisquer duas raízes também é uma raiz. De
+fato, se <span class="math inline">\(x_1^n=1\)</span> e <span
+class="math inline">\(x_2^n=1\)</span>, então <span
+class="math inline">\((x_1x_2)^n=1\)</span>. A segunda parte é que o
+inverso de uma raiz também é uma raiz, pois se <span
+class="math inline">\(x^n=1\)</span> então <span
+class="math inline">\((1/x)^n =1\)</span>. A tabela a seguir é um
+exemplo de <span><em>tabuada</em></span> multiplicativa das raízes
+cúbicas da unidade, i.e., das raízes de <span
+class="math inline">\(x^3=1\)</span>. Note que <span
+class="math inline">\(w^3=w^0=1\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span
+class="math inline">\(\times\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(w^0\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(w^1\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(w^2\)</span></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(w^0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(w^0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(w^1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(w^2\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(w^1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(w^1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(w^2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(w^0\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(w^2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(w^2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(w^0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(w^1\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Vejamos um exercício envolvendo uma raiz quarta da unidade e números
+binomiais.</p>
+<div class="exercise">
+<p><strong>Exercício 2</strong>. <em>(ITA) Para cada <span
+class="math inline">\(n\)</span>, temos que <span
+class="math display">\[1 - {4n \choose 2} + {4n \choose 4}-\ldots - {4n
+\choose 4n-2}+1\]</span> é igual a:<br />
+a) <span class="math inline">\((-1)^n \cdot 2^{2n}\)</span> b) <span
+class="math inline">\(2^{2n}\)</span> c) <span
+class="math inline">\((-1)^n \cdot 2^{n}\)</span><br />
+d) <span class="math inline">\((-1)^{n+1} \cdot 2^{2n}\)</span> e) <span
+class="math inline">\((-1)^{n+1} \cdot 2^{n}\)</span>.</em></p>
+</div>
+<div class="solution">
+<p><strong>Solução 1</strong>. <em>Para calcular a soma dos números
+binomiais de índices pares ou ímpares, é conhecido o uso da soma <span
+class="math inline">\((1+1)^n+(1-1)^n\)</span>. Como <span
+class="math inline">\(i^2=-1\)</span>, para encontrar a soma alternada
+descrita no problema, calculemos <span
+class="math display">\[\begin{aligned}
+(i+1)^{4n}                          &amp; = &amp; \sum_{k=0}^{4n} {4n
+\choose k } i^k \\
+((i+1)^2)^{2n}                      &amp; = &amp; \sum_{j=0}^{2n} {4n
+\choose 2j } i^{2j} \\
+                                    &amp; + &amp; \sum_{j=0}^{2n-1} {4n
+\choose 2j+1 } i^{2j+1} \\
+(2i)^{2n}                           &amp; = &amp; \sum_{j=0}^{2n} {4n
+\choose 2j } (-1)^j \\
+                                    &amp; + &amp; i\left (
+\sum_{j=0}^{2n-1} {4n \choose 2j+1 } (-1)^j \right ).
+\end{aligned}\]</span> Como <span class="math inline">\((2i)^{2n} =
+(-1)^n2^{2n}\)</span> é número real, podemos concluir que <span
+class="math display">\[\begin{aligned}
+\sum_{j=0}^{2n} {4n \choose 2j } (-1)^j   &amp; = &amp; (-1)^n2^{2n}
+\,\,\, \text{e}\\
+\sum_{j=0}^{2n-1} {4n \choose 2j+1 } (-1)^j &amp; = &amp; 0.
+\end{aligned}\]</span> A resposta é a letra <span
+class="math inline">\(A\)</span>.</em></p>
+</div>
+<p>Outra propriedade relevante sobre raízes <span
+class="math inline">\(n\)</span>-ésimas da unidade é que a soma de todas
+elas é sempre zero. Para verificar isso, se <span
+class="math inline">\(w = \textrm{cos} \dfrac{2\pi}{n} + i \textrm{sen}
+\dfrac{2\pi}{n}\)</span>, então <span
+class="math inline">\(w^n-1=0\)</span> e daí <span
+class="math display">\[(w-1)(w^{n-1}+w^{n-2}+\ldots
+w+1)  =  0.\]</span></p>
+<p>Como <span class="math inline">\(w \neq 1\)</span>, temos <span
+class="math display">\[w^{n-1}+w^{n-2}+\ldots w+1 =  0.\]</span></p>
+<p>De forma mais geral, se <span class="math inline">\(n \nmid
+k\)</span>, como <span class="math inline">\(w^k \neq 1\)</span>,
+temos</p>
+<p><span class="math display">\[\begin{aligned}
+w^{k(n-1)}+w^{k(n-2)}+\ldots w^k+1 &amp; = &amp; \dfrac{w^{nk}-1}{w^k-1}
+\\
+                                   &amp; = &amp; \dfrac{1-1}{w^k -1} \\
+                                   &amp; = &amp; 0.  
+\end{aligned}\]</span></p>
+<p>Agora, vejamos uma aplicação real em um problema de combinatória. É
+possível cobrirmos um tabuleiro <span class="math inline">\(6 \times
+10\)</span> com peças <span class="math inline">\(1\times 4\)</span>,
+que podem ser colocadas na vertical ou horizontal sem sobreposição?</p>
+<figure>
+<img src="tabuleiro.png" />
+</figure>
+<p>Uma abordagem natural é contar o total de quadradinhos do tabuleiro,
+que é <span class="math inline">\(6 \cdot 10 = 60\)</span>, e notar que
+ele é múltiplo de <span class="math inline">\(4\)</span>. Assim,
+precisaríamos de <span class="math inline">\(60/4=15\)</span> peças
+<span class="math inline">\(1 \times 4\)</span> para cobrir.
+Infelizmente, apenas essa condição não é suficiente. Por exemplo, apesar
+de um tabuleiro <span class="math inline">\(2 \times 2\)</span> ter uma
+quantidade de quadradinhos múltiplo de <span
+class="math inline">\(4\)</span>, claramente não podemos cobri-lo com
+peças <span class="math inline">\(1 \times 4\)</span>. Por outro lado,
+se uma das dimensões do tabuleiro for múltiplo de <span
+class="math inline">\(4\)</span>, é fácil imaginar uma cobertura: basta
+cobrir esse lado com peças enfileiradas e repetir essa configuração nas
+demais linhas ou colunas.</p>
+<div class="center">
+
+</div>
+<p>O próximo teorema responde essa pergunta em geral.</p>
+<div class="theorem">
+<p><strong>Teorema 1</strong>. <em>(Klarner) Sejam <span
+class="math inline">\(m,n,p\)</span> inteiros positivos dados. Se
+podemos cobrir um tabuleiro <span class="math inline">\(m\times
+n\)</span> usando peças <span class="math inline">\(1\times p\)</span>,
+sem sobras ou superposições de peças, então <span
+class="math inline">\(p\)</span> divide <span
+class="math inline">\(m\)</span> ou <span
+class="math inline">\(p\)</span> divide <span
+class="math inline">\(n\)</span>.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Suponha que podemos cobrir o tabuleiro como se pede.
+Para que a peça caiba no tabuleiro, devemos ter <span
+class="math inline">\(p\leq\max\{m,n\}\)</span>. Particione o tabuleiro
+em <span class="math inline">\(m\)</span> linhas <span
+class="math inline">\(1\times n\)</span> e <span
+class="math inline">\(n\)</span> colunas <span
+class="math inline">\(1\times m\)</span>, numerando as linhas do mesmo
+de cima para baixo, de <span class="math inline">\(1\)</span> a <span
+class="math inline">\(m\)</span>, e as colunas da esquerda para a
+direita, de <span class="math inline">\(1\)</span> a <span
+class="math inline">\(n\)</span> (como em uma matriz <span
+class="math inline">\(m\times n\)</span>). Em seguida escreva, na casa
+<span class="math inline">\(ij\)</span> do tabuleiro, o número complexo
+<span class="math inline">\(w^{i+j}\)</span>, em que <span
+class="math inline">\(w=\,\mbox{$\rm{cis}\,$}\frac{2\pi}{p}\)</span>. A
+soma de todos os números escritos na linha <span
+class="math inline">\(i\)</span> é</p>
+<p><span class="math display">\[\begin{aligned}
+w^{i+1}+w^{i+2}+\ldots +w^{i+n} &amp; = &amp; w^i(w+w^2+\ldots +w^n) \\
+                               &amp; = &amp; w^{i+1} \cdot
+\dfrac{w^n-1}{w-1}.
+\end{aligned}\]</span></p>
+<p>Somando agora para todas as linhas, podemos concluir que a soma dos
+números no tabuleiro é</p>
+<p><span class="math display">\[\begin{aligned}
+\displaystyle \sum_{i=1}^{m} w^{i+1} \cdot \dfrac{w^n-1}{w-1} &amp; =
+&amp; w^2 \cdot \dfrac{w^n-1}{w-1} \cdot \dfrac{w^m-1}{w-1}.
+\end{aligned}\]</span></p>
+<p>Vamos calcular essa soma agora de outra maneira. Considere uma peça
+<span class="math inline">\(1 \times p\)</span> na horizontal ocupando
+as casas de entradas:</p>
+<p><span class="math display">\[(i\,j), (i+1\, j), (i+2\, j) \ldots
+(i+p-1\, j).\]</span></p>
+<p>A soma dos números correspondentes a essas casas é</p>
+<p><span class="math display">\[\begin{aligned}
+w^{i+j}+w^{i+1+j}+w^{i+2+j}+\ldots w^{i+p-1+j} &amp; = &amp; \\
+w^{i+j} \cdot (1+w+\ldots +w^{p-1})            &amp; = &amp; \\
+w^{i+j} \cdot \dfrac{w^p-1}{w-1}               &amp; = &amp; \\
+                                               &amp; = &amp; 0.
+\end{aligned}\]</span></p>
+<p>O mesmo argumento se aplica quando a peça está na vertical. Assim,
+como o tabuleiro pode ser coberto, agrupando os números das casas
+pertencentes a uma mesma peça, podemos concluir que a soma total dos
+números do tabuleiro é <span class="math inline">\(0\)</span>. Ou
+seja,</p>
+<p><span class="math display">\[w^2 \cdot \dfrac{w^n-1}{w-1} \cdot
+\dfrac{w^m-1}{w-1} = 0.\]</span></p>
+<p>Para que isso ocorra, devemos ter <span
+class="math inline">\(w^n-1=0\)</span> ou <span
+class="math inline">\(w^m-1=0\)</span> e assim <span
+class="math inline">\(p \mid n\)</span> ou <span class="math inline">\(p
+\mid m\)</span>. Para verificar que é sempre possível cobrir o tabuleiro
+quando uma de suas dimensões é divisível por <span
+class="math inline">\(p\)</span>, basta imitar a figura anterior. ◻</p>
+</div>
+<p>O próximo exercício é uma aplicação direta das ideias da demonstração
+anterior</p>
+<div class="exercise">
+<p><strong>Exercício 3</strong>. <em>(Olimpíada Russa) Encontre o menor
+inteiro <span class="math inline">\(n\)</span> tal que um tabuleiro
+<span class="math inline">\(n \times n\)</span> pode ser particionado em
+subtabuleiros <span class="math inline">\(40 \times 40\)</span> e <span
+class="math inline">\(49 \times 49\)</span> de modo que ambos os tipos
+de quadrados estejam presentes na partição.</em></p>
+</div>
+<div class="solution">
+<p><strong>Solução 2</strong>. <em>Assim como na solução anterior, vamos
+considerar uma numeração para as linhas e colunas do tabuleiro como em
+uma matriz <span class="math inline">\(n \times n\)</span> e associar a
+cada quadradinho <span class="math inline">\((ij)\)</span> o número
+complexo <span class="math inline">\(w^i\xi^j\)</span>, em que <span
+class="math inline">\(w =\,\mbox{$\rm{cis}\,$}\frac{2\pi}{40}\)</span> e
+<span class="math inline">\(\xi =
+\,\mbox{$\rm{cis}\,$}\frac{2\pi}{49}\)</span>. A soma total dos números
+escritos no tabuleiro é <span class="math display">\[\begin{aligned}
+(w^1+w^2+\ldots +w^n)(\xi^1+\xi^2+\ldots +\xi^n) &amp; = &amp; \\
+\dfrac{w(w^n-1)}{w-1} \cdot \dfrac{\xi(\xi^n-1)}{\xi -1}. &amp;&amp;
+\end{aligned}\]</span></em></p>
+<p><em>De modo semelhante, se <span class="math inline">\((ij)\)</span>
+é o quadradinho do canto superior esquerdo de um quadrado <span
+class="math inline">\(k \times k\)</span>, então a soma de todos os
+números em seus quadradinhos é</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+(w^{i}+w^{i+1}+\ldots +w^{i+k-1})(\xi^j+\xi^{j+1}+\ldots +\xi^{j+k-1})
+&amp; = &amp; \\
+\dfrac{w^i(w^k-1)}{w-1} \cdot \dfrac{\xi^j(\xi^k-1)}{\xi -1} &amp; =
+&amp; \\
+0, &amp;&amp;
+\end{aligned}\]</span> pois se <span
+class="math inline">\(k=40\)</span>, então <span
+class="math inline">\(w^k-1=0\)</span> e se <span
+class="math inline">\(k=49\)</span> então <span
+class="math inline">\(\xi^k-1=0\)</span>. Portanto, caso seja possível
+tabuleiro com tais quadrados, a soma de todos os números escritos deve
+ser <span class="math inline">\(0\)</span> e daí</em></p>
+<p><em><span class="math display">\[\dfrac{w(w^n-1)}{w-1} \cdot
+\dfrac{\xi(\xi^n-1}{\xi -1} = 0.\]</span></em></p>
+<p><em>Se <span class="math inline">\(w^n-1=0\)</span> temos <span
+class="math inline">\(40 \mid n\)</span> e se <span
+class="math inline">\(\xi^n-1=0\)</span> temos <span
+class="math inline">\(49 \mid n\)</span>. Para tratar desses dois casos,
+sejam <span class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> as quantidades de quadrados de tamanhos
+<span class="math inline">\(40 \times 40\)</span> e <span
+class="math inline">\(49 \times 49\)</span> usados na cobertura,
+respectivamente. Assim, considerando o total de quadrados cobertos,
+temos</em></p>
+<p><em><span class="math display">\[n^2 = a \cdot 40^2+b \cdot
+49^2.\]</span></em></p>
+<ol type="i">
+<li><p><em>Se <span class="math inline">\(40 \mid n\)</span>, temos que
+<span class="math inline">\(40^2 \mid b \cdot 49^2\)</span>, e como
+<span class="math inline">\(mdc(40,49)=1\)</span>, segue que <span
+class="math inline">\(40^2 \mid b\)</span>. Assim, como <span
+class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> são positivos, podemos estimar</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+n^2 &amp; = &amp;  a \cdot 40^2+b \cdot 49^2 \\
+    &amp; &gt; &amp; 40^2 \cdot 49^2 \\
+    &amp; = &amp; (40\cdot 49)^2.
+\end{aligned}\]</span></em></p>
+<p><em>Daí, <span class="math inline">\(n\)</span> é pelo menos <span
+class="math inline">\(40 \cdot 50 =2000\)</span>. Para mostrar que é
+possível cobrir um tabuleiro <span class="math inline">\(2000 \times
+2000\)</span> com tais peças, cubra a borda esquerda e superior com
+quadrados <span class="math inline">\(40 \times 40\)</span> como na
+figura a seguir.</em></p>
+<div class="center">
+
+</div>
+<p><em>Para cobrir o restante da região, que é um quadrado de lado <span
+class="math inline">\(1960 = 40 \cdot 49\)</span>, crie <span
+class="math inline">\(40\)</span> linhas e <span
+class="math inline">\(40\)</span> colunas com espaçamento de <span
+class="math inline">\(49\)</span> quadradinhos e cubra com <span
+class="math inline">\(40^2\)</span> quadrados de lado <span
+class="math inline">\(49\)</span>.</em></p></li>
+<li><p><em>Se <span class="math inline">\(49 \mid n\)</span>, de modo
+semelhante ao caso anterior, <span class="math inline">\(49^2 \mid
+a\)</span> e daí <span class="math inline">\(n \geq 49 \cdot 41 = 2009
+&gt;2000\)</span>.</em></p></li>
+</ol>
+<p><em>Considerando ambos os casos, o menor valor possível para <span
+class="math inline">\(n\)</span> é <span
+class="math inline">\(2000\)</span>.</em></p>
+</div>
+<p>O próximo exercício ilustra a técnica de associarmos
+<span><em>funções geradoras</em></span> a problemas de contagem.</p>
+<div class="exercise">
+<p><strong>Exercício 4</strong>. <em>(Olimpíada Chinesa) Encontre o
+número de subconjuntos de <span class="math inline">\(\{1,2,3 \ldots,
+2000\}\)</span> tais que a soma dos elementos é divisível por <span
+class="math inline">\(5\)</span>.</em></p>
+</div>
+<div class="solution">
+<p><strong>Solução 3</strong>. <em>Antes de resolver o exercício
+proposto, considere um enunciado mais simples em que queremos apenas
+contar quantos subconjuntos de <span
+class="math inline">\(\{1,2,3\}\)</span> possuem soma de seus elementos
+igual a <span class="math inline">\(3\)</span>. Um solução seria listar
+explicitamente todos os <span class="math inline">\(8\)</span>
+subconjuntos e calcular para cada um deles a soma de seus elementos:
+<span class="math display">\[\begin{aligned}
+\emptyset &amp; \rightarrow &amp; 0 \\
+\{1\} &amp; \rightarrow &amp; 1 \\
+\{2\} &amp; \rightarrow &amp; 2 \\
+\{3\} &amp; \rightarrow &amp; 3 \\
+\{1,2\} &amp; \rightarrow &amp; 3 \\
+\{1,3\} &amp; \rightarrow &amp; 4 \\
+\{2,3\} &amp; \rightarrow &amp; 5 \\
+\{1,2,3\} &amp; \rightarrow &amp; 6 \\
+\end{aligned}\]</span></em></p>
+<p><em>Considere agora o polinômio</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+p_3(x)  &amp; = &amp; (1+x)(1+x^2)(1+x^3) \\
+      &amp; = &amp; x^6+x^5+x^4+2x^3+x^2+x+1.
+\end{aligned}\]</span></em></p>
+<p><em>Para obter a expressão da última linha, utilizamos a propriedade
+distributiva. Note que cada monômio de <span
+class="math inline">\(p_3(x)\)</span> pode ser associado a um subjunto
+de <span class="math inline">\(\{1,2,3\}\)</span>. Por exemplo, o
+monômio <span class="math inline">\(x^4\)</span> surge através do
+produto <span class="math inline">\(x^1 \cdot 1 \cdot x^3\)</span>, que
+pode ser interpretado da seguinte forma: no primeiro parênteses
+escolhemos <span class="math inline">\(x^1\)</span>, no segundo não
+escolhemos <span class="math inline">\(x^2\)</span> e no terceiro
+escolhemos <span class="math inline">\(x^3\)</span>. Essas escolhas
+podem ser associadas ao subconjunto <span
+class="math inline">\(\{1,3\}\)</span>. Note que, associadas ao mesmo
+monômio <span class="math inline">\(x^3\)</span>, existem duas escolhas
+de subconjunto: <span class="math inline">\(x^1 \cdot x^2 \cdot
+1\)</span> e <span class="math inline">\(1 \cdot 1 \cdot x^3\)</span>.
+Por isso o seu coeficiente na expressão que determina <span
+class="math inline">\(p_3(x)\)</span> é <span
+class="math inline">\(2\)</span>. É possível fazer uma correspondência
+<span><em>biunívoca</em></span> entre as somas de elementos de
+subconjuntos de <span class="math inline">\(\{1,2,3, \ldots,
+n\}\)</span> que valem <span class="math inline">\(k\)</span> e os
+monômios <span class="math inline">\(x^k\)</span> que aparecem no
+desenvolvimento de</em></p>
+<p><em><span class="math display">\[p_n(x) = (1+x)(1+x^2) \ldots
+(1+x^n).\]</span></em></p>
+<p><em>Assim, para resolver o problema, basta somarmos todos os
+coeficientes dos monômios <span class="math inline">\(x^k\)</span> em
+<span class="math inline">\(p_{2000}(x)\)</span> quando <span
+class="math inline">\(k\)</span> é um múltiplo de <span
+class="math inline">\(5\)</span>. Para calcular essa soma vamos precisar
+das raízes quintas da unidade! Seja <span class="math inline">\(w
+=\,\mbox{$\rm{cis}\,$}\frac{2\pi}{5}\)</span>. Como <span
+class="math inline">\(w\)</span>, <span
+class="math inline">\(w^2\)</span>, <span
+class="math inline">\(w^3\)</span> e <span
+class="math inline">\(w^4\)</span> são as raízes de <span
+class="math inline">\(1+x+x^2+x^3+x^4=0\)</span>, segue que <span
+class="math display">\[1+x+x^2+x^3+x^4  =  (x-w)(x-w^2)(x-w^3)(x-w^4).\\
+\]</span></em></p>
+<p><em>Substituindo <span class="math inline">\(x=-1\)</span>, temos
+<span class="math display">\[1 =  (1+w)(1+w^2)(1+w^3)(1+w^4).\]</span>
+Portanto, <span class="math display">\[\begin{aligned}
+\prod_{j=1}^{5}(1+w^{5k+j}) &amp; = &amp; \\
+(1+w)(1+w^2)(1+w^3)(1+w^4)(1+1)                              &amp; =
+&amp; 2.\\
+\end{aligned}\]</span></em></p>
+<p><em>Assim,</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+p_{2000}(w) &amp; = &amp; \\
+\prod_{k=0}^{399} \prod_{j=1}^{5}(1+w^{5k+j}) &amp;=&amp; \\
+\prod_{k=0}^{399} 2 &amp; = &amp; 2^{200}. \\
+\end{aligned}\]</span></em></p>
+<p><em>De modo análogo, podemos provar que <span
+class="math display">\[p_{2000}(w^2)=p_{2000}(w^3) = p_{2000}(w^4) =
+2^{400}.\]</span></em></p>
+<p><em>Além disso, é fácil ver que <span
+class="math inline">\(p_{2000}(1) = 2^{2000}\)</span>. Como <span
+class="math inline">\(1^k+w^k+w^{2k}+w^{3k}+w^{4k}=0\)</span>, se <span
+class="math inline">\(5 \nmid k\)</span>, e <span
+class="math inline">\(5\)</span> em caso contrário, se <span
+class="math inline">\(l=\frac{2000\cdot 2001}{2}\)</span> e</em></p>
+<p><em><span class="math display">\[\displaystyle p_{2000}(x) =
+\sum_{i=0}^{l} a_ix^i,\]</span></em></p>
+<p><em>segue que</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+\displaystyle \sum_{j=0}^{4} p_{2000}(w^j) &amp; = &amp;  \\
+\sum_{i=0}^{l} a_i (1+w^i+w^{2i}+w^{3i}+w^{4i}) &amp; = &amp; \\
+\sum_{i \equiv 0 \pmod 5} 5a_i. &amp;&amp;
+\end{aligned}\]</span></em></p>
+<p><em>Finalmente, o número que procuramos é dado por</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+\displaystyle \sum_{i \equiv 0 \pmod 5} a_i &amp; = &amp; \dfrac{1}{5}
+\sum_{j=0}^{4}p_{2000}(w^j)\\
+&amp; = &amp; \dfrac{2^{2000}+4 \cdot 2^{400}}{5}.
+\end{aligned}\]</span></em></p>
+</div>
+<h1 id="a-solução-do-problema-original">A solução do problema
+original</h1>
+<p>Para resolver o problema original, novamente vamos considerar uma
+numeração para as linhas e colunas do tabuleiro como em uma matriz <span
+class="math inline">\(8 \times 8\)</span>, mas dessa vez vamos associar
+a cada quadradinho <span class="math inline">\((ij)\)</span> o monômio
+<span class="math inline">\(x^iy^j\)</span>. A soma de todos os monômios
+escritos nas casas do tabuleiro gera o polinômio</p>
+<p><span class="math display">\[\begin{aligned}
+p(x,y) &amp; = &amp; (x+x^2+\ldots +x^8)(y+y^2+\ldots +y^8) \\
+     &amp; = &amp; xy \cdot \dfrac{x^8-1}{x-1} \cdot \dfrac{y^8-1}{y-1}.
+\end{aligned}\]</span></p>
+<p>Considere agora uma cobertura qualquer do tabuleiro e suponha que o
+monominó ocupa a casa <span class="math inline">\((ab)\)</span>. Se um
+triminó na posição horizontal tem como casa do canto esquerdo a posição
+<span class="math inline">\((ij)\)</span>, a soma dos seus monômios
+associados é <span
+class="math display">\[x^{i}y^{j}+x^{i+1}y^{j}+x^{i+2}y^{j} =
+x^{i}y^{j}(1+x+x^2).\]</span> Portanto, a soma de todos os monômios em
+peças na horizontal corresponde a um polinômio múltiplo de <span
+class="math inline">\((1+x+x^2)\)</span>, digamos o <span
+class="math inline">\((1+x+x^2)q_1(x,y)\)</span>. De modo análogo, a
+soma de todos os monômios escritos nas peças na vertical é um polinômio
+múltiplo de <span class="math inline">\(1+y+y^2\)</span>, que
+denotaremos por <span class="math inline">\((1+y+y^2)q_2(x,y)\)</span>.
+Assim,</p>
+<p><span class="math display">\[p(x,y) = (1+x+x^2)q_1(x,y) +
+(1+y+y^2)q_2(x,y) + x^ay^b.\]</span></p>
+<p>Seja <span class="math inline">\(w =
+\,\mbox{$\rm{cis}\,$}\frac{2\pi}{3}\)</span>. Como <span
+class="math inline">\(1+w+w^2=0\)</span>, podemos concluir que</p>
+<p><span class="math display">\[\begin{aligned}
+w^aw^b &amp; = &amp; p(w,w) \\
+       &amp; = &amp; w^2 \dfrac{w^8-1}{w-1} \cdot \dfrac{w^8-1}{w-1} \\
+       &amp; = &amp; w^2 \dfrac{w^2-1}{w-1} \cdot \dfrac{w^2-1}{w-1} \\
+       &amp; = &amp; w^2 (w+1)^2 \\
+       &amp; = &amp; 1
+\end{aligned}\]</span> e <span class="math display">\[\begin{aligned}
+w^aw^{2b} &amp; = &amp; p(w,w^2) \\
+       &amp; = &amp; w^3 \dfrac{w^8-1}{w-1} \cdot
+\dfrac{w^{16}-1}{w^2-1} \\
+       &amp; = &amp; \dfrac{w^2-1}{w-1} \cdot \dfrac{w-1}{w^2-1} \\
+       &amp; = &amp; 1.
+\end{aligned}\]</span></p>
+<p>Como <span class="math inline">\(w^k=1\)</span> apenas quando <span
+class="math inline">\(k\)</span> é um múltipo de <span
+class="math inline">\(3\)</span>, podemos concluir que <span
+class="math inline">\(a+b\)</span> e <span
+class="math inline">\(a+2b\)</span> são multiplos de <span
+class="math inline">\(3\)</span> e, consequentemente, <span
+class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> são múltiplos de <span
+class="math inline">\(3\)</span>. Isso nos diz que as únicas posições
+que podem receber o monominó em uma cobertura são as que estão pintadas
+de laranja na próxima figura e representam as posições <span
+class="math inline">\((3,3)\)</span>, <span
+class="math inline">\((3,6)\)</span>, <span
+class="math inline">\((6,3)\)</span> e <span
+class="math inline">\((6,6)\)</span>.</p>
+<div class="center">
+
+</div>
+<p>Para verificar que todas elas são possíveis, perceba que a primeira
+cobertura apresentada no enunciado nos garante que uma delas é
+admissível. Agora perceba que basta rodar o tabuleiro três vezes por
+<span class="math inline">\(90^{\circ}\)</span> no sentido horário para
+obter coberturas para as outras três posições. Isso conclui a
+solução.</p>
+<h1 id="exercícios-e-sugestões-de-leituras">Exercícios e sugestões de
+leituras</h1>
+<div class="exercise">
+<p><strong>Exercício 5</strong>. <em>(IME) Mostre que <span
+class="math display">\[\displaystyle \sum_{k \equiv 0 \pmod 3} {n
+\choose k} = \dfrac{1}{3} \left [ 2^n + 2\cos (n\pi/3) \right
+].\]</span></em></p>
+<p><em>Dica: Seja <span class="math inline">\(q(x)=(1+x)^n\)</span> e
+<span class="math inline">\(w =
+\,\mbox{$\rm{cis}\,$}\frac{2\pi}{3}\)</span>. Quanto vale <span
+class="math inline">\(q(1)+q(w)+q(w^2)\)</span>?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Exercício 6</strong>. <em>(IMO 1974) Prove que o número <span
+class="math display">\[\sum_{k=0}^n {2n+1 \choose 2k+1}2^{3k}\]</span>
+não é divisível por <span class="math inline">\(5\)</span> para qualquer
+inteiro <span class="math inline">\(n \geq 0\)</span>.<br />
+Dica: Perceba que <span class="math inline">\(2^3 \equiv -2 \pmod
+5\)</span> e que a soma dada tem o mesmo resto que <span
+class="math inline">\(\sum_{k=0}^n {2n+1 \choose 2k+1}(-2)^{k}\)</span>
+na divisão por <span class="math inline">\(5\)</span>. Em seguida, faça
+a expansão binomial do número <span
+class="math inline">\((1+i\sqrt{2})^{2n+1}\)</span>.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Exercício 7</strong>. <em>(Olimpíada de São Petesburgo) A
+sequência finita <span class="math inline">\(a_1,a_2, \ldots,
+a_n\)</span> é chamada <span class="math inline">\(p\)</span>-balanceada
+se qualquer soma da forma <span
+class="math inline">\(a_k+a_{k+p}+a_{k+2p}+ \ldots\)</span> é a mesma
+para qualquer <span class="math inline">\(k=1,2, \ldots, p\)</span>.
+Prove que se a sequência com 50 membros é <span
+class="math inline">\(p\)</span>-balanceada para <span
+class="math inline">\(p=3,5,7,11,13,17\)</span> então todos estes
+números são iguais a zero.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Exercício 8</strong>. <em>(Fórmula da Multisecção) Se <span
+class="math inline">\(f(x)=\sum_k a_kx^k\)</span>, mostre que <span
+class="math display">\[\displaystyle \sum_{k \equiv r \pmod m} a_kx^k =
+\dfrac{1}{m} \sum_{s=0}^{m-1}w^{-rs}f(w^sx),\]</span> em que <span
+class="math inline">\(w=e^{2\pi i/m}\)</span>.</em></p>
+</div>
+<p>Uma pergunta interessante que poderia ser feita na linha da discussão
+do problema original é determinar de quantos modos podemos cobrir o
+tabuleiro <span class="math inline">\(8\times 8\)</span> com <span
+class="math inline">\(21\)</span> triminós e <span
+class="math inline">\(1\)</span> monominó?</p>
+<figure>
+<img src="domino.png" />
+</figure>
+<p>Para um tabuleiro <span class="math inline">\(8 \times 8\)</span>
+sendo coberto apenas com dominós, que são peças <span
+class="math inline">\(2 \times 1\)</span>, existem <span
+class="math inline">\(12988816\)</span> coberturas dele com <span
+class="math inline">\(32\)</span> dominós. A figura anterior ilustra uma
+delas. Na referência <span class="citation"
+data-cites="MatousekNesetril2010"></span> o leitor poderá encontrar a
+seguinte (surpreendente) fórmula para o número de coberturas de um
+tabuleiro <span class="math inline">\(m \times n\)</span> com dominós:
+<span class="math display">\[\left [ \prod_{k=1}^{m} \prod_{l=1}^{n}
+\left ( 2 \cos \frac{\pi k}{m+1} + 2i \cos \frac{\pi l}{n+1}\right )
+\right ]^{1/2}.\]</span> O problema original é da referência <span
+class="citation" data-cites="Honsberger1997"></span>. Para aplicações de
+raízes da unidade, como no Teorema de Klarner, recomendamos o capítulo
+<span class="math inline">\(13\)</span> do excelente <span
+class="citation" data-cites="MunizNeto2018"></span>.</p>
+<div class="thebibliography">
+<p><span>10</span> A. C. Muniz Neto, <em>An Excursion Through Elementary
+Mathematics, Volume III: Discrete Mathematics and Polynomial
+Algebra</em>, 1st ed. Springer, 2018. R. Honsberger, <em>In Polya’s
+Footsteps: Miscellaneous Problems and Essays</em>, Mathematical
+Association of America, 1997. E. Lozansky and C. Rousseau, <em>Winning
+Solutions</em>, 1st ed. Springer, 1996. T. Andreescu, Z. Feng, and G.
+Yu, <em>Mathematical Olympiads 2000-2001: Problems and Solutions from
+Around the World</em>, 1st ed. Mathematical Association of America,
+2003. J. Matousek and J. Nesetril, <em>Thirty-three Miniatures:
+Mathematical and Algorithmic Applications of Linear Algebra</em>,
+American Mathematical Society, 2010.</p>
+</div>
+<div class="wrapfigure">
+<p><span>L</span><span>1.7cm</span> <img src="Samuel.jpeg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Samuel Feitosa é professor na Universidade Federal da Bahia desde
+2012. Foi medalhista de Bronze na Olimpíada Internacional de Matemática
+em 2003 e é membro da Comissão Nacional de Olimpíadas de Matemática da
+Sociedade Brasileira de Matemática (SBM). Contribui ativamente na
+organização de olimpíadas e treinamentos de alunos para diversas
+competições matemáticas nacionais e internacionais.</p>

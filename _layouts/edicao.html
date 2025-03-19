@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>{{ page.edition }}</title>
+</head>
+<body>
+<header id="title-block-header">
+  <h1 class="title">{{ page.edition }}</h1>
+  <ul>
+   {% for item in page.sections %}
+   <li>
+     <div class="sec_name"> {{item.section}}<div>
+     <a href="{{ item.url }}/{{ item.url }}.html">{{ item.title }}</a>
+     <div class="sec_author"> {{item.author}}<div>
+     <div class="sec_pages"> Páginas: {{item.pages}}<div>
+   </li>
+   {% endfor %}
+  </ul>
+</header>
+</body>
+</html>
