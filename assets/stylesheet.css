@@ -1,0 +1,71 @@
+body {
+    width: 80%;
+    margin-left: 60px;
+    margin-right: 60px;
+    background-color: white;
+}
+
+main {
+    width: 70%;
+    height: 100%;
+    float: left; 
+}
+
+aside {
+    height: 100%;
+    width: 30%;
+    float: right;    
+}
+
+footer {
+    padding-top: 20px;
+    width: 100%;
+    bottom: 20px;
+    position: relative;
+    clear:both;
+}
+
+article.article p {
+    font-size: 1.2em;
+    padding: 10px;
+    width: 95%;
+    margin: 10px auto;
+    text-align: justify;
+}
+
+article.article h1 {
+    color : rgb(31,39,28);
+}
+h3.subtitle {
+    text-align: center;
+    font-variant: small-caps;
+}
+h1.title {
+    text-align: center;
+}
+p.author {
+    font-style: italic;
+} 
+span.smallcaps {
+    font-variant: small-caps;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}  

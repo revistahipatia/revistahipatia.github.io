@@ -1,0 +1,547 @@
+---
+layout: artigo
+title: Contando Paralelogramos e Outros Problemas  
+subtitle: Problema
+author: 
+---
+<p>Ao contrário de outras áreas da atividade humana, um <span
+class="smallcaps">Problema</span> em Matemática pode ser uma fonte de
+diversão. Nesta seção, convidamos os leitores a pensarem em algums
+problemas, de variados níveis de dificuldade, e a enviarem suas soluções
+para serem publicadas nas próximas edições.</p>
+<h1 id="problemas-universitários">Problemas Universitários</h1>
+<p><strong>Problema .</strong> Uma malha triangular é formada pela
+decomposição de um triângulo equilátero de lado <span
+class="math inline">\(5\)</span> em <span
+class="math inline">\(5^2\)</span> triângulos equiláteros de lado <span
+class="math inline">\(1\)</span>, como indicado na figura. Determine o
+número de paralelogramos que podem ser desenhados por segmentos que
+formam a malha.</p>
+<div class="center">
+
+</div>
+<p>Solução: Denotemos os lados do triângulo pelas letras <span
+class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>
+e <span class="math inline">\(z\)</span>. Qualquer paralelogramo na
+malha possui lados paralelos a dois dos três lados do triângulo e isso
+nos permite classificá-los em três tipos. Um paralelogramo
+<span><em>tipo <span class="math inline">\(x\)</span></em></span> possui
+lados paralelos aos lados <span class="math inline">\(y\)</span> e <span
+class="math inline">\(z\)</span> e assim para os demais casos. Por
+simetria, basta contarmos o número de paralelogramos do tipo <span
+class="math inline">\(x\)</span>, pois o resultado total será o triplo
+desse número.</p>
+<div class="center">
+
+</div>
+<p>Cada paralelogramo do tipo <span class="math inline">\(x\)</span> é
+determinado pelas suas projeções nos lados do triângulo, que possuem
+comprimentos de <span class="math inline">\(1\)</span> a <span
+class="math inline">\(4\)</span>. Se <span
+class="math inline">\(AB\)</span> é a projeção no lado <span
+class="math inline">\(y\)</span>, contaremos quais os possíveis
+comprimentos de <span class="math inline">\(CD\)</span>, que é a
+projeção no lado <span class="math inline">\(z\)</span>.</p>
+<ol type="i">
+<li><p>Se <span class="math inline">\(AB = 4\)</span>, podemos ter
+apenas <span class="math inline">\(CD=1\)</span> e assim há <span
+class="math inline">\(1\)</span> paralelogramo possível.</p></li>
+<li><p>Se <span class="math inline">\(AB = 3\)</span>, podemos ter
+apenas <span class="math inline">\(CD=1\)</span> ou <span
+class="math inline">\(CD=2\)</span> e assim há <span
+class="math display">\[3+1=4\]</span></p>
+<p>paralelogramos possíveis.</p></li>
+<li><p>Se <span class="math inline">\(AB = 2\)</span>, podemos ter
+apenas <span class="math inline">\(CD=1\)</span>, <span
+class="math inline">\(CD=2\)</span> ou <span
+class="math inline">\(CD=3\)</span> e assim há <span
+class="math display">\[6+3+1=10\]</span></p>
+<p>paralelogramos possíveis.</p></li>
+<li><p>Se <span class="math inline">\(AB = 1\)</span>, podemos ter
+apenas <span class="math inline">\(CD=1\)</span>, <span
+class="math inline">\(CD=2\)</span>, <span
+class="math inline">\(CD=3\)</span> ou <span
+class="math inline">\(CD=4\)</span> e assim há <span
+class="math display">\[10+6+3+1=20\]</span> paralelogramos
+possíveis.</p></li>
+</ol>
+<p>Portanto, há <span class="math inline">\(1+4+10+20=35\)</span>
+paralelogramos do tipo <span class="math inline">\(x\)</span> e assim o
+total de paralelogramos na malha é <span class="math inline">\(3 \cdot
+35 = 105\)</span>.</p>
+<div class="center">
+
+</div>
+<p>Criando uma camada extra para a malha, podemos associar de modo único
+cada paralelogramo do tipo <span class="math inline">\(x\)</span> a dois
+segmentos disjuntos no novo lado de tamanho <span
+class="math inline">\(n+1\)</span>. Assim, o total de triângulos do tipo
+<span class="math inline">\(x\)</span> é <span
+class="math inline">\({n+2 \choose 4}\)</span> e a resposta geral é
+<span class="math inline">\(3 \cdot {n+2 \choose 4}\)</span>.</p>
+<p><strong>Problema .</strong> Determine a quantidade de números reais
+<span class="math inline">\(x\)</span> que satisfazem a equação: <span
+class="math display">\[2^{x^2+x} + \log_2 x = 2^{x+1}.\]</span></p>
+<p>Solução: Note que <span class="math inline">\(x=1\)</span> é solução.
+Para que <span class="math inline">\(\log_2 x\)</span> esteja definida,
+devemos ter <span class="math inline">\(x&gt;0\)</span>. Para <span
+class="math inline">\(0&lt;x&lt;1\)</span>, temos</p>
+<p><span class="math display">\[\begin{aligned}
+2^{x^2+x} + \log_2 x &amp; &lt; &amp; 2^{x^2+x} + 0 \\
+                     &amp; &lt; &amp; 2^{x+1}
+\end{aligned}\]</span> e para <span
+class="math inline">\(x&gt;1\)</span> <span
+class="math display">\[\begin{aligned}
+2^{x^2+x} + \log_2 x &amp; &gt; &amp; 2^{x^2+x} + 0 \\
+                     &amp; &gt; &amp; 2^{x+1}.
+\end{aligned}\]</span> Portanto, não há outras soluções em <span
+class="math inline">\((0,1)\)</span> e <span
+class="math inline">\((1,+\infty)\)</span> e assim <span
+class="math inline">\(x=1\)</span> é a única solução real</p>
+<p><strong>Problema .</strong> Seja <span
+class="math inline">\(a\)</span> um inteiro positivo tal que</p>
+<p><span class="math display">\[1+\dfrac{1}{2}+\dfrac{1}{3}+\ldots
++\dfrac{1}{25} = \dfrac{a}{25!}.\]</span></p>
+<p>Encontre o resto de <span class="math inline">\(a\)</span> na divisão
+por <span class="math inline">\(13\)</span>.</p>
+<p><span>Solução: Note que <span class="math display">\[a =
+\frac{25!}{1} + \frac{25!}{2} + \frac{25!}{3} + \ldots +
+\frac{25!}{25}\]</span> e que <span
+class="math inline">\(\frac{25!}{n}\)</span> é divisível por <span
+class="math inline">\(13\)</span> para <span class="math inline">\(1 \le
+n \le 25\)</span>, <span class="math inline">\(n \neq 13\)</span>.
+Portanto, basta achar o resto de <span
+class="math inline">\(25!/13\)</span> na divisão por 13. Para isso,
+basta observar que <span class="math display">\[\frac{25!}{13} \equiv
+12! \cdot 12! \equiv (-1) \cdot (-1) \equiv 1 \pmod{13},\]</span> onde
+usamos que <span class="math inline">\(12! \equiv -1 \pmod {13}\)</span>
+pelo teorema de Wilson. </span></p>
+<p><strong>Problema .</strong> Um hexágono regular de lado <span
+class="math inline">\(1\)</span> está inscrito na interseção de duas
+parábolas idênticas, mas que estão orientadas em direções opostas, i.e.,
+uma é simétrica a outra em relação à reta que passa pelos seus pontos de
+interseção. Encontre a área da região sombreada, ou seja, a área que
+está entre as parábolas, mas que é externa ao hexágono.</p>
+<figure>
+<img src="parabola2.png" />
+</figure>
+<p>Solução:</p>
+<figure>
+<img src="parabola3.png" />
+</figure>
+<p>Defina um sistema de coordenadas centrado no centro do hexágono de
+modo que seus vértices sejam <span class="math inline">\((0,\pm
+1)\)</span> e <span class="math inline">\((\pm \sqrt{3}/2,\pm
+1/2)\)</span>. Assim, as equações das parábolas são <span
+class="math inline">\(y=1-\frac{2x^2}{3}\)</span> e <span
+class="math inline">\(y=-1+\frac{2x^2}{3}\)</span>, que se intersectam
+em <span class="math inline">\((\pm \frac{\sqrt{3}}{2},0)\)</span>. A
+área entre as parábolas é <span class="math display">\[\displaystyle
+\int_{-\sqrt{3}/2}^{\sqrt{3}/2} (2-\frac{4x^2}{3})dx =
+\dfrac{\sqrt{6}}{3}.\]</span> Como a área do hexágono é <span
+class="math inline">\(\frac{3\sqrt{3}}{2}\)</span>, a área sombreada é
+<span class="math display">\[\dfrac{\sqrt{6}}{3} - \frac{3\sqrt{3}}{2} =
+\dfrac{8\sqrt{6}-9\sqrt{3}}{6}.\]</span></p>
+<p><strong>Problema .</strong> Calcule o valor da soma <span
+class="math display">\[\displaystyle S = \sum_{k=1}^{2022} (-1)^k \cdot
+\dfrac{(k^2+k+1)}{k!}.\]</span></p>
+<p><span>Solução: Note inicialmente que <span
+class="math display">\[\frac{k^2+k+1}{k!} = \frac{1}{(k-2)!} +
+\frac{1}{(k-1)!} + \frac{1}{k!}.\]</span> Com isso, segue que <span
+class="math display">\[\begin{aligned}
+S &amp;= -3 + \sum_{k=2}^{2022} \left(\frac{(-1)^k}{(k-2)!} +
+\frac{(-1)^k}{(k-1)!} + \frac{(-1)^k}{k!}\right) \\
+&amp;= -3 + \sum_{k=0}^{2020} \frac{(-1)^k}{k!} -2 \sum_{k=1}^{2021}
+\frac{(-1)^k}{k!} + \sum_{k=2}^{2022} \frac{(-1)^k}{k!} \\
+&amp;= -3 + \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2021!} +
+\frac{1}{2022!} \\
+&amp;= -1 + \frac{2023}{2022!}.
+\end{aligned}\]</span> </span></p>
+<p><strong>Problema .</strong> Sejam <span
+class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> números reais com <span
+class="math inline">\(a&lt;b\)</span> e sejam <span
+class="math inline">\(f,g:\left[a,b\right] \rightarrow \left(0,
++\infty\right)\)</span> funções contínuas tais que <span
+class="math inline">\(\int_{a}^{b} f(x)dx = \int_{a}^{b}g(x)dx\)</span>,
+mas <span class="math inline">\(f\neq g\)</span>. Defina <span
+class="math display">\[I_{n} =
+\int_{a}^{b}\frac{\left(f(x)\right)^{n+1}}{\left(g(x)\right)^{n}}dx  \text{,
+} \forall n\in \mathbb{N}.\]</span> Mostre que a sequência <span
+class="math inline">\(\left(I_{n}\right)_{n\in \mathbb{N}}\)</span> é
+crescente e que <span class="math inline">\(\lim_{n\rightarrow +\infty}
+I_{n} = +\infty\)</span>.</p>
+<p>Solução: Primeiro, mostraremos que <span
+class="math inline">\(I_{n}-I_{n-1}&gt;0\)</span>, desta forma seguirá
+que a sequência <span class="math inline">\(I_{n}\)</span> é crescente.
+Note que</p>
+<div class="strip">
+<p><span class="math display">\[\begin{split}
+        I_{n}-I_{n-1} &amp;=
+\int_{a}^{b}\frac{\left(f(x)\right)^{n+1}}{\left(g(x)\right)^{n}}dx -
+\int_{a}^{b}\frac{\left(f(x)\right)^{n}}{\left(g(x)\right)^{n-1}}dx\\
+&amp;= \int_{a}^{b}\frac{(f(x))^{n+1}-g(x)(f(x))^{n}}{(g(x))^{n}}dx \\
+&amp;=
+        \int_{a}^{b}\frac{(f(x))^{n+1}-f(x)(g(x))^{n}-g(x)(f(x))^{n}+(g(x))^{n+1}}{(g(x))^{n}}dx
+\\ &amp;=
+\int_{a}^{b}\frac{((f(x))^{n}-(g(x))^{n})(f(x)-g(x))}{(g(x))^{n}}dx.
+        \end{split}\]</span></p>
+</div>
+<p>Pela continuidade e positividade da <span
+class="math inline">\(f\)</span> e da <span
+class="math inline">\(g\)</span>, o integrando é positivo e segue que
+<span class="math inline">\(I_{n}-I_{n-1}\)</span> para todo <span
+class="math inline">\(n\geq2\)</span>. Agora, como <span
+class="math inline">\(f\neq g\)</span> e <span
+class="math inline">\(f-g\)</span> é contínua, então existe um intervalo
+<span class="math inline">\(I \subset \left[a,b\right]\)</span> tal que
+<span class="math inline">\(f(x)-g(x)&gt;0\)</span> ou <span
+class="math inline">\(f(x)-g(x)&lt;0\)</span> para <span
+class="math inline">\(x\in I\)</span>. Seja <span
+class="math inline">\(I \subset \left[a,b\right]\)</span> tal que <span
+class="math inline">\(f(x)&gt;g(x)\)</span> para todo <span
+class="math inline">\(x\in I\)</span>, além tome <span
+class="math inline">\(M\)</span> tal que <span class="math inline">\(M
+:= \min \left\{ f(x)/g(x); x\in I \right\}\)</span>. Desta forma, <span
+class="math display">\[I_{n} =
+\int_{a}^{b}\frac{(f(x))^{n+1}}{(g(x))^{n}}dx &gt;
+\int_{I}(f(x)/g(x))^{n}f(x)dx \geq M^{n}C,\]</span> onde <span
+class="math inline">\(C\)</span> é uma constante positiva e <span
+class="math inline">\(M&gt;1\)</span> por construção. Assim, quando
+<span class="math inline">\(n \rightarrow + \infty\)</span> temos que
+<span class="math inline">\(\limsup I_{n} = +\infty\)</span> e como
+<span class="math inline">\(\left( I_{n}\right)_{n \in
+\mathbb{N}}\)</span> é uma sequência crescente, concluímos que <span
+class="math inline">\(\lim_{n\rightarrow +\infty} I_{n} =
++\infty\)</span>.</p>
+<h1 id="problemas-de-matemática-elementar">Problemas de Matemática
+Elementar</h1>
+<p><strong>Problema .</strong> Na figura a seguir, <span
+class="math inline">\(ABCD\)</span> e <span
+class="math inline">\(AEFG\)</span> são quadrados. O segmento <span
+class="math inline">\(BE\)</span> mede <span
+class="math inline">\(5\,cm\)</span>. Encontre a área do retângulo
+sombreado.</p>
+<div class="center">
+<figure>
+<img src="figura1_2021.png" />
+</figure>
+</div>
+<p>Solução: Sejam <span class="math inline">\(AB = x\)</span> e <span
+class="math inline">\(AE = h\)</span>. Como <span
+class="math inline">\(\triangle ABE \sim \triangle ADL\)</span>, temos
+<span class="math inline">\(x/AL = h/x\)</span> e daí <span
+class="math inline">\(AL = x^2/h\)</span>. Consequentemente <span
+class="math inline">\(GL = h-x^2/h\)</span>. A área cinza é dada por</p>
+<p><span class="math display">\[FG \cdot GL =  h \cdot \left ( h -
+\dfrac{x^2}{h}\right ) = h^2-x^2 = AE^2-AB^2=BE^2=25.\]</span></p>
+<p><strong>Problema .</strong> Na figura a seguir, cada quadradinho
+representa uma cadeira. Note que as quantidades de cadeiras consecutivas
+de uma mesma cor correspondem apenas aos números <span
+class="math inline">\(1\)</span> e <span
+class="math inline">\(3\)</span>, que são ímpares.</p>
+<div class="center">
+<figure>
+<img src="cadeiras.png" />
+</figure>
+</div>
+<p>De quantas maneiras podemos colocar <span
+class="math inline">\(12\)</span> cadeiras em fila, cada uma sendo da
+cor branca ou cinza, de tal modo que as quantidades de cadeiras
+consecutivas pintadas de uma mesma cor sejam sempre números ímpares?</p>
+<p>Solução: As cadeiras formam blocos de tamanhos <span
+class="math inline">\(1\)</span>, <span
+class="math inline">\(3\)</span>, <span
+class="math inline">\(5\)</span>, <span
+class="math inline">\(7\)</span>, <span class="math inline">\(9\)</span>
+ou <span class="math inline">\(11\)</span>. Uma vez que uma disposição
+de blocos tenha sido escolhida, por exemplo, como no enunciado <span
+class="math display">\[1+1+3+3+3+1,\]</span> temos sempre duas
+colorações possíveis, pois devemos pintar alternadamente e podemos
+começar com qualquer uma das duas cores. Sejam <span
+class="math inline">\(x\)</span>, <span
+class="math inline">\(y\)</span>, <span
+class="math inline">\(z\)</span>, <span
+class="math inline">\(w\)</span>, <span class="math inline">\(u\)</span>
+e <span class="math inline">\(v\)</span> os números de blocos com <span
+class="math inline">\(1\)</span>, <span
+class="math inline">\(3\)</span>, <span
+class="math inline">\(5\)</span>, <span
+class="math inline">\(7\)</span>, <span class="math inline">\(9\)</span>
+e <span class="math inline">\(11\)</span> cadeiras, respectivamente.
+Devemos ter <span class="math inline">\(x+3y+5z+7w+9u+11v=12\)</span>. A
+tabela a seguir indica os valores possíveis dessas variáveis e na última
+coluna o número de permutações dos blocos correspondentes.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span
+class="math inline">\(x\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(y\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(z\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(w\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(u\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(v\)</span></th>
+<th style="text-align: center;">Possibilidades</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span
+class="math inline">\(2!=2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(2!=2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(4!/3!1!=4\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(2!=2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(4!/2!=12\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(6!/5!1!=6\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(4!/2!=12\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(6!/4!1!1!=30\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(8!/7!1!=8\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(4!/2!2!=6\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(4!/4!=1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(6!/3!3!=20\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(8!/6!2!=28\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(10!/9!1!=10\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span
+class="math inline">\(12!/12!=1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>O total de possibilidades de arranjos dos blocos é: <span
+class="math display">\[2+2+4+2+12+6+12+30+8+6+1+20+28+10+1=144\]</span></p>
+<p>Portanto, podemos arrumar as cadeiras de <span
+class="math inline">\(2 \cdot 144 = 288\)</span> maneiras.</p>
+<p><strong>Problema .</strong> Na figura a seguir, <span
+class="math inline">\(X\)</span> é um ponto no interior do triângulo
+equilátero <span class="math inline">\(ABC\)</span> e <span
+class="math inline">\(Y\)</span>, <span class="math inline">\(W\)</span>
+e <span class="math inline">\(Z\)</span> são os pés das perpendiculares
+de <span class="math inline">\(X\)</span> aos lados <span
+class="math inline">\(AC\)</span>, <span
+class="math inline">\(BC\)</span> e <span
+class="math inline">\(AB\)</span>, respectivamente.</p>
+<ol type="a">
+<li><p>Se <span class="math inline">\(XY=k\)</span>, <span
+class="math inline">\(XZ=2k\)</span>, <span class="math inline">\(XW =
+4k\)</span> e a área do quadrilátero <span
+class="math inline">\(AYXZ\)</span> é <span
+class="math inline">\(13\,cm^2\)</span>, encontre a área do triângulo
+<span class="math inline">\(ABC\)</span>.</p></li>
+<li><p>Se <span class="math inline">\(XY=ak\)</span>, <span
+class="math inline">\(XZ=bk\)</span> e <span class="math inline">\(XW =
+ck\)</span>, encontre a razão entre as áreas do triângulo <span
+class="math inline">\(ABC\)</span> e do quadrilátero <span
+class="math inline">\(AYXZ\)</span>.</p></li>
+</ol>
+<div class="center">
+<figure>
+<img src="tequilatero.png" />
+</figure>
+</div>
+<p>Solução:</p>
+<div class="center">
+<figure>
+<img src="triangulo.png" />
+</figure>
+</div>
+<ol type="a">
+<li><p>Se <span class="math inline">\(h\)</span> é a altura do triângulo
+<span class="math inline">\(ABC\)</span>, temos que <span
+class="math display">\[\begin{aligned}
+XZ \cdot AB + XY \cdot BC + XW \cdot AC &amp; = &amp; h \cdot AB \\
+XZ + XY + XW &amp; = &amp; h
+\end{aligned}\]</span></p>
+<p>Daí, <span class="math inline">\(h = 7k\)</span>. Por <span
+class="math inline">\(X\)</span>, trace paralelas aos lados do triângulo
+<span class="math inline">\(ABC\)</span>, como indicado na figura. Sejam
+<span class="math inline">\(S_1\)</span>, <span
+class="math inline">\(S_2\)</span>, <span
+class="math inline">\(S_3\)</span> e <span
+class="math inline">\(S\)</span> as áreas dos triângulos <span
+class="math inline">\(XY_1Y_2\)</span>, <span
+class="math inline">\(XZ_1Z_2\)</span>, <span
+class="math inline">\(XW_1W_2\)</span> e <span
+class="math inline">\(ABC\)</span>, respectivamente. Por semelhança de
+triângulos, temos <span class="math display">\[S_1/S = 4/49, S_2/S =
+1/49\, \,\,\, \text{e} \,\,\, S_3/S = 16/49.\]</span> Além disso, como
+os triângulos <span class="math inline">\(ABX\)</span>, <span
+class="math inline">\(BCX\)</span> e <span
+class="math inline">\(ACX\)</span> possuem mesma base, segue que <span
+class="math display">\[A_{ABX}/S = 2/7, A_{BCX}/S = 1/7 \,\,\, \text{e}
+\,\,\,  A_{ACX}/S = 4/7.\]</span> Portanto, considerando as áreas
+representadas pelas letras <span class="math inline">\(m\)</span>, <span
+class="math inline">\(n\)</span> e <span
+class="math inline">\(p\)</span>, temos <span
+class="math display">\[\begin{aligned}
+m+n+S_1 &amp; = &amp; S/7, \\
+m+p+S_2 &amp; = &amp; 2S/7, \\
+n+p+S_3 &amp; = &amp; 4S/7.
+\end{aligned}\]</span> Assim, <span
+class="math display">\[\begin{aligned}
+m+n&amp; = &amp; 3S/49, \\
+m+p&amp; = &amp; 13S/49, \\
+n+p&amp; = &amp; 12S/49.
+\end{aligned}\]</span> Além disso, somando todas as equações, temos
+<span class="math display">\[2m+2n+2p= 28S/49.\]</span> De <span
+class="math display">\[2m+S_1/2+S_2/2=13,\]</span> e <span
+class="math inline">\((4)\)</span>, obtemos <span
+class="math display">\[\dfrac{5/2S}{49}-\dfrac{24S}{49} = 13 -
+\dfrac{28S}{49}\]</span> e assim <span class="math inline">\(S =
+98\,cm^2\)</span></p></li>
+<li><p>Aproveitando a notação do item anterior, temos <span
+class="math inline">\(h=(a+b+c)k\)</span> e <span
+class="math display">\[\begin{aligned}
+m+n+S_1 &amp; = &amp; \dfrac{a}{(a+b+c)}S \\
+m+p+S_2 &amp; = &amp; \dfrac{b}{(a+b+c)}S \\
+n+p+S_3 &amp; = &amp; \dfrac{c}{(a+b+c)}S
+\end{aligned}\]</span> Portanto, calculando <span
+class="math inline">\((5)+(6)-(7)\)</span>, temos <span
+class="math display">\[2m +S_1+S_2= \dfrac{(a+b-c)S}{(a+b+c)} +
+\dfrac{c^2S}{(a+b+c)^2} = \dfrac{(a+b)^2S}{(a+b+c)^2}.\]</span> <span
+class="math display">\[\begin{aligned}
+\dfrac{S}{A_{AZXY}} &amp; = &amp; \dfrac{S}{2m+S_1/2+S_2/2} \\
+                    &amp; = &amp; \dfrac{2S}{4m+S_1+S_2} \\
+                    &amp; = &amp; \dfrac{2(a+b+c)^2}{2(a+b)^2-a^2-b^2}
+\\
+                    &amp; = &amp; \dfrac{2(a+b+c)^2}{a^2+b^2+4ab}
+\end{aligned}\]</span></p></li>
+</ol>
+<p>Caso queira compartilhar sua solução de alguns dos problemas acima
+com nossos leitores, envie uma mensagem com o seu texto e nome completo
+para <code>hipatia@ufba.br</code>.</p>

@@ -1,0 +1,1358 @@
+---
+layout: artigo
+title: O Lema de Sperner  
+subtitle: Teorema
+author: Vinícius Mello
+---
+<h1 id="introdução">Introdução</h1>
+<figure id="fig:ex">
+<img src="spernerlbl.png" style="width:8cm" />
+<figcaption>Uma triangulação propriamente colorida do triângulo <span
+class="math inline">\(\Delta\)</span>. Você consegue localizar todos os
+subtriângulos cujos vértices possuem as três cores?</figcaption>
+</figure>
+<p>Uma das intenções de termos uma seção chamada <span
+class="smallcaps">Teorema</span> nesta revista é permitir que o autor
+fale de seu resultado matemático favorito de uma maneira mais informal e
+pessoal do que estamos acostumados. Portanto, pedindo licença para usar
+a primeira pessoa, mas prometendo não abusar dessa permissão, afirmo que
+meu teorema favorito é o “Lema de Sperner”.</p>
+<p>Vamos começar com um exemplo. Suponha que um dado triângulo <span
+class="math inline">\(\Delta = \langle v_0, v_1, v_2\rangle\)</span>
+esteja <em>triangulado</em>, ou seja, subdividido em triângulos menores
+de modo que dois triângulos quaisquer ou são disjuntos, ou se
+intersectam em um vértice ou aresta comum, como na figura <a
+href="#fig:ex" data-reference-type="ref" data-reference="fig:ex">1</a>.
+Agora vamos colorir os vértices <span
+class="math inline">\(v_0\)</span>, <span
+class="math inline">\(v_1\)</span> e <span
+class="math inline">\(v_2\)</span> com três cores distintas, digamos
+vermelho, verde e azul, e todos os demais vértices dos triângulos
+menores também com as mesmas cores, de maneira arbitrária, com a única
+condição que os vértices interiores de uma aresta de <span
+class="math inline">\(\langle v_0,v_1,v_2\rangle\)</span> não podem ter
+a mesma cor do vértice oposto a ela (por exemplo, os vértices sobre a
+aresta <span class="math inline">\(\langle v_0, v_1\rangle\)</span>
+podem ter a cor de <span class="math inline">\(v_0\)</span> ou de <span
+class="math inline">\(v_1\)</span>, mas não a cor de <span
+class="math inline">\(v_2\)</span>). O Lema de Sperner afirma que, sob
+essas condições, <em>ao menos um dos triângulos menores tem seus
+vértices coloridos com as três cores distintas</em>. Destacamos na
+figura <a href="#fig:exdestac" data-reference-type="ref"
+data-reference="fig:exdestac">2</a> todos os triângulos
+<em>completos</em> da figura <a href="#fig:ex" data-reference-type="ref"
+data-reference="fig:ex">1</a>, ou seja, aqueles cujos vértices estão
+coloridos com todas as três cores.</p>
+<p>Meu objetivo neste artigo é contar um pouco da história deste lema de
+aparência tão singela, explicar por que ele é meu teorema favorito,
+demonstrá-lo, de mais de uma maneira, e, já que trata-se de um lema,
+usá-lo para esboçar a demonstração de um famoso teorema.</p>
+<figure id="fig:exdestac">
+<img src="spernerlbld.png" style="width:8cm" />
+<figcaption>Triangulação de <span class="math inline">\(\Delta\)</span>
+com todos os <span class="math inline">\(5\)</span> subtriângulos
+completos destacados.</figcaption>
+</figure>
+<h1 id="história">História</h1>
+<p>Entre 1910 e 1912, o célebre matemático holandês L.E.J. Brouwer
+publicou uma sequência de resultados que respondiam várias perguntas da
+parte da Matemática que então ainda era chamada de “Analysis Situs”
+(graças aos trabalhos de H. Poincaré publicados entre 1899 e 1904), mas
+que depois viria a se chamar Topologia. Um desses resultados é o</p>
+<div class="theorem*">
+<p><strong>Teorema 1</strong> (da Invariância da Dimensão). <em>Se <span
+class="math inline">\(\mathbb{R}^m\)</span> é homeomorfo a <span
+class="math inline">\(\mathbb{R}^n\)</span>, então <span
+class="math inline">\(m=n\)</span>.</em></p>
+</div>
+<p>A demonstração desse teorema afastou de vez as preocupações geradas
+por certos objetos “patológicos”, tais como a curva de Peano, uma curva
+contínua (um objeto unidimensional) que passa por todos os pontos de um
+quadrado (um objeto bidimensional). O Teorema da Invariância da Dimensão
+mostra que não pode haver uma correspondência entre pontos de um
+intervalo da reta e pontos de um quadrado, por exemplo, que seja ao
+mesmo tempo bijetiva, contínua e com inversa contínua.</p>
+<p>Segundo J. Dieudonné <span class="citation"
+data-cites="dieudonne">(Dieudonné 1989, 161)</span>,</p>
+<blockquote>
+<p>…[Brouwer] usou sua descoberta [as aproximações simpliciais] para
+definir rigorosamente a noção de <em>grau</em> de uma aplicação
+contínua, e então prosseguiu, através das construções mais
+fantasticamente complicadas, baseando-se <em>exclusivamente</em> nesta
+noção, até provar os celebrados “Teoremas de Brouwer”.</p>
+</blockquote>
+<p>Nos anos seguintes, as técnicas de Brouwer foram assimiladas até que,
+em 1928, Emanuel Sperner, um jovem de 23 anos de idade, provou o Teorema
+da Invariância da Dimensão usando o lema que leva seu nome <span
+class="citation" data-cites="sperner">(Sperner 1928)</span>, ou seja,
+com técnicas elementares, se comparadas às empregadas por Brouwer.</p>
+<p>Vamos introduzir algumas definições para poder enunciar o Lema de
+Sperner<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> de maneira mais precisa. O
+<em>operador de face</em> <span
+class="math inline">\(\partial_i\)</span> aplicado a um triângulo <span
+class="math inline">\(\Delta=\langle
+v_0,v_1,v_2\rangle\)</span> obtém a aresta oposta ao <span
+class="math inline">\(i\)</span>-ésimo vértice. Por exemplo, <span
+class="math inline">\(\partial_0 \Delta=\langle v_1,
+v_2\rangle\)</span>, <span class="math inline">\(\partial_1
+\Delta=\langle v_0, v_2\rangle\)</span> e <span
+class="math inline">\(\partial_2 \Delta=\langle v_0,
+v_1\rangle\)</span>. Seja <span class="math inline">\(T\)</span> uma
+triangulação do triângulo <span class="math inline">\(\Delta\)</span>.
+Suponha que para cada vértice <span class="math inline">\(v\)</span> de
+<span class="math inline">\(T\)</span> associemos um <em>rótulo</em>
+<span class="math inline">\(L(v)\)</span> no conjunto <span
+class="math inline">\(\{0,1,2\}\)</span> (podemos usar cores nas figuras
+para representar esses rótulos). Dizemos que uma função de rotulação
+<span class="math inline">\(L\)</span> é <em>própria</em> se <span
+class="math display">\[v\in \partial_i\Delta \Rightarrow L(v)\neq
+i,\]</span> ou seja, os vértices em uma aresta de <span
+class="math inline">\(\Delta\)</span> não podem ter o mesmo rótulo do
+vértice oposto à aresta. Um triângulo <span
+class="math inline">\(\tau=\langle v_i,v_j,v_k\rangle \in T\)</span> é
+<em>completo</em> com relação à função de rotulação <span
+class="math inline">\(L\)</span> se <span
+class="math display">\[\{L(v_i),L(v_j),L(v_k)\}=\{0,1,2\}\text{,}\]</span>
+ou seja, os vértices de <span class="math inline">\(\tau\)</span>
+possuem todos os rótulos. A versão bidimensional do Lema de Sperner que
+apresentamos na introdução fica assim:</p>
+<div class="lemma*">
+<p><strong>Lema 1</strong> (de Sperner, n=2). <em>Qualquer rotulação
+própria de uma triangulação de um triângulo possui ao menos um triângulo
+completo.</em></p>
+</div>
+<p>Para o caso <span class="math inline">\(n=3\)</span>, teríamos uma
+triangulação <span class="math inline">\(T\)</span> de um tetraedro
+<span class="math inline">\(\Delta\)</span>, ou seja, uma decomposição
+de <span class="math inline">\(\Delta\)</span> em uma coleção de
+tetraedros menores que ou são disjuntos ou se intersectam em um vértice,
+aresta ou face comum a ambos. O operador de face funcionaria de maneira
+análoga, por exemplo, dado o tetraedro <span
+class="math inline">\(\Delta=\langle v_0,v_1,v_2,v_3\rangle\)</span>,
+<span class="math inline">\(\partial_2\Delta\)</span> é a face <span
+class="math inline">\(\langle v_0,v_1,v_3\rangle\)</span>, e a função de
+rotulação associaria a cada vértice da triangulação um número no
+conjunto <span class="math inline">\(\{0,1,2,3\}\)</span>.</p>
+<p>Sperner formulou seu teorema no caso geral utilizando a noção de
+<em>simplexo</em> <span class="math inline">\(n\)</span>-dimensional ou
+(<span class="math inline">\(n\)</span>-simplexo). Um <span
+class="math inline">\(0\)</span>-simplexo é um ponto, <span
+class="math inline">\(1\)</span>-simplexo é um segmento de reta, um
+<span class="math inline">\(2\)</span>-simplexo é um triângulo, um <span
+class="math inline">\(3\)</span>-simplexo é um tetraedro e assim por
+diante. Além disso, se observarmos a figura <a href="#fig:exdestac"
+data-reference-type="ref" data-reference="fig:exdestac">2</a>, vemos que
+não há apenas um triângulo completo, mas um número <em>ímpar</em> deles.
+Fazendo as devidas adaptações, chegamos assim à redação final do
+Lema:</p>
+<div class="lemma*">
+<p><strong>Lema 2</strong> (de Sperner, caso geral). <em>Qualquer
+rotulação própria de uma triangulação de um <span
+class="math inline">\(n\)</span>-simplexo possui um número ímpar de
+<span class="math inline">\(n\)</span>-simplexos completos.</em></p>
+</div>
+<p>Recomendo a referência <span class="citation" data-cites="lima">(Lima
+2009)</span> para quem tiver interesse em entender melhor o enunciado
+geral do Lema de Sperner em termos de simplexos, mas aqui vamos nos
+limitar ao caso bidimensional, que é suficiente para entender o caso
+geral.</p>
+<p>Um ano após a publicação do Lema de Sperner, Knaster, Kuratowski e
+Mazurkiewicz o aplicaram para provar outro famoso teorema de Brouwer,
+o</p>
+<div class="theorem*">
+<p><strong>Teorema 2</strong> (do Ponto Fixo de Brouwer). <em>Uma
+aplicação contínua <span class="math inline">\(f:B^n\rightarrow
+B^n\)</span> da bola <span class="math inline">\(n\)</span>-dimensional
+em si mesma possui ao menos um ponto fixo, ou seja, existe um <span
+class="math inline">\(p\in B^n\)</span> tal que <span
+class="math inline">\(f(p)=p\)</span>.</em></p>
+</div>
+<p>O Teorema do Ponto Fixo de Brouwer possui por si só inúmeras
+aplicações <span class="citation" data-cites="park">(Park 1999)</span>,
+mas mesmo assim o Lema de Sperner já foi usado para demonstrar,
+diretamente ou com ligeiras adaptações, vários outros teoremas
+importantes da Matemática, tais como o Teorema de Perron-Frobenius <span
+class="citation" data-cites="kyfan">(Fan 1958)</span>, o Teorema
+Fundamental da Álgebra <span class="citation" data-cites="kuhn">(Kuhn
+1974)</span> e o Teorema da Bola Cabeluda <span class="citation"
+data-cites="tyler">(Jarvis and Tanton 2004)</span>, além de ter
+encontrado aplicações interessantes na Teoria dos Jogos e na Economia
+<span class="citation" data-cites="su">(Su 1999)</span>. O ciclo se
+fechou quando Yoseloff mostrou em 1974 que o Lema de Sperner pode ser
+demonstrado por meio do Teorema do Ponto Fixo de Brouwer <span
+class="citation" data-cites="yoseloff">(Yoseloff 1974)</span>,
+estabelecendo-se assim uma interessante equivalência entre eles.</p>
+<p>Devido a seu caráter elementar e pictórico e as suas variadas
+aplicações, o Lema de Sperner é muito popular em vídeos de divulgação
+matemática (<span class="citation"
+data-cites="tib mathologer Bazett">(Dröge, Göttlich, and Wille 1982;
+Polster (Mathologer) 2017; Bazett 2018)</span>, por exemplo) e em
+trabalhos de conclusão de curso e dissertações de mestrado. Por exemplo,
+localizei duas dissertações de PROFMAT sobre o tema <span
+class="citation" data-cites="azambuja fonseca">(Azambuja 2014; Fonseca
+2017)</span>, a segunda delas orientada pelo prof. Joseph Yartey, nosso
+colega de departamento.</p>
+<h4 id="minha-história">Minha história</h4>
+<p>Meu primeiro contato com o Lema de Sperner foi através do livro “A
+Combinatorial Introduction to Topology”, de Michael Henle <span
+class="citation" data-cites="henle">(Henle 1994)</span>, ainda no começo
+do meu doutorado em Computação Gráfica, ou mais exatamente em Modelagem
+Geométrica, que é o ramo da Computação Gráfica que estuda métodos e
+algoritmos para a representação de formas, tais como curvas e
+superfícies. O objeto mais básico da Modelagem Geométrica são as
+<em>malhas de triângulos</em>, que são na verdade <em>complexos
+simpliciais</em>, como viria a aprender, e o livro de Henle contém tudo
+que eu precisava saber sobre o básico de topologia combinatória. Lembro
+de ter ficado particularmente impressionado com sua demonstração do
+Teorema do Ponto Fixo de Brouwer através do Lema de Sperner.</p>
+<p>A minha tese de doutorado <span class="citation"
+data-cites="mello">(Mello 2006)</span> acabou sendo sobre subdivisão e
+deformação de malhas de triângulos (e de <em>pseudovariedades
+combinatórias</em>, em geral) e na parte de deformação eu tive a
+oportunidade de aplicar o Lema de Sperner para demonstrar uma certa
+propriedade (essencialmente a sobrejetividade da deformação), o que me
+deixou muito feliz.</p>
+<p>Dei uma palestra sobre o Lema de Sperner no MATFEST da Universidade
+Federal de Alagoas em 2007 e confesso ter ficado um pouco apreensivo,
+pois o prof. Nicolau Saldanha, primeiro brasileiro a ganhar uma medalha
+de ouro na Olimpíada Internacional de Matemática e grande topologista,
+estava na audiência, assistindo a tudo impassível. Lá pelas tantas, eu
+estava jogando, contra o computador, o “Jogo de Sperner”, no qual os
+jogadores colocam fichas coloridas alternadamente num tabuleiro
+triangular e de acordo com as regras do Lema de Sperner, de modo que o
+perdedor é aquele que formar o primeiro triângulo completo. Jogando é
+forma de dizer, pois eu estava apenas clicando meio aleatoriamente nas
+casas, de tão nervoso. Até que em dado momento eu passei a clicar e
+clicar, sem que nada acontecesse. Depois de alguns longos e
+desconfortáveis segundos de silêncio, eu constatei que havia vencido o
+jogo e gritei, levantando os braços: “Ganhei!”, arrancando risadas da
+plateia, inclusive do prof. Nicolau, o que serviu para “quebrar o
+gelo”.</p>
+<h1 id="demonstração">Demonstração</h1>
+<p>Vamos agora à demonstração mais simples do Lema. Trata-se de uma
+aplicação do <em>princípio da contagem dupla</em>, no qual contamos uma
+mesma quantidade de duas maneiras diferentes para chegar a um
+resultado.</p>
+<p>Vamos considerar inicialmente a versão unidimensional do Lema de
+Sperner. Nela temos um segmento <span class="math inline">\(S\)</span>
+subdividido e com os vértices coloridos com duas cores, sendo que os
+vértices extremos de <span class="math inline">\(S\)</span> possuem
+cores diferentes, como neste exemplo:</p>
+<div class="center">
+
+</div>
+<p>Queremos contar o número de subsegmentos que possuem vértices de
+cores distintas, quantidade que denotaremos por <span
+class="math inline">\(\#
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}\)</span> (no caso acima, <span
+class="math inline">\(\#
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+=5\)</span>). Para tanto, vamos contar uma outra quantidade (e aqui está
+o “truque” de Sperner). Seja <span
+class="math inline">\(F(\sigma)\)</span> o número de vértices verdes do
+subsegmento <span class="math inline">\(\sigma\)</span>. Claramente,
+<span class="math display">\[\begin{aligned}
+    F(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+)&amp;=2 \\
+    F(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+)&amp;=1 \\
+    F(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+)&amp;=1 \\
+    F(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+)&amp;=0 .
+\end{aligned}\]</span> Vamos contar <span
+class="math display">\[\sum_{\sigma\in S} F(\sigma),\]</span> ou seja, o
+número de vértices verdes contados por subsegmento, de duas maneiras.
+Por um lado, como subsegmentos da forma</p>
+<p>não contribuem para o total, temos que <span
+class="math display">\[\label{eq:sperner1D1}
+\sum_{\sigma\in S} F(\sigma) = \#
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+
++2\times \#
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+,\]</span> onde <span class="math inline">\(\#
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}\)</span> denota o número de subsegmentos com os dois
+vértices verdes. Por outro lado, percebemos que cada vértice verde
+interior é contado duas vezes em <span
+class="math inline">\(\sum_{\sigma\in S} F(\sigma)\)</span>, já que é
+incidente a exatamente dois subsegmentos, ao passo que o vértice verde
+na fronteira de <span class="math inline">\(S\)</span> é contado uma
+única vez, assim <span> <span class="math display">\[\begin{aligned}
+\label{eq:sperner1D2}
+\sum_{\sigma\in S} F(\sigma) &amp;= \#\left(
+\begin{tikzpicture}[baseline=-1mm]
+\fill[fill=c1] (0,0) circle(1.5mm);
+\end{tikzpicture}
+\text{ na fronteira}\right) \\
+&amp;+2\times \#\left(
+\begin{tikzpicture}[baseline=-1mm]
+\fill[fill=c1] (0,0) circle(1.5mm);
+\end{tikzpicture}
+\text{ no  interior}\right).
+
+    \end{aligned}\]</span> </span> Igualando as equações (<a
+href="#eq:sperner1D1" data-reference-type="ref"
+data-reference="eq:sperner1D1">[eq:sperner1D1]</a>) e (<a
+href="#eq:sperner1D2" data-reference-type="ref"
+data-reference="eq:sperner1D2">[eq:sperner1D2]</a>) e considerando a
+congruência módulo <span class="math inline">\(2\)</span>, temos que
+<span class="math display">\[\label{eq:sperner1d}
+\#
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+  \equiv  
+%\#\left(\vtx{1} \text{ na fronteira}\right)=
+1
+  \pmod{2},\]</span> donde concluímos que <span class="math inline">\(\#
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}\)</span> é ímpar.</p>
+<p>O caso bidimensional é bem parecido. Queremos contar <span
+class="math display">\[\#
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+,\]</span> ou seja o número de triângulos completos. No caso da figura
+<a href="#fig:exdestac" data-reference-type="ref"
+data-reference="fig:exdestac">2</a>, temos que <span
+class="math display">\[\#
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+=5.\]</span> Seja <span class="math inline">\(F(\tau)\)</span> o número
+de segmentos do tipo</p>
+<p>no subtriângulo <span class="math inline">\(\tau\)</span>.
+Claramente, <span class="math display">\[\begin{aligned}
+    F\left(
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\right)&amp;=2 \\
+    F\left(
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c1] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\right)&amp;=2 \\
+    F\left(
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\right)&amp;=1.
+\end{aligned}\]</span> e <span class="math inline">\(F(\tau)=0\)</span>
+nos demais casos. Assim, <span
+class="math display">\[\label{eq:sperner2d1}
+\sum_{\tau\in T} F(\tau) = \#
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+
++2\times \#
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+
++2\times \#
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c1] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}\]</span> Por outro lado, percebemos que as arestas do
+tipo</p>
+<p>no interior de <span class="math inline">\(T\)</span> são incidentes
+a exatamente dois subtriângulos, enquanto as arestas do tipo</p>
+<p>na fronteira de <span class="math inline">\(T\)</span> são incidentes
+a exatamente um subtriângulo, donde <span> <span
+class="math display">\[\begin{aligned}
+\label{eq:sperner2d2}
+\sum_{\tau\in T} F(\tau) &amp;= \#\left(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\text{ na fronteira}\right) \\
+&amp;+2\times \#\left(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\text{ no  interior}\right).
+
+    \end{aligned}\]</span> </span> Comparando as equações (<a
+href="#eq:sperner2d1" data-reference-type="ref"
+data-reference="eq:sperner2d1">[eq:sperner2d1]</a>) e (<a
+href="#eq:sperner2d2" data-reference-type="ref"
+data-reference="eq:sperner2d2">[eq:sperner2d2]</a>) e tomando-as módulo
+<span class="math inline">\(2\)</span>, temos que <span
+class="math display">\[\#
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+  \equiv  
+\#\left(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\text{ na fronteira}\right)
+  \pmod{2}.\]</span> Mas pelo caso unidimensional, ou seja, pela equação
+<a href="#eq:sperner1d" data-reference-type="ref"
+data-reference="eq:sperner1d">[eq:sperner1d]</a>, concluímos que <span
+class="math display">\[\#
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+  \equiv  1
+  \pmod{2},\]</span> que é exatamente a tese do Lema de Sperner, o
+número de triângulos completos é ímpar. Observamos também o padrão
+indutivo que pode ser usado para demonstrar o Lema para qualquer
+dimensão <span class="math inline">\(n\)</span>.</p>
+<figure id="fig:spernerori">
+<img src="spernerori.png" style="width:8cm" />
+<figcaption>Triangulação de <span class="math inline">\(\Delta\)</span>
+com todos os <span class="math inline">\(5\)</span> subtriângulos
+completos destacados de acordo com a orientação: se ao percorrer os
+vértices no sentido anti-horário (resp. horário) encontramos as cores
+vermelho, verde e azul, nesta ordem, dizemos que o subtriângulo tem
+orientação positiva (resp. negativa).</figcaption>
+</figure>
+<h4 id="orientação">Orientação</h4>
+<p>É possível refinar o resultado do Lema de Sperner usando a noção de
+<em>orientação</em> (como estabelecido em <span class="citation"
+data-cites="brown">(Brown and Cairns 1961)</span>). Na figura <a
+href="#fig:spernerori" data-reference-type="ref"
+data-reference="fig:spernerori">3</a>, destacamos em azul claro os
+triângulos completos nos quais as cores vermelho, verde e azul aparecem
+nesta ordem no sentido <em>anti-horário</em> e em vermelho claro os
+triângulos completos nos quais as cores vermelho, verde e azul aparecem
+nesta ordem no sentido <em>horário</em>. Podemos observar que o número
+de triângulos rotulados <em>com orientação positiva</em> (os azuis) é
+uma unidade a mais que os <em>com orientação negativa</em> (os
+vermelhos) (e portanto o total de triângulos completos é ímpar).</p>
+<p>A demonstração desse fato é bem semelhante à que fizemos acima. Vamos
+começar com o caso unidimensional. Vamos definir <span
+class="math inline">\(G(\sigma)\)</span> para um subsegmento <span
+class="math inline">\(\sigma\)</span> da seguinte forma: <span
+class="math display">\[\begin{aligned}
+    G(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+)&amp;=1+(-1)=0 \\
+    G(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+)&amp;=1 \\
+    G(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+)&amp;=-1 \\
+    G(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+)&amp;=0 ,
+\end{aligned}\]</span> ou seja, <span
+class="math inline">\(G(\sigma)\)</span> conta o total de vértices
+verdes em <span class="math inline">\(\sigma\)</span> de acordo com sua
+posição: um vértice à esquerda conta <span
+class="math inline">\(1\)</span> e à direita, <span
+class="math inline">\(-1\)</span>. Assim, <span
+class="math display">\[\label{eq:sperner1dori1}
+\sum_{\sigma\in S} G(\sigma) = \#
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+-
+\#
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+,\]</span> já que os segmentos</p>
+<p>e</p>
+<p>não contribuem para o total. Note que estamos distinguindo agora os
+tipos de segmentos completos</p>
+<p>e</p>
+<p>. Por outro lado, cada vértice verde interior contribui em <span
+class="math inline">\(\sum_{\sigma\in S} G(\sigma)\)</span> com <span
+class="math inline">\(+1\)</span> para o segmento a sua direita e com
+<span class="math inline">\(-1\)</span> para o segmento a sua esquerda,
+enquanto o vértice verde da fronteira de <span
+class="math inline">\(S\)</span> contribui com <span
+class="math inline">\(1\)</span>, de modo que <span
+class="math display">\[\label{eq:sperner1dori2}
+\sum_{\sigma\in S} G(\sigma) = 1+0\times \#\left(
+\begin{tikzpicture}[baseline=-1mm]
+\fill[fill=c1] (0,0) circle(1.5mm);
+\end{tikzpicture}
+\text{ no  interior}\right).\]</span> Igualando as equações (<a
+href="#eq:sperner1dori1" data-reference-type="ref"
+data-reference="eq:sperner1dori1">[eq:sperner1dori1]</a>) e (<a
+href="#eq:sperner1dori2" data-reference-type="ref"
+data-reference="eq:sperner1dori2">[eq:sperner1dori2]</a>), concluímos
+que <span class="math display">\[\label{eq:sperner1dori}
+\#
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+  -
+\#
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+
+= 1.\]</span></p>
+<p>Vamos agora ao caso bidimensional. Seja <span
+class="math inline">\(G(\tau)\)</span> quantas vezes o segmento <span
+class="math inline">\(\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}\)</span> aparece na fronteira do triângulo <span
+class="math inline">\(\tau\)</span>, no sentido anti-horário, contando a
+orientação, ou seja, <span class="math display">\[\begin{aligned}
+    G\left(
+\begin{tikzpicture}[baseline=2mm]
+\draw[draw=cl,fill=cp,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
+cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\right) &amp;= 1 \\
+    G\left(
+\begin{tikzpicture}[baseline=2mm]
+\draw[draw=cl,fill=cn,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
+cycle;
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\right) &amp;= -1 \\
+    G\left(
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c1] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\right) &amp;= 1+(-1)=0 \\
+    G\left(
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c2] (60:6mm) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\right) &amp;= (-1)+1=0 \\
+\end{aligned}\]</span> etc. Assim, <span> <span
+class="math display">\[\begin{aligned}
+\label{eq:sperner2dori1}
+\sum_{\tau\in T} G(\tau) &amp;= \#
+\begin{tikzpicture}[baseline=2mm]
+\draw[draw=cl,fill=cp,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
+cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+
+-\#
+\begin{tikzpicture}[baseline=2mm]
+\draw[draw=cl,fill=cn,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
+cycle;
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\\
+&amp;+0\times \#
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+
++0\times \#
+\begin{tikzpicture}[baseline=2mm]
+\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c1] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+
+
+    \end{aligned}\]</span> </span> Por outro lado, cada subsegmento</p>
+<p>no interior de <span class="math inline">\(T\)</span> contribui com
+sinais opostos para seus subtriângulos incidentes, donde <span> <span
+class="math display">\[\begin{aligned}
+\label{eq:sperner2dori2}
+\sum_{\tau\in T} G(\tau) &amp;= \#\left(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\text{ na fronteira}\right)\\[-0.4cm]
+&amp;-\#\left(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\text{ na fronteira}\right) \\
+&amp;+0\times \#\left(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\text{ no  interior}\right).
+
+    \end{aligned}\]</span> </span> Igualando as equações (<a
+href="#eq:sperner2dori1" data-reference-type="ref"
+data-reference="eq:sperner2dori1">[eq:sperner2dori1]</a>) e (<a
+href="#eq:sperner2dori2" data-reference-type="ref"
+data-reference="eq:sperner2dori2">[eq:sperner2dori2]</a>), vemos que
+<span> <span class="math display">\[\begin{aligned}
+
+\#
+\begin{tikzpicture}[baseline=2mm]
+\draw[draw=cl,fill=cp,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
+cycle;
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+
+-\#
+\begin{tikzpicture}[baseline=2mm]
+\draw[draw=cl,fill=cn,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
+cycle;
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c0] (60:6mm) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+
+&amp;=
+\#\left(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c1] (0,0) circle(1.5mm);
+\fill[fill=c2] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\text{ na fronteira}\right)\\[-0.2cm]
+&amp;-\#\left(
+\begin{tikzpicture}[baseline=-1mm]
+\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
+\fill[fill=c2] (0,0) circle(1.5mm);
+\fill[fill=c1] (6mm,0) circle(1.5mm);
+\end{tikzpicture}
+\text{ na fronteira}\right) \nonumber \\
+&amp;=1,
+
+    \end{aligned}\]</span> </span> pela equação (<a
+href="#eq:sperner1dori" data-reference-type="ref"
+data-reference="eq:sperner1dori">[eq:sperner1dori]</a>). O padrão
+indutivo está claro e podemos enunciar outra versão do Lema de
+Sperner:</p>
+<div class="lemma*">
+<p><strong>Lema 3</strong> (de Sperner, caso orientado). <em>Em qualquer
+rotulação própria de uma triangulação de um <span
+class="math inline">\(n\)</span>-simplexo, o número de <span
+class="math inline">\(n\)</span>-simplexos completos com orientação
+positiva excede em uma unidade o número de <span
+class="math inline">\(n\)</span>-simplexos completos com orientação
+negativa.</em></p>
+</div>
+<h1 id="outras-demonstrações">Outras Demonstrações</h1>
+<figure id="fig:spernergraph">
+<img src="spernergraph.png" style="width:8cm" />
+<figcaption>Podemos também usar cores para colorir certas arestas do
+<em>grafo de adjacência</em> da triangulação e assim observar certos
+padrões.</figcaption>
+</figure>
+<p>Várias outras demonstrações do Lema de Sperner são conhecidas. Vamos
+comentar algumas delas.</p>
+<p>Uma demonstração bastante intuitiva envolve um certo <em>grafo</em>
+construído a partir da triangulação. Vamos pensar nos subsegmentos do
+tipo</p>
+<p>como portas que dão acesso a quartos, que são os subtriângulos de
+<span class="math inline">\(T\)</span> que possuem ao menos uma porta.
+Obviamente os quartos possuem ou duas portas (como</p>
+<p>e</p>
+<p>), ou uma única porta (como</p>
+<p>), os quais são certamente triângulos completos. Contemple a figura
+<a href="#fig:spernergraph" data-reference-type="ref"
+data-reference="fig:spernergraph">4</a> por um momento e veja os
+segmentos azuis que atravessam as portas e que representam os caminhos
+possíveis pelos quartos. Se entrarmos por uma das portas da fronteira,
+ou acabaremos voltando para o exterior do triângulo, ou chegaremos em um
+quarto com uma única porta (que é um triângulo completo). Mas existe um
+número ímpar de portas na fronteira, como já vimos, portanto certamente
+algum desses caminhos nos levará a um quarto sem portas e assim
+encontramos um triângulo completo! Por outro lado, se entrássemos em um
+dos quartos com uma única porta (talvez pelo telhado) e seguíssemos as
+portas, ou chegaríamos a uma das portas da fronteira, que são em número
+ímpar, ou a outro quarto com uma única porta. Assim, temos
+necessariamente um número ímpar de triângulos completos. Uma
+demonstração completa usando esse argumento pode ser vista em <span
+class="citation" data-cites="cohen">(Cohen 1967)</span>.</p>
+<figure id="fig:spernerarea02">
+<img src="area02.png" style="width:8cm" />
+<figcaption>Instante <span class="math inline">\(t=0.02\)</span> da
+animação do movimento dos vértices da triangulação em direção aos
+vértices de mesma cor nos cantos de <span
+class="math inline">\(\Delta\)</span>.</figcaption>
+</figure>
+<p>Um belo argumento “animado” envolvendo área foi descoberto
+recentemente <span class="citation" data-cites="mclennan">(McLennan and
+Tourky 2008)</span>. A ideia é mover simultaneamene todos os vértices
+<span class="math inline">\(v_i\)</span> da triangulação <span
+class="math inline">\(T\)</span> para os vértices de mesma cor que estão
+nos cantos do triângulo maior (os vértices <span
+class="math inline">\(v_0\)</span>, <span
+class="math inline">\(v_1\)</span> e <span
+class="math inline">\(v_2\)</span>), ao longo de segmentos de reta. Ou
+seja, consideramos as triangulações <span
+class="math inline">\(T(t)\)</span> que possuem as mesmas relações de
+incidência que <span class="math inline">\(T\)</span> mas cujos vértices
+são da forma <span class="math display">\[v_i(t) = (1-t)v_i+t
+v_{L(v_i)},\]</span> com <span class="math inline">\(t\)</span> variando
+continuamente no intervalo <span class="math inline">\([0,1]\)</span>.
+Quando <span class="math inline">\(t=0\)</span>, temos a triangulação
+original da figura <a href="#fig:spernerori" data-reference-type="ref"
+data-reference="fig:spernerori">3</a>. Para <span
+class="math inline">\(t=0.02\)</span> e <span
+class="math inline">\(t=0.06\)</span> temos as triangulações das figuras
+<a href="#fig:spernerarea02" data-reference-type="ref"
+data-reference="fig:spernerarea02">5</a> e <a href="#fig:spernerarea06"
+data-reference-type="ref" data-reference="fig:spernerarea06">6</a>,
+respectivamente. Note como os vértices vão sendo “atraídos” para os
+vértices do triângulo maior de mesma cor. Seja agora <span
+class="math inline">\(A(t)\)</span> a soma das áreas (com sinal) de
+todos os subtriângulos de <span class="math inline">\(T(t)\)</span>,
+onde estamos supondo que os subtriângulos de <span
+class="math inline">\(T(0)=T\)</span> estejam orientados positivamente e
+que <span class="math inline">\(A(0)=1\)</span>. Lembro que a área com
+sinal de um triângulo <span class="math inline">\(\langle
+A,B,C\rangle\)</span> é dada pelo determinante <span
+class="math display">\[\mathop{\mathrm{Area}}\langle A,B,C\rangle=
+\frac{1}{2}\left|\begin{array}{ccc}
+   1  &amp; 1 &amp; 1\\
+   A_x  &amp; B_x &amp; C_x \\
+   A_y &amp; B_y &amp; C_y
+\end{array}\right|.\]</span> Como a triangulação é própria, os vértices
+sobre as arestas “deslizam” sobre elas e os vértices internos permanecem
+contidos no triângulo durante o movimento, de modo que <span
+class="math inline">\(T(t)\)</span> é sempre uma triangulação do mesmo
+triângulo inicial. Também é intuitivo que a área <span
+class="math inline">\(A(t)\)</span> é sempre unitária, pelo menos para
+<span class="math inline">\(t\)</span> em um intervalo <span
+class="math inline">\([0,t_0]\)</span>, com <span
+class="math inline">\(t_0&gt;0\)</span> suficientemente pequeno, pois os
+vértices não têm “tempo” neste período de atravessar arestas. Mas como
+<span class="math inline">\(A(t)\)</span> é um polinômio em <span
+class="math inline">\(t\)</span> (verifique!), isso significa que <span
+class="math inline">\(A(t)\)</span> é constante, ou seja <span
+class="math inline">\(A(t)=1\)</span>, para todo <span
+class="math inline">\(t\in[0,1]\)</span>. Vamos ver qual o valor de
+<span class="math inline">\(A(1)\)</span>. Ora, os subtriângulos não
+completos de <span class="math inline">\(T(1)\)</span> são colapsados em
+vértices ou arestas, que possuem área nula. Somente os subtriângulos
+completos contribuem para a soma, aqueles cujos rótulos possuem
+orientação positiva contribuem com <span
+class="math inline">\(+1\)</span>, já que assumimos que o triângulo
+maior também possui orientação positiva, enquanto aqueles cujos rótulos
+possuem orientação negativa contribuem com <span
+class="math inline">\(-1\)</span>. E assim obtemos exatamente o
+resultado do caso orientado do Lema de Sperner: o número de simplexos
+completos com orientação positiva excede em uma unidade o número de
+simplexos completos com orientação negativa!</p>
+<figure id="fig:spernerarea06">
+<img src="area06.png" style="width:8cm" />
+<figcaption>Instante <span class="math inline">\(t=0.06\)</span> da
+animação do movimento dos vértices da triangulação em direção aos
+vértices de mesma cor nos cantos de <span
+class="math inline">\(\Delta\)</span>.</figcaption>
+</figure>
+<p>Como dissemos, Yoseloff <span class="citation"
+data-cites="yoseloff">(Yoseloff 1974)</span> mostrou que o Lema de
+Sperner pode ser demonstrado usando-se o Teorema do Ponto Fixo de
+Brouwer. Mais exatamente, ele mostrou que se o Lema de Sperner fosse
+falso, seria possível construir uma aplicação contínua de um simplexo em
+si mesmo que não possuísse pontos fixos, o que seria uma contradição.
+Como estou mais interessado em argumentos elementares, não vou
+considerar essa classe de demonstrações indiretas aqui.</p>
+<p>Uma outra demonstração elementar foi feita <em>2 anos antes da de
+Sperner</em>! Isso mesmo, o Lema de Sperner é essencialmente equivalente
+ao Lema de Alexander, provado em 1926, história bem contada em <span
+class="citation" data-cites="ivanov">(Ivanov 2019)</span>. Em resumo,
+Alexander produziu um extensa teoria sobre propriedades das
+<em>aplicações simpliciais</em> (aplicações entre complexos simpliciais
+que levam simplexos em simplexos) e uma delas é justamente o Lema que
+leva seu nome. Os lemas são equivalentes, mas há uma diferença crucial,
+que explica o sucesso do Lema de Sperner: o Lema de Sperner trata de
+rotulações dos vértices, ou seja, inteiros associados aos vértices, os
+quais podem ser interpretados de várias maneiras, o que torna sua
+aplicabilidade maior, enquanto o Lema de Alexander é sobre aplicações
+que levam vértices em vértices, o que é algo mais específico. Além
+disso, o Lema de Sperner é autocontido, enquanto o Lema de Alexander é o
+resultado de uma longa sequência de definições e proposições auxiliares.
+Recomendo a referência acima para quem tiver interesse nos detalhes. <a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a></p>
+<h1 id="minha-demonstração">“Minha Demonstração”</h1>
+<p>Não poderia terminar de falar das demonstrações do Lema de Sperner
+sem falar da “minha demonstração”. Não posso garantir que seja original,
+mas nunca a vi escrita antes. A ideia é mostrar que uma subdivisão cria
+ou destrói triângulos completos <em>aos pares</em>.</p>
+<p>Vamos inicialmente subdividir um triângulo rotulado <span
+class="math inline">\(\tau\)</span> em três subtriângulos, inserindo um
+vértice <span class="math inline">\(v\)</span> em seu interior, o que
+chamamos de <em>subdivisão central</em>. Temos que considerar três
+casos. (i) Se <span class="math inline">\(\tau\)</span> é completo,
+apenas um dos subtriângulos será completo também, qualquer que seja a
+cor de <span class="math inline">\(v\)</span>, uma vez que os outros
+dois necessariamente compartilham uma aresta com duas cores iguais:</p>
+<div class="center">
+
+</div>
+<p>(ii) Se <span class="math inline">\(\tau\)</span> é <em>quase
+completo</em>, ou seja, falta apenas uma cor para ser completo, uma
+subdivisão central com a insercão de um vértice desta cor faltante
+produzirá dois subtriângulos completos:</p>
+<div class="center">
+
+</div>
+<p>Note que neste caso os subtriângulos completos têm orientações
+opostas. A inserção de um vértice de outra cor não pode produzir
+triângulos completos. Finalmente, (iii) se <span
+class="math inline">\(\tau\)</span> não é nem completo nem quase
+completo, a inserção de um novo vértice não pode criar triângulos
+completos. Assim, <em>uma subdivisão central ou não altera o número de
+triângulos completos, ou aumenta o número em <span
+class="math inline">\(2\)</span></em>. Se levarmos em conta a
+orientação, temos que <em>uma subdivisão central não altera a soma
+algébrica das orientações</em>.</p>
+<p>Outra subdivisão possível é uma subdivisão de uma aresta <span
+class="math inline">\(\epsilon\)</span>. Ao invés de considerar todos os
+casos possíveis, vamos implementar uma subdivisão de aresta usando
+subdivisões centrais e uma <em>fusão</em> de vértices. Temos dois casos:
+(i) se a aresta <span class="math inline">\(\epsilon\)</span> for
+interna, para subdividi-la criando um vértice <span
+class="math inline">\(v\)</span> em seu interior, vamos inicialmente
+aplicar uma subdivisão central em cada um dos triângulos incidentes a
+ela inserindo vértices <span class="math inline">\(v&#39;\)</span> e
+<span class="math inline">\(v&#39;&#39;\)</span> da mesma cor de <span
+class="math inline">\(v\)</span>:</p>
+<div class="center">
+
+</div>
+<p>Como já vimos, isso não altera a paridade do número de triângulos
+completos ou a soma algébrica de suas orientações. Agora vamos “mover”
+os dois vértices <span class="math inline">\(v&#39;\)</span> e <span
+class="math inline">\(v&#39;&#39;\)</span> em direção a <span
+class="math inline">\(v\)</span> para fundi-los em um único vértice:</p>
+<div class="center">
+
+</div>
+<p>Note que a fusão dos vértices provoca o colapso dos dois triângulos
+incidentes a aresta <span class="math inline">\(\epsilon\)</span>, mas é
+claro que um deles é completo se, e somente se, o outro também é,
+portanto <em>essa fusão de vértices também preserva a paridade do número
+de triângulos completos ou a soma algébrica de suas orientações</em>.
+(ii) Se a aresta <span class="math inline">\(\epsilon\)</span> for de
+fronteira, para subdividi-la inserindo um vértice <span
+class="math inline">\(v\)</span> em seu interior, também efetuamos
+primeiro uma subdivisão central no triângulo incidente a <span
+class="math inline">\(\epsilon\)</span>, inserindo um vértice <span
+class="math inline">\(v&#39;\)</span> da mesma cor de <span
+class="math inline">\(v\)</span>:</p>
+<div class="center">
+
+</div>
+<p>Mas, como <span class="math inline">\(\epsilon\)</span> é de
+fronteira, a cor de <span class="math inline">\(v\)</span> (e <span
+class="math inline">\(v&#39;\)</span>) não pode ser igual a do vértice
+de <span class="math inline">\(\Delta\)</span> oposto a aresta que
+contém <span class="math inline">\(\epsilon\)</span>, portanto <em>o
+triângulo colapsado quando fundimos <span
+class="math inline">\(v\)</span> e <span
+class="math inline">\(v&#39;\)</span> é necessariamente não
+completo</em>:</p>
+<div class="center">
+
+</div>
+<p>E também a paridade do número de triângulos completos ou a soma
+algébrica de suas orientações é invariante.</p>
+<p>Essas operações de subdivisão são denominadas <em>subdivisões
+estelares</em> <span class="citation"
+data-cites="lickorish1999simplicial">(Lickorish 1999)</span>. No caso,
+estamos combinando uma subdivisão estelar com uma atribuição de rótulo
+(ou cor) ao vértice inserido, ou seja, estamos construindo uma função de
+rotulação <span class="math inline">\(L_{i+1}\)</span> a partir de <span
+class="math inline">\(L_i\)</span> à medida que subdividimos a
+triangulação <span class="math inline">\(T_i\)</span> para obter a
+triangulação <span class="math inline">\(T_{i+1}\)</span>. Vamos chamar
+essa combinação de <em>subdivisão estelar com rotulação</em>. Dizemos
+que uma subdivisão estelar com rotulação aplicada a uma triangulação de
+um simplexo é <em>própria</em> se o rótulo do vértice inserido obedece
+as condições do Lema de Sperner, ou seja, se a função de rotulação <span
+class="math inline">\(L_{i+1}\)</span> é própria sempre que <span
+class="math inline">\(L_{i}\)</span> é própria. Vamos chamar de <span
+class="math inline">\(T_0\)</span> a triangulação do <span
+class="math inline">\(n\)</span>-simplexo <span
+class="math inline">\(\Delta\)</span> que contém um único <span
+class="math inline">\(n\)</span>-simplexo e <span
+class="math inline">\(L_0\)</span> uma função de rotulação completa
+definida nos <span class="math inline">\(n+1\)</span> vértices de <span
+class="math inline">\(T_0\)</span> (portanto <span
+class="math inline">\(T_0\)</span> tem um único triângulo completo).
+Podemos resumir o que encontramos da seguinte forma: a paridade do
+número de <span class="math inline">\(n\)</span>-simplexos completos (ou
+a soma algébrica de suas orientações) de uma triangulação própria de um
+<span class="math inline">\(n\)</span>-simplexo é invariante por
+subdivisões estelares próprias, donde chegamos ao seguinte</p>
+<div class="lemma*">
+<p><strong>Lema 4</strong> (de Sperner, versão estelar). <em>Se <span
+class="math inline">\((T_m,L_m)\)</span> é um par triangulação-rotulação
+obtido de <span class="math inline">\((T_0,L_0)\)</span> por uma
+sequência de <span class="math inline">\(m\)</span> subdivisões
+estelares próprias, então existe um número ímpar de <span
+class="math inline">\(n\)</span>-simplexos completos em <span
+class="math inline">\((T_m,L_m)\)</span> (ou o número de simplexos
+completos com orientação positiva em <span
+class="math inline">\((T_m,L_m)\)</span> excede em uma unidade o número
+de simplexos completos com orientação negativa).</em></p>
+</div>
+<figure id="fig:barysub">
+
+<figcaption>Exemplo de como podemos produzir triangulações
+arbitrariamente refinadas com subdivisões estelares: a partir do
+triângulo inicial (cima, esquerda), aplicamos uma subdivisão central
+(cima, centro) e em seguida uma subdivisão de aresta, para cada aresta
+do triângulo inicial, obtendo a primeira iteração da subdivisão
+baricêntrica (cima, direita). O processo é repetido para cada
+subtriângulo da primeira iteração e obtemos a segunda iteração (baixo,
+direita). </figcaption>
+</figure>
+<p>A versão estelar do Lema de Sperner pode parecer mais fraca que as
+outras versões que vimos, pois se aplica apenas a triangulações obtidas
+através de uma sequência de subdivisões estelares. Mas, em geral, esse é
+o caso nas aplicações do Lema de Sperner <a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>,
+com frequência usamos <em>subdivisões baricêntricas</em>, por exemplo,
+que podem ser expressas em termos de subdivisões estelares (ver figura
+<a href="#fig:barysub" data-reference-type="ref"
+data-reference="fig:barysub">7</a>).</p>
+<p>Gosto desse argumento porque ele é quase óbvio: uma quantidade de
+objetos é ímpar porque ela é o resultado de um processo que, começando
+de um objeto, sempre acrescenta ou remove pares de objetos.</p>
+<h1 id="o-teorema-do-ponto-fixo-de-brouwer">O Teorema do Ponto Fixo de
+Brouwer</h1>
+<p>Vamos agora esboçar brevemente a demonstração do Teorema do Ponto
+Fixo de Brouwer através do Lema de Sperner. Vamos considerar apenas o
+caso de uma aplicação contínua <span
+class="math inline">\(f:\Delta\rightarrow\Delta\)</span> do triângulo
+<span class="math inline">\(\Delta=\langle v_0,v_1,v_2\rangle\)</span>
+em si mesmo. Para poder aplicar o Lema de Sperner, precisamos atribuir
+um rótulo <span class="math inline">\(L(v)\in\{0,1,2\}\)</span> aos
+vértices das triangulações que vamos construir. Essa atribuição fica
+mais simples se usarmos <em>coordenadas baricêntricas</em>. Cada ponto
+<span class="math inline">\(p\in \Delta\)</span> pode ser localizado de
+maneira única pelo vetor <span
+class="math inline">\(w(p)=(w_0(p),w_1(p),w_2(p))\)</span>, com <span
+class="math display">\[\begin{aligned}
+w_0(p)&amp;=\frac{\mathop{\mathrm{Area}}\langle p,v_1,v_2\rangle}
+{\mathop{\mathrm{Area}}\langle v_0,v_1,v_2\rangle}  \\
+w_1(p)&amp;=\frac{\mathop{\mathrm{Area}}\langle v_0,p,v_2\rangle}
+{\mathop{\mathrm{Area}}\langle v_0,v_1,v_2\rangle}  \\
+w_2(p)&amp;=\frac{\mathop{\mathrm{Area}}\langle v_0,v_1,p\rangle}
+{\mathop{\mathrm{Area}}\langle v_0,v_1,v_2\rangle},  
+\end{aligned}\]</span> onde claramente <span
+class="math inline">\(w_i\geq 0\)</span> e <span
+class="math display">\[w_0(p)+w_1(p)+w_2(p)=1.\]</span> Também é fácil
+verificar que um ponto <span class="math inline">\(p\)</span> está na
+aresta <span class="math inline">\(\partial_i\Delta\)</span> se, e
+somente se, <span class="math inline">\(w_i(p)=0\)</span>.</p>
+<p>Vamos definir agora a função <span
+class="math display">\[g(p)=(g_0(p),
+g_1(p), g_2(p)),\]</span> com <span
+class="math display">\[\begin{aligned}
+g_0(p)&amp;=w_0(f(p))-w_0(p)  \\
+g_1(p)&amp;=w_1(f(p))-w_1(p)  \\
+g_2(p)&amp;=w_2(f(p))-w_2(p).
+\end{aligned}\]</span> Note que <span
+class="math display">\[\label{eq:barvec}
+    g_0(p)+g_1(p)+g_2(p)=1-1=0\]</span> e <span
+class="math inline">\(g(p)=(0,0,0)\)</span> se, e somente se <span
+class="math inline">\(p=f(p)\)</span>, ou seja, se <span
+class="math inline">\(p\)</span> é um ponto fixo de <span
+class="math inline">\(f\)</span>. Esse vetor <span
+class="math inline">\(g(p)\)</span> é o vetor que liga <span
+class="math inline">\(p\)</span> a <span
+class="math inline">\(f(p)\)</span> expresso em coordenadas
+baricêntricas e que, intuitivamente, aponta para o interior, sempre que
+<span class="math inline">\(p\)</span> está sobre a fronteira de <span
+class="math inline">\(\Delta\)</span>.</p>
+<p>Suponha agora que <span class="math inline">\(p\)</span> não é um
+ponto fixo, de modo que nem todas as coordenadas de <span
+class="math inline">\(g(p)\)</span> são nulas. Pela equação (<a
+href="#eq:barvec" data-reference-type="ref"
+data-reference="eq:barvec">[eq:barvec]</a>), ao menos uma das
+coordenadas de <span class="math inline">\(g(p)\)</span> é negativa e ao
+menos uma é positiva. Seja <span class="math inline">\(L(p)\)</span> o
+índice da menor coordenada de <span class="math inline">\(g(p)\)</span>
+(se existirem duas coordenadas iguais e negativas, seja <span
+class="math inline">\(L(p)\)</span> o menor dos índices). Assim, <span
+class="math display">\[g_{L(p)}(p)&lt;0.\]</span> Se <span
+class="math inline">\(p\)</span> está na aresta <span
+class="math inline">\(\partial_i\Delta\)</span>, então <span
+class="math inline">\(w_i(p)=0\)</span> e consequentemente <span
+class="math inline">\(g_i(p)=w_i(f(p))\geq 0\)</span>, que não é um
+valor negativo, portanto <span class="math inline">\(i\)</span> é
+diferente de <span class="math inline">\(L(p)\)</span>, logo <span
+class="math display">\[p\in\partial_i \Delta\Rightarrow
+L(p)\neq i,\]</span> que é a condição para uma rotulação ser
+própria.</p>
+<p>Se <span class="math inline">\(p\)</span> é um ponto fixo, por acaso,
+atribuímos a <span class="math inline">\(L(p)\)</span> um índice
+arbitrário que garanta que a rotulação seja própria. Por exemplo,
+podemos fazer <span class="math inline">\(L(p)=0\)</span> se <span
+class="math inline">\(p\notin\partial_0\Delta\)</span> e <span
+class="math inline">\(L(p)=1\)</span>, caso contrário.</p>
+<p>Em qualquer dos casos, temos que a função de rotulação <span
+class="math inline">\(L\)</span> satisfaz <span
+class="math display">\[\label{eq:cond}
+    g_{L(p)}(p)\leq 0.\]</span></p>
+<p>Vamos construir agora uma sequência <span
+class="math inline">\(T_i\)</span> de triangulações de <span
+class="math inline">\(\Delta\)</span> que vão ficando cada vez mais
+refinadas à medida que <span class="math inline">\(i\)</span> cresce, ou
+seja, <span class="math inline">\(T_i\)</span> é tal que o diâmetro do
+subtriângulo de maior diâmetro de <span
+class="math inline">\(T_i\)</span> tende a zero quando <span
+class="math inline">\(i\)</span> tende a infinito. Podemos obter essa
+sequência tomando sucessivas subdivisões baricêntricas do triângulo
+<span class="math inline">\(\Delta\)</span>, por exemplo.</p>
+<p>Rotulando os vértices de cada <span
+class="math inline">\(T_i\)</span> com a função <span
+class="math inline">\(L\)</span> e aplicando o Lema de Sperner, obtemos
+uma sequência de triângulos completos <span
+class="math inline">\(\tau_i\in T_i\)</span> cujos diâmetros tendem a
+zero quando <span class="math inline">\(i\)</span> tende a infinito.
+Façamos <span class="math inline">\(p_{j,i}\)</span> o vértice de <span
+class="math inline">\(\tau_i\)</span> rotulado com o índice <span
+class="math inline">\(j\)</span> (assim, <span
+class="math inline">\(L(p_{j,i})=j\)</span>) e <span
+class="math inline">\(p_i\)</span> o baricentro de <span
+class="math inline">\(\tau_i\)</span>, ou seja, <span
+class="math display">\[p_i=\frac{p_{0,i}+p_{1,i}+p_{2,i}}{3}.\]</span></p>
+<p>Como <span class="math inline">\(\Delta\)</span> é um conjunto
+compacto, <span class="math inline">\(p_i\)</span> possui uma
+subsequência convergente, de modo que, passando a uma subsequência de
+<span class="math inline">\(p_i\)</span> se necessário, podemos assumir
+que <span class="math inline">\(p_i\)</span> converge para um certo
+ponto <span class="math inline">\(p\)</span>.</p>
+<p>Vamos mostrar que este ponto <span class="math inline">\(p\)</span> é
+um ponto fixo de <span class="math inline">\(f\)</span>. Como o diâmetro
+de <span class="math inline">\(\tau_i\)</span> tende a zero, isso
+significa que seus vértices <span class="math inline">\(p_{j,i}\)</span>
+também convergem para <span class="math inline">\(p\)</span>. Ora, como
+<span class="math inline">\(g\)</span> é uma função contínua, segue que
+<span class="math inline">\(g(p_{j,i})\)</span> converge para <span
+class="math inline">\(g(p)\)</span>. Mas pela equação (<a
+href="#eq:cond" data-reference-type="ref"
+data-reference="eq:cond">[eq:cond]</a>), <span
+class="math inline">\(g_j(p_{j,i})\leq 0\)</span>, portanto <span
+class="math inline">\(g_j(p)\leq 0\)</span> e pela equação (<a
+href="#eq:barvec" data-reference-type="ref"
+data-reference="eq:barvec">[eq:barvec]</a>), a única chance disso
+ocorrer é se <span class="math inline">\(g(p)=(0,0,0)\)</span>, logo
+<span class="math inline">\(p\)</span> é um ponto fixo.</p>
+<p>Esse argumento é uma adaptação do que li no livro de M. Henle citado
+acima. Mas é possível demonstrar o Teorema de Brouwer usando o Lema de
+Sperner também usando a ideia de <em>retração</em> <span
+class="citation" data-cites="huang">(Huang 2004)</span> ou a ideia de
+<em>cobertura de fechados</em> <span class="citation"
+data-cites="aleksandrov">(Aleksandrov 1956)</span>, que foi o método
+usado por Knaster, Kuratowski e Mazurkiewicz na década de <span
+class="math inline">\(20\)</span>, o que mostra mais uma vez a
+flexibilidade do Lema de Sperner.</p>
+<h1 id="conclusão">Conclusão</h1>
+<p>Acho que ficou claro o quanto gosto do Lema de Sperner. Espero que
+este artigo sirva para despertar o interesse pelo “Meu Teorema Favorito”
+e pela Matemática em geral nas novas gerações. Algumas das figuras
+exibidas neste artigo foram geradas manipulando um <em>site</em>
+interativo que desenvolvi e que está diponível em <a
+href="https://observablehq.com/@vinicius-mello/sperners-lemma"
+class="uri">https://observablehq.com/@vinicius-mello/sperners-lemma</a>.</p>
+<div class="wrapfigure">
+<p><span>L</span><span>1.7cm</span> <img src="Vinicius.jpg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Vinícius Mello nasceu em Salvador e obteve seu doutorado em
+Computação Gráfica no IMPA. Ensina matemática na UFBA e fica alegre
+sempre que pode usar o GeoGebra em suas aulas. Gosta de matemática,
+música e programação em exata proporção, podendo ser encontrado a
+(quase) qualquer momento fazendo ao menos uma dessas coisas.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-aleksandrov" class="csl-entry" role="listitem">
+Aleksandrov, P. S. 1956. <em><span>Combinatorial Topology, Vol.
+1</span></em>. Baltimore: <span>Graylock Press</span>.
+</div>
+<div id="ref-azambuja" class="csl-entry" role="listitem">
+Azambuja, Thadeu Augusto Rocha de. 2014. <span>“<span class="nocase">Os
+Lemas de Sperner no Ensino Médio e uma modesta introdução à
+Topologia</span>.”</span> Master’s thesis, <span>Profmat/UNESP</span>.
+</div>
+<div id="ref-Bazett" class="csl-entry" role="listitem">
+Bazett, Trefor. 2018. <span>“<span class="nocase">A beautiful
+combinatorical proof of the Brouwer Fixed Point Theorem - Via Sperner’s
+Lemma</span>.”</span> <a
+href="https://www.youtube.com/watch?v=oX9aPNF6_h8"
+class="uri">https://www.youtube.com/watch?v=oX9aPNF6_h8</a>.
+</div>
+<div id="ref-brown" class="csl-entry" role="listitem">
+Brown, A. B., and S. S. Cairns. 1961. <span>“<span
+class="nocase">Strengthening of Sperner’s lemma applied to homology
+theory</span>.”</span> <em>Proc Natl Acad Sci U S A</em> 1 (47): 113–14.
+</div>
+<div id="ref-cohen" class="csl-entry" role="listitem">
+Cohen, Daniel I. A. 1967. <span>“<span class="nocase">On the Sperner
+Lemma</span>.”</span> <em>Journal of Combinatorial Theory</em> 2 (4):
+585–87.
+</div>
+<div id="ref-dieudonne" class="csl-entry" role="listitem">
+Dieudonné, Jean. 1989. <em>A History of Algebraic and Differential
+Topology, 1900-1960</em>. Boston: Birkh<span>ä</span>user.
+</div>
+<div id="ref-tib" class="csl-entry" role="listitem">
+Dröge, Walter, Helmut Göttlich, and Friedrich Wille. 1982.<span>“<span>
+Das Spernersche Lemma</span>.”</span> <a
+href="https://av.tib.eu/media/11510"
+class="uri">https://av.tib.eu/media/11510</a>.
+</div>
+<div id="ref-kyfan" class="csl-entry" role="listitem">
+Fan, Ky. 1958. <span>“Topological Proofs for Certain Theorems on
+Matrices with Non-Negative Elements.”</span> <em>Monatshefte
+f<span>ü</span>r Mathematik</em> 62 (3): 219–37. <a
+href="https://doi.org/10.1007/BF01303967">https://doi.org/10.1007/BF01303967</a>.
+</div>
+<div id="ref-fonseca" class="csl-entry" role="listitem">
+Fonseca, Julio Cesar Santos da. 2017. <span>“<span class="nocase">O Lema
+de Sperner como uma Ferramenta para realizar Divisões</span>.”</span>
+Master’s thesis, <span>Profmat/UFBA</span>.
+</div>
+<div id="ref-henle" class="csl-entry" role="listitem">
+Henle, M. 1994. <em>A Combinatorial Introduction to Topology</em>. Dover
+Books on Mathematics Series. Dover. <a
+href="https://books.google.com.br/books?id=S0RJYkBxowEC">https://books.google.com.br/books?id=S0RJYkBxowEC</a>.
+</div>
+<div id="ref-huang" class="csl-entry" role="listitem">
+Huang, J. 2004. <span>“<span class="nocase">On the Sperner Lemma and its
+Applications</span>.”</span> <a
+href="http://jonathan-huang.org/research/old/sperner.pdf"
+class="uri">http://jonathan-huang.org/research/old/sperner.pdf</a>.
+</div>
+<div id="ref-ivanov" class="csl-entry" role="listitem">
+Ivanov, Nikolai V. 2019. <span>“<span class="nocase">The lemmas of
+Alexander and Sperner</span>.”</span> <a
+href="https://arxiv.org/abs/1909.00940"
+class="uri">https://arxiv.org/abs/1909.00940</a>; arXiv. <a
+href="https://doi.org/10.48550/ARXIV.1909.00940">https://doi.org/10.48550/ARXIV.1909.00940</a>.
+</div>
+<div id="ref-Izmestiev" class="csl-entry" role="listitem">
+Izmestiev, Ivan, and Jean-Marc Schlenker. 2010. <span>“Infinitesimal
+Rigidity of Polyhedra with Vertices in Convex Position.”</span>
+<em>Pacific Journal of Mathematics</em> 248 (1): 171–90. <a
+href="https://doi.org/10.2140/pjm.2010.248.171">https://doi.org/10.2140/pjm.2010.248.171</a>.
+</div>
+<div id="ref-tyler" class="csl-entry" role="listitem">
+Jarvis, Tyler, and James Tanton. 2004. <span>“<span class="nocase">The
+Hairy Ball Theorem via Sperner’s Lemma</span>.”</span> <em>The American
+Mathematical Monthly</em> 111 (7): 599–603. <a
+href="https://doi.org/10.1080/00029890.2004.11920120">https://doi.org/10.1080/00029890.2004.11920120</a>.
+</div>
+<div id="ref-kuhn" class="csl-entry" role="listitem">
+Kuhn, H. W. 1974. <span>“A New Proof of the Fundamental Theorem of
+Algebra.”</span> In <em>Pivoting and Extension: In Honor of a.w.
+Tucker</em>, 148–58. Berlin, Heidelberg: Springer Berlin Heidelberg. <a
+href="https://doi.org/10.1007/BFb0121246">https://doi.org/10.1007/BFb0121246</a>.
+</div>
+<div id="ref-lickorish1999simplicial" class="csl-entry" role="listitem">
+Lickorish, William Bernard Raymond. 1999. <span>“Simplicial Moves on
+Complexes and Manifolds.”</span> <em>Geometry and Topology
+Monographs</em> 2 (299-320): 314.
+</div>
+<div id="ref-lima" class="csl-entry" role="listitem">
+Lima, E. L. 2009. <em>Homologia b<span>á</span>sica</em>. Projeto
+Euclides. IMPA. <a
+href="https://books.google.com.br/books?id=hJVgQwAACAAJ">https://books.google.com.br/books?id=hJVgQwAACAAJ</a>.
+</div>
+<div id="ref-mclennan" class="csl-entry" role="listitem">
+McLennan, Andrew, and Rabee Tourky. 2008. <span>“<span
+class="nocase">Using Volume to Prove Sperner’s Lemma</span>.”</span>
+<em>Economic Theory</em> 35 (3): 593–97.
+</div>
+<div id="ref-mello" class="csl-entry" role="listitem">
+Mello, Vinícius. 2006. <span>“<span class="nocase">Novos Métodos
+Simpliciais em Computação Gráfica</span>.”</span> PhD thesis,
+<span>IMPA</span>.
+</div>
+<div id="ref-park" class="csl-entry" role="listitem">
+Park, Sehie. 1999. <span>“<span class="nocase">Ninety Years of the
+Brouwer Fixed Point Theorem</span>.”</span> <em>Vietnam Journal of
+Mathematics</em> 27 (January).
+</div>
+<div id="ref-mathologer" class="csl-entry" role="listitem">
+Polster (Mathologer), Burkard. 2017. <span>“<span class="nocase">NYT:
+Sperner’s lemma defeats the rental harmony problem</span>.”</span> <a
+href="https://www.youtube.com/watch?v=7s-YM-kcKME"
+class="uri">https://www.youtube.com/watch?v=7s-YM-kcKME</a>.
+</div>
+<div id="ref-shashkin" class="csl-entry" role="listitem">
+Shashkin, Yu. A. 1994. <span>“<span class="nocase">Local degrees of
+simplicial mappings</span>.”</span> <em>Publ. Math. Debrecen</em> 45
+(3–4): 407–13.
+</div>
+<div id="ref-sperner" class="csl-entry" role="listitem">
+Sperner, Emanuel. 1928. <span>“<span class="nocase">Neuer Beweis f<span
+class="nocase">ü</span>r die Invarianz der Dimensionszahl und des
+Gebietes</span>.”</span> <em>Abhandlungen Aus Dem Mathematischen Seminar
+Der Universit<span>ä</span>t Hamburg</em> 6 (1): 265–72.
+</div>
+<div id="ref-su" class="csl-entry" role="listitem">
+Su, Francis Edward. 1999. <span>“Rental Harmony: Sperner’s Lemma in Fair
+Division.”</span> <em>The American Mathematical Monthly</em> 106 (10):
+930–42. <a
+href="https://doi.org/10.1080/00029890.1999.12005142">https://doi.org/10.1080/00029890.1999.12005142</a>.
+</div>
+<div id="ref-yoseloff" class="csl-entry" role="listitem">
+Yoseloff, Mark. 1974. <span>“<span class="nocase">Topologic Proofs of
+Some Combinatorial Theorems</span>.”</span> <em>Journal of Combinatorial
+Theory, Series A</em> 17 (1): 95–111. https://doi.org/<a
+href="https://doi.org/10.1016/0097-3165(74)90031-4">https://doi.org/10.1016/0097-3165(74)90031-4</a>.
+</div>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Existe uma outra proposição também devida a Sperner, a
+qual descreve as maiores famílias possíveis de conjuntos finitos, nenhum
+dos quais contém quaisquer outros conjuntos na família, que por vezes
+também é chamada “Lema de Sperner”.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Existem também generalizações do Lema de Sperner que
+foram descobertas por Tucker e Fan (ver <span class="citation"
+data-cites="shashkin">(Shashkin 1994)</span>).<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Além disso, toda triangulação de um <span
+class="math inline">\(n\)</span>-simplexo pode ser obtida através de uma
+sequência de subdivisões estelares e suas inversas. Isso foi demonstrado
+por Newman, no caso combinatório, e por Morelli e Wlodarczyk, no caso
+geométrico. Mas esses resultados são difíceis (cf. Seção 2 de <span
+class="citation" data-cites="Izmestiev">(Izmestiev and Schlenker
+2010)</span>).<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

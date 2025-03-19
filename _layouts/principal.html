@@ -1,21 +1,55 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Revista de Matemática Hipátia</title>
-</head>
-<body>
-<header id="title-block-header">
-  <h1 class="title">Revista de Matemática Hipátia</h1>
-  <ul>
-   {% for item in page.editions %}
-   <li>
-     <a href="{{ item.url }}/index.html">{{ item.volnum }}</a>
-   </li>
-   {% endfor %}
-  </ul>
-</header>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Revista de Matemática Hipátia</title>
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheet.css" media="screen" />
+    {% include font.html %}
+  </head>
+  <body>
+    <header>
+      <img src="/assets/banner.png" alt="Logo" height="240px" > 
+    </header>
+    <main>
+      <h2>Notícias</h2>
+      {% for post in site.posts %}
+        <article>
+          <h3>{{ post.date | date: "%-d/%m/%y" }} - {{ post.title }}</h3>
+          {{ post.content }}
+        </article>
+      {% endfor %}
+    </main>
+    <aside>
+      <section>
+        <h2>Sobre</h2>
+        A <strong>Revista de Matemática Hipátia</strong> é uma publicação semestral do Instituto de Matemática e Estatística da UFBA e tem como principal público alvo, professores e estudantes do ensino fundamental e médio. Tem como meta ser um veículo de: difusão cultural, integração Universidade/Escola, espaço de criação e reflexão crítica sobre a ciência Matemática.
+      </section>
+      <section>
+        <h2>Edições</h2>
+        <nav>
+          <ul>
+          {% for item in page.editions %}
+            <li>
+              <a href="{{ item.url }}/index.html">{{ item.volnum }}</a>
+            </li>
+          {% endfor %}
+          </ul>
+        </nav>
+      </section>
+      <section>
+        <h2>Links</h2>
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </section>
+    </aside>
+    <footer>
+      <hr/>
+      <address>
+        <a href="mailto:hipatia@ufba.br">hipatia@ufba.br</a>  
+      </address>
+    </footer>
+  </body>
 </html>

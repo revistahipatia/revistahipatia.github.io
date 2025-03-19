@@ -1,24 +1,40 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>{{ page.edition }}</title>
-</head>
-<body>
-<header id="title-block-header">
-  <h1 class="title">{{ page.edition }}</h1>
-  <ul>
-   {% for item in page.sections %}
-   <li>
-     <div class="sec_name"> {{item.section}}<div>
-     <a href="{{ item.url }}/{{ item.url }}.html">{{ item.title }}</a>
-     <div class="sec_author"> {{item.author}}<div>
-     <div class="sec_pages"> Páginas: {{item.pages}}<div>
-   </li>
-   {% endfor %}
-  </ul>
-</header>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{page.edition}}</title>
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheet.css" media="screen" />
+    {% include font.html %}
+  </head>
+  <body>
+    <header>
+      <a href="/"><img src="/assets/banner.png" alt="Logo" height="240px" ></a> 
+    </header>
+    <main>
+      <summary>
+        <h2>{{ page.edition }}</h2>
+        <ul>
+         {% for item in page.sections %}
+         <li>
+           <div class="sec_name"> {{item.section}}<div>
+           <a href="{{ item.url }}/{{ item.url }}.html">{{ item.title }}</a>
+           <div class="sec_author"> {{item.author}}<div>
+           <div class="sec_pages"> Páginas: {{item.pages}}<div>
+         </li>
+         {% endfor %}
+        </ul>
+      </summary>
+    </main>
+    <aside>
+      <a href="{{page.pdfurl}}"><img src="capa.png" alt="Capa" height="400px" ></a>
+      <p>Clique para baixar o PDF. </p>
+    </aside>
+    <footer>
+      <hr/>
+      <address>
+        <a href="mailto:hipatia@ufba.br">hipatia@ufba.br</a>  
+      </address>
+    </footer>
+  </body>
 </html>
