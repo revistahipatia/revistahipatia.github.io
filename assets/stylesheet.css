@@ -53,10 +53,12 @@ article.article h1 {
 }
 h3.subtitle {
     text-align: center;
+    font-size: 2em;
     font-variant: small-caps;
 }
 h1.title {
     text-align: center;
+    font-size: 2.5em;
 }
 p.author {
     font-style: italic;

@@ -1,0 +1,580 @@
+---
+layout: artigo
+title: O Encontro na Cafeteria e Outros Problemas
+subtitle: Problema
+author: Yure Carneiro e Samuel Feitosa
+---
+<h1 id="soluções-da-edição-anterior">Soluções da Edição Anterior</h1>
+<div class="problem*">
+<p><strong>Problema 1</strong>. <em>Calcule o valor de <span
+class="math inline">\(\int_0^{\pi/2} \frac{dx}{1 + (\mathop{\rm
+tg}x)^{2022}}\)</span> é</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 1</strong>. <em>Seja <span
+class="math display">\[\begin{aligned}
+I &amp; = &amp; \int_0^{\pi/2} \frac{dx}{1 + (\mathop{\rm tg}x)^{2022}}
+\\
+  &amp; = &amp; \int_0^{\pi/2} \frac{(\cos x)^{2022}
+dx}{(\mathop{\mathrm{sen}}x)^{2022} + (\cos x)^{2022}}
+\end{aligned}\]</span></em></p>
+<p><em>Com a mudança de variável <span
+class="math inline">\(y=\pi/2-x\)</span>, temos <span
+class="math inline">\(dy = -dx\)</span> e</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+I &amp; = &amp;  \int_{\pi/2}^0 \frac{(\cos (\pi/2-y))^{2022}
+(-dy)}{(\mathop{\mathrm{sen}}(\pi/2-y))^{2022} + (\cos
+(\pi/2-y))^{2022}} \\
+&amp; = &amp; \int_0^{\pi/2} \frac{(\mathop{\mathrm{sen}}y)^{2022}
+dy}{(\mathop{\mathrm{sen}}y)^{2022} + (\cos y)^{2022}}
+\end{aligned}\]</span> Portanto, <span class="math display">\[I + I =
+\int_0^{\pi/2} \frac{(\mathop{\mathrm{sen}}x)^{2022}+(\cos x)^{2022}
+dx}{(\mathop{\mathrm{sen}}x)^{2022}+(\cos x)^{2022}} =
+\dfrac{\pi}{2}.\]</span> Assim, <span
+class="math inline">\(I=\dfrac{\pi}{4}\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 2</strong>. <em>Encontre o valor de</em></p>
+<p><em><span class="math display">\[\displaystyle \int_0^{\pi/2} \cos^2
+(\cos x)dx + \int_0^{\pi/2} \mathop{\mathrm{sen}}^2
+(\mathop{\mathrm{sen}}x)dx .\]</span></em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 2</strong>. <em>Com a mudança de variável <span
+class="math inline">\(y=\pi/2-x\)</span>, temos <span
+class="math inline">\(dy = -dx\)</span> e <span
+class="math display">\[\begin{aligned}
+\int_0^{\pi/2} \mathop{\mathrm{sen}}^2 (\mathop{\mathrm{sen}}x)dx &amp;
+= &amp; \int_{\pi/2}^{0} \mathop{\mathrm{sen}}^2
+(\mathop{\mathrm{sen}}(\pi/2-y))(-dy) \\
+                                &amp; = &amp; \int_{0}^{\pi/2}
+\mathop{\mathrm{sen}}^2 (\cos y)dy \\
+\end{aligned}\]</span> Como <span class="math inline">\(\cos^2 (\cos
+x)+\mathop{\mathrm{sen}}^2(\cos x)=1\)</span>, segue que <span
+class="math display">\[\begin{aligned}
+\int_0^{\pi/2} \cos^2 (\cos x)dx + \int_0^{\pi/2}
+\mathop{\mathrm{sen}}^2 (\mathop{\mathrm{sen}}x)dx &amp; = &amp; \\
+\int_0^{\pi/2} \cos^2 (\cos x)dx + \int_0^{\pi/2}
+\mathop{\mathrm{sen}}^2 (\cos x)dx &amp; = &amp; \\
+\int_0^{\pi/2} 1 dx &amp; = &amp; \pi/2
+\end{aligned}\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 3</strong>. <em>Seja <span
+class="math inline">\(A_{2022} = (a_{ij})\)</span> a matriz <span
+class="math inline">\(2022 \times 2022\)</span> definida por</em></p>
+<p><em><span class="math display">\[a_{ij} = \left \{ \begin{array}{cl}
+\sqrt{3}, &amp; \text{se}\,\,i=j \\1, &amp; \text{se}\,\,|i-j|=1 \\ 0
+&amp; \text{caso contrário} \end{array} \right .\]</span></em></p>
+<p><em>Encontre o valor de <span class="math inline">\(\det
+A_{2022}\)</span>.</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 3</strong>. <em>Defina como <span
+class="math inline">\(A_n\)</span> uma matriz <span
+class="math inline">\(n \times n\)</span> definida pelas mesmas regras e
+seja <span class="math inline">\(D_n = \det A_n\)</span>. Pelo
+desenvolimento do determinante pela regra de Laplace com relação a
+primeira linha, temos <span class="math display">\[D_n =
+\sqrt{3}D_{n-1}-D_{n-2}.\]</span> A equação característica é</em></p>
+<p><em><span class="math display">\[x^2-\sqrt{3}x+1=0,\]</span></em></p>
+<p><em>que possui como raízes <span
+class="math inline">\(\dfrac{\sqrt{3}\pm i}{2} = -iw\)</span> ou <span
+class="math inline">\(iw^2\)</span>. Aqui <span
+class="math inline">\(w=\dfrac{-1+i\sqrt{3}}{2}\)</span> é raíz cúbica
+da unidade, i.e, <span class="math inline">\(w^3=1\)</span>. Resolvendo
+a recorrência, encontramos <span class="math display">\[D_n =
+\dfrac{(-iw)^{2n+2}-1}{(-iw)^n((-iw)^2-1)}\]</span> Daí, usando que
+<span class="math inline">\(w^3=1\)</span> e <span
+class="math inline">\(w^2+w+1=0\)</span>, temos <span
+class="math display">\[\begin{aligned}
+D_{2022} &amp; = &amp; \dfrac{(-iw)^{4046}-1}{(-iw)^{2022}((-iw)^2-1)}
+\\
+         &amp; = &amp; \dfrac{-w^2-1}{-(-w^2-1)} \\
+         &amp; = &amp; \dfrac{w}{-w} \\
+         &amp; = &amp; -1.
+\end{aligned}\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 4</strong>. <em>Sejam <span class="math inline">\(z
+= e^{\frac{2\pi i}{2023}} = \cos \frac{2\pi}{2023} +
+i\mathop{\mathrm{sen}}\frac{2\pi}{2023}\)</span>, <span
+class="math display">\[A = \{1, z, z^2, \ldots, z^{2022} \}\]</span> e
+<span class="math display">\[B = \{1, 1+z, 1+z+z^2, \ldots, 1+z+z^2+
+\ldots+ z^{2022} \}.\]</span></em></p>
+<p><em>Determine o número de elementos de <span class="math inline">\(A
+\cap B\)</span>.</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 4</strong>. <em>Provaremos que <span
+class="math inline">\(A \cap B = \{1\}\)</span>. Inicialmente, é claro
+que <span class="math inline">\(1 \in A \cap B\)</span>. Por outro lado,
+veremos que não há outros elementos na interseção. Para isso, vamos
+mostrar que <span class="math inline">\(|1 + z + z^2 + \ldots + z^n|
+\neq 1\)</span> para todo <span class="math inline">\(1 \le n \le
+2022\)</span>. Veja que <span class="math display">\[1 + z + z^2 +
+\ldots + z^n = \frac{z^{n+1}-1}{z-1}\]</span> e, portanto, <span
+class="math display">\[|1 + z + z^2 + \ldots + z^n| =
+\frac{|z^{n+1}-1|}{|z-1|}.\]</span> Usando que <span
+class="math inline">\(e^{i\theta}-1 = 2i
+\mathop{\mathrm{sen}}(\theta/2)e^{i\theta/2}\)</span>, segue que <span
+class="math display">\[|1 + z + z^2 + \ldots + z^n| =
+\frac{\sin\left(\frac{(n+1)\pi}{2023}\right)}{\sin\left(\frac{\pi}{2023}\right)}.\]</span>
+Para <span class="math inline">\(1 \le n \le 2022\)</span>, temos que
+<span class="math inline">\(\mathop{\mathrm{sen}}((n+1)\pi/2023) \ge
+0\)</span> e <span class="math inline">\(\mathop{\mathrm{sen}}(\pi/2023)
+&gt; 0\)</span>. Dessa forma, só poderíamos ter <span
+class="math inline">\(|1 + z + z^2 + \ldots + z^n| = 1\)</span> caso
+<span class="math inline">\(\mathop{\mathrm{sen}}((n+1)\pi/2023) =
+\mathop{\mathrm{sen}}(\pi/2023)\)</span>, o que é impossível para <span
+class="math inline">\(1 \le n \le 2022\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 5</strong>. <em>O famoso <span><em>Problema da
+Basileia</em></span><a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> nos permite descobrir que</em></p>
+<p><em><span class="math display">\[\dfrac{\pi^2}{8} =
+\dfrac{1}{1^2}+\dfrac{1}{3^2}+\dfrac{1}{5^2}+\dfrac{1}{7^2}+\ldots
+.\]</span></em></p>
+<p><em>Vamos usar a série anterior para encontrar a soma de outra série.
+Para cada <span class="math inline">\(n \in \mathbb{N}\)</span>, defina
+como <span class="math inline">\(a_n\)</span> seu maior divisor positivo
+ímpar. Por exemplo, <span class="math inline">\(a_{30} = 15\)</span> e
+<span class="math inline">\(a_{24}=3\)</span>. Encontre o valor da
+soma:</em></p>
+<p><em><span class="math display">\[S =
+\dfrac{a_1}{1^3}+\dfrac{a_2}{2^3}+\dfrac{a_3}{3^3}+\ldots
+.\]</span></em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 5</strong>. <em>Considere as séries
+geométricas</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+\dfrac{1}{1^3}+\dfrac{1}{(1\cdot 2)^3}+\dfrac{1}{(1\cdot
+2^2)^3}+\dfrac{1}{(1\cdot 2^3)^3} + \ldots  &amp; = &amp; \dfrac{8}{7}
+\\
+\dfrac{1}{1^3}+\dfrac{1}{(3\cdot 2)^3}+\dfrac{1}{(3\cdot
+2^2)^3}+\dfrac{1}{(3\cdot 2^3)^3} + \ldots  &amp; = &amp; \dfrac{8}{7}
+\cdot \dfrac{1}{3^2} \\
+\dfrac{1}{5^3}+\dfrac{1}{(5\cdot 2)^3}+\dfrac{1}{(5\cdot
+2^2)^3}+\dfrac{1}{(5\cdot 2^3)^3} + \ldots  &amp; = &amp; \dfrac{8}{7}
+\cdot \dfrac{1}{5^2} \\  
+\dfrac{1}{7^3}+\dfrac{1}{(7\cdot 2)^3}+\dfrac{1}{(7\cdot
+2^2)^3}+\dfrac{1}{(7\cdot 2^3)^3} + \ldots  &amp; = &amp; \dfrac{8}{7}
+\cdot \dfrac{1}{7^2} \\
+                  &amp; \vdots &amp;
+\end{aligned}\]</span> Cada fração <span
+class="math inline">\(\dfrac{a_n}{n^3}\)</span> aparece exatamente uma
+vez em cada uma dessas séries. Portanto, a soma desejada é:</em></p>
+<p><em><span class="math display">\[\dfrac{8}{7} \cdot \left (
+\dfrac{1}{1^2}+ \dfrac{1}{3^2}+\dfrac{1}{5^2}+\dfrac{1}{7^2} + \ldots
+\right ) = \dfrac{8}{7} \cdot \dfrac{\pi^2}{8}
+=\dfrac{\pi^2}{7}.\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 6</strong>. <em>Bernardo está brincando de desenhar
+quadriláteros em um papel pontilhado como o da imagem a seguir. Os
+pontos pretos são vértices de quadradinhos de lado <span
+class="math inline">\(1\,cm\)</span> e os quadriláteros desenhados só
+podem usar como vértices os pontos pretos.</em></p>
+<figure>
+<img src="F51.png" />
+</figure>
+<p><em>A letra <span class="math inline">\(I\)</span> representa o
+número de pontos pretos no interior de cada quadrilátero.</em></p>
+<ol type="a">
+<li><p><em>Dê exemplos, por meio de um desenho, de quadrados com <span
+class="math inline">\(I=4\)</span> e <span
+class="math inline">\(I=9\)</span> no papel pontilhado.</em></p></li>
+<li><p><em>Explique como Bernardo pode desenhar losangos contendo
+qualquer valor de pontos interiores desejado.</em></p></li>
+<li><p><em>Qual é a menor área possível para um triângulo com vértices
+nos pontos do papel?</em></p></li>
+</ol>
+</div>
+<div class="solution*">
+<p><strong>Solução 6</strong>. </p>
+<ol type="a">
+<li><p><em>Dois quadrados, um com <span
+class="math inline">\(I=4\)</span> e outro com <span
+class="math inline">\(I=9\)</span>:</em></p>
+<figure>
+<img src="F54.png" />
+</figure></li>
+<li><p><em>Se <span class="math inline">\(I\)</span> é um número ímpar,
+podemos dispor <span class="math inline">\(I+2\)</span> pontos
+consecutivos na vertical e marcar como vértices do losango os extremos
+dessa sequência. Os outros dois vértices são os pontos nas verticais
+anterior e sucessora mais próximos do centro da sequência de pontos,
+como indicado nas figuras a seguir:</em></p>
+<figure>
+<img src="F56.png" />
+</figure>
+<p><em>Se <span class="math inline">\(I\)</span> é um número par,
+considere uma diagonal de <span class="math inline">\(I+2\)</span>
+pontos consecutivos formando <span
+class="math inline">\(45^{\circ}\)</span> com os lados do papel do
+reticulado. Os dois pontos extremos dessa diagonal serão vértices do
+losango. Os outros dois vértices são os <span
+class="math inline">\(2\)</span> pontos mais próximos do centro da
+diagonal, como indicado nas figuras a seguir:</em></p>
+<figure>
+<img src="F57.png" />
+</figure></li>
+<li><p><em>Dado qualquer triângulo com vértices nos reticulados, se dois
+de seus vértices estão na horizontal ou vertical (em relação aos lados
+do papel), a distância entre eles é um número inteiro <span
+class="math inline">\(b\)</span>. A altura <span
+class="math inline">\(h\)</span> do terceiro vértice a esses dois também
+é um inteiro <span class="math inline">\(h\)</span>. A área do triângulo
+é, portanto,</em></p>
+<p><em><span class="math display">\[\dfrac{b \cdot h}{2} \geq
+\dfrac{1}{2}\,\mathrm{cm}^2\]</span></em></p>
+<p><em>Veja que realmente existem triângulos com área <span
+class="math inline">\(1/2\)</span>. Basta considerar um quadradinho
+<span class="math inline">\(1 \times 1\)</span> do papel e dividi-lo ao
+meio por uma de suas diagonais. Veja que o argumento anterior mostra que
+a área de qualquer triângulo com lados paralelos aos lados da folha é da
+forma <span class="math inline">\(n/2\)</span>, em que <span
+class="math inline">\(n\)</span> é um número inteiro. Para terminar,
+precisamos considerar os triângulo <span
+class="math inline">\(ABC\)</span> que não possuem lados paralelos aos
+da folha, como na figura a seguir.</em></p>
+<figure>
+<img src="F59.png" />
+</figure>
+<p><em>Pelos seus vértices, trace retas paralelas aos lados das folhas.
+As interseções dessas retas são pontos dos reticulados, e, pelo
+argumento anterior, podemos garantir que as áreas das regiões <span
+class="math inline">\(I\)</span>, <span
+class="math inline">\(II\)</span> e <span
+class="math inline">\(III\)</span> são números da forma <span
+class="math inline">\(n/2\)</span>, com <span
+class="math inline">\(n\)</span> inteiro. Como a área de um retângulo
+com lados paralelos aos lados do tabuleiro é um número inteiro,
+contabilizando a diferença das áreas dos demais triângulos, podemos
+concluir que a área do triângulo <span class="math inline">\(IV\)</span>
+ou será um número inteiro ou metade de inteiro. Em qualquer caso, o seu
+valor mínimo é pelo menos <span
+class="math inline">\(1/2\)</span>.</em></p></li>
+</ol>
+<p><em>O Teorema de Pick permite calcular a área de qualquer polígono
+com vértices nos pontinhos da folha conhecendo o número de pontos
+interiores <span class="math inline">\(I\)</span> e o número de pontos
+no bordo da figura, que será chamado de <span
+class="math inline">\(B\)</span>, através da fórmula:</em></p>
+<p><em><span class="math display">\[A = I +
+\dfrac{B}{2}-1.\]</span></em></p>
+<figure>
+<img src="F58.png" />
+</figure>
+<p><em>Na figura anterior, <span class="math inline">\(B=13\)</span> e
+<span class="math inline">\(I=3\)</span>, e assim a área do polígono
+é:</em></p>
+<p><em><span class="math display">\[A = 3 + \dfrac{13}{2}-1 =
+8,5\,cm^2.\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 7</strong>. <em>O número de todos os inteiros
+positivos de 64 dígitos sem zeros em sua representação e que são
+divisíveis por <span class="math inline">\(101\)</span> é par ou
+ímpar?</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 7</strong>. <em>Precisamos criar alguma maneira de
+agrupar os números em pares. Seja <span class="math inline">\(A =
+\underbrace{11 \ldots 11}_{64\,\,\, vezes}0\)</span> repetições do
+número <span class="math inline">\(1\)</span>. Como <span
+class="math inline">\(1111\)</span> é múltiplo de <span
+class="math inline">\(101\)</span> é fácil ver que <span
+class="math inline">\(A\)</span> é múltiplo de <span
+class="math inline">\(101\)</span>. Para todo número de <span
+class="math inline">\(64\)</span> dígitos <span
+class="math inline">\(a=\overline{a_1a_2\ldots a_{63}a_{64}}\)</span>,
+sem zeros em sua representação decimal, considere o seu conjugado <span
+class="math inline">\(b = \overline{b_1b_2\ldots b_{63}b_{64}} =
+(10-a_1)(10-a_2) \ldots (10-a_{64})\)</span>. Nenhum dígito de <span
+class="math inline">\(a\)</span> é igual a zero, portanto, cada número
+<span class="math inline">\(10-a_i\)</span> pertence ao conjunto <span
+class="math inline">\(\{0,1,\ldots, 9\}\)</span>. Da equação <span
+class="math inline">\(a+b=A\)</span> obtemos que <span
+class="math inline">\(a\)</span> é divisível por <span
+class="math inline">\(101\)</span> se e somente se <span
+class="math inline">\(b\)</span> é divisível por <span
+class="math inline">\(101\)</span>(lembre-se que <span
+class="math inline">\(A\)</span> é múltiplo de <span
+class="math inline">\(101\)</span>). Como o único número que é igual ao
+seu conjugado é o número <span class="math inline">\(\underbrace{55
+\ldots 55}_{64\,\,\, vezes}\)</span>(que é múltiplo de <span
+class="math inline">\(101\)</span>) e os demais números que satisfazem o
+enunciado podem ser pareados, concluímos que a quantidade procurada é
+ímpar.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 8</strong>. <em>É possível arranjar os números <span
+class="math inline">\(1,1,2,2,3,3, \ldots, 1986,1986\)</span> em fila de
+modo que entre quaisquer dois <span
+class="math inline">\(i&#39;s\)</span> hajam <span
+class="math inline">\((i-1)\)</span> números?</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 8</strong>. <em>Vamos tentar fazer alguns casos
+pequenos. É fácil ver que não conseguimos fazer o que o enunciado pede
+com os números <span class="math inline">\(1,1,2,2\)</span> mas com os
+números <span class="math inline">\(1,1,2,2,3,3,4,4\)</span> temos um
+exemplo: <span class="math display">\[\begin{array}{cccccccc}
+1^{\circ} &amp; 2^{\circ} &amp; 3^{\circ} &amp; 4^{\circ} &amp;
+5^{\circ} &amp; 6^{\circ} &amp; 7^{\circ} &amp; 8^{\circ} \\
+a_3 &amp; a_4 &amp; a_2 &amp; b_3 &amp; b_2 &amp; b_4 &amp; a_1 &amp;
+b_1 \\
+{\bf 3}   &amp; {\bf 4}   &amp;  {\bf 2}  &amp; {\bf 3}   &amp; {\bf
+2}   &amp;  {\bf 4}  &amp; {\bf 1}   &amp; {\bf 1}
+\end{array}\]</span> Contando da esquerda para a direita, denotemos por
+<span class="math inline">\(a_i\)</span> e <span
+class="math inline">\(b_i\)</span> as posições do primeiro e segundo
+número <span class="math inline">\(i\)</span>, respectivamente. No nosso
+exemplo, <span class="math inline">\(a_2 = 3\)</span> e <span
+class="math inline">\(b_2 =5\)</span>. Como existem <span
+class="math inline">\(i-1\)</span> números entre dois números <span
+class="math inline">\(i&#39;s\)</span>, devemos ter <span
+class="math inline">\(b_i-a_i = i\)</span>. Se é possível escrever os
+números <span class="math inline">\(1,1,2,2, \ldots n,n\)</span> em
+linha como no enunciado, obtemos:</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+(a_1+a_2+ \ldots a_n) + (b_1+b_2+ \ldots + b_n)  &amp; = &amp;  \\
+1 + 2 + \ldots + 2n  &amp; = &amp; n(2n+1)\\
+(b_1 - a_1) + (b_2-a_2)+ \ldots (b_n-a_n) &amp; = &amp;  \\
+1 + 2 + \ldots  + n &amp; = &amp; \dfrac{n(n+1)}{2}.
+\end{aligned}\]</span></em></p>
+<p><em>Somando as duas linhas,</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+2(b_1+b_2+ \ldots b_n) = \dfrac{n(5n+3)}{2}
+\end{aligned}\]</span></em></p>
+<p><em>Como o lado esquerdo é sempre par, a fração <span
+class="math inline">\(\dfrac{n(5n+3)}{2}\)</span> deve ser um inteiro
+par. Isso já restringe os possíveis valores de <span
+class="math inline">\(n\)</span>. Para <span
+class="math inline">\(n=1986\)</span>,</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+\dfrac{n(5n+3)}{2} = 9863469
+\end{aligned}\]</span></em></p>
+<p><em>é ímpar e consequentemente não é possível dispormos esses números
+em linha. Uma pergunta natural que você deve tentar descobrir é, para
+quais <span class="math inline">\(n\)</span>, tal distribuição é
+possível.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 9</strong>. <em>Os alunos da <span
+class="math inline">\(DMAT\)</span> aprendem <span
+class="math inline">\(n\)</span> matérias no semestre. É verdade que
+para cada matéria exatamente 3 alunos são os melhores nessa matéria, e
+que para cada 2 matérias, existe exatamente um aluno que é um dos
+melhores nas duas. Prove que:</em></p>
+<ol type="a">
+<li><p><em>Se <span class="math inline">\(n=8\)</span> existe um aluno
+que é um dos melhores em todas as matérias.</em></p></li>
+<li><p><em>Se <span class="math inline">\(n=7\)</span>, não é necessário
+que haja um aluno que é um dos melhores em todas as
+matérias.</em></p></li>
+</ol>
+</div>
+<div class="solution*">
+<p><strong>Solução 9</strong>. </p>
+<ol type="a">
+<li><p><em>Vamos inicialmente mostrar que algum aluno deve ser o melhor
+em <span class="math inline">\(4\)</span> matérias. Suponha, por
+absurdo, que nenhum aluno é o melhor em <span
+class="math inline">\(4\)</span> materias. Seja <span
+class="math inline">\(M_1\)</span> uma matéria e <span
+class="math inline">\(\{A,B,C\}\)</span> os três alunos que são os
+melhores nessa matéria. Cada um deles pode estar em no máximo mais duas
+matérias e qualquer outra matéria deve ter um deles. Portanto, além de
+<span class="math inline">\(M_1\)</span>, podem existir no máximo <span
+class="math inline">\(2+2+2=6\)</span> matérias. Isso é um absurdo, pois
+temos mais que <span class="math inline">\(7\)</span> matérias. Assim,
+existe algum aluno, que denotaremos por <span
+class="math inline">\(P\)</span>, que é o melhor em <span
+class="math inline">\(4\)</span> matérias. Sejam <span
+class="math inline">\(M_1, M_2, M_3\)</span> e <span
+class="math inline">\(M_4\)</span> quatro matérias em que ele é o
+melhor. Vamos mostrar que <span class="math inline">\(P\)</span> é o
+melhor em todas as matérias. Suponha que <span
+class="math inline">\(A\)</span> não é um dos melhores alunos para a
+matéria <span class="math inline">\(M\)</span>. Assim, cada um dos <span
+class="math inline">\(3\)</span> melhores alunos de <span
+class="math inline">\(M\)</span>, devem estar nos <span
+class="math inline">\(4\)</span> conjuntos disjuntos: <span
+class="math inline">\(M_1-\{P\}\)</span>, <span
+class="math inline">\(M_2-\{P\}\)</span>, <span
+class="math inline">\(M_3-\{P\}\)</span> e <span
+class="math inline">\(M_4-\{P\}\)</span>. Isso é um absurdo. Logo, <span
+class="math inline">\(P\)</span> é o melhor em todas as
+matérias.</em></p></li>
+<li><p><em>Para <span class="math inline">\(n=7\)</span>, podemos
+produzir um exemplo usando o diagrama de Fano da figura a seguir. Cada
+ponto respresenta um aluno e cada reta assim como o círculo central
+representam as matérias. Note que cada matéria possa por <span
+class="math inline">\(3\)</span> pontos, que serão os melhores nela, e
+que quaisquer duas matérias possuem exatamente um ponto em
+comum.</em></p>
+<figure>
+<img src="fano.png" />
+</figure></li>
+</ol>
+</div>
+<h1 id="novos-problemas">Novos Problemas</h1>
+<h1 id="problemas-universitários">Problemas Universitários</h1>
+<div class="problem*">
+<p><strong>Problema 10</strong>. <em>No plano complexo (plano de
+Argand-Gauss) um quadrato <span class="math inline">\(ABCD\)</span> tem
+centro no ponto <span class="math inline">\(z=0\)</span>.</em></p>
+<div class="center">
+
+</div>
+<p><em>Se o vértice <span class="math inline">\(A\)</span> encontra-se
+no afixo do número complexo <span class="math inline">\(z_1\)</span>,
+determine o número complexo que representa o baricentro do triângulo
+<span class="math inline">\(ABC\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 11</strong>. <em>Qual o número de pares ordenados
+<span class="math inline">\((a,b)\)</span> de inteiros positivos <span
+class="math inline">\(a, b\)</span> tais que as seguintes condições
+sejam simultaneamente satisfeitas?</em></p>
+<ul>
+<li><p><em><span class="math inline">\(a\mid
+6000\)</span>;</em></p></li>
+<li><p><em><span class="math inline">\(1\le b \le
+\frac{6000}{a}\)</span>;</em></p></li>
+<li><p><em><span class="math inline">\(\operatorname{mdc}(a,
+b,\frac{6000}{a}) = 1\)</span>.</em></p></li>
+</ul>
+</div>
+<div class="problem*">
+<p><strong>Problema 12</strong>. <em>Seja <span
+class="math inline">\(r(x)\)</span> o polinômio que é o resto na divisão
+de <span class="math inline">\(x^{2050}\)</span> por <span
+class="math inline">\(x^5 + x^2  +1\)</span>. Quantos coeficientes
+ímpares possui <span class="math inline">\(r(x)\)</span>?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 13</strong>. <em>Considere <span
+class="math inline">\(\Gamma\)</span> o lugar geométrico dos pontos
+<span class="math inline">\(P\)</span> do plano cuja razão entre a
+distância de <span class="math inline">\(P\)</span> à origem e a
+distância entre <span class="math inline">\(P\)</span> e a reta <span
+class="math inline">\(y=-1\)</span> é constante e igual a <span
+class="math inline">\(\frac{1}{2}\)</span>. Qual a maior distância entre
+dois pontos de <span class="math inline">\(\Gamma\)</span>?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 14</strong>. <em>Seja <span class="math inline">\(f
+: \mathbb{R} \rightarrow \mathbb{R}\)</span> uma função ímpar e
+diferenciável satisfazendo:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(f(f(x)) = x\)</span> para todo
+<span class="math inline">\(x \in \mathbb{R}\)</span>;</em></p></li>
+<li><p><em><span class="math inline">\(f&#39;(0) =
+1\)</span>.</em></p></li>
+</ul>
+<p><em>Mostre que <span class="math inline">\(f(x) = -x\)</span> para
+todo <span class="math inline">\(x \in \mathbb{R}\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 15</strong>. <em>Sejam <span
+class="math inline">\(A, B \in M_n(\mathbb{R})\)</span>. Prove que <span
+class="math inline">\(\mbox{rank}(A) + \mbox{rank}(B) \leq n\)</span>
+se, e somente se, existe uma matriz invertível <span
+class="math inline">\(X \in M_n(\mathbb{R})\)</span> tal que <span
+class="math inline">\(AXB = O_n\)</span>, onde <span
+class="math inline">\(O_n\)</span> é a matriz nula de ordem <span
+class="math inline">\(n\)</span>.</em></p>
+</div>
+<h1 id="problemas-de-matemática-elementar">Problemas de Matemática
+Elementar</h1>
+<div class="problem*">
+<p><strong>Problema 16</strong>. <em>Nas Olimpíadas de Pirajuba, existem
+<span class="math inline">\(6\)</span> competidores e <span
+class="math inline">\(8\)</span> dias de evento. Os três primeiros
+competidores de cada dia do evento recebem uma medalha, que pode ser de
+ouro, prata e bronze. Não existem empates e uma medalhade cada tipo é
+dada a apenas um atleta em cada dia do evento. Cada competidor recebe
+<span class="math inline">\(5\)</span> pontos por cada medalha de ouro,
+<span class="math inline">\(3\)</span> pontos por cada medalha de prata
+e <span class="math inline">\(1\)</span> ponto por cada medalha de
+bronze. Se Luciana, que é uma das competidoras, conseguiu um total de
+<span class="math inline">\(27\)</span> pontos no final do evento, qual
+o número máximo de medalhas de prata que ela pode ter recebido?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 17</strong>. <em>Um encontro de britânicos e
+italianos em uma cafeteria reuniu 55 pessoas. Cada uma dessas pessoas
+pediu café ou chá. Sabemos que os britânicos sempre contam a verdade
+quando bebem chá e mentem quando bebem café. Já os italianos se
+comportam de modo oposto. Um repórter realizou uma rápida pesquisa e
+descobriu os seguintes fatos:</em></p>
+<ol>
+<li><p><em>44 pessoas responderam “sim” para a pergunta: “Você está
+bebendo café?”</em></p></li>
+<li><p><em>33 pessoas responderam “sim” para a pergunta: “Você é
+italiano?”</em></p></li>
+<li><p><em>22 pessoas concordaram com a afirmação: “Está chovendo lá
+fora”.</em></p></li>
+</ol>
+<p><em>Quantos britânicos na cafeteria estavam tomando chá?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 18</strong>. <em>Érica viajou para um país
+estrangeiro e sacou <span class="math inline">\(\$800\)</span> da moeda
+local em um banco. O caixa deu essa quantia usando notas de <span
+class="math inline">\(\$20\)</span>, <span
+class="math inline">\(\$50\)</span> e <span
+class="math inline">\(\$100\)</span>, usando pelo menos uma nota de cada
+tipo. De quantas maneiras diferentes ele pode ter feito esse pagamento
+para ela?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 19</strong>. <em>Na malha a seguir, todos os
+quadradinhos possuem lados de mesma medida. Explique o porquê de os
+ângulos <span class="math inline">\(\angle BAC\)</span> e <span
+class="math inline">\(\angle EDF\)</span> possuírem a mesma
+medida.</em></p>
+<div class="center">
+<figure>
+<img src="2024S17.png" style="width:30.0%" />
+</figure>
+</div>
+</div>
+<div class="problem*">
+<p><strong>Problema 20</strong>. <em>Na figura a seguir, todos os
+triângulos são equiláteros e idênticos. Encontre a medida do ângulo
+<span class="math inline">\(\angle ABC\)</span>.</em></p>
+<div class="center">
+
+</div>
+</div>
+<div class="problem*">
+<p><strong>Problema 21</strong>. <em>Prove que <span
+class="math display">\[\frac{1}{15} &lt; \frac{1}{2}\cdot \frac{3}{4}
+\cdot \frac{5}{6} \cdots \frac{99}{100} &lt;
+\frac{1}{12}\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 22</strong>. <em>Avalie a soma simplificando ao
+máximo sua expressão <span class="math display">\[\frac{2}{0! + 1! + 2!}
++ \frac{3}{1! + 2! + 3!} + \cdots + \frac{2024}{2022! + 2023! +
+2024!}\]</span></em></p>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><em>Euler foi o primeiro a provar que <span
+class="math display">\[\dfrac{\pi^2}{6} =
+\dfrac{1}{1^2}+\dfrac{1}{2^2}+\dfrac{1}{3^2}+\dfrac{1}{4^2}+\ldots
+.\]</span> Além dele, alguns membros da família Bernoulli, que também
+viviam na cidade da Basileia, tentaram obter esse resultado. Por conta
+disso esse resultado também ficou atrelado ao nome da cidade.</em><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

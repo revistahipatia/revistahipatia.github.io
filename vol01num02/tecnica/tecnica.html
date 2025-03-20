@@ -1,0 +1,851 @@
+---
+layout: artigo
+title: "Acaso e Certezas: A Versatilidade
+do Método Probabilístico"
+subtitle: Técnica
+author: Carlos Augusto D. Ribeiro, Daniel Vitor C. Vieira e Joice M. Brito
+---
+<h1 id="introdução">Introdução</h1>
+<p>O Método Probabilístico trouxe um novo sopro de criatividade para a
+Matemática lá pelos anos 50, graças à visão inovadora dos matemáticos
+húngaros Paul Erdős e Alfréd Rényi. Eles, meio que cansados das longas e
+complexas demonstrações do jeito tradicional, especialmente em áreas
+como teoria dos números e combinatória, decidiram que era hora de algo
+diferente. E assim, mergulharam no mundo das probabilidades e
+estatísticas para dar vida a suas ideias.</p>
+<p>Erdős e Rényi foram verdadeiros desbravadores, abraçando a
+aleatoriedade de sistemas complexos de uma maneira totalmente nova. Em
+vez de seguir o roteiro tradicional passo a passo, eles jogaram com
+distribuições de probabilidade e aplicaram teoremas poderosos, como o do
+Limite Central, para tirar conclusões elegantes mesmo quando tudo
+parecia incerto.</p>
+<p>O coração do método é bastante direto: primeiro, modelar o problema
+de maneira probabilística, depois mostrar que a propriedade que estamos
+de olho tem uma chance real de acontecer e, por fim, usar desigualdades
+famosas, como as de Markov ou Chebyshev, para provar que essa
+propriedade realmente vem à tona conforme o sistema cresce.</p>
+<p>Essa abordagem acabou sendo um verdadeiro achado, ajudando a
+desvendar problemas antes vistos como impossíveis em várias áreas, desde
+a teoria dos números até a bioinformática, passando pela física
+estatística. Por exemplo, Erdős e Rényi usaram essa técnica para
+descobrir grafos com características que muitos achavam que só existiam
+na imaginação. Rényi, por sua vez, aplicou esse método para solucionar
+um dilema sobre números primos que estava sem resposta há mais de meio
+século.</p>
+<p>O sucesso do Método Probabilístico não só abriu portas para novos
+campos de estudo, como a combinatória probabilística e a teoria dos
+números analítica, mas também motivou uma nova geração de matemáticos a
+seguir explorando. Um exemplo é Endre Szemerédi, que levou as ideias
+ainda mais longe, resolvendo problemas complexos em teoria dos grafos e
+aritmética.</p>
+<p>Apesar de ter sido um pouco controverso no início, hoje o Método
+Probabilístico é considerado fundamental na matemática contemporânea,
+continuando a desvendar padrões misteriosos e a estabelecer conexões
+surpreendentes por todo o universo matemático. Devido a sua
+versatilidade, hoje vemos o Método Probabilístico ser usado, de maneira
+direta ou indireta, em áreas como:</p>
+<ul>
+<li><p><strong>Teoria dos Números:</strong> O método probabilístico tem
+sido muito empregado para demonstrar a existência de padrões em
+propriedades aparentemente aleatórias de números primos, como na
+estimativa da distribuição de primos feita por Rényi em 1958.</p></li>
+<li><p><strong>Combinatória:</strong> Permite provar a existência de
+certas configurações combinatórias como emparelhamentos perfeitos,
+ciclos hamiltonianos, e resolução de identidades envolvendo coeficientes
+binomiais. Foi crucial para estabelecer novos resultados em teoria
+extremal de grafos.</p></li>
+<li><p><strong>Teoria dos Grafos:</strong> Ideal para estudar
+propriedades de grafos aleatórios e probabilísticos. Utilizado para
+provar bounds em parâmetros como independência, conectividade, coloração
+e empacotamento de arestas/vértices.</p></li>
+<li><p><strong>Otimização Combinatória:</strong> Técnicas
+probabilísticas fornecem algoritmos randômicos e aproximados para
+problemas NP-difíceis de escalonamento, empacotamento, matching e
+coloring.</p></li>
+<li><p><strong>Processos Estocásticos:</strong> O método probabilístico
+se aplica no estudo de cadeias de Markov, movimento Browniano, processos
+de ramificação e percolação.</p></li>
+<li><p><strong>Inferência Estatística:</strong> Estimativas de
+parâmetros e testes de hipóteses frequentemente envolvem modelagem
+probabilística. Técnicas como bootstrap e Markov Chain Monte Carlo
+empregam raciocínio semelhante.</p></li>
+</ul>
+<p>E é esse o objetivo desse artigo: nos lembrar que a Matemática não é
+só sobre encontrar respostas definitivas, mas também sobre explorar as
+possibilidades e usar a incerteza para demonstrar certezas. É uma lição
+sobre como, às vezes, aceitar que não sabemos tudo pode ser exatamente o
+que precisamos para descobrir algo novo, qualquer que seja a área.</p>
+<h1 id="o-funcionamento-do-método-probabilístico">O funcionamento do
+Método Probabilístico</h1>
+<p>Como mencionamos na introdução, a beleza do Método Probabilístico
+reside em sua simplicidade: se uma propriedade tem uma probabilidade não
+nula de ocorrer, então essa propriedade existe em algum caso concreto.
+Isso é uma maneira elegante de afirmar a existência de certas
+configurações sem a necessidade de construí-las passo a passo.</p>
+<p>O raciocínio é direto: se a chance de um evento <span
+class="math inline">\(A\)</span> acontecer é maior que zero, então <span
+class="math inline">\(A\)</span> tem que se manifestar em algum momento
+dentro do nosso universo de possibilidades. Demonstrando que <span
+class="math inline">\(P(A)&gt;0\)</span>, confirmamos a existência de
+<span class="math inline">\(A\)</span> em alguma instância
+específica.</p>
+<p>O Método Probabilístico, então, se desdobra nos passos a seguir:</p>
+<ul>
+<li><p>Modelar o problema de forma probabilística, designando
+distribuições de probabilidade aos componentes do problema.</p></li>
+<li><p>Escolher um evento <span class="math inline">\(A\)</span> ligado
+à característica que queremos demonstrar.</p></li>
+<li><p>Calcular a probabilidade <span
+class="math inline">\(P(A)\)</span>, geralmente procurando estabelecer
+um limite inferior.</p></li>
+<li><p>Provar que <span class="math inline">\(P(A)&gt;0\)</span>, muitas
+vezes recorrendo a desigualdades, como a de Markov.</p></li>
+<li><p>Concluir que, devido a <span
+class="math inline">\(P(A)&gt;0\)</span>, <span
+class="math inline">\(A\)</span> precisa existir em alguma realização
+determinística.</p></li>
+</ul>
+<p>Nos exemplos que traremos nas próximas seções, você vai ver essa
+lógica em ação, ilustrando a aplicabilidade e a eficácia do Método. O
+artigo se divide então em seis seções principais: Pré-requisitos de
+Probabilidade, Aplicações em Teoria dos Números, Combinatória, Teoria
+dos Grafos, Álgebra, e Geometria. Todos os problemas discutidos são
+acessíveis para estudantes envolvidos em olimpíadas de Matemática do
+ensino médio. Então, vamos explorar juntos essas ideias fascinantes!</p>
+<h1 id="um-pouco-de-probabilidade">Um pouco de Probabilidade</h1>
+<p>Um <strong>espaço amostral</strong> <span
+class="math inline">\(\Omega\)</span> é o conjunto de todos os
+resultados possíveis de um experimento aleatório. Por exemplo, ao lançar
+uma moeda, temos <span class="math inline">\(\Omega =
+\{\)</span><em>cara</em>, <em>coroa</em><span
+class="math inline">\(\}\)</span>. Este espaço pode ser
+<strong>finito</strong>, <strong>infinito</strong> ou
+<strong>enumerável</strong>, dependendo do número de resultados
+possíveis.</p>
+<p>A noção de espaço amostral é crucial para definir a possibilidade de
+um evento. Um evento é dito possível se puder ocorrer dentro dos
+resultados do espaço amostral. Por exemplo, “obter cara” é possível ao
+lançar uma moeda, mas “obter dois” não é, já que não está contido no
+espaço amostral definido.</p>
+<p>Para um espaço amostral finito <span
+class="math inline">\(\Omega\)</span> com <span
+class="math inline">\(n\)</span> elementos, a
+<strong>probabilidade</strong> é uma função <span
+class="math inline">\(P: \Omega \rightarrow [0,1]\)</span> que atribui a
+cada resultado <span class="math inline">\(\omega \in \Omega\)</span> um
+número real <span class="math inline">\(P(\omega)\)</span>, satisfazendo
+as seguintes condições:</p>
+<ol>
+<li><p><span class="math inline">\(P(\omega) \geq 0\)</span>, para todo
+<span class="math inline">\(\omega \in \Omega\)</span>.</p></li>
+<li><p><span class="math inline">\(\sum_{\omega \in \Omega} P(\omega) =
+1\)</span>.</p></li>
+</ol>
+<p>Isso indica que as probabilidades são não-negativas e a soma das
+probabilidades de todos os resultados possíveis é igual a 1.</p>
+<p>Em espaços amostrais infinitos, a probabilidade é associada a
+subconjuntos de <span class="math inline">\(\Omega\)</span> através de
+uma <strong>medida probabilística</strong> <span
+class="math inline">\(\mu\)</span>, que é uma função satisfazendo:</p>
+<ol>
+<li><p><span class="math inline">\(\mu(\emptyset) = 0\)</span>.</p></li>
+<li><p>Se <span class="math inline">\(A \subseteq B\)</span>, então
+<span class="math inline">\(\mu(A) \leq \mu(B)\)</span>
+(monotonia).</p></li>
+<li><p>Se <span class="math inline">\(A_1, A_2, \dots\)</span> são
+conjuntos disjuntos, então <span class="math inline">\(\mu(\bigcup A_i)
+= \sum \mu(A_i)\)</span> (aditividade contável).</p></li>
+<li><p><span class="math inline">\(\mu(\Omega) = 1\)</span>.</p></li>
+</ol>
+<p>Portanto, <span class="math inline">\(\mu(A)\)</span> para um
+subconjunto <span class="math inline">\(A \subseteq \Omega\)</span> pode
+ser interpretado como a probabilidade <span
+class="math inline">\(P(A)\)</span> desse evento.</p>
+<p>Dentro deste contexto, introduzimos conceitos como
+<strong>probabilidade condicional</strong> e <strong>variáveis
+aleatórias</strong>. A probabilidade condicional de um evento <span
+class="math inline">\(A\)</span> dado outro evento <span
+class="math inline">\(B\)</span> com <span class="math inline">\(P(B)
+&gt; 0\)</span> é expressa como <span class="math inline">\(P(A | B) =
+\frac{P(A \cap B)}{P(B)}\)</span>, representando a probabilidade de
+<span class="math inline">\(A\)</span> ocorrer sob a condição de <span
+class="math inline">\(B\)</span>.</p>
+<p>Uma <strong>variável aleatória</strong> é uma função que associa um
+valor numérico a cada resultado de um experimento aleatório, mapeando os
+resultados de <span class="math inline">\(\Omega\)</span> para números
+reais. Variáveis aleatórias podem ser <strong>discretas</strong> ou
+<strong>contínuas</strong>, dependendo do tipo de <span
+class="math inline">\(\Omega\)</span>.</p>
+<p>A <strong>função de distribuição</strong> ou função de distribuição
+acumulada (FDA) de uma variável aleatória <span
+class="math inline">\(X\)</span>, <span class="math inline">\(F_X(x) =
+P(X \leq x)\)</span>, descreve a probabilidade de <span
+class="math inline">\(X\)</span> assumir um valor menor ou igual a <span
+class="math inline">\(x\)</span>. Esta função é fundamental para
+entender a distribuição de probabilidades de variáveis aleatórias,
+aplicável em diversas distribuições como a Uniforme, Normal,
+Exponencial, entre outras.</p>
+<p>O <strong>valor esperado</strong> <span
+class="math inline">\(\mathbb{E}[X]\)</span> representa a média ou o
+“valor médio” de uma variável aleatória <span
+class="math inline">\(X\)</span>. Para variáveis aleatórias discretas,
+ele é calculado como:</p>
+<p><span class="math display">\[\mathbb{E}[X] = \sum_x x P(X =
+x).\]</span></p>
+<p>O valor esperado pondera cada resultado possível de <span
+class="math inline">\(X\)</span> pelo seu peso probabilístico. Por
+exemplo, o valor esperado ao lançar um dado é <span
+class="math inline">\(3.5\)</span>, calculado como a média ponderada de
+todos os resultados possíveis.</p>
+<p>O valor esperado permite resumir o comportamento de uma variável
+aleatória em um único número, apresentando propriedades importantes
+como:</p>
+<ol>
+<li><p><strong>Linearidade:</strong> <span
+class="math inline">\(\mathbb{E}[X+Y] = \mathbb{E}[X] +
+\mathbb{E}[Y]\)</span></p></li>
+<li><p><strong>Multiplicação por constante:</strong> <span
+class="math inline">\(\mathbb{E}[cX] = c\mathbb{E}[X]\)</span> para
+qualquer constante <span class="math inline">\(c\)</span>.</p></li>
+<li><p><strong>Propriedade de não-negatividade:</strong> Se <span
+class="math inline">\(\mathbb{E}[X] \geq a\)</span>, então <span
+class="math inline">\(P(X \geq a) &gt; 0\)</span>.</p></li>
+</ol>
+<p>A <strong>variância</strong>, definida como <span
+class="math inline">\(\mathop{\mathrm{Var}}[X] = \mathbb{E}[(X -
+\mathbb{E}[X])^2]\)</span>, mede a dispersão dos valores de <span
+class="math inline">\(X\)</span> em torno de <span
+class="math inline">\(\mathbb{E}[X]\)</span>. Uma alta variância indica
+que os valores de <span class="math inline">\(X\)</span> estão
+espalhados longe da média, enquanto uma baixa variância mostra que estão
+concentrados próximos à média.</p>
+<p>Propriedades da variância incluem:</p>
+<ol>
+<li><p><span class="math inline">\(\mathop{\mathrm{Var}}[cX] = c^2
+\mathop{\mathrm{Var}}[X]\)</span> para qualquer constante <span
+class="math inline">\(c\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Var}}[X + Y] =
+\mathop{\mathrm{Var}}[X] + \mathop{\mathrm{Var}}[Y]\)</span> se <span
+class="math inline">\(X\)</span> e <span
+class="math inline">\(Y\)</span> são independentes.</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Var}}[X] \geq
+0\)</span>, com igualdade somente se <span
+class="math inline">\(X\)</span> é constante quase certamente.</p></li>
+</ol>
+<p>A <strong>covariância</strong> <span
+class="math inline">\(\mathop{\mathrm{Cov}}[X,Y]\)</span> mede a
+dependência linear entre <span class="math inline">\(X\)</span> e <span
+class="math inline">\(Y\)</span>, com as propriedades:</p>
+<ol>
+<li><p><span class="math inline">\(\mathop{\mathrm{Cov}}[X,Y] =
+\mathop{\mathrm{Cov}}[Y,X]\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Cov}}[X,Y] =
+0\)</span> se <span class="math inline">\(X\)</span> e <span
+class="math inline">\(Y\)</span> são independentes.</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Cov}}[X,X] =
+\mathop{\mathrm{Var}}[X]\)</span>.</p></li>
+</ol>
+<p>Finalmente, as desigualdades de Markov e Chebyshev são ferramentas
+essenciais:</p>
+<ol>
+<li><p><strong>Desigualdade de Markov:</strong> Para <span
+class="math inline">\(X \geq 0\)</span>, <span class="math inline">\(P(X
+\geq M) \leq \frac{E(X)}{M}\)</span> para todo <span
+class="math inline">\(M &gt; 0\)</span>.</p></li>
+<li><p><strong>Desigualdade de Chebyshev:</strong> Para <span
+class="math inline">\(X\)</span> com média <span
+class="math inline">\(\mu\)</span> e variância <span
+class="math inline">\(\sigma^2\)</span>, <span
+class="math inline">\(P(|X - \mu| \geq k\sigma) \leq
+\frac{1}{k^2}\)</span> para qualquer <span class="math inline">\(k &gt;
+0\)</span>.</p></li>
+</ol>
+<p>Agora vamos partir para as aplicações, começando pela Teoria dos
+Números, e sendo o mais objetivo possível a fim de não tornar a leitura
+desse artigo massante.</p>
+<h1 id="método-probabilístico-e-teoria-dos-números">Método
+Probabilístico e Teoria dos Números</h1>
+<p>Consideremos <span class="math inline">\(\nu(n)\)</span> como a
+quantidade de divisores primos distintos <span
+class="math inline">\(p\)</span> que são divisores de <span
+class="math inline">\(n\)</span>. Um resultado notável afirma que a
+maioria esmagadora dos números <span class="math inline">\(n\)</span>
+possui um número de fatores primos muito próximo a <span
+class="math inline">\(\ln \ln n.\)</span> Esse resultado, originalmente
+complexo, foi inicialmente demonstrado por Hardy e Ramanujan em 1920. No
+entanto, uma prova notavelmente simples foi apresentada por Turán em
+1934, uma prova que desempenhou um papel crucial no avanço dos métodos
+probabilísticos na teoria dos números.</p>
+<div class="theorem*">
+<p><strong>Teorema 1</strong>. <em>Seja <span
+class="math inline">\(\omega(n) \rightarrow \infty\)</span>
+arbitrariamente devagar. Então o número de <span
+class="math inline">\(x\)</span> em <span
+class="math inline">\({1,\ldots,n}\)</span> tal que <span
+class="math display">\[|\nu(x) - \ln \ln n| &gt; \omega(n) \sqrt{\ln \ln
+n}\]</span> é <span class="math inline">\(o(n)\)</span>.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Seja <span class="math inline">\(x\)</span> um
+inteiro escolhido uniformemente ao acaso em <span
+class="math inline">\({1,\ldots,n}\)</span>. Para cada primo <span
+class="math inline">\(p\)</span>, definimos a variável aleatória: <span
+class="math display">\[X_p = \begin{cases}
+            1, &amp; \text{se } p \mid x, \\
+            0, &amp; \text{caso contrário}.
+        \end{cases}\]</span> Seja <span class="math inline">\(M =
+n^{1/10}\)</span> e <span class="math inline">\(X = \sum X_p\)</span>, a
+soma sobre todos os primos <span class="math inline">\(p \leq
+M\)</span>. Como nenhum <span class="math inline">\(x \leq n\)</span>
+pode ter mais de 10 divisores primos maiores que <span
+class="math inline">\(M\)</span>, temos: <span
+class="math display">\[\nu(x) - 10 \leq X \leq \nu(x).\]</span> Logo,
+grandes desvios em <span class="math inline">\(X\)</span> implicam em
+desvios assintoticamente similares em <span
+class="math inline">\(\nu(x)\)</span>. Agora, por linearidade do valor
+esperado: <span class="math display">\[\mathbb{E}[X] = \sum_{p \leq M}
+\mathbb{E}[X_p] = \sum_{p \leq M} \frac{1}{p} +
+O\left(\frac{1}{n}\right) = \ln\ln n + O(1),\]</span> onde usamos a
+fórmula assintótica bem conhecida para soma de inversos de primos.
+Similarmente, pode-se mostrar que: <span
+class="math display">\[\mathop{\mathrm{Var}}[X] = \ln\ln n +
+O(1).\]</span> De fato, para isso, basta usar que <span
+class="math display">\[\mathop{\mathrm{Var}}[X]=\sum_{p\leq
+M}\mathop{\mathrm{Var}}[X_p]+\sum_{p\neq
+q}\mathop{\mathrm{Cov}}[X_p,X_q].\]</span> Como <span
+class="math inline">\(\mathop{\mathrm{Var}}[X_p]=(1/p)(1-1/p)+O(1/n)\)</span>,
+<span class="math display">\[\sum_{p\leq
+M}\mathop{\mathrm{Var}}[X_p]=\left(\sum_{p\leq M}\frac{1}{p}\right)+
+O(1) = \ln\ln n+O(1).\]</span> Com <span
+class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span>
+primos distintos, <span class="math inline">\(X_{p}X_{q}=1\)</span> se e
+somente se <span class="math inline">\(p|x\)</span> e <span
+class="math inline">\(q|x\)</span>, o que ocorre se e somente se <span
+class="math inline">\(pq|x\)</span>. Portanto, <span
+class="math display">\[\begin{aligned}
+            \mathop{\mathrm{Cov}}[X_{p},X_{q}] &amp;=
+E[X_{p}X_{q}]-E[X_p]E[X_q]\\
+            &amp;=\frac{[n/pq]}{n}-\frac{[n/p]}{n}\frac{[n/q]}{n}\\
+            &amp;\leq
+\frac{1}{pq}-\left(\frac{1}{p}-\frac{1}{n}\right)\left(\frac{1}{q}-\frac{1}{n}
+\right)\\
+            &amp;\leq \frac{1}{n}\left(\frac{1}{p}+\frac{1}{q}\right).
+        
+\end{aligned}\]</span> Assim, <span
+class="math display">\[\displaystyle\sum_{p\neq q}
+\mathop{\mathrm{Cov}}[X_{p},X_{q}]\leq
+\displaystyle\frac{1}{n}\displaystyle\sum_{p\neq
+q}\left(\displaystyle\frac{1}{p}+\displaystyle\frac{1}{q}\right)\leq
+\displaystyle\frac{2M}{n}\displaystyle\sum\displaystyle\frac{1}{p}.\]</span>
+Daí, <span class="math display">\[\sum_{p\neq q}
+\mathop{\mathrm{Cov}}[X_{p},X_{q}]\leq O(n^{-9/10}\ln \ln
+n)=o(1).\]</span> E da mesma forma, <span
+class="math display">\[\sum_{p\neq q}
+\mathop{\mathrm{Cov}}[X_{p},X_{q}]\geq -o(1).\]</span> Por fim, a
+desigualdade de Chebyshev então implica que: <span
+class="math display">\[P\left[|X - \ln\ln n| &gt; \lambda\sqrt{\ln\ln
+n}\right] &lt; \frac{1}{\lambda^2} + O(1).\]</span> Como <span
+class="math inline">\(|X - \nu| \leq 10\)</span>, o mesmo vale para
+<span class="math inline">\(\nu(x)\)</span>, completando a prova. ◻</p>
+</div>
+<p>Na Teoria dos Números, os conjuntos livres de somas são
+particularmente intrigantes. Eles são definidos de tal maneira que
+nenhum de seus elementos pode ser obtido pela soma de outros elementos
+distintos presentes no conjunto. A exploração da existência desses
+subconjuntos dentro de conjuntos maiores nos permite desvendar aspectos
+fundamentais da composição aditiva dos números. O teorema apresentado a
+seguir mergulha nessa questão, destacando a relevância desses conjuntos
+na compreensão das propriedades numéricas:</p>
+<div class="theorem*">
+<p><strong>Teorema 2</strong>. <em>Seja <span
+class="math inline">\(A\subseteq \mathbb{N}\)</span> um conjunto com
+<span class="math inline">\(n\)</span> elementos. Então existe <span
+class="math inline">\(B\subseteq A\)</span> livre de somas com mais que
+<span class="math inline">\(\frac{n}{3}\)</span> elementos.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Vamos usar aritmética modular para introduzir
+permutações. Seja <span class="math inline">\(\overline{a}\)</span> o
+maior elemento de <span class="math inline">\(A\)</span> e seja <span
+class="math inline">\(p &gt; 2\overline{a}\)</span> um número primo.
+Dessa forma, para <span class="math inline">\(a, b, c \in A\)</span>,
+temos: <span class="math display">\[a + b = c \Leftrightarrow a + b
+\equiv c \pmod{p},\]</span> o que nos permite focar apenas na aritmética
+modular <span class="math inline">\(\mod p\)</span>, que é mais simples.
+Suponha, para simplificar, que <span class="math inline">\(p = 3k +
+2\)</span>. Considere o conjunto livre de somas <span
+class="math inline">\(S = \{k+1, k+2, \ldots, 2k+1\}\)</span> com <span
+class="math inline">\(k+1\)</span> elementos. Vamos permutar esse
+conjunto multiplicando seus elementos por algum <span
+class="math inline">\(x \in \mathbb{Z}/p\mathbb{Z}^*\)</span> escolhido
+aleatoriamente, pois: <span class="math display">\[xa + xb \equiv xc
+\pmod{p} \Leftrightarrow a + b \equiv c \pmod{p}.\]</span> Considere
+então a variável aleatória: <span class="math display">\[X(x) = |xS \cap
+A|,\]</span> onde <span class="math inline">\(xS = \{x(k+1), x(k+2),
+\ldots, x(2k+1)\}\)</span>. Podemos escrever <span
+class="math inline">\(X = \sum_{a \in A} X_a\)</span>, onde: <span
+class="math display">\[X_a = \begin{cases}
+                1, &amp; \text{se } a \in xS,\\
+                0, &amp; \text{caso contrário}.
+            \end{cases}\]</span> Note que <span
+class="math inline">\(\mathbb{E}[X_a] = \mathbb{P}[a \in xS] =
+\frac{k+1}{3k+1} &gt; \frac{1}{3}\)</span>, pois <span
+class="math inline">\(a \in xS \Leftrightarrow x^{-1}a \in S\)</span>.
+Logo, <span class="math inline">\(\mathbb{E}[X] &gt;
+\frac{n}{3}\)</span>, e existe <span class="math inline">\(x\)</span>
+tal que <span class="math inline">\(|xS \cap A| &gt;
+\frac{n}{3}\)</span>. Tomando <span class="math inline">\(B = xS \cap
+A\)</span>, obtemos o conjunto livre de somas desejado. ◻</p>
+</div>
+<h1 id="método-probabilístico-e-combinatória">Método Probabilístico e
+Combinatória</h1>
+<p>Considere uma família <span class="math inline">\(F\)</span> de
+subconjuntos <span class="math inline">\(A_{i}\)</span>, todos de
+tamanho <span class="math inline">\(d\geq 2\)</span>, de um conjunto
+finito <span class="math inline">\(X\)</span>. Dizemos que <span
+class="math inline">\(F\)</span> é <em>bicolorizável</em> se existe uma
+coloração de <span class="math inline">\(X\)</span> com duas cores de
+forma que ambas as cores aparecem em cada conjunto <span
+class="math inline">\(A_{i}\)</span>. É imediato que nem toda família
+pode ser colorida dessa maneira. Como um exemplo, tome todos os
+subconjuntos de tamanho <span class="math inline">\(d\)</span> de um
+conjunto <span class="math inline">\(X\)</span> com <span
+class="math inline">\((2d-1)\)</span> elementos. Então qualquer que seja
+a forma com que bicolorirmos <span class="math inline">\(X\)</span>,
+deverão existir <span class="math inline">\(d\)</span> elementos que são
+coloridos da mesma forma. Por outro lado, fica igualmente claro que cada
+subfamília de uma família bicolorizável de conjuntos com <span
+class="math inline">\(d\)</span> elementos é bicolorizável. Daí, estamos
+interessados no menor número <span class="math inline">\(m=m(d)\)</span>
+para qual existe uma família com <span class="math inline">\(m\)</span>
+conjuntos que não seja bicolorizável. Expressando de maneira diferente,
+<span class="math inline">\(m(d)\)</span> é o menor número que garante
+que cada família com menos de <span class="math inline">\(m(d)\)</span>
+conjuntos é bicolorizável.</p>
+<div class="theorem*">
+<p><strong>Teorema 3</strong>. <em>Cada família de no máximo <span
+class="math inline">\(2^{d-1}\)</span> conjuntos com <span
+class="math inline">\(d\)</span> elementos é bicolorizável, isto é,
+<span class="math inline">\(m(d)&gt; 2^{d-1}\)</span>.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Suponha que <span class="math inline">\(F\)</span>
+seja uma família de conjuntos de <span class="math inline">\(d\)</span>
+elementos com no máximo <span class="math inline">\(2^{d-1}\)</span>
+conjuntos. Colorize <span class="math inline">\(X\)</span>
+aleatoriamente com duas cores, sendo todas as colorações igualmente
+prováveis. Para cada conjunto <span class="math inline">\(A\)</span>
+pertencente a <span class="math inline">\(F\)</span>, consideremos o
+evento <span class="math inline">\(E_A\)</span>, que ocorre quando todos
+os elementos de <span class="math inline">\(A\)</span> são coloridos da
+mesma forma. Dado que existem exatamente duas possíveis colorações,
+podemos expressar essa situação de outra forma: <span
+class="math display">\[P(E_{A})=\displaystyle
+\left(\frac{1}{2}\right)^{d-1}.\]</span> Daí, com <span
+class="math inline">\(m=|F|\leq 2^{d-1}\)</span>. Note também que os
+eventos <span class="math inline">\(E_A\)</span> não são adjuntos, isto
+é, <span class="math display">\[P\left(\bigcup_{A \in
+F}E_{A}\right)  &lt;  \sum_{A\in F} P(E_A) = m
+\left(\frac{1}{2}\right)^{d-1} \leq 1.\]</span> Portanto, podemos
+concluir que existe alguma bicoloração de <span
+class="math inline">\(X\)</span> sem um conjunto unicolorido e isso é
+justamente o que procurávamos. ◻</p>
+</div>
+<p>Para o resultado que segue, uma família <span
+class="math inline">\(F\)</span> de subconjuntos de <span
+class="math inline">\(\{1,2...,n\}\)</span> é uma <em>anticadeia</em> se
+nenhum conjunto em <span class="math inline">\(F\)</span> é subconjunto
+de outro conjunto em <span class="math inline">\(F\)</span>.</p>
+<div class="theorem*">
+<p><strong>Teorema 4</strong>. <em>(Sperner) Mostre que o tamanho da
+maior anticadeia de um conjunto com <span
+class="math inline">\(n\)</span> elementos é <span
+class="math display">\[\binom{n}{\lfloor n/2\rfloor}.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Inicialmente, vamos provar que se F é uma anticadeia,
+então <span class="math display">\[\sum_{A \in F }
+\frac{1}{\binom{n}{\left | A \right |}}\leq 1.\]</span> De fato, seja
+<span class="math inline">\(\sigma\)</span> uma permutação
+aleatoriamente e uniformemente escolhida de <span
+class="math inline">\(\left \{ 1,...,n \right \}\)</span> e defina o
+conjunto <span class="math display">\[C_{\sigma }=\left \{ \left \{
+\sigma (j): 1\leq j\leq i \right \}:0\leq i\leq n \right \}.\]</span> É
+imediato que <span class="math inline">\(\varnothing \in C_{\sigma
+}\)</span> e <span class="math inline">\(\left \{ 1,...,n \right \}\in
+C_{\sigma }\)</span>. Defina uma variável aleatória <span
+class="math display">\[X=\left | F\cap C_{\sigma } \right |.\]</span>
+Decompondo <span class="math inline">\(X\)</span>, obtém-se <span
+class="math display">\[X=\sum_{A \in F} X_{A},\]</span> onde <span
+class="math inline">\(X_A\)</span> é a variável aleatória indicadora
+para <span class="math inline">\(A \in C_\sigma\)</span>. Então <span
+class="math display">\[\mathbb{E}\left [ X_{A} \right ]=P\left [ A \in
+C_\sigma  \right ]=\frac{1}{\binom{n}{\left | A \right |}},\]</span> já
+que <span class="math inline">\(C_\sigma\)</span> contém precisamente um
+conjunto de tamanho <span class="math inline">\(\left | A \right
+|\)</span>, que é distribuído uniformemente entre os conjuntos com <span
+class="math inline">\(\left | A \right |\)</span> elementos. Pela
+linearidade da expectativa, <span class="math display">\[\mathbb{E}\left
+[ X \right ]=\sum_{A \in F}\frac{1}{\binom{n}{\left | A \right
+|}}.\]</span> Para qualquer <span class="math inline">\(\sigma\)</span>,
+<span class="math inline">\(C_\sigma\)</span> forma uma cadeia – pois
+cada par de conjuntos é comparável. Uma vez que <span
+class="math inline">\(F\)</span> é uma anticadeia, devemos ter <span
+class="math inline">\(X=\left | F\cap C_{\sigma } \right |\leq
+1\)</span>. Assim <span class="math inline">\(\mathbb{E}\left [ X \right
+]\leq 1\)</span>, o que conclui o que queríamos provar.</p>
+<p>Para finalizar, basta notar que a função <span
+class="math inline">\(\binom{n}{x}\)</span> é maximizada em <span
+class="math inline">\(x=\left \lfloor n/2 \right \rfloor\)</span>. Logo,
+usando o fato provado anteriormente, obtemos <span
+class="math display">\[1\geq \sum_{A \in F}\frac{1}{\binom{n}{\left | A
+\right |}}\geq \frac{\left | F\right |}{\binom{n}{\left \lfloor n/2
+\right \rfloor}}.\qedhere\]</span> ◻</p>
+</div>
+<h1 id="método-probabilístico-e-grafos">Método Probabilístico e
+Grafos</h1>
+<p>Um torneio em um conjunto <span class="math inline">\(V\)</span> de
+<span class="math inline">\(n\)</span> jogadores é uma orientação <span
+class="math inline">\(T = (V, E)\)</span> das arestas do grafo completo
+no conjunto de vértices <span class="math inline">\(V\)</span>. Assim,
+para cada par distinto de elementos <span
+class="math inline">\(x\)</span> e <span
+class="math inline">\(y\)</span> em <span
+class="math inline">\(V\)</span>, ou <span class="math inline">\((x,
+y)\)</span> ou <span class="math inline">\((y, x)\)</span> está em <span
+class="math inline">\(E\)</span>, mas não ambos. O nome “torneio” é
+natural, já que podemos pensar em <span class="math inline">\(V\)</span>
+como um conjunto de jogadores onde cada par joga uma única partida, e
+<span class="math inline">\((x, y)\)</span> está no torneio se e somente
+se <span class="math inline">\(x\)</span> derrota <span
+class="math inline">\(y\)</span>. Dizemos que <span
+class="math inline">\(T\)</span> tem a propriedade <span
+class="math inline">\(S_k\)</span> se para qualquer conjunto de <span
+class="math inline">\(k\)</span> jogadores em <span
+class="math inline">\(V\)</span>, existe um jogador que derrota todos
+eles. Em outras palavras, dado qualquer grupo de <span
+class="math inline">\(k\)</span> jogadores, há um que vence cada um
+deles nas respectivas partidas do torneio. Assim, podemos enunciar o
+seguinte.</p>
+<div class="theorem*">
+<p><strong>Teorema 5</strong>. <em>Se <span
+class="math inline">\(\binom{n}{k} (1-2^{-k})^{n-k}\)</span> &lt; <span
+class="math inline">\(1\)</span>, então existe um torneio com <span
+class="math inline">\(n\)</span> vértices que possui a propriedade <span
+class="math inline">\(S_k\)</span>.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Considere um torneio aleatório no conjunto <span
+class="math inline">\(V = \{1, 2, 3, ... , n\}\)</span>. Para cada
+subconjunto fixo <span class="math inline">\(K\)</span> de tamanho <span
+class="math inline">\(k\)</span> de <span
+class="math inline">\(V\)</span>, seja <span
+class="math inline">\(A_K\)</span> o evento em que não existe nenhum
+vértice de <span class="math inline">\(K\)</span> que vença todos os
+demais membros do mesmo. Claramente, <span class="math inline">\(P(A_k)
+= (1 - 2^{-k})^{n-k}\)</span>. Isso acontece porque, para cada vértice
+fixo <span class="math inline">\(v \in V - K\)</span>, a probabilidade
+de que <span class="math inline">\(v\)</span> não vença todos os membros
+de <span class="math inline">\(K\)</span> é <span
+class="math inline">\(1 - 2^{-k}\)</span>, e todos esses <span
+class="math inline">\(n - k\)</span> eventos, correspondentes às várias
+escolhas possíveis de <span class="math inline">\(v\)</span>, são
+independentes. Logo, segue que <span
+class="math display">\[P\left(\bigvee_{{K \subset V}}  A_K  \right) \leq
+\sum_{K \subset V} P(A_K) = \binom{n}{k}(1-2^{-k})^{n-k} &lt;
+1.\]</span> Portanto, com probabilidade positiva, nenhum evento de <span
+class="math inline">\(A_K\)</span> ocorre, isto é, existe um torneio com
+<span class="math inline">\(n\)</span> vértices com a propriedade <span
+class="math inline">\(S_k\)</span>. ◻</p>
+</div>
+<p>Façamos agora um problema tipicamente olímpico:</p>
+<div class="theorem*">
+<p><strong>Teorema 6</strong>. <em>(SJSU M179 Midterm) Dados <span
+class="math inline">\(n\)</span> pontos vermelhos e <span
+class="math inline">\(n\)</span> pontos azuis, suponha que conectemos
+pelo menos <span class="math inline">\(n^2 - n + 1\)</span> pares de
+cores opostas. Prove que podemos selecionar <span
+class="math inline">\(n\)</span> segmentos, sem que nenhum par
+compartilhe uma extremidade.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Como há um total de <span
+class="math inline">\(n^2\)</span> arestas possíveis, ter pelo menos
+<span class="math inline">\(n^2 - n + 1\)</span> arestas significa que
+praticamente todas as arestas estão presentes. Vamos construir um
+emparelhamento aleatório entre os dois conjuntos de <span
+class="math inline">\(n\)</span> vértices, independentemente da
+existência real de arestas entre eles. Definimos a pontuação desse
+emparelhamento como o número de pares que estão conectados por uma
+aresta. Queremos mostrar que existe algum emparelhamento com pontuação
+<span class="math inline">\(n\)</span>, que será o emparelhamento
+perfeito desejado.</p>
+<p>Sejam <span class="math inline">\(v_1, \ldots, v_n\)</span> os <span
+class="math inline">\(n\)</span> vértices à esquerda. Para cada um,
+considere a variável aleatória: <span class="math display">\[X_i =
+\begin{cases}
+            1, &amp; \text{se o par com $v_i$ tiver uma aresta},\\
+            0, &amp; \text{caso contrário}.
+        \end{cases}\]</span> A pontuação da configuração é dada por
+<span class="math inline">\(X = X_1 + \cdots + X_n\)</span>. Temos que
+<span class="math inline">\(\mathbb{E}[X_i] =
+\frac{\text{grau}(v_i)}{n}\)</span>, logo <span
+class="math display">\[\begin{aligned}
+            \mathbb{E}[X] &amp;= \mathbb{E}[X_1] + \cdots +
+\mathbb{E}[X_n] \\
+            &amp;= \frac{\text{grau}(v_1)}{n} + \cdots +
+\frac{\text{grau}(v_n)}{n} \\
+            &amp;= \frac{n^2 - n + 1}{n} = n - 1 + \frac{1}{n}.
+        
+\end{aligned}\]</span> Como <span class="math inline">\(X\)</span>
+assume apenas valores inteiros, existe alguma configuração com <span
+class="math inline">\(X = n\)</span>. Portanto, concluímos a
+demonstração. ◻</p>
+</div>
+<h1 id="método-probabilístico-e-álgebra">Método Probabilístico e
+Álgebra</h1>
+<p>Os próximos dois resultados são conhecidos como problemas de
+balanceamento de vetores e mostram que podemos usar o método
+probabilístico também na Álgebra.</p>
+<div class="theorem*">
+<p><strong>Teorema 7</strong>. <em>Sejam <span
+class="math inline">\(v_{1},...,v_{n}\)</span> <span
+class="math inline">\(\in \mathbb{R}^{n}\)</span>, tal que <span
+class="math inline">\(\left | v_{i} \right |=1\)</span> para todo <span
+class="math inline">\(i\in\{1,2,\ldots,n\}\)</span>. Então existem <span
+class="math inline">\(\epsilon _{1},...,\epsilon _{n}=\pm 1\)</span> de
+modo que: <span class="math display">\[\left | \epsilon
+_{1}v_{1}+...+\epsilon _{n}v_{n} \right |\leq \sqrt{n},\]</span> e
+também existem <span class="math inline">\(\epsilon _{1},...,\epsilon
+_{n}=\pm 1\)</span> de modo que <span class="math display">\[\left |
+\epsilon _{1}v_{1}+...+\epsilon _{n}v_{n} \right |\geq
+\sqrt{n}.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Sejam <span class="math inline">\(\epsilon
+_{1},...,\epsilon _{n} \in \mathbb{R}^{n}\)</span> selecionados de forma
+uniforme e independente a partir de <span class="math inline">\(\left \{
+-1,+1 \right \}\)</span>. Defina: <span class="math display">\[X=\left |
+\epsilon _{1}v_{1}+...+\epsilon _{n}v_{n} \right |^{2}.\]</span> Então
+<span class="math display">\[X=\sum_{i=1}^{n}
+            \sum_{j=1}^{n}\epsilon _{i}\epsilon _{j} v_{i}\cdot
+v_{j}.\]</span> Por isso, <span class="math display">\[\mathbb{E}\left [
+X \right ]=\sum_{i=1}^{n}\sum_{j=1}^{n}v_{i}\cdot v_{j}\mathbb{E}\left [
+\epsilon _{i}\epsilon _{j} \right ].\]</span> Quando <span
+class="math inline">\(i\neq j\)</span> temos <span
+class="math inline">\(\mathbb{E}\left [ \epsilon _{i} \epsilon
+_{j}\right ]=\mathbb{E}\left [ \epsilon _{i} \right ]\mathbb{E}\left [
+\epsilon _{j} \right ]=0\)</span>, e quando <span
+class="math inline">\(i= j\)</span> temos <span
+class="math inline">\(\epsilon _{i}^{2}=1\)</span> e então <span
+class="math inline">\(\mathbb{E}\left [ \epsilon _{i}^{2} \right
+]=1\)</span>. Assim, <span class="math display">\[\mathbb{E}\left [ X
+\right ]=\sum_{i=1}^{n}v_{i}\cdot v_{i}=n.\]</span> Portanto, existem
+valores específicos <span class="math inline">\(\epsilon
+_{1},...,\epsilon _{n}=\pm 1\)</span> com <span
+class="math inline">\(X\geq n\)</span> e com <span
+class="math inline">\(X\leq  n\)</span>. Tomando as raízes quadradas,
+obtemos o teorema. ◻</p>
+</div>
+<p>Nessa mesma ideia, temos o:</p>
+<div class="theorem*">
+<p><strong>Teorema 8</strong>. <em>Seja <span class="math inline">\(v_1,
+..., v_n \in \displaystyle\mathbb{R}^n\)</span>, com todos os <span
+class="math inline">\(|v_i| \leq 1\)</span>. Sejam <span
+class="math inline">\(p_i, ..., p_n \in \left[0, 1\right]\)</span>
+arbitrários e defina <span class="math inline">\(w = p_1v_1 + ... +
+p_nv_n\)</span>. Então existem <span class="math inline">\(\epsilon_1,
+..., \epsilon_n \in \{0, 1\}\)</span> de forma que, definindo <span
+class="math inline">\(v = a_1v_1 + ... + a_nv_n\)</span>, <span
+class="math display">\[|w-v| \leq
+\displaystyle\frac{\sqrt{n}}{2}.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Escolha <span
+class="math inline">\(\epsilon_i\)</span> de forma independente com
+<span class="math display">\[P\left[\epsilon_i=1\right]=p_i, \qquad
+P\left[\epsilon_i=0\right]=1-p_i.\]</span> A escolha aleatória de <span
+class="math inline">\(\epsilon_i\)</span> gera um <span
+class="math inline">\(v\)</span> aleatório e uma variável aleatória
+<span class="math display">\[X=|w-v|^2.\]</span> Fazendo uma expansão
+<span class="math display">\[X= \left| \sum_{i=1}^n\left( p_i -
+\epsilon_i \right)v_i\right|^2 = \sum_{i=1}^n\sum_{j=1}^n v_i \cdot
+v_j\left( p_i - \epsilon_i \right)\left( p_j - \epsilon_j
+\right),\]</span> dessa forma <span
+class="math display">\[\mathbb{E}\left[X\right]=\sum_{i=1}^n\sum_{j=1}^nv_i
+\cdot v_j ~\mathbb{E}\left[( p_i - \epsilon_i )( p_j - \epsilon_j)
+\right].\]</span> Para <span class="math inline">\(i\neq j\)</span>,
+<span class="math display">\[\mathbb{E}\left[\left( p_i - \epsilon_i
+\right)\left( p_j - \epsilon_j\right)\right]=\mathbb{E}\left[p_i -
+\epsilon_i\right]~\mathbb{E}\left[p_j - \epsilon_j\right]=0.\]</span>
+Para <span class="math inline">\(i=j\)</span>, <span
+class="math display">\[\mathbb{E}\left[(p_i -
+\epsilon_i)^2\right]=p_i(p_i-1)^2+(1-p_i) p_i^2=p_i(1-p_i)\leq
+\frac{1}{4},\]</span> <span class="math inline">\(\mathbb{E}\left[(p_i -
+\epsilon_i)^2\right]=
+\mathop{\mathrm{Var}}\left[\epsilon_i\right]\)</span>. Assim, <span
+class="math display">\[\mathbb{E}\left[X\right]=\sum_{i=1}^n
+p_i(1-p_i)|v_i|^2\leq
+\frac{1}{4}\sum_{i=1}^n|v_i|^2\leq\frac{n}{4},\]</span> e a prova
+conclui-se como a do teorema anterior. ◻</p>
+</div>
+<h1 id="método-probabilístico-e-geometria">Método Probabilístico e
+Geometria</h1>
+<p>O exemplo a seguir é uma bela aplicação do método probabilístico na
+Geometria Plana.</p>
+<div class="theorem*">
+<p><strong>Teorema 9</strong>. <em>(IMO 1989) Sejam <span
+class="math inline">\(n\)</span> e <span
+class="math inline">\(k\)</span> inteiros positivos e seja <span
+class="math inline">\(S\)</span> um conjunto de <span
+class="math inline">\(n\)</span> pontos no plano tais que:</em></p>
+<ul>
+<li><p><em>Não existem três pontos de <span
+class="math inline">\(S\)</span> que sejam colineares, e</em></p></li>
+<li><p><em>Para qualquer ponto <span class="math inline">\(P\)</span> de
+<span class="math inline">\(S\)</span> existem pelo menos <span
+class="math inline">\(k\)</span> pontos de <span
+class="math inline">\(S\)</span> equidistantes de <span
+class="math inline">\(P\)</span>.</em></p></li>
+</ul>
+<p><em>Prove que: <span class="math display">\[k\leq
+\frac{1}{2}+\sqrt{2n}.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Primeiro, note que a desigualdade pedida é
+equivalente a: <span class="math display">\[n \geq \binom{k}{2} +
+1.\]</span> Agora, para cada ponto <span
+class="math inline">\(P\)</span> em <span
+class="math inline">\(S\)</span>, construímos um círculo centrado em
+<span class="math inline">\(P\)</span> que contém pelo menos <span
+class="math inline">\(k\)</span> pontos de <span
+class="math inline">\(S\)</span>.</p>
+<p>Seja <span class="math inline">\(d_P\)</span> o número de círculos
+que contêm o ponto <span class="math inline">\(P\)</span>. Seja também
+<span class="math inline">\(f_O\)</span> o número de pontos contidos no
+círculo definido com centro em <span class="math inline">\(O\)</span>,
+para cada ponto <span class="math inline">\(O \in S\)</span>. Por
+construção, temos que <span class="math inline">\(f_O \geq k\)</span>
+para todo <span class="math inline">\(O \in S\)</span>.</p>
+<p>Como a função binomial <span
+class="math inline">\(\binom{n}{2}\)</span> é crescente para <span
+class="math inline">\(n \geq 1\)</span> inteiro, segue que <span
+class="math inline">\(\binom{f_O}{2} \geq \binom{k}{2}\)</span> para
+todo <span class="math inline">\(O \in S\)</span>. Logo, <span
+class="math display">\[\mathbb{E}\left[\binom{f}{2}\right] \geq
+\binom{k}{2},\]</span> onde o valor esperado é sobre a escolha uniforme
+do ponto <span class="math inline">\(O \in S\)</span>.</p>
+<p>Por outro lado, observe que qualquer par de pontos compartilha no
+máximo 2 círculos, pois caso contrário teríamos 3 círculos com centros
+em suas bissetrizes perpendiculares, o que violaria as condições do
+problema. Logo, <span class="math display">\[\sum_{O \in S}
+\binom{f_O}{2} \leq 2\binom{n}{2},\]</span> pois o lado esquerdo conta
+pares de pontos compartilhando algum círculo, enquanto o lado direito
+limita esse valor por todos os pares possíveis.</p>
+<p>Portanto, <span class="math display">\[\binom{k}{2} \leq
+\mathbb{E}\left[\binom{f}{2}\right] \leq \frac{2}{n}\binom{n}{2} =
+n-1,\]</span> que completa a prova. ◻</p>
+</div>
+<div class="wrapfigure">
+<p><span>L</span><span>1.7cm</span> <img src="Carlos.png"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Carlos Augusto D. Ribeiro é professor da Universidade Federal do
+Delta do Parnaíba (UFDPar) desde 2010 e ex-olímpico com premiações na
+OBM, OCM, Rioplatense, etc. Consciente do impacto positivo que a
+Olimpíada de Matemática teve em sua vida, hoje contribui com a OBM na
+promoção de suas olimpíadas, com a ONG Cactus produzindo materiais de
+treinamento que impactam a vida de dezenas de milhares de alunos da
+escola pública, bem como com o Projeto CQD com quem tem a alegria de
+trabalhar ao lado de amigos da época de olimpíada. Viciado em Star Wars,
+nerd de carteirinha e apaixonado por sua esposa Keivy Lany, se esforça
+em manter o bom humor quando os seus pets Ahsoka, Yoda, Bombom e Sushi
+resolvem aprontar.</p>
+<div class="wrapfigure">
+<p><span>L</span><span>1.7cm</span> <img src="Joice.jpeg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Maria Joice Machado Brito é natural de Cocal dos Alves, uma cidade
+pequena no interior do Piauí. Concluiu a graduação em Licenciatura em
+Matemática pela UFDPAR. Seu interesse pela matemática surgiu durante o
+ensino médio, graças à participação na Olimpíada Brasileira de
+Matemática das Escolas Públicas (OBMEP), onde foi medalhista.
+Atualmente, trabalha em sua cidade natal e busca incentivar os alunos a
+gostarem de Matemática.</p>
+<p>Gosta muito de crianças, de jogos de raciocínio e de competição. Por
+gostar de crianças, ela já até pensou em fazer pedagogia, mas o que
+realmente a realiza é resolver questões desafiadoras que envolvam
+probabilidade. Por isso, pretende fazer um mestrado na área.</p>
+<div class="wrapfigure">
+<p><span>L</span><span>1.7cm</span> <img src="Daniel.jpeg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Daniel Vitor C. Vieira nasceu em Brasília e está radiante por ter se
+formado em licenciatura em Matemática pela UFDPar. Atualmente, ele
+compartilha seu conhecimento ensinando matemática sempre que possível em
+seu estado que mora, o Maranhão. Daniel tem uma queda pelo estudo da
+probabilidade e seus campos abstratos, que incluem geometria, teoria dos
+números e teoria dos grafos. Além disso, é totalmente apaixonado por sua
+namorada, Liandra, e se esforça ao máximo para fazer com que ela também
+goste de matemática.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-aigner1998" class="csl-entry" role="listitem">
+Aigner, M., and G. M. Ziegler. 1998. <em>Proofs from the Book</em>.
+Berlin: Springer.
+</div>
+<div id="ref-alon2000" class="csl-entry" role="listitem">
+Alon, N., and J. H. Spencer. 2000. <em>The Probabilistic Method</em>.
+3rd ed. New York: Wiley.
+</div>
+<div id="ref-bollobas2001" class="csl-entry" role="listitem">
+Bollobás, B. 2001. <em>Random Graphs</em>. 2nd ed. Cambridge: Cambridge
+University Press.
+</div>
+<div id="ref-chen2014" class="csl-entry" role="listitem">
+Chen, Evan. 2014. <span>“Expected Uses of Probability.”</span> 18 p.
+</div>
+<div id="ref-diestel2017" class="csl-entry" role="listitem">
+Diestel, R. 2017. <em>Graph Theory</em>. 5th ed. Berlin: Springer.
+</div>
+<div id="ref-erdos1950" class="csl-entry" role="listitem">
+Erdős, P., and A. Rényi. 1950. <span>“On the Evolution of Random
+Graphs.”</span> <em>Publicationes Mathematicae</em>.
+</div>
+<div id="ref-erdos1949" class="csl-entry" role="listitem">
+———. 1959. <span>“On Random Graphs.”</span> <em>Publicationes
+Mathematicae</em> 6: 290–97.
+</div>
+<div id="ref-feller1968" class="csl-entry" role="listitem">
+Feller, W. 1968. <em>An Introduction to Probability Theory and Its
+Applications</em>. 3rd ed. New York: Wiley.
+</div>
+<div id="ref-harary1973" class="csl-entry" role="listitem">
+Harary, F., and E. M. Palmer. 1973. <em>Graphical Enumeration</em>. New
+York: Academic Press.
+</div>
+<div id="ref-kedlaya1999" class="csl-entry" role="listitem">
+Kedlaya, Kiran. 1999. <span>“Graph Theory: Definitions and
+Results.”</span> 4 p.
+</div>
+<div id="ref-landau2015" class="csl-entry" role="listitem">
+Landau, H. G., and H. J. Landau. 2015. <em>Prime Numbers and the Riemann
+Hypothesis</em>. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-landim2020" class="csl-entry" role="listitem">
+Landim, Thiago. 2020. <span>“Aplicações Inesperadas Do Valor
+Esperado.”</span> 10 p.
+</div>
+<div id="ref-loh2009" class="csl-entry" role="listitem">
+Loh, Po-Shen. 2009. <span>“Probabilistic Methods in
+Combinatorics.”</span> 7 p.
+</div>
+<div id="ref-renyi1958" class="csl-entry" role="listitem">
+Rényi, A. 1958. <span>“On the Distribution of Primes.”</span>
+<em>Publicationes Mathematicae</em>.
+</div>
+<div id="ref-spencer1994" class="csl-entry" role="listitem">
+Spencer, J. 1994. <em>Ten Lectures on the Probabilistic Method</em>.
+Philadelphia: SIAM.
+</div>
+</div>

@@ -1,0 +1,1236 @@
+---
+layout: artigo
+title: As Mil Faces de Pitágoras 
+subtitle: Teorema
+author: André L. G. Mandolesi
+---
+<p>O Teorema de Pitágoras (TP) é um dos mais antigos, famosos e úteis
+teoremas da Matemática, e possivelmente o que maior impacto teve na
+evolução desta e outras ciências. Neste artigo, vamos olhar para este
+velho conhecido de diferentes perspectivas, algumas pouco usuais. Iremos
+lembrar um pouco da sua história, algumas aplicações e generalizações
+bem conhecidas, outras nem tanto, e ver que ele guarda muitas facetas
+surpreendentes e geralmente ignoradas.</p>
+<h1 id="o-teorema-de-mil-faces">O teorema de mil faces</h1>
+<p>Em sua forma moderna, o TP é a relação <span
+class="math display">\[\label{eq:TP}
+    a^2 = b^2 + c^2,\]</span> entre os comprimentos <span
+class="math inline">\(a\)</span> da hipotenusa, e <span
+class="math inline">\(b\)</span> e <span
+class="math inline">\(c\)</span> dos catetos, de um triângulo retângulo
+(Fig. <a href="#fig:TP" data-reference-type="ref"
+data-reference="fig:TP">1</a>).</p>
+<figure id="fig:TP">
+<img src="Figuras/TP.png" style="width:3cm" />
+<figcaption>Teorema de Pitágoras, <span
+class="math inline">\(a^2=b^2+c^2\)</span>.</figcaption>
+</figure>
+<p>Sua importância se reflete nas centenas de demonstrações surgidas ao
+longo do tempo <span class="citation"
+data-cites="Bogomolny Loomis1968"></span>. E a forma como ele permeia
+toda a Matemática, sob diferentes roupagens, se reflete na diversidade
+de métodos que usaremos: geometria euclidiana, não-euclidiana,
+analítica, Riemanniana, trigonometria circular e hiperbólica, álgebra
+linear e exterior, determinantes, cálculo integral e vetorial,
+combinatória, números complexos, etc. Isso mostra também a unidade da
+Matemática, e como é fértil o fluxo de conhecimentos entre suas
+diferentes áreas.</p>
+<p>Inúmeros resultados bem conhecidos são basicamente aplicações ou
+generalizações do TP. Sendo impossível listar todos, ficaremos só nos
+mais óbvios:</p>
+<ul>
+<li><p>O TP equivale à identidade trigonométrica fundamental, <span
+class="math inline">\(\cos^2 \theta + \mathop{\mathrm{sen}}^2 \theta =
+1\)</span>.</p></li>
+<li><p>Decompondo <span class="math inline">\(v\in \mathds{R}^n\)</span>
+ou <span class="math inline">\(\mathds{C}^n\)</span> numa base ortogonal
+como <span class="math inline">\(v = v_1+\cdots +v_n\)</span>, temos
+<span class="math display">\[\label{eq:norma}
+        \|v \|^2 = \|v_1\|^2+\cdots +\|v_n\|^2.\]</span></p></li>
+<li><p>Em <span class="math inline">\(\mathds{R}^n\)</span> ou <span
+class="math inline">\(\mathds{C}^n\)</span>, a distância <span
+class="math inline">\(d\)</span> entre <span
+class="math inline">\(A=(a_1,\ldots,a_n)\)</span> e <span
+class="math inline">\(B=(b_1,\ldots,b_n)\)</span> é <span
+class="math display">\[\label{eq:distancia}
+        d(A,B)^2=\sum\limits_{k=1}^n |a_k-b_k|^2.\]</span></p></li>
+<li><p>Se os lados <span class="math inline">\(b\)</span> e <span
+class="math inline">\(c\)</span> formarem um ângulo <span
+class="math inline">\(\theta\)</span>, o TP se generaliza como a Lei dos
+Cossenos, <span class="math display">\[\label{eq:lei cos}
+        a^2 = b^2 + c^2 - 2bc\cos \theta.\]</span></p></li>
+<li><p>A métrica Riemanniana no plano euclidiano é <span
+class="math inline">\(ds^2=d x^2+dy^2\)</span>, um TP para distâncias
+infinitesimais. Em superfícies curvas (Fig. <a href="#fig:surface"
+data-reference-type="ref" data-reference="fig:surface">2</a>), ela é uma
+versão infinitesimal de <a href="#eq:lei cos"
+data-reference-type="eqref" data-reference="eq:lei cos">[eq:lei
+cos]</a>, <span class="math display">\[ds^2 = g_{xx} d x^2 + g_{yy} dy^2
++ 2g_{xy} dx dy,\]</span> onde <span
+class="math inline">\(g_{xx}\)</span> e <span
+class="math inline">\(g_{yy}\)</span> ajustam a escala de comprimento
+nas direções <span class="math inline">\(x\)</span> e <span
+class="math inline">\(y\)</span>, e <span
+class="math inline">\(g_{xy}\)</span> envolve o ângulo entre elas. Em
+dimensão <span class="math inline">\(n\)</span>, <span
+class="math inline">\(ds^2=\sum_{i,j=1}^n g_{ij} dx_i dx_j\)</span>.</p>
+<figure id="fig:surface">
+<img src="Figuras/surface.png" style="width:6cm" />
+<figcaption>Métrica Riemanniana em uma superfície é uma versão
+infinitesimal da Lei dos Cossenos.</figcaption>
+</figure></li>
+<li><p>Num espaço vetorial com produto interno <span
+class="math inline">\(\langle \cdot,\cdot \rangle\)</span>, <span
+class="math inline">\(u\)</span> e <span
+class="math inline">\(v\)</span> são ditos ortogonais se <span
+class="math inline">\(\langle u,v \rangle=0\)</span>, e nesse caso <span
+class="math inline">\(\|u+v\|^2=\|u\|^2+\|v\|^2\)</span>. Com isso
+pode-se até, por exemplo, interpretar <span
+class="math inline">\(\int_0^{2\pi} (\mathop{\mathrm{sen}}x + \cos x)^2
+\,dx = \int_0^{2\pi} \mathop{\mathrm{sen}}^2 x \,dx + \int_0^{2\pi}
+\cos^2 x \,dx\)</span> em termos do TP num espaço de funções.</p></li>
+</ul>
+<p>Veremos depois generalizações menos conhecidas.</p>
+<h1 id="um-pouco-de-história">Um pouco de história</h1>
+<p>Apesar do nome, o TP era conhecido por várias civilizações muito
+antes da época de Pitágoras (séc. VI a.C.), sendo improvável que ele ou
+seus seguidores, os pitagóricos, tenham sido os primeiros a prová-lo
+<span class="citation" data-cites="Roque2012"></span>. E é possível que
+estivessem menos interessados em <a href="#eq:TP"
+data-reference-type="eqref" data-reference="eq:TP">[eq:TP]</a> como
+resultado geométrico do que como uma relação aritmética de certos trios
+de números naturais, as <em>ternas pitagóricas</em>, como <span
+class="math inline">\((3,4,5)\)</span>, <span
+class="math inline">\((5,12,13)\)</span>, etc.</p>
+<p>Estes trios eram tabelados por vários povos antigos, e possivelmente
+tinham finalidade didática, servindo como exemplos fáceis de trabalhar.
+Também podiam ter utilidade prática: para demarcar um terreno
+retangular, uma maneira de checar se os lados estão bem retos e
+perpendiculares é ver se formam com a diagonal uma dessas ternas.
+Arqueólogos ainda fazem algo parecido hoje em dia.</p>
+<p>Os pitagóricos se interessavam menos por geometria que pelos números,
+vistos como algo místico, a base do Universo, cujas propriedades
+revelariam verdades fundamentais. Mas, na época, os únicos números eram
+os naturais, e mesmo frações eram só relações entre eles: se um segmento
+<span class="math inline">\(a\)</span> media <span
+class="math inline">\(1\)</span>, dizer que outro segmento <span
+class="math inline">\(b\)</span> media <span
+class="math inline">\(\frac{2}{3}\)</span> significava apenas que 3
+segmentos <span class="math inline">\(b\)</span> mediam o mesmo que 2
+<span class="math inline">\(a\)</span>’s. Ou, equivalentemente, que era
+possível achar uma unidade comum de comprimento que coubesse 3 vezes em
+<span class="math inline">\(a\)</span>, e 2 vezes em <span
+class="math inline">\(b\)</span>. E, como tudo no mundo devia ser
+descrito por relações entre números, esperava-se que quaisquer
+comprimentos pudessem ser comparados assim.</p>
+<p>Ironicamente, o TP pode ter levado ao fim da filosofia pitagórica, e
+à primeira crise da história da matemática. Usando <a href="#eq:TP"
+data-reference-type="eqref" data-reference="eq:TP">[eq:TP]</a> para
+achar a razão <span class="math inline">\(\frac mn\)</span> entre a
+diagonal de um quadrado e seu lado, obtém-se <span
+class="math inline">\(\frac{m^2}{n^2} = 2\)</span>. Mas fatorando <span
+class="math inline">\(m\)</span> e <span
+class="math inline">\(n\)</span> em primos, ao elevá-los ao quadrado a
+quantidade de cada fator dobra, e simplificando não há como sobrar um
+único <span class="math inline">\(2\)</span>. Ou seja, é impossível
+comparar tais comprimentos por meio de uma razão entre números
+(naturais). Eles são <em>incomensuráveis</em>, não podem ser ambos
+múltiplos inteiros de uma unidade de medida comum.</p>
+<p>Diz-se que encontrar algo que não podia ser descrito por números foi
+um choque para os pitagóricos, que tentaram esconder o resultado. Mas o
+segredo se espalhou, destruindo a ideia de um mundo regido por números.
+Estes deixaram o palco principal da matemática grega, que se voltou para
+a geometria, vista a partir daí como a base de verdades mais
+fundamentais, que os números não alcançam.</p>
+<p>Alguns historiadores discordam dessa narrativa, pois como os
+pitagóricos se interessavam pouco por geometria, não teriam dado tanta
+importância aos incomensuráveis <span class="citation"
+data-cites="Roque2012"></span>. Mas é inegável o impacto que a
+descoberta destes teve na matemática grega. A percepção de que a
+geometria guardava mistérios contraintuitivos levou a uma maior
+preocupação com demonstrações formais, como na obra de Euclides. E ela
+passou a ser feita quase sem números: achar uma área não era
+atribuir-lhe um valor, mas construir, com régua não numerada e compasso,
+um quadrado de mesma área, que pudesse ser comparado com outros. Daí vem
+o problema da quadratura do círculo, que perseguiu os matemáticos por
+milênios.</p>
+<h1 id="áreas-de-figuras-semelhantes">Áreas de figuras semelhantes</h1>
+<p>Na geometria grega, o TP era mais comumente visto como uma relação
+<span class="math display">\[\label{eq:soma areas}
+    \mathcal{A}= \mathcal{A}_1 + \mathcal{A}_2,\]</span> entre a área
+<span class="math inline">\(\mathcal{A}\)</span> de um quadrado
+construído sobre a hipotenusa do triângulo retângulo, e áreas <span
+class="math inline">\(\mathcal{A}_1\)</span> e <span
+class="math inline">\(\mathcal{A}_2\)</span> de quadrados construídos
+sobre os catetos (Fig. <a href="#fig:quadriculado"
+data-reference-type="ref" data-reference="fig:quadriculado">3</a>).
+Nessa perspectiva, o triângulo vira um “somador” de áreas, juntando
+<span class="math inline">\(\mathcal{A}_1\)</span> e <span
+class="math inline">\(\mathcal{A}_2\)</span> num único quadrado <span
+class="math inline">\(\mathcal{A}\)</span> com a área total. E <a
+href="#eq:soma areas" data-reference-type="eqref"
+data-reference="eq:soma areas">[eq:soma areas]</a> só se converte em <a
+href="#eq:TP" data-reference-type="eqref"
+data-reference="eq:TP">[eq:TP]</a> após aplicarmos a fórmula da área do
+quadrado.</p>
+<figure id="fig:quadriculado">
+<img src="Figuras/quadriculado.png" style="width:4cm" />
+<figcaption>Teorema de Pitágoras, <span
+class="math inline">\(\mathcal{A}= \mathcal{A}_1 +
+\mathcal{A}_2\)</span>.</figcaption>
+</figure>
+<p>Diz a lenda que Pitágoras teria descoberto <a href="#eq:soma areas"
+data-reference-type="eqref" data-reference="eq:soma areas">[eq:soma
+areas]</a> observando uma parede ladrilhada (Fig. <a
+href="#fig:ladrilho" data-reference-type="ref"
+data-reference="fig:ladrilho">4</a>). Uma prova bem conhecida e
+autoexplicativa é a da Fig. <a href="#fig:cortes"
+data-reference-type="ref" data-reference="fig:cortes">5</a>.</p>
+<figure id="fig:ladrilho">
+<img src="Figuras/ladrilho.png" style="width:4cm" />
+<figcaption>Teorema de Pitágoras em ladrilhos triangulares.</figcaption>
+</figure>
+<figure id="fig:cortes">
+<img src="Figuras/cortes.png" style="width:6cm" />
+<figcaption>Duas maneiras de remover 4 triângulos retângulos iguais de
+um mesmo quadrado, sobrando áreas iguais.</figcaption>
+</figure>
+<p>As figuras construídas sobre os lados nem precisam ser quadrados,
+basta serem semelhantes entre si, pois nesse caso as razões entre suas
+áreas e as dos quadrados serão iguais (Fig.  <a href="#fig:areageral"
+data-reference-type="ref" data-reference="fig:areageral">6</a>). Isso
+também significa que o TP pode ser provado usando qualquer trio de
+figuras semelhantes construídas sobre os lados.</p>
+<figure id="fig:areageral">
+<img src="Figuras/area geral.png" style="width:4cm" />
+<figcaption>Áreas de figuras semelhantes, <span
+class="math inline">\(\mathcal{A}= \mathcal{A}_1 +
+\mathcal{A}_2\)</span>.</figcaption>
+</figure>
+<p>Em geral, construímos as figuras para fora do triângulo, mas as áreas
+não mudam se estiverem pro outro lado, certo? Isso levou Albert
+Einstein, aos 12 anos, a uma prova interessante (Fig. <a
+href="#fig:Einstein" data-reference-type="ref"
+data-reference="fig:Einstein">7</a>): a altura em relação à hipotenusa
+divide o triângulo em dois semelhantes a ele, e tomando os três como
+sendo as figuras construídas sobre os lados, é imediato que <span
+class="math inline">\(\mathcal{A}= \mathcal{A}_1 +
+\mathcal{A}_2\)</span>.</p>
+<figure id="fig:Einstein">
+<img src="Figuras/Einstein.png" style="width:3cm" />
+<figcaption>Demonstração de Einstein, <span
+class="math inline">\(\mathcal{A}= \mathcal{A}_1 +
+\mathcal{A}_2\)</span>.</figcaption>
+</figure>
+<p>E, claro, as figuras nem precisam ser construídas nos lados do
+triângulo. Basta serem figuras semelhantes, com escalas de comprimento
+proporcionais aos comprimentos de tais lados (Fig. <a
+href="#fig:3 discos" data-reference-type="ref"
+data-reference="fig:3 discos">8</a>).</p>
+<figure id="fig:3 discos">
+<img src="Figuras/3 discos.png" style="width:7cm" />
+<figcaption>Discos obtidos ‘enrolando’ os lados do triângulo retângulo.
+Novamente, <span class="math inline">\(\mathcal{A}= \mathcal{A}_1 +
+\mathcal{A}_2\)</span>.</figcaption>
+</figure>
+<h1 id="tp-e-o-axioma-das-paralelas">TP e o Axioma das Paralelas</h1>
+<p>É comum provar <a href="#eq:TP" data-reference-type="eqref"
+data-reference="eq:TP">[eq:TP]</a> usando propriedades de semelhança e
+proporcionalidade, que dependem do famoso Axioma das Paralelas (AP). Já
+<a href="#eq:soma areas" data-reference-type="eqref"
+data-reference="eq:soma areas">[eq:soma areas]</a> parece resultar, em
+provas como a da Fig. <a href="#fig:cortes" data-reference-type="ref"
+data-reference="fig:cortes">5</a>, de um jogo de cortar, mover e
+reagrupar figuras, via congruência. Isso pode dar a impressão de que o
+AP só entre na passagem de <a href="#eq:soma areas"
+data-reference-type="eqref" data-reference="eq:soma areas">[eq:soma
+areas]</a> para <a href="#eq:TP" data-reference-type="eqref"
+data-reference="eq:TP">[eq:TP]</a>, que usa a fórmula <span
+class="math inline">\(\mathcal{A}=l^2\)</span> da área do quadrado de
+lado <span class="math inline">\(l\)</span>, obtida dividindo-o em
+outros menores por meio de paralelas.</p>
+<p>Na verdade, o AP já está presente em <a href="#eq:soma areas"
+data-reference-type="eqref" data-reference="eq:soma areas">[eq:soma
+areas]</a> de várias formas. Para que as áreas <span
+class="math inline">\(\mathcal{A}\)</span>, <span
+class="math inline">\(\mathcal{A}_1\)</span> e <span
+class="math inline">\(\mathcal{A}_2\)</span> na Fig. <a
+href="#fig:cortes" data-reference-type="ref"
+data-reference="fig:cortes">5</a> tenham ângulos retos é preciso que a
+soma dos ângulos dos triângulos seja <span
+class="math inline">\(180^\circ\)</span>, o que requer o AP. E a própria
+existência de quadrados depende dele, bem como o conceito de figuras
+semelhantes: sem ele não há como dilatar uma figura de forma homogênea,
+preservando seus ângulos, dilatando seus comprimentos por um fator <span
+class="math inline">\(k\)</span>, suas áreas por <span
+class="math inline">\(k^2\)</span>, etc.</p>
+<p>Pode-se provar que o TP, em ambas as formas, é equivalente ao AP. E a
+melhor forma de entender como ele é um resultado puramente euclidiano é
+ver o que ocorre em outras geometrias.</p>
+<h1 id="geometrias-não-euclidianas">Geometrias não-euclidianas</h1>
+<p>As geometrias não-euclidianas <span class="citation"
+data-cites="Wolfe2012"></span> (esférica/elíptica e hiperbólica)
+resultam da negação do AP (e alguns ajustes em outros axiomas). Vamos
+começar pela esférica, que é mais intuitiva.</p>
+<p>O que faz o papel de ‘retas’ na superfície de uma esfera são os
+círculos máximos (com mesmo centro e raio da esfera), pois o menor
+caminho entre 2 pontos ao longo da superfície é um arco deles. Como tais
+círculos sempre se interceptam, nessa geometria não há paralelas. Além
+disso, polígonos ficam mais “arredondados” à medida que seu tamanho
+aumenta, e a soma de seus ângulos depende da área. Para triângulos, a
+soma é maior que <span class="math inline">\(180^\circ\)</span>. Não
+existem quadrados (quadriláteros com lados iguais e ângulos retos), e
+sim quadriláteros equiláteros e com ângulos iguais mas maiores que <span
+class="math inline">\(90^\circ\)</span> (Fig. <a href="#fig:quadrado"
+data-reference-type="ref" data-reference="fig:quadrado">9</a>). Sua área
+não é <span class="math inline">\(\mathcal{A}=l^2\)</span>, pois se
+tentarmos dividi-los em outros menores, estes não se encaixarão
+direito.</p>
+<figure id="fig:quadrado">
+<img src="Figuras/quadrado.png" style="width:4.5cm" />
+<figcaption>Quadriláteros esféricos equiláteros e equiangulares. Não são
+semelhantes, pois a área afeta os ângulos.</figcaption>
+</figure>
+<p>Vamos ver como <a href="#eq:TP" data-reference-type="eqref"
+data-reference="eq:TP">[eq:TP]</a> falha na superfície da Terra. Na
+Fig. <a href="#fig:mapa" data-reference-type="ref"
+data-reference="fig:mapa">10</a>, temos o triângulo formado por
+Quito-Equador, Macapá-AP e Porto Alegre-RS. Duas cidades estão quase na
+linha do Equador, e duas quase no mesmo meridiano, logo o ângulo em
+Macapá é quase reto. Por <a href="#eq:TP" data-reference-type="eqref"
+data-reference="eq:TP">[eq:TP]</a>, a distância de Quito a Porto Alegre
+deveria ser de <span class="math inline">\(4511km\)</span>, um erro de
+<span class="math inline">\(123km\)</span> em relação à distância no
+mapa. Isso ocorre porque o triângulo é levemente arredondado, devido à
+curvatura da Terra, logo o TP não se aplica perfeitamente a ele.</p>
+<figure id="fig:mapa">
+<img src="Figuras/mapa.png" style="width:5.5cm" />
+<figcaption>Triângulo retângulo na superfície da Terra. Fonte: Google
+Maps.</figcaption>
+</figure>
+<p>O erro aumenta para triângulos maiores. Na Fig. <a
+href="#fig:triretangulo" data-reference-type="ref"
+data-reference="fig:triretangulo">11</a>, temos um triângulo esférico
+delimitando um octante da superfície da Terra. Ele é equilátero, seus 3
+ângulos são retos, e, claro, não há a menor chance do TP funcionar com
+ele!</p>
+<figure id="fig:triretangulo">
+<img src="Figuras/triretangulo.png" style="width:7cm" />
+<figcaption>Triângulo esférico equilátero trirretângulo. Fonte: Google
+Maps.</figcaption>
+</figure>
+<p>Alguém poderia dizer que esses não são realmente triângulos, e as
+distâncias deveriam ser medidas em linha reta, atravessando a Terra. Mas
+para o planejamento de rotas, por exemplo, o que importam são distâncias
+ao longo da superfície. Para isso a geometria esférica tem seu próprio
+TP, relacionando os lados de um triângulo retângulo esférico.</p>
+<div class="theorem*">
+<p><strong>Teorema 1</strong> (Pitágoras Esférico). <em>Sejam <span
+class="math inline">\(a, b, c\)</span> os comprimentos da hipotenusa e
+catetos de um triângulo retângulo esférico, numa esfera de raio <span
+class="math inline">\(R\)</span>. Então <span
+class="math display">\[\label{eq:TP esferico}
+        \cos \tfrac aR = \cos \tfrac bR \cdot \cos \tfrac
+cR.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Com a origem <span class="math inline">\(O\)</span>
+no centro da esfera, e os eixos como na Fig. <a href="#fig:esferico"
+data-reference-type="ref" data-reference="fig:esferico">12</a>, de modo
+que <span class="math inline">\(A=(R,0,0)\)</span>, <span
+class="math inline">\(B=(R \cos \theta, R
+\mathop{\mathrm{sen}}\theta,0)\)</span> e <span
+class="math inline">\(C=(R\cos\beta,0,R\mathop{\mathrm{sen}}\beta)\)</span>,
+temos <span class="math inline">\(\alpha = \frac a R\)</span>, <span
+class="math inline">\(\beta = \frac b R\)</span>, <span
+class="math inline">\(\theta = \frac c R\)</span>, e o produto escalar
+entre <span class="math inline">\(\overrightarrow{OB}\)</span> e <span
+class="math inline">\(\overrightarrow{OC}\)</span> leva a <span
+class="math inline">\(\cos \alpha = \cos \beta \cdot \cos
+\theta\)</span> (exercício). ◻</p>
+</div>
+<figure id="fig:esferico">
+<img src="Figuras/esferico.png" style="width:5cm" />
+<figcaption>Teor. de Pitágoras esférico, <span
+class="math inline">\(\cos \tfrac aR = \cos \tfrac bR \cdot \cos \tfrac
+cR\)</span>.</figcaption>
+</figure>
+<p>Como o raio da Terra é <span class="math inline">\(R \cong
+6371km\)</span>, por <a href="#eq:TP esferico"
+data-reference-type="eqref" data-reference="eq:TP esferico">[eq:TP
+esferico]</a> a distância de Porto Alegre a Quito seria de <span
+class="math inline">\(4414km\)</span>, bem mais próxima da real (mas não
+exata pois o ângulo em Macapá não é precisamente reto e a Terra não é
+uma esfera perfeita).</p>
+<p>Na Fig. <a href="#fig:triretangulo" data-reference-type="ref"
+data-reference="fig:triretangulo">11</a>, ocorre algo interessante: os 3
+lados são hipotenusas! Mas <a href="#eq:TP esferico"
+data-reference-type="eqref" data-reference="eq:TP esferico">[eq:TP
+esferico]</a> funciona, com os três cossenos dando <span
+class="math inline">\(0\)</span>. Outro fenômeno inusitado é que se
+<span class="math inline">\(b=\frac\pi2 R\)</span> então <span
+class="math inline">\(a=\frac\pi2 R\)</span> ou <span
+class="math inline">\(\frac{3\pi}{2} R\)</span>, independente do valor
+de <span class="math inline">\(c\)</span>. Tente entender o significado
+geométrico disso.</p>
+<p>Como o TP sempre serviu para medir pequenas distâncias na superfície
+da Terra, espera-se que <a href="#eq:TP" data-reference-type="eqref"
+data-reference="eq:TP">[eq:TP]</a> e <a href="#eq:TP esferico"
+data-reference-type="eqref" data-reference="eq:TP esferico">[eq:TP
+esferico]</a> deem resultados parecidos para triângulos não muito
+grandes. De fato, como <span class="math inline">\(\cos x \cong 1 -
+\frac{x^2}{2}\)</span> para <span class="math inline">\(x\)</span>
+pequeno, temos <span class="math inline">\(a^2 \cong b^2 + c^2\)</span>
+se <span class="math inline">\(a,b,c \ll R\)</span> (exercício).</p>
+<figure id="fig:hyperbolic">
+<img src="Figuras/hyperbolic.png" style="width:5cm" />
+<figcaption>Modelo do disco de Poincaré da geometria hiperbólica. As
+“retas” são arcos de círculo perpendiculares à borda, ou diâmetros do
+disco. Por <span class="math inline">\(P\)</span> passam infinitas
+paralelas à reta <span class="math inline">\(BC\)</span>. O triângulo
+<span class="math inline">\(ABC\)</span> é retângulo, com <span
+class="math inline">\(a\cong 3.34\)</span> e <span
+class="math inline">\(b=c=2\)</span> (a escala de comprimento aumenta
+perto da borda). A curvatura é <span
+class="math inline">\(K=-1\)</span>.</figcaption>
+</figure>
+<p>A geometria hiperbólica é, de certa forma, antípoda da esférica.
+Nela, por um ponto passam infinitas paralelas a uma reta (Fig. <a
+href="#fig:hyperbolic" data-reference-type="ref"
+data-reference="fig:hyperbolic">13</a>). Triângulos ficam “magros”, com
+sua área determinando a soma dos ângulos, que é menor que <span
+class="math inline">\(180^\circ\)</span>. Sua trigonometria usa funções
+hiperbólicas, e temos a seguinte versão do TP:</p>
+<div class="theorem*">
+<p><strong>Teorema 2</strong> (Pitágoras Hiperbólico). <em>Sejam <span
+class="math inline">\(a, b, c\)</span> os comprimentos da hipotenusa e
+catetos de um triângulo retângulo hiperbólico, num plano hiperbólico de
+curvatura <span class="math inline">\(K=-\frac{1}{R^2}\)</span>. Então
+<span class="math display">\[\label{eq:TP hiperbolico}
+        \cosh \tfrac aR = \cosh \tfrac bR \cdot \cosh \tfrac
+cR.\]</span></em></p>
+</div>
+<p>A prova pode ser vista em <span class="citation"
+data-cites="Wolfe2012"></span>. Teste com os valores da Fig. <a
+href="#fig:hyperbolic" data-reference-type="ref"
+data-reference="fig:hyperbolic">13</a> (<span
+class="math inline">\(R\)</span> não é o raio do disco, e sim um
+pseudo-raio definido a partir de <span
+class="math inline">\(K\)</span>). Como <span
+class="math inline">\(\cosh x \cong 1 + \frac{x^2}{2}\)</span> para
+<span class="math inline">\(x\)</span> pequeno, de novo <span
+class="math inline">\(a^2 \cong b^2 + c^2\)</span> se <span
+class="math inline">\(a,b,c \ll R\)</span>.</p>
+<h1 id="teorema-de-pitágoras-unificado">Teorema de Pitágoras
+Unificado</h1>
+<p>Essas aproximações para pequenos triângulos não revelam a conexão
+mais ampla que há entre os TP’s das três geometrias, e que surge ao
+generalizarmos a forma <a href="#eq:soma areas"
+data-reference-type="eqref" data-reference="eq:soma areas">[eq:soma
+areas]</a>. Mas como, se nas não-euclidianas não há quadrados nem
+figuras semelhantes em geral?</p>
+<p>Semelhança euclidiana requer figuras com comprimentos proporcionais e
+ângulos iguais, o que é difícil nas geometrias não-euclidianas, nas
+quais a área afeta os ângulos. Mas círculos não têm ângulos, logo esse
+problema não os atinge, e intuitivamente eles parecem semelhantes. É uma
+semelhança mais fraca, pois seus comprimentos não são proporcionais ao
+raio, nem suas áreas ao quadrado dele (imagine o que ocorre quando o
+raio do círculo ultrapassa <span class="math inline">\(\frac14\)</span>
+de uma volta na esfera). Surpreendentemente, já basta.</p>
+<p>As três geometrias são ligadas pelo conceito de curvatura: na
+esférica, <span class="math inline">\(K = \frac{1}{R^2}&gt;0\)</span>,
+na euclidiana <span class="math inline">\(K=0\)</span>, e na hiperbólica
+<span class="math inline">\(K = -\frac{1}{R^2}&lt;0\)</span> (a
+euclidiana pode ser vista como um limite das outras quando <span
+class="math inline">\(R \rightarrow \infty\)</span>). E uma forma do TP
+válida em todas é:</p>
+<div class="theorem*">
+<p><strong>Teorema 3</strong> (Pitágoras Unificado <span
+class="citation" data-cites="Foote2017"></span>). <em>As áreas <span
+class="math inline">\(\mathcal{A}\)</span>, <span
+class="math inline">\(\mathcal{A}_1\)</span> e <span
+class="math inline">\(\mathcal{A}_2\)</span> de discos com raios dados
+pela hipotenusa e catetos de um triângulo retângulo (Fig. <a
+href="#fig:proprio 3" data-reference-type="ref"
+data-reference="fig:proprio 3">14</a>) satisfazem <span
+class="math display">\[\label{eq:TP unificado}
+        \mathcal{A}= \mathcal{A}_1 + \mathcal{A}_2 - \frac{K}{2\pi}
+\mathcal{A}_1 \mathcal{A}_2.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Na geometria esférica, a área do disco de raio <span
+class="math inline">\(r\)</span> é <span
+class="math inline">\(\mathcal{A}(r) = 2\pi R^2 (1-\cos \frac
+rR)\)</span>, e na hiperbólica é <span
+class="math inline">\(\mathcal{A}(r) = 2\pi R^2 (\cosh \frac rR
+-1)\)</span>. Agora é só usar <a href="#eq:TP esferico"
+data-reference-type="eqref" data-reference="eq:TP esferico">[eq:TP
+esferico]</a> e <a href="#eq:TP hiperbolico" data-reference-type="eqref"
+data-reference="eq:TP hiperbolico">[eq:TP hiperbolico]</a>. ◻</p>
+</div>
+<figure id="fig:proprio 3">
+<img src="Figuras/proprio 3.png" style="width:5cm" />
+<figcaption>Discos cujos raios são os lados de um triângulo. Se este for
+retângulo, temos <a href="#eq:TP unificado" data-reference-type="eqref"
+data-reference="eq:TP unificado">[eq:TP unificado]</a>. Se for próprio,
+temos <a href="#eq:soma areas" data-reference-type="eqref"
+data-reference="eq:soma areas">[eq:soma areas]</a>.</figcaption>
+</figure>
+<h1 id="triângulos-próprios">Triângulos próprios</h1>
+<p>O termo extra em <a href="#eq:TP unificado"
+data-reference-type="eqref" data-reference="eq:TP unificado">[eq:TP
+unificado]</a> lembra um pouco o de <a href="#eq:lei cos"
+data-reference-type="eqref" data-reference="eq:lei cos">[eq:lei
+cos]</a>, e sugere que triângulos retângulos deixam de ser os que dão a
+fórmula mais simples. Na verdade, nas geometrias não-euclidianas eles
+perdem várias propriedades que os tornam especiais, como a hipotenusa
+ser o diâmetro do círculo circunscrito. Mas estas são herdadas por outro
+tipo de triângulo <span class="citation"
+data-cites="Maraner2010"></span>.</p>
+<p>Um triângulo é <em>próprio</em> se um ângulo for a soma dos demais
+(Fig. <a href="#fig:proprio" data-reference-type="ref"
+data-reference="fig:proprio">15</a>). O lado oposto a ele também é
+chamado de <em>hipotenusa</em>, e os outros de <em>catetos</em>. Na
+geometria euclidiana, a soma dos ângulos é <span
+class="math inline">\(180^\circ\)</span>, logo triângulos retângulos e
+próprios são a mesma coisa.</p>
+<figure id="fig:proprio">
+<img src="Figuras/proprio 4.png" style="width:5cm" />
+<figcaption>Triângulo próprio, hipotenusa é diâmetro do círculo
+circunscrito, e diagonal do quadrilátero equiangular.</figcaption>
+</figure>
+<p>Para discos construídos com os lados desse triângulo, <a
+href="#eq:soma areas" data-reference-type="eqref"
+data-reference="eq:soma areas">[eq:soma areas]</a> vale nas três
+geometrias:</p>
+<div class="theorem*">
+<p><strong>Teorema 4</strong> (Pitágoras Próprio <span class="citation"
+data-cites="Maraner2010"></span>). <em>As áreas <span
+class="math inline">\(\mathcal{A}\)</span>, <span
+class="math inline">\(\mathcal{A}_1\)</span> e <span
+class="math inline">\(\mathcal{A}_2\)</span> de discos com raios dados
+pela hipotenusa e catetos de um triângulo próprio satisfazem <span
+class="math inline">\(\mathcal{A}= \mathcal{A}_1 +
+\mathcal{A}_2\)</span>.</em></p>
+</div>
+<p>A prova geral é dada em <span class="citation"
+data-cites="Maraner2010"></span>. Em <span class="citation"
+data-cites="Pambuccian2010"></span>, são citados artigos anteriores que
+tratam do caso hiperbólico.</p>
+<p>Esse resultado tem uma interpretação interessante: girando o
+triângulo próprio da Fig. <a href="#fig:proprio 3"
+data-reference-type="ref" data-reference="fig:proprio 3">14</a> de modo
+que o segmento <span class="math inline">\(a\)</span> “varra” a área
+<span class="math inline">\(\mathcal{A}\)</span>, e <span
+class="math inline">\(b\)</span> varra <span
+class="math inline">\(\mathcal{A}_1\)</span>, <span
+class="math inline">\(c\)</span> irá varrer a área <span
+class="math inline">\(\mathcal{A}-\mathcal{A}_1\)</span> do anel entre
+elas, que é igual à área <span
+class="math inline">\(\mathcal{A}_2\)</span> que <span
+class="math inline">\(c\)</span> varreria se girasse em torno de sua
+extremidade.</p>
+<p>O caso euclidiano é fácil de entender <span class="citation"
+data-cites="Foote2017"></span>. Na Fig. <a href="#fig:dinamico"
+data-reference-type="ref" data-reference="fig:dinamico">16</a>, ao girar
+o triângulo retângulo por um ângulo <span
+class="math inline">\(d\theta\)</span>, o segmento <span
+class="math inline">\(c\)</span> varre uma área <span
+class="math inline">\(d\mathcal{A}\)</span>. Nesse movimento, ele gira o
+mesmo <span class="math inline">\(d\theta\)</span>, enquanto desliza ao
+longo do seu comprimento. Desconsiderando tal deslizamento, que varre
+uma área nula, <span class="math inline">\(d\mathcal{A}\)</span> será
+igual à área pintada do disco à direita, obtida só girando <span
+class="math inline">\(c\)</span>. Integrando, a área do anel será igual
+à desse disco.</p>
+<figure id="fig:dinamico">
+<img src="Figuras/dinamico.png" style="width:8.5cm" />
+<figcaption>As regiões pintadas têm a mesma área <span
+class="math inline">\(d\mathcal{A}\)</span>, logo a área total do anel é
+igual à do disco à direita.</figcaption>
+</figure>
+<p>Na Fig. <a href="#fig:proprio 3" data-reference-type="ref"
+data-reference="fig:proprio 3">14</a>, se o triângulo for retângulo e
+girar <span class="math inline">\(d\theta\)</span>, o segmento <span
+class="math inline">\(c\)</span> irá girar o mesmo <span
+class="math inline">\(d\theta\)</span> no espaço, mas sua rotação na
+superfície da esfera, que varre áreas, será menor (imagine carregar uma
+vara pela linha do Equador: ela está girando no espaço, mas vista da
+superfície está sempre apontada para a frente). Isso faz a área <span
+class="math inline">\(\mathcal{A}-\mathcal{A}_1\)</span> do anel ser
+menor que <span class="math inline">\(\mathcal{A}_2\)</span>, o que
+explica a subtração em <a href="#eq:TP unificado"
+data-reference-type="eqref" data-reference="eq:TP unificado">[eq:TP
+unificado]</a>. Na geometria hiperbólica, a curvatura <span
+class="math inline">\(K&lt;0\)</span> faz <span
+class="math inline">\(c\)</span> girar mais que <span
+class="math inline">\(d\theta\)</span>, de modo que <span
+class="math inline">\(\mathcal{A}-\mathcal{A}_1&gt;\mathcal{A}_2\)</span>.
+Nessas duas geometrias, a mudança para triângulo próprio ajusta o ângulo
+entre <span class="math inline">\(c\)</span> e a direção de rotação para
+criar um deslizamento transversal ao comprimento, que varre a área
+necessária para compensar o efeito da curvatura e obter <span
+class="math inline">\(\mathcal{A}-\mathcal{A}_1 =
+\mathcal{A}_2\)</span>.</p>
+<p>Substituindo as fórmulas das áreas, o teorema dá relações entre os
+lados do triângulo próprio:</p>
+<div class="corollary*">
+<p><strong>Corolário 1</strong>. <em>A hipotenusa <span
+class="math inline">\(a\)</span> e os catetos <span
+class="math inline">\(b\)</span> e <span
+class="math inline">\(c\)</span> de um triângulo próprio esférico ou
+hiperbólico estão relacionados, respectivamente, por <span
+class="math display">\[\begin{aligned}
+        1+\cos \tfrac aR &amp;= \cos \tfrac bR + \cos \tfrac cR, \text{
+ou} \\
+        1+\cosh \tfrac aR &amp;= \cosh \tfrac bR + \cosh \tfrac cR.
+    
+\end{aligned}\]</span></em></p>
+</div>
+<p>Teste na Fig. <a href="#fig:proprio" data-reference-type="ref"
+data-reference="fig:proprio">15</a>, construída no GeoGebra com raio da
+esfera <span class="math inline">\(R=1\)</span>, e o triângulo tendo
+<span class="math inline">\(a=\frac\pi2\)</span>, <span
+class="math inline">\(b\cong 1.22\)</span> e <span
+class="math inline">\(c\cong 0.86\)</span>. Quando <span
+class="math inline">\(a,b,c \ll R\)</span>, novamente <span
+class="math inline">\(a^2 \cong b^2 + c^2\)</span>.</p>
+<h1 id="tetraedros-e-simplexos">Tetraedros e simplexos</h1>
+<p>Vamos voltar para a geometria euclidiana, e generalizar o TP para
+dimensões maiores.</p>
+<p>Um tetraedro é <em>trirretângulo</em> se as três arestas em um
+vértice são perpendiculares (Fig. <a href="#fig:tetraedro"
+data-reference-type="ref" data-reference="fig:tetraedro">17</a>). A
+<em>face hipotenusal</em> é a oposta a esse vértice.</p>
+<figure id="fig:tetraedro">
+<img src="Figuras/tetraedro.png" style="width:5cm" />
+<figcaption>Tetraedro trirretângulo, <span
+class="math inline">\(\mathcal{A}^2 = \mathcal{A}_1^2 + \mathcal{A}_2^2
++ \mathcal{A}_3^2\)</span>.</figcaption>
+</figure>
+<div class="theorem*">
+<p><strong>Teorema 5</strong> (De Gua (1783)). <em>Em um tetraedro
+trirretângulo, a área <span class="math inline">\(\mathcal{A}\)</span>
+da face hipotenusal está relacionada às áreas <span
+class="math inline">\(\mathcal{A}_1\)</span>, <span
+class="math inline">\(\mathcal{A}_2\)</span>, <span
+class="math inline">\(\mathcal{A}_3\)</span> das outras faces por <span
+class="math display">\[\label{eq:DeGua}
+        \mathcal{A}^2 = \mathcal{A}_1^2 + \mathcal{A}_2^2 +
+\mathcal{A}_3^2.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Na Fig. <a href="#fig:tetraedro"
+data-reference-type="ref" data-reference="fig:tetraedro">17</a>, <span
+class="math inline">\(\mathcal{A}= \frac12 \|\overrightarrow{A_1A_2}
+\times \overrightarrow{A_1A_3}\|\)</span> e analogamente para as outras
+áreas. Além disso, <span class="math inline">\(\overrightarrow{A_1A_2} =
+\overrightarrow{A_0A_2} - \overrightarrow{A_0A_1}\)</span> e <span
+class="math inline">\(\overrightarrow{A_1A_3} = \overrightarrow{A_0A_3}
+- \overrightarrow{A_0A_1}\)</span>. O resto fica como exercício
+(observando que <span class="math inline">\(\overrightarrow{A_0A_1}
+\times \overrightarrow{A_0A_2}\)</span>, <span
+class="math inline">\(\overrightarrow{A_0A_1} \times
+\overrightarrow{A_0A_3}\)</span> e <span
+class="math inline">\(\overrightarrow{A_0A_2} \times
+\overrightarrow{A_0A_3}\)</span> são perpendiculares). ◻</p>
+</div>
+<p>A versão em <span class="math inline">\(\mathds{R}^n\)</span> desse
+tetraedro é um <em><span class="math inline">\(n\)</span>-simplexo
+retangular</em>. Em um sistema de coordenadas cartesianas ortogonais
+<span class="math inline">\((x_1,\ldots,x_n)\)</span>, ele é um poliedro
+<span class="math inline">\(n\)</span>-dimensional com um vértice <span
+class="math inline">\(A_0\)</span> na origem, e um <span
+class="math inline">\(A_k\)</span> em cada eixo, na coordenada <span
+class="math inline">\(x_k = a_k&gt;0\)</span>. Sua <em>face</em> <span
+class="math inline">\(F_k\)</span> é o poliedro <span
+class="math inline">\((n-1)\)</span>-dimensional formado por todos os
+vértices exceto <span class="math inline">\(A_k\)</span>. A <em>face
+hipotenusal</em> é <span class="math inline">\(F_0\)</span>.</p>
+<p>O seguinte resultado é frequentemente redescoberto, por diferentes
+meios (<span class="citation"
+data-cites="Cho1991 Donchian1935 Eifler2008 Yeng1990"></span>, entre
+outros). Um <span class="math inline">\(m\)</span>-volume é um volume
+<span class="math inline">\(m\)</span>-dimensional (comprimentos são
+1-volumes, áreas são 2-volumes, etc.).</p>
+<div class="theorem*">
+<p><strong>Teorema 6</strong>. <em>Em um <span
+class="math inline">\(n\)</span>-simplexo retangular <span
+class="math inline">\(S\)</span>, seja <span
+class="math inline">\(\mathcal{V}_k\)</span> o <span
+class="math inline">\((n-1)\)</span>-volume da face <span
+class="math inline">\(F_k\)</span>. Então <span
+class="math display">\[\label{eq:simplexo}
+        \mathcal{V}_0^2 = \sum_{k=1}^n
+\mathcal{V}_k^2.\]</span></em></p>
+</div>
+<p>Daremos uma prova via Cálculo Vetorial, e outra usando Cálculo
+Integral e Geometria Analítica.</p>
+<div class="proof">
+<p><em>Demonstração (<span class="citation"
+data-cites="Eifler2008"></span>)..</em> Seja <span
+class="math inline">\(\vec{v}\)</span> um campo vetorial constante em
+<span class="math inline">\(\mathds{R}^n\)</span>, <span
+class="math inline">\(dV\)</span> o diferencial de <span
+class="math inline">\(n\)</span>-volume, <span
+class="math inline">\(d\mathcal{V}\)</span> o de <span
+class="math inline">\((n-1)\)</span>-volume, e <span
+class="math inline">\(\hat{n}_k\)</span> o vetor normal unitário para
+fora de <span class="math inline">\(F_k\)</span>. Como <span
+class="math inline">\(\mathop{\mathrm{div}}\vec{v} = 0\)</span>, o
+Teorema da Divergência dá <span class="math display">\[\begin{aligned}
+        0 &amp;= \int_S \mathop{\mathrm{div}}\vec{v} \,dV
+        %       = \int_{F_0\cup\cdots\cup F_n} \vec{v}\cdot\hat{n}
+\,d\VV \\
+        = \sum_{k=0}^n \int_{F_k} \vec{v}\cdot\hat{n}_k \,d\mathcal{V}
+        = \sum_{k=0}^n \vec{v}\cdot\hat{n}_k
+\int_{F_k}  \,d\mathcal{V}\\
+        &amp;= \sum_{k=0}^n \vec{v}\cdot\hat{n}_k \mathcal{V}_k
+        = \vec{v}\cdot \left(\sum_{k=0}^n \mathcal{V}_k
+\hat{n}_k\right).
+    
+\end{aligned}\]</span> Como <span class="math inline">\(\vec{v}\)</span>
+é arbitrário, isso implica <span class="math inline">\(\sum_{k=0}^n
+\mathcal{V}_k \hat{n}_k = 0\)</span>, logo <span
+class="math inline">\(\mathcal{V}_0 \hat{n}_0 = - \mathcal{V}_1
+\hat{n}_1 - \cdots - \mathcal{V}_n \hat{n}_n\)</span>. Como <span
+class="math inline">\(\hat{n}_1, \ldots, \hat{n}_n\)</span> são
+ortogonais, <a href="#eq:norma" data-reference-type="eqref"
+data-reference="eq:norma">[eq:norma]</a> nos dá o resultado. ◻</p>
+</div>
+<div class="proof">
+<p><em>Demonstração (<span class="citation"
+data-cites="Donchian1935"></span>)..</em> Para <span
+class="math inline">\(0\leq k\leq n\)</span>, seja <span
+class="math inline">\(h_k\)</span> a altura do vértice <span
+class="math inline">\(A_k\)</span> em relação à face oposta <span
+class="math inline">\(F_k\)</span>. A seção transversal a essa altura, a
+uma distância <span class="math inline">\(x\)</span> de <span
+class="math inline">\(A_k\)</span>, é semelhante a <span
+class="math inline">\(F_k\)</span>, e tem <span
+class="math inline">\((n-1)\)</span>-volume <span
+class="math inline">\(\mathcal{V}(x) = \mathcal{V}_k \cdot
+\left(\frac{x}{h_k}\right)^{n-1}\)</span>. Assim, o <span
+class="math inline">\(n\)</span>-volume de <span
+class="math inline">\(S\)</span> é <span class="math inline">\(V =
+\int_0^{h_k} \mathcal{V}(x) dx =\frac{\mathcal{V}_k h_k}{n}\)</span>,
+para todo <span class="math inline">\(k\)</span>. Para <span
+class="math inline">\(k\neq 0\)</span> temos <span
+class="math inline">\(h_k = a_k\)</span> (o comprimento da aresta <span
+class="math inline">\(A_0A_k\)</span>), logo <span
+class="math inline">\(\mathcal{V}_k a_k = n V = \mathcal{V}_0
+h_0\)</span>, ou seja, <span class="math inline">\(\mathcal{V}_k =
+\mathcal{V}_0 \cdot \frac{h_0}{a_k}\)</span>.</p>
+<p>O hiperplano da face <span class="math inline">\(F_0\)</span> é
+descrito pela equação <span class="math inline">\(\frac{x_1}{a_1} +
+\cdots + \frac{x_n}{a_n} = 1\)</span>. Como <span
+class="math inline">\(\vec{v} =
+(\frac{1}{a_1},\ldots,\frac{1}{a_n})\)</span> é ortogonal a ele, e <span
+class="math inline">\(\lambda\vec{v}\)</span> satisfaz a equação quando
+<span class="math inline">\(\lambda=\left(\frac{1}{a_1^2} + \cdots +
+\frac{1}{a_n^2}\right)^{-1}\)</span>, temos <span
+class="math inline">\(h_0 = \|\lambda\vec{v}\| = \left(\frac{1}{a_1^2} +
+\cdots + \frac{1}{a_n^2}\right)^{-\frac12}\)</span>. Assim, obtemos
+<span class="math inline">\(\sum_{k=1}^n \mathcal{V}_k^2
+%   = \sum_{k=1}^n \VV_0^2 \frac{h_0^2}{a_k^2}
+    = \mathcal{V}_0^2 h_0^2 \cdot \sum_{k=1}^n  \frac{1}{a_k^2}
+    = \mathcal{V}_0^2\)</span>. ◻</p>
+</div>
+<p>Outros métodos serão vistos a seguir, quando olharemos para o TP e
+estes teoremas de outra forma.</p>
+<h1 id="projeções-de-volumes">Projeções de volumes</h1>
+<p>Esses resultados podem ser reinterpretados em termos de projeções
+ortogonais de <span class="math inline">\(m\)</span>-volumes. Sempre que
+falarmos em projeções, serão ortogonais.</p>
+<p>Separando os lados do triângulo retângulo, podemos ver o TP como uma
+relação entre o comprimento de um segmento reto e suas projeções em um
+sistema de eixos perpendiculares, como na Fig. <a
+href="#fig:proj linha eixos" data-reference-type="ref"
+data-reference="fig:proj linha eixos">18</a>.</p>
+<figure id="fig:proj linha eixos">
+<img src="Figuras/proj linha eixos.png" style="width:8cm" />
+<figcaption>Projeções ortogonais de segmentos sobre eixos.</figcaption>
+</figure>
+<p>E, separando as faces do tetraedro, <a href="#eq:DeGua"
+data-reference-type="eqref" data-reference="eq:DeGua">[eq:DeGua]</a>
+vira uma relação entre a área de um triângulo e suas projeções em planos
+coordenados perpendiculares. Como projeções são transformações lineares,
+a razão <span
+class="math inline">\(\frac{\mathcal{A}_k}{\mathcal{A}}\)</span> não
+muda se trocarmos <span class="math inline">\(\mathcal{A}\)</span> pela
+área de qualquer figura no mesmo plano, e <span
+class="math inline">\(\mathcal{A}_k\)</span> pela de sua projeção no
+<span class="math inline">\(k\)</span>-ésimo plano coordenado. Assim, <a
+href="#eq:DeGua" data-reference-type="eqref"
+data-reference="eq:DeGua">[eq:DeGua]</a> vale para qualquer área plana e
+suas projeções (Fig. <a href="#fig:projecao planos"
+data-reference-type="ref" data-reference="fig:projecao planos">19</a>).
+Esse resultado já era conhecido no Séc. XVIII.</p>
+<figure id="fig:projecao planos">
+<img src="Figuras/projecao planos.png" style="width:5cm" />
+<figcaption>Projeções de uma área plana, <span
+class="math inline">\(\mathcal{A}^2 = \mathcal{A}_1^2 + \mathcal{A}_2^2
++ \mathcal{A}_3^2\)</span>.</figcaption>
+</figure>
+<p>Da mesma forma, <a href="#eq:simplexo" data-reference-type="eqref"
+data-reference="eq:simplexo">[eq:simplexo]</a> vale para qualquer <span
+class="math inline">\((n-1)\)</span>-volume <span
+class="math inline">\(\mathcal{V}_0\)</span> num hiperplano de <span
+class="math inline">\(\mathds{R}^n\)</span>, e suas projeções <span
+class="math inline">\(\mathcal{V}_k\)</span> em hiperplanos coordenados
+perpendiculares.</p>
+<p>Vamos estender para <span class="math inline">\(m\)</span>-volumes.
+Sejam <span class="math inline">\((e_1,\ldots,e_n)\)</span> uma base
+ortonormal, e <span class="math inline">\(\mathcal{I}_m\)</span> o
+conjunto dos <em>multi-índices</em> <span
+class="math inline">\(I=(i_1,\ldots,i_m)\)</span> com <span
+class="math inline">\(1\leq i_1&lt;i_2&lt;\cdots&lt;i_m \leq n\)</span>.
+Cada <span class="math inline">\(C_I = \mathop{\mathrm{span}}\{e_i:i\in
+I\}\)</span>, com <span class="math inline">\(I \in
+\mathcal{I}_m\)</span>, é um <em>subespaço coordenado</em>. Chamaremos
+de <em>figura</em> ou <em>região</em> os conjuntos mensuráveis,
+i.e., com um volume bem definido da dimensão do subespaço
+considerado.</p>
+<div class="theorem*">
+<p><strong>Teorema 7</strong> (<span class="citation"
+data-cites="Conant1974"></span>). <em>Se <span
+class="math inline">\(\mathcal{V}\)</span> é o <span
+class="math inline">\(m\)</span>-volume de uma região <span
+class="math inline">\(R\)</span> num subespaço <span
+class="math inline">\(m\)</span>-dimensional de <span
+class="math inline">\(\mathds{R}^n\)</span>, e <span
+class="math inline">\(\mathcal{V}_I\)</span> é o de sua projeção em
+<span class="math inline">\(C_I\)</span>, então <span
+class="math display">\[\label{eq:Conant Beyer}
+        \mathcal{V}^2 = \sum_{I \in \mathcal{I}_m}
+\mathcal{V}_I^2.\]</span></em></p>
+</div>
+<p>Pela linearidade das projeções, basta provar para um paralelotopo
+(paralelogramo <span class="math inline">\(m\)</span>-dimensional) <span
+class="math inline">\(R\)</span> gerado por vetores <span
+class="math inline">\(v_1,\ldots,v_m\)</span>. Vamos ver primeiro uma
+prova via determinantes.</p>
+<div class="proof">
+<p><em>Demonstração (<span class="citation"
+data-cites="Conant1974"></span>)..</em> Pondo <span
+class="math inline">\(v_1,\ldots,v_m\)</span> como colunas de uma matriz
+<span class="math inline">\(M_{n \times m}\)</span>, o Teorema de
+Cauchy-Binet dá <span class="math display">\[\label{eq:Cauchy-Binet}
+        \det(M^T M) = \sum_{I \in \mathcal{I}_m} \det(M_I)^2,\]</span>
+onde <span class="math inline">\(M_I\)</span> é a submatriz <span
+class="math inline">\(m \times m\)</span> de <span
+class="math inline">\(M\)</span> formada pelas linhas com índices em
+<span class="math inline">\(I\)</span>, de modo que suas colunas são as
+projeções dos <span class="math inline">\(v_k\)</span>’s em <span
+class="math inline">\(C_I\)</span>. O resultado vem da interpretação
+geométrica dos determinantes: <span class="math inline">\(\det(M^T
+M)\)</span> é o determinante de Gram que dá o quadrado do <span
+class="math inline">\(m\)</span>-volume de <span
+class="math inline">\(R\)</span>, e <span
+class="math inline">\(|\det(M_I)|\)</span> dá o <span
+class="math inline">\(m\)</span>-volume da projeção de <span
+class="math inline">\(R\)</span> em <span
+class="math inline">\(C_I\)</span>. ◻</p>
+</div>
+<p>A prova mais fácil usa Álgebra Exterior <span class="citation"
+data-cites="Khosravi2008"></span>, uma extensão da Álgebra Linear com
+<em>multivetores</em>, vetores representando figuras multi-dimensionais
+(Fig. <a href="#fig:multivectors" data-reference-type="ref"
+data-reference="fig:multivectors">20</a>).</p>
+<figure id="fig:multivectors">
+<img src="Figuras/multivectors.png" style="width:7cm" />
+<figcaption>Multivetores: <span class="math inline">\(v_1\wedge
+v_2\)</span> representa um paralelogramo de área <span
+class="math inline">\(\|v_1\wedge v_2\|\)</span>, e <span
+class="math inline">\(v_1\wedge v_2 \wedge v_3\)</span> representa um
+paralelepípedo de volume <span class="math inline">\(\|v_1\wedge v_2
+\wedge v_3\|\)</span>.</figcaption>
+</figure>
+<div class="proof">
+<p><em>Proof.</em> O multivetor <span class="math inline">\(M =
+v_1\wedge \cdots \wedge v_m\)</span> representa <span
+class="math inline">\(R\)</span>, e a norma <span
+class="math inline">\(\|M\|\)</span> é seu <span
+class="math inline">\(m\)</span>-volume <span
+class="math inline">\(\mathcal{V}\)</span>. Multivetores são também
+vetores num certo espaço vetorial, que tem base ortonormal formada pelos
+<span class="math inline">\(e_{i_1} \wedge \cdots \wedge
+e_{i_m}\)</span> com <span class="math inline">\(I=(i_1,\ldots,i_m) \in
+\mathcal{I}_m\)</span>. Cada componente de <span
+class="math inline">\(M\)</span> nessa base representa a projeção de
+<span class="math inline">\(R\)</span> em <span
+class="math inline">\(C_I\)</span>, de modo que <a
+href="#eq:Conant Beyer" data-reference-type="eqref"
+data-reference="eq:Conant Beyer">[eq:Conant Beyer]</a> vem de <a
+href="#eq:norma" data-reference-type="eqref"
+data-reference="eq:norma">[eq:norma]</a>. ◻</p>
+</div>
+<div class="example">
+<p><strong>Exemplo 1</strong>. Se <span
+class="math inline">\(\mathcal{A}\)</span> é a área de uma figura plana
+em <span
+class="math inline">\(\mathds{R}^4=\{(x_1,\ldots,x_4)\}\)</span>, e
+<span class="math inline">\(\mathcal{A}_{ij}\)</span> é sua projeção no
+plano <span class="math inline">\(x_i x_j\)</span>, <span
+class="math display">\[\label{eq:areas R4}
+        \mathcal{A}^2 = \mathcal{A}^2_{12} + \mathcal{A}^2_{13} +
+\mathcal{A}^2_{14} + \mathcal{A}^2_{23} + \mathcal{A}^2_{24} +
+\mathcal{A}^2_{34}.\]</span> Por exemplo, <span
+class="math inline">\(v=(a,b,c,d)\)</span> e <span
+class="math inline">\(w=(-b,a,-d,c)\)</span> têm mesma norma e são
+perpendiculares, formando um quadrado de área <span
+class="math inline">\(\mathcal{A}= a^2+b^2+c^2+d^2\)</span>. Suas
+projeções <span class="math inline">\((a,b,0,0)\)</span> e <span
+class="math inline">\((-b,a,0,0)\)</span> no plano <span
+class="math inline">\(x_1 x_2\)</span> formam um quadrado de área <span
+class="math inline">\(\mathcal{A}_{12} = a^2+b^2\)</span>. Da mesma
+forma, <span class="math inline">\(\mathcal{A}_{34} = c^2 +
+d^2\)</span>. As projeções <span
+class="math inline">\((a,0,c,0)\)</span> e <span
+class="math inline">\((-b,0,-d,0)\)</span> no plano <span
+class="math inline">\(x_1 x_3\)</span> formam um paralelogramo com <span
+class="math inline">\(\mathcal{A}_{13} = |bc-ad|\)</span> (ignore a
+4 coordenada nula, e use o produto vetorial). Analogamente, obtemos
+<span class="math inline">\(\mathcal{A}_{24} = \mathcal{A}_{13}\)</span>
+e <span class="math inline">\(\mathcal{A}_{14} = \mathcal{A}_{23} =
+|ac+bd|\)</span>. Uma conta chata mostra que essas áreas satisfazem <a
+href="#eq:areas R4" data-reference-type="eqref"
+data-reference="eq:areas R4">[eq:areas R4]</a>.</p>
+</div>
+<div class="example">
+<p><strong>Exemplo 2</strong>. Se <span
+class="math inline">\(\mathcal{V}\)</span> é o volume de uma região em
+um subespaço tridimensional de <span
+class="math inline">\(\mathds{R}^4\)</span>, e <span
+class="math inline">\(\mathcal{V}_{ijk}\)</span> é sua projeção no
+subespaço <span class="math inline">\(x_i x_j x_k\)</span>, <span
+class="math display">\[\mathcal{V}^2 = \mathcal{V}^2_{123} +
+\mathcal{V}^2_{124} + \mathcal{V}^2_{134} +
+\mathcal{V}^2_{234}.\]</span></p>
+</div>
+<p>Com um pouco de combinatória, generalizamos para projeções em
+subespaços de outra dimensão.</p>
+<div class="corollary*">
+<p><strong>Corolário 2</strong> (<span class="citation"
+data-cites="Czyzewska1991 Drucker2015"></span>). <em>Se <span
+class="math inline">\(\mathcal{V}\)</span> é o <span
+class="math inline">\(p\)</span>-volume de uma região <span
+class="math inline">\(R\)</span> em um subespaço de dimensão <span
+class="math inline">\(p\leq m\)</span> de <span
+class="math inline">\(\mathds{R}^n\)</span>, e <span
+class="math inline">\(\mathcal{V}_I\)</span> é sua projeção em <span
+class="math inline">\(C_I\)</span>, com <span class="math inline">\(I
+\in \mathcal{I}_m\)</span>, então <span
+class="math display">\[\mathcal{V}^2 = \textstyle{\binom{n-p}{n-m}^{-1}}
+\cdot \displaystyle{\sum_{I \in \mathcal{I}_m}
+\mathcal{V}_I^2}.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Cada <span
+class="math inline">\(\mathcal{V}_I\)</span> pode ser projetado nos
+subespaços coordenados de dimensão <span
+class="math inline">\(p\)</span> contidos em <span
+class="math inline">\(C_I\)</span>, e cada um desses está em <span
+class="math inline">\(\binom{n-p}{n-m}\)</span> dos <span
+class="math inline">\(C_I\)</span>’s. O resultado então segue de <a
+href="#eq:Conant Beyer" data-reference-type="eqref"
+data-reference="eq:Conant Beyer">[eq:Conant Beyer]</a>. ◻</p>
+</div>
+<div class="example">
+<p><strong>Exemplo 3</strong>. Sejam <span
+class="math inline">\(\mathcal{L}\)</span> o comprimento de um segmento
+em <span class="math inline">\(\mathds{R}^3\)</span>, <span
+class="math inline">\(\mathcal{L}_1\)</span>, <span
+class="math inline">\(\mathcal{L}_2\)</span> e <span
+class="math inline">\(\mathcal{L}_3\)</span> suas projeções nos planos
+coordenados, e <span class="math inline">\(b\)</span>, <span
+class="math inline">\(c\)</span> e <span
+class="math inline">\(d\)</span> suas projeções nos eixos (Fig. <a
+href="#fig:line planes" data-reference-type="ref"
+data-reference="fig:line planes">21</a>). Então <span
+class="math inline">\(\mathcal{L}_1^2 = b^2+c^2\)</span>, <span
+class="math inline">\(\mathcal{L}_2^2 = b^2+d^2\)</span>, <span
+class="math inline">\(\mathcal{L}_3^2 = c^2+d^2\)</span> e <span
+class="math inline">\(\mathcal{L}^2 = b^2+c^2+d^2 = \frac12
+(\mathcal{L}_1^2 + \mathcal{L}_2^2 + \mathcal{L}_3^2)\)</span>.</p>
+</div>
+<figure id="fig:line planes">
+<img src="Figuras/line_planes2.png" style="width:6cm" />
+<figcaption>Projeções de um segmento nos planos coordenados, <span
+class="math inline">\(\mathcal{L}^2 = \frac12 (\mathcal{L}_1^2 +
+\mathcal{L}_2^2 + \mathcal{L}_3^2)\)</span>.</figcaption>
+</figure>
+<h1 id="versões-complexas">Versões complexas</h1>
+<p>Em espaços complexos, a generalização <a href="#eq:norma"
+data-reference-type="eqref" data-reference="eq:norma">[eq:norma]</a> do
+TP pode ser reinterpretada como uma soma de áreas, e estendida para
+volumes de maior dimensão, com fórmulas mais simples que as do caso
+real.</p>
+<p>Vamos rever a geometria real desses espaços. Pode-se identificar
+<span class="math inline">\(z = x + \mathrm{i}y \in \mathds{C}\)</span>
+com o vetor <span class="math inline">\((x,y) \in \mathds{R}^2\)</span>,
+e seu módulo é a norma do vetor, ou seja, <span
+class="math inline">\(|z|^2 = x^2 + y^2\)</span>. O que diferencia <span
+class="math inline">\(\mathds{C}\)</span> de <span
+class="math inline">\(\mathds{R}^2\)</span> é a multiplicação por <span
+class="math inline">\(\mathrm{i}\)</span>, que pode ser vista apenas
+como uma rotação de <span class="math inline">\(90^\circ\)</span>, pois
+<span class="math inline">\(\mathrm{i}z = -y + \mathrm{i}x\)</span>
+corresponde ao vetor <span class="math inline">\((-y,x)\)</span>, de
+mesma norma e ortogonal a <span class="math inline">\((x,y)\)</span>.
+Assim, <span class="math inline">\(\mathrm{i}^2=-1\)</span> significa
+apenas que <span class="math inline">\(\mathrm{i}^2(x,y) =
+\mathrm{i}(-y,x)=(-x,-y)\)</span>.</p>
+<p>Da mesma forma, identifica-se <span class="math inline">\(v =
+(z_1,\ldots,z_n) \in \mathds{C}^n\)</span>, onde <span
+class="math inline">\(z_k = x_k + \mathrm{i}y_k\)</span>, com <span
+class="math inline">\((x_1,y_1,\ldots,x_n,y_n) \in
+\mathds{R}^{2n}\)</span>, e <span
+class="math inline">\(\|v\|^2=|z_1|^2+\cdots+|z_n|^2 =
+x_1^2+y_1^2+\cdots+x_n^2+y_n^2\)</span>. De novo, <span
+class="math inline">\(\mathrm{i}v =
+(\mathrm{i}z_1,\ldots,\mathrm{i}z_n)\)</span> corresponde a <span
+class="math inline">\((-y_1,x_1,\ldots,-y_n,x_n)\)</span>, que é <span
+class="math inline">\(v\)</span> girado <span
+class="math inline">\(90^\circ\)</span> numa certa direção. Assim, <span
+class="math inline">\(\mathds{C}^n\)</span> é só <span
+class="math inline">\(\mathds{R}^{2n}\)</span> com um operador <span
+class="math inline">\(\mathrm{i}\)</span> de rotação de <span
+class="math inline">\(90^\circ\)</span>.</p>
+<p>Se <span class="math inline">\(v \in \mathds{C}^n\)</span> e <span
+class="math inline">\(z = x+ \mathrm{i}y \in \mathds{C}\)</span> então
+<span class="math inline">\(zv = x v + y(\mathrm{i}v)\)</span> é
+combinação linear (com coeficientes reais <span
+class="math inline">\(x\)</span> e <span
+class="math inline">\(y\)</span>) de <span
+class="math inline">\(v\)</span> e <span
+class="math inline">\(\mathrm{i}v\)</span>. Assim, a <em>linha</em> <a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> <em>complexa</em> <span
+class="math inline">\(\mathds{C}v = \{zv:z\in \mathds{C}\}\)</span> é o
+plano real <span
+class="math inline">\(\mathop{\mathrm{span}}\{v,\mathrm{i}v\}\)</span>,
+no qual esses vetores formam um quadrado de área <span
+class="math inline">\(\mathcal{A}= \|v\|^2\)</span> (Fig. <a
+href="#fig:complex square" data-reference-type="ref"
+data-reference="fig:complex square">22</a>).</p>
+<figure id="fig:complex square">
+<img src="Figuras/complex square.png" style="width:6cm" />
+<figcaption>Quadrado numa linha complexa.</figcaption>
+</figure>
+<p>Seja <span class="math inline">\((e_1,\ldots,e_n)\)</span> uma base
+ortogonal de <span class="math inline">\(\mathds{C}^n\)</span>.</p>
+<div class="theorem*">
+<p><strong>Teorema 8</strong> (Pitágoras para Linhas Complexas <span
+class="citation" data-cites="Mandolesi_Pythagorean"></span>). <em>Se
+<span class="math inline">\(\mathcal{A}\)</span> é a área de uma região
+em uma linha complexa <span class="math inline">\(\mathds{C}v\)</span>,
+e <span class="math inline">\(\mathcal{A}_k\)</span> é sua projeção em
+<span class="math inline">\(\mathds{C}e_k\)</span>, então <span
+class="math display">\[\label{eq:soma areas complexo}
+        \mathcal{A}= \mathcal{A}_1 + \cdots +
+\mathcal{A}_n.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Basta provar para o quadrado da Fig. <a
+href="#fig:complex square" data-reference-type="ref"
+data-reference="fig:complex square">22</a>. Como a projeção <span
+class="math inline">\(P:\mathds{C}v \rightarrow \mathds{C}e_k\)</span> é
+<span class="math inline">\(\mathds{C}\)</span>-linear, se <span
+class="math inline">\(P(v) = v_k\)</span> então <span
+class="math inline">\(P(\mathrm{i}v) = \mathrm{i}v_k\)</span>. Logo, a
+projeção de <span class="math inline">\(\mathcal{A}\)</span> é outro
+quadrado, de área <span class="math inline">\(\mathcal{A}_k =
+\|v_k\|^2\)</span>. O resultado segue de <a href="#eq:norma"
+data-reference-type="eqref"
+data-reference="eq:norma">[eq:norma]</a>. ◻</p>
+</div>
+<p>Ao contrário do caso real, <a href="#eq:soma areas complexo"
+data-reference-type="eqref"
+data-reference="eq:soma areas complexo">[eq:soma areas complexo]</a> não
+é quadrática, e tem menos termos, já que a dimensão complexa é metade da
+real correspondente. Na Fig. <a href="#fig:complex lines"
+data-reference-type="ref" data-reference="fig:complex lines">23</a>,
+<span class="math inline">\(\mathcal{A}\)</span> é a soma de 2 áreas,
+das projeções nas linhas complexas de uma base ortogonal <span
+class="math inline">\((e_1,e_2)\)</span> de <span
+class="math inline">\(\mathds{C}^2\)</span>. Identificando <span
+class="math inline">\(\mathds{C}^2 \cong \mathds{R}^4\)</span>, teríamos
+<a href="#eq:areas R4" data-reference-type="eqref"
+data-reference="eq:areas R4">[eq:areas R4]</a>, com 6 termos
+quadráticos.</p>
+<figure id="fig:complex lines">
+<img src="Figuras/complex lines.png" style="width:5cm" />
+<figcaption>Projeção em linhas complexas, <span
+class="math inline">\(\mathcal{A}= \mathcal{A}_1 +
+\mathcal{A}_2\)</span>.</figcaption>
+</figure>
+<div class="example">
+<p><strong>Exemplo 4</strong>. Em <span
+class="math inline">\(\mathds{C}^2\)</span>, os vetores <span
+class="math inline">\(v=(a+ib,c+id)\)</span> e <span
+class="math inline">\(\mathrm{i}v
+=(-b+\mathrm{i}a,-d+\mathrm{i}c)\)</span>, com <span
+class="math inline">\(a,b,c,d\in\mathds{R}\)</span>, têm norma <span
+class="math inline">\(\sqrt{a^2+b^2+c^2+d^2}\)</span>, e formam um
+quadrado de área <span class="math inline">\(\mathcal{A}=
+a^2+b^2+c^2+d^2\)</span>. Sejam <span
+class="math inline">\(e_1=(1,0)\)</span> e <span
+class="math inline">\(e_2=(0,1)\)</span>. As projeções de <span
+class="math inline">\(v\)</span> e <span
+class="math inline">\(\mathrm{i}v\)</span> em <span
+class="math inline">\(\mathds{C}e_1\)</span> são <span
+class="math inline">\((a+\mathrm{i}b,0)\)</span> e <span
+class="math inline">\((-b+\mathrm{i}a,0)\)</span>, e formam um quadrado
+de área <span class="math inline">\(\mathcal{A}_1 = a^2+b^2\)</span>. E
+em <span class="math inline">\(\mathds{C}e_2\)</span> formam um quadrado
+de área <span class="math inline">\(\mathcal{A}_2 = c^2 + d^2\)</span>.
+Como previsto, <span class="math inline">\(\mathcal{A}= \mathcal{A}_1 +
+\mathcal{A}_2\)</span>.</p>
+<p>Identificando <span class="math inline">\(\mathds{C}^2 \cong
+\mathds{R}^4\)</span>, este se torna o exemplo dado após <a
+href="#eq:areas R4" data-reference-type="eqref"
+data-reference="eq:areas R4">[eq:areas R4]</a>, com <span
+class="math inline">\(w = iv\)</span>. Note como a abordagem real foi
+mais complexa <a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>. Naquele exemplo, aos planos <span
+class="math inline">\(x_1 x_2\)</span> e <span class="math inline">\(x_3
+x_4\)</span> correspondem a <span
+class="math inline">\(\mathds{C}e_1\)</span> e <span
+class="math inline">\(\mathds{C}e_2\)</span>, por isso as projeções
+deram quadrados. O plano <span class="math inline">\(x_1 x_3\)</span>
+não corresponde a uma linha complexa, pois <span
+class="math inline">\(\mathrm{i}(1,0,0,0) = (0,1,0,0)\)</span> sai dele,
+e o mesmo ocorre com os outros nos quais as projeções deram
+paralelogramos.</p>
+</div>
+<p>Vamos estender para um subespaço complexo <span
+class="math inline">\(V\)</span> de dimensão <span
+class="math inline">\(m\)</span>, que é um subespaço real de dimensão
+<span class="math inline">\(2m\)</span> invariante pela rotação <span
+class="math inline">\(\mathrm{i}\)</span>, isto é, <span
+class="math inline">\(v \in V \Rightarrow \mathrm{i}v \in V\)</span>.
+Como antes, seja <span class="math inline">\(C_I =
+\mathop{\mathrm{span}}\{e_i:i\in I\}\)</span> para <span
+class="math inline">\(I \in \mathcal{I}_m\)</span> (mas agora o <span
+class="math inline">\(\mathop{\mathrm{span}}\)</span> é com coeficientes
+complexos).</p>
+<div class="theorem*">
+<p><strong>Teorema 9</strong> (Pitágoras para Subespaços Complexos <span
+class="citation" data-cites="Mandolesi_Pythagorean"></span>). <em>Se
+<span class="math inline">\(\mathcal{V}\)</span> é o <span
+class="math inline">\(2m\)</span>-volume de uma região <span
+class="math inline">\(R\)</span> num subespaço complexo <span
+class="math inline">\(m\)</span>-dimensional em <span
+class="math inline">\(\mathds{C}^n\)</span>, e <span
+class="math inline">\(\mathcal{V}_I\)</span> é sua projeção em <span
+class="math inline">\(C_I\)</span>, então <span
+class="math display">\[\label{eq:complex volumes}
+        \mathcal{V}= \sum_{I \in \mathcal{I}_m}
+\mathcal{V}_I.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Como a de <a href="#eq:Conant Beyer"
+data-reference-type="eqref" data-reference="eq:Conant Beyer">[eq:Conant
+Beyer]</a>, mas <a href="#eq:Cauchy-Binet" data-reference-type="eqref"
+data-reference="eq:Cauchy-Binet">[eq:Cauchy-Binet]</a> se torna <span
+class="math inline">\(\det(M^\dagger M) = \sum_{I \in \mathcal{I}_m}
+|\det(M_I)|^2\)</span>, onde <span
+class="math inline">\(M^\dagger\)</span> é a transposta conjugada, e a
+interpretação de determinantes complexos muda: <span
+class="math inline">\(\det(M^\dagger M)\)</span> é o <span
+class="math inline">\(2m\)</span>-volume do paralelotopo formado por
+<span class="math inline">\(v_1, \mathrm{i}v_1, \ldots,v_m,
+\mathrm{i}v_m\)</span>, e sua projeção em <span
+class="math inline">\(C_I\)</span> é <span
+class="math inline">\(|\det(M_I)|^2\)</span>.</p>
+<p>Também pode-se usar <a href="#eq:norma" data-reference-type="eqref"
+data-reference="eq:norma">[eq:norma]</a> e Álgebra Exterior complexa, na
+qual <span class="math inline">\(\|v_1\wedge \cdots \wedge
+v_m\|^2\)</span> é o <span class="math inline">\(2m\)</span>-volume do
+paralelotopo formado por <span class="math inline">\(v_1, \mathrm{i}v_1,
+\ldots,v_m, \mathrm{i}v_m\)</span>. ◻</p>
+</div>
+<h1 id="conclusão">Conclusão</h1>
+<p>Há mais generalizações que não discutimos, como versões da lei dos
+cossenos para áreas ou volumes <span class="citation"
+data-cites="Cho1991 Khosravi2008"></span>, ou em geometrias
+não-euclidianas <span class="citation" data-cites="Foote2017"></span>.
+Outras esperam para serem descobertas: por ex., nos parece que <a
+href="#eq:Conant Beyer" data-reference-type="eqref"
+data-reference="eq:Conant Beyer">[eq:Conant Beyer]</a> e <a
+href="#eq:complex volumes" data-reference-type="eqref"
+data-reference="eq:complex volumes">[eq:complex volumes]</a> virem <span
+class="math inline">\(\sqrt{\mathcal{V}} = \sum_{I \in \mathcal{I}_m}
+\sqrt{\mathcal{V}_I}\)</span> em espaços quaterniônicos <a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>; e
+há menções (sem prova) de uma versão do Teorema de De Gua para
+geometrias não-euclidianas de dimensão 3, mas não para dimensões
+maiores. Também seria interessante provar o Teorema de Pitágoras Próprio
+a partir dos axiomas da Geometria Absoluta (a grosso modo, a parte comum
+das geometrias euclidiana, elíptica e hiperbólica).</p>
+<p>É impressionante que, milênios após suas primeiras aparições, o TP
+ainda guarde surpresas e mistérios. Isso mostra que esse velho teorema,
+com suas mil faces, continua a evoluir e dar frutos. Vida longa ao
+Teorema de Pitágoras!</p>
+<div class="thebibliography">
+<p><span>10</span></p>
+<p>A. Bogomolny. ythagorean <span>T</span>heorem. <a
+href="https://www.cut-the-knot.org/pythagoras"
+class="uri">https://www.cut-the-knot.org/pythagoras</a>. Accessed:
+2023-10-04.</p>
+<p>E. C. Cho. The generalized cross product and the volume of a simplex.
+, 4(6):51–53, 1991.</p>
+<p>D. R. Conant and W. A. Beyer. Generalized <span>P</span>ythagorean
+theorem. , 81(3):262–265, 1974.</p>
+<p>K. Czyzewska. Generalization of the <span>P</span>ythagorean theorem.
+, 24(1–2), 1991.</p>
+<p>P. S. Donchian and H. S. M. Coxeter. An n-dimensional extension of
+<span>P</span>ythagoras’ theorem. , 19(234):206–206, 1935.</p>
+<p>D. Drucker. A comprehensive <span>P</span>ythagorean theorem for all
+dimensions. , 122(2):164–168, 2015.</p>
+<p>L. Eifler and N. H. Rhee. The n-dimensional <span>P</span>ythagorean
+theorem via the divergence theorem. , 115(5):456–457, 2008.</p>
+<p>R. L. Foote. A unified <span>P</span>ythagorean theorem in
+<span>E</span>uclidean, spherical, and hyperbolic geometries. ,
+90(1):59–69, feb 2017.</p>
+<p>M. Khosravi and M. D. Taylor. The wedge product and analytic
+geometry. , 115(7):623–644, 2008.</p>
+<p>S. Y. Lin and Y. F. Lin. The n-dimensional <span>P</span>ythagorean
+theorem. , 26(1-2):9–13, 1990.</p>
+<p>E. S. Loomis. . National Council of Teachers of Mathematics, Inc.,
+1968.</p>
+<p>A. L. G. Mandolesi. Projection factors and generalized real and
+complex <span>P</span>ythagorean theorems. , 30(43), 2020.</p>
+<p>P. Maraner. A spherical <span>P</span>ythagorean theorem. ,
+32(3):46–50, 09 2010.</p>
+<p>V. Pambuccian. aria <span>T</span>eresa <span>C</span>alapso’s
+hyperbolic <span>P</span>ythagorean theorem. , 32(4):2–2, 2010.</p>
+<p>Tatiana Roque. . Editora Zahar, 2012.</p>
+<p>H. E. Wolfe. . Courier Corporation, 2012.</p>
+</div>
+<div class="wrapfigure">
+<p><span>L</span><span>1.7cm</span> <img src="Figuras/Mandolesi.jpg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>André Mandolesi é bacharel em Física e mestre em Matemática pela
+Unicamp, e doutor em Matemática pela University of Texas at Austin. É
+professor da UFBA desde 2009. Nunca se curou da Física, e caiu nas
+frestas entre as áreas da Matemática, por isso até hoje trava quando
+perguntam com o que trabalha. Neste ano parece ser Álgebras de Grassmann
+e Clifford, mas já foi Geometria e Mecânica Quântica. Quando não está
+quebrando a cabeça para aprender algo novo, relaxa praticando Tai Chi
+Chuan, maratonando séries ou jogando videogame.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Por ter dimensão complexa 1.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Juro que tentei resistir.<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Quatérnios generalizam os complexos, com 4 números
+reais.<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

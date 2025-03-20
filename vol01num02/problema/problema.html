@@ -1,0 +1,658 @@
+---
+layout: artigo
+title: A Basileia e outros problemas
+subtitle: Problema
+author: 
+---
+<h1 id="soluções-da-edição-anterior">Soluções da Edição Anterior</h1>
+<div class="problem*">
+<p><strong>Problema 1</strong>. <em>Uma malha triangular é formada pela
+decomposição de um triângulo equilátero de lado <span
+class="math inline">\(5\)</span> em <span
+class="math inline">\(5^2\)</span> triângulos equiláteros de lado <span
+class="math inline">\(1\)</span>, como indicado na figura. Determine o
+número de paralelogramos que podem ser desenhados por segmentos que
+formam a malha.</em></p>
+<div class="center">
+
+</div>
+</div>
+<div class="solution*">
+<p><strong>Solução 1</strong> (Solução de Zezé de Oliveira).
+<em>Denotemos os lados do triângulo pelas letras <span
+class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>
+e <span class="math inline">\(z\)</span>. Qualquer paralelogramo na
+malha possui lados paralelos a dois dos três lados do triângulo e isso
+nos permite classificá-los em três tipos. Um paralelogramo
+<span><em>tipo <span class="math inline">\(x\)</span></em></span> possui
+lados paralelos aos lados <span class="math inline">\(y\)</span> e <span
+class="math inline">\(z\)</span> e assim para os demais casos. Por
+simetria, basta contarmos o número de paralelogramos do tipo <span
+class="math inline">\(x\)</span>, pois o resultado total será o triplo
+desse número.</em></p>
+<div class="center">
+
+</div>
+<p><em>Cada paralelogramo do tipo <span class="math inline">\(x\)</span>
+é determinado pelas suas projeções nos lados do triângulo, que possuem
+comprimentos de <span class="math inline">\(1\)</span> a <span
+class="math inline">\(4\)</span>. Se <span
+class="math inline">\(AB\)</span> é a projeção no lado <span
+class="math inline">\(y\)</span>, contaremos quais os possíveis
+comprimentos de <span class="math inline">\(CD\)</span>, que é a
+projeção no lado <span class="math inline">\(z\)</span>.</em></p>
+<ol type="i">
+<li><p><em>Se <span class="math inline">\(AB = 4\)</span>, podemos ter
+apenas <span class="math inline">\(CD=1\)</span> e assim há <span
+class="math inline">\(1\)</span> paralelogramo possível.</em></p></li>
+<li><p><em>Se <span class="math inline">\(AB = 3\)</span>, podemos ter
+apenas <span class="math inline">\(CD=1\)</span> ou <span
+class="math inline">\(CD=2\)</span> e assim há <span
+class="math display">\[3+1=4\]</span> paralelogramos
+possíveis.</em></p></li>
+<li><p><em>Se <span class="math inline">\(AB = 2\)</span>, podemos ter
+apenas <span class="math inline">\(CD=1\)</span>, <span
+class="math inline">\(CD=2\)</span> ou <span
+class="math inline">\(CD=3\)</span> e assim há <span
+class="math display">\[6+3+1=10\]</span> paralelogramos
+possíveis.</em></p></li>
+<li><p><em>Se <span class="math inline">\(AB = 1\)</span>, podemos ter
+apenas <span class="math inline">\(CD=1\)</span>, <span
+class="math inline">\(CD=2\)</span>, <span
+class="math inline">\(CD=3\)</span> ou <span
+class="math inline">\(CD=4\)</span> e assim há <span
+class="math display">\[10+6+3+1=20\]</span> paralelogramos
+possíveis.</em></p></li>
+</ol>
+<p><em>Portanto, há <span class="math inline">\(1+4+10+20=35\)</span>
+paralelogramos do tipo <span class="math inline">\(x\)</span> e assim o
+total de paralelogramos na malha é <span class="math inline">\(3 \cdot
+35 = 105\)</span>.</em></p>
+<div class="center">
+
+</div>
+<p><em>Criando uma camada extra para a malha, podemos associar de modo
+único cada paralelogramo do tipo <span class="math inline">\(x\)</span>
+a dois segmentos disjuntos no novo lado de tamanho <span
+class="math inline">\(n+1\)</span>. Assim, o total de triângulos do tipo
+<span class="math inline">\(x\)</span> é <span
+class="math inline">\({n+2 \choose 4}\)</span> e a resposta geral é
+<span class="math inline">\(3 \cdot {n+2 \choose 4}\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 2</strong>. <em>Determine a quantidade de números
+reais <span class="math inline">\(x\)</span> que satisfazem a equação:
+<span class="math display">\[2^{x^2+x} + \log_2 x =
+2^{x+1}.\]</span></em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 2</strong> (Solução de Yure Carneiro). <em>Por conta
+da função logaritmica, precisamos ter <span class="math inline">\(x &gt;
+0\)</span>. Agora vejamos os casos:</em></p>
+<ol type="i">
+<li><p><em>Para <span class="math inline">\(0 &lt; x &lt; 1,\)</span>
+temos <span class="math inline">\(x^2 &lt; 1\)</span> e <span
+class="math inline">\(x^2 + x &lt; x + 1\)</span>, de onde <span
+class="math display">\[2^{x^2 + x} &lt; 2^{x+1}\]</span> Além disso,
+<span class="math inline">\(\log_2 x &lt; 0\)</span>. Portanto, <span
+class="math display">\[2^{x^2 + x} + \log_2 x &lt; 2^{x^2 + x} &lt;
+2^{x+1}.\]</span></em></p></li>
+<li><p><em>Para <span class="math inline">\(x &gt; 1,\)</span> temos
+<span class="math inline">\(x^2 &gt; 1\)</span> e <span
+class="math inline">\(x^2 + x &gt; x + 1\)</span>, de onde <span
+class="math display">\[2^{x^2 + x} &gt; 2^{x+1}\]</span> Além disso,
+<span class="math inline">\(\log_2 x &gt; 0\)</span>. Portanto, <span
+class="math display">\[2^{x^2 + x} + \log_2 x &gt; 2^{x^2 + x} &gt;
+2^{x+1}.\]</span></em></p>
+<p><em>De onde vemos que para todo <span class="math inline">\(0 &lt; x
+\neq 1\)</span>, não temos verificado a igualdade <span
+class="math inline">\((1)\)</span>. Enquanto para <span
+class="math inline">\(x=1\)</span>, vale a igualdade <span
+class="math display">\[2^{1^2 + 1} + \log_2 1 = 2^{1+1} + 0 =
+2^{1+1}\]</span></em></p></li>
+</ol>
+<p><em>De onde concluímos que existe apenas
+<span><strong>um</strong></span> número real <span
+class="math inline">\(x\)</span> para o qual é verificado a equação
+dada.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 3</strong>. <em>Seja <span
+class="math inline">\(a\)</span> um inteiro positivo tal que</em></p>
+<p><em><span class="math display">\[1+\dfrac{1}{2}+\dfrac{1}{3}+\ldots
++\dfrac{1}{25} = \dfrac{a}{25!}.\]</span></em></p>
+<p><em>Encontre o resto de <span class="math inline">\(a\)</span> na
+divisão por <span class="math inline">\(13\)</span>.</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 3</strong> (Solução de Yure Carneiro). <em>Veja que
+<span class="math display">\[\displaystyle a = \sum_{j=1}^{25}
+\frac{25!}{j} \equiv  \ \frac{25!}{13} \pmod{13},\]</span> visto que as
+parcelas com índice <span class="math inline">\(j \neq 13\)</span> são
+tais que <span class="math inline">\(13 \mid \frac{25!}{j}\)</span>.
+Agora temos <span class="math display">\[\begin{aligned}
+a  &amp; \equiv &amp; 1 \times 2 \times \cdots \times 12 \times
+14  \times \cdots \times 25 \pmod{13}\\
+   &amp; \equiv &amp; 12! \times 1 \times 2 \times \cdots \times 12
+\pmod{13}\\
+   &amp; = &amp; 12! \times 12!
+\end{aligned}\]</span></em></p>
+<p><em>Pelo Teorema de Wilson, como <span class="math inline">\(12! =
+(13 -1)! \equiv -1 \pmod{13}\)</span>, segue que <span
+class="math display">\[a \ \equiv \ (-1)^2 = 1 \pmod{13}\]</span> e daí
+<span class="math inline">\(r=1\)</span> é o resto de <span
+class="math inline">\(a\)</span> na divisão por <span
+class="math inline">\(13\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 4</strong>. <em>Um hexágono regular de lado <span
+class="math inline">\(1\)</span> está inscrito na interseção de duas
+parábolas idênticas, mas que estão orientadas em direções opostas, i.e.,
+uma é simétrica a outra em relação à reta que passa pelos seus pontos de
+interseção. Encontre a área da região sombreada, ou seja, a área que
+está entre as parábolas, mas que é externa ao hexágono.</em></p>
+<figure>
+<img src="parabola2.png" />
+</figure>
+</div>
+<div class="solution*">
+<p><strong>Solução 4</strong> (Solução de Yure Carneiro). <em>Sabemos
+que a distãncia entre dois vertices opostos de um hexágono regular é
+igual ao dobro da medida de seu lado. Nesse caso, essa distância é igual
+a 2. Considere a situação na figura do problema e suponhamos que o
+vértice da parábola de concavidade para cima (chamada aqui de parábola
+1) coincide com a origem do plano <span
+class="math inline">\(XY\)</span>, e a reta que une os pontos de
+interseção das parábolas é paralelo ao eixo <span
+class="math inline">\(X\)</span>.<br />
+Por conta do hexágono ali inscrito, o ponto <span
+class="math inline">\(\left(\frac{\sqrt{3}}{2}, \
+\frac{1}{2}\right)\)</span> está na parábola 1. Portanto, sendo <span
+class="math inline">\(y = ax^2\)</span> a equação dessa parábola, vamos
+ter <span class="math inline">\(\frac{1}{2} = a \cdot
+(\frac{\sqrt{3}}{2})^2 = \frac{3a}{4}\)</span>, de onde <span
+class="math inline">\(a = \frac{2}{3}\)</span>. Assim, <span
+class="math inline">\(y = \frac{2x^2}{3}\)</span> é a equação da
+parábola 1. De onde segue que a parábola 2 possui equação <span
+class="math inline">\(y = -ax^2 + 2 = -\frac{2x^2}{3} + 2\)</span>. Além
+disso a interseção entre as duas ocorre quando <span
+class="math inline">\(\frac{2x^2}{3} = -\frac{2x^2}{3} + 2\)</span>,
+quando <span class="math inline">\(4x^2 = 6\)</span>, ou seja, <span
+class="math inline">\(x=-\frac{\sqrt{6}}{2}\)</span> e <span
+class="math inline">\(x=\frac{\sqrt{6}}{2}\)</span>.<br />
+Assim, a área da região plana limitada pelas duas parábolas é dada por
+<span class="math display">\[\begin{aligned}
+A_1 &amp; = &amp; \int_{-\frac{\sqrt{6}}{2}}^{\frac{\sqrt{6}}{2}}
+-\frac{2x^2}{3} + 2 - \frac{2x^2}{3} \ dx \\
+    &amp; = &amp; 4 \int_{0}^{\frac{\sqrt{6}}{2}} 1 -\frac{2x^2}{3} \ dx
+= 4\left(\frac{\sqrt{6}}{2}
+-\frac{2\left(\frac{\sqrt{6}}{2}\right)^3}{9}\right) \\
+    &amp; = &amp; 4\left(\frac{\sqrt{6}}{2} -\frac{\sqrt{6}}{6}\right)
+\\
+    &amp; = &amp; \frac{4\sqrt{6}}{3}
+\end{aligned}\]</span></em></p>
+<p><em>Como a área <span class="math inline">\(A_2\)</span> do hexágono
+regular de lado 1 é <span class="math inline">\(A_2 =
+\frac{3\sqrt{3}}{2}\)</span>, segue que a área da região sombreada é
+<span class="math display">\[A = A_1 - A_2 = \frac{4\sqrt{6}}{3} -
+\frac{3\sqrt{3}}{2} = \frac{8\sqrt{6} - 9\sqrt{3}}{6}\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 5</strong>. <em>Calcule o valor da soma <span
+class="math display">\[\displaystyle S = \sum_{k=1}^{2022} (-1)^k \cdot
+\dfrac{(k^2+k+1)}{k!}.\]</span></em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 5</strong> (Solução de Yure Carneiro). <em>Testando o
+valor da soma para os primeiros valores de <span
+class="math inline">\(k\)</span>, conjectura-se que <span
+class="math display">\[S_n = \sum_{k=1}^{n} (-1)^k \dfrac{(k^2 + k +
+1)}{k!}\]</span> é igual a <span class="math display">\[-1 +
+\dfrac{(-1)^n \cdot (n+1)}{n!} .\]</span></em></p>
+<p><em>Vamos provar essa identidade por indução:</em></p>
+<ol type="i">
+<li><p><em>Para <span class="math inline">\(n=1\)</span>, temos <span
+class="math inline">\(S_1 = (-1)^1 \dfrac{(1^2 + 1 + 1)}{1!} = -3  = -1
++ \dfrac{(-1)^1 \cdot (1 + 1)}{1!}\)</span></em></p></li>
+<li><p><em>Agora supomos válida a identidade para <span
+class="math inline">\(n\)</span> e mostraremos que é também verificada
+para <span class="math inline">\(n+1\)</span>. Temos então <span
+class="math display">\[{\bf HI}: \ \ S_n = -1 + \dfrac{(-1)^n \cdot
+(n+1)}{n!}\]</span></em></p>
+<p><em>Assim, <span class="math display">\[\begin{aligned}
+        S_{n+1} &amp;=&amp; \sum_{k=1}^{n+1} (-1)^k \dfrac{(k^2 + k +
+1)}{k!} \\
+        &amp;= &amp; S_n + (-1)^{n+1} \dfrac{((n+1)^2 + (n+1) +
+1)}{(n+1)!}\\
+        &amp;=_{{\bf HI}} &amp; -1 + \dfrac{(-1)^n \cdot (n+1)}{n!} \\
+        &amp; +&amp;  (-1)^{n+1} \dfrac{((n+1)^2 + (n+1) + 1)}{(n+1)!}
+\\
+        &amp;=&amp; -1 + \dfrac{(-1)^n \cdot (n+1)^2}{(n+1)!} \\
+        &amp;+&amp; (-1)^{n+1} \dfrac{((n+1)^2 + (n+1) + 1)}{(n+1)!} \\
+        &amp;=&amp; -1 + (-1)^{n+1} \dfrac{((n+1)^2 + (n+2) -
+(n+1)^2)}{(n+1)!}\\
+        &amp;=&amp; -1 + (-1)^{n+1} \dfrac{(n+2)}{(n+1)!},
+    
+\end{aligned}\]</span> como gostaríamos de demonstrar. Então a
+identidade é válidade para todo <span class="math inline">\(n\)</span>
+inteiro positivo. Com isso,</em></p>
+<p><em><span class="math display">\[S = -1 + \dfrac{(-1)^{2022} \cdot
+2023}{2022!} = \dfrac{2023 - (2022!)}{2022!}\]</span></em></p></li>
+</ol>
+</div>
+<div class="problem*">
+<p><strong>Problema 6</strong>. <em>Sejam <span
+class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> números reais com <span
+class="math inline">\(a &lt; b\)</span> e sejam <span
+class="math inline">\(f, g : [a, b] \rightarrow (0, + \infty)\)</span>
+funções contínuas tais que <span class="math inline">\(\int_{a}^b f(x)
+dx = \int_a^b g(x) dx\)</span>, mas <span class="math inline">\(f \neq
+g\)</span>. Defina <span class="math display">\[I_n = \int_a^b
+\dfrac{f(x)^{n+1}}{g(x)^n} dx, \ \forall n \in \mathbb{N}\]</span>
+Mostre que a sequência <span class="math inline">\((I_n)_{n \in
+\mathbb{N}}\)</span> é crescente e que <span
+class="math inline">\(\lim_{n \rightarrow + \infty} I_n = +
+\infty\)</span>.</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 6</strong> (Solução de Yure Carneiro). <em>Sabendo
+que <span class="math inline">\(f \neq g\)</span>, que ambas são
+contínuas e que <span class="math inline">\(\int_{a}^b f(x) dx =
+\int_a^b g(x) dx\)</span>, segue que existe <span
+class="math inline">\(x_0 \in [a,b]\)</span> tal que <span
+class="math inline">\(f(x_0) - g(x_0) = \alpha &gt; 0\)</span> e existe
+um intervalo fechado <span class="math inline">\([c,d]\)</span> com
+<span class="math inline">\(c &lt; d\)</span> contendo <span
+class="math inline">\(x_0\)</span> e contido em <span
+class="math inline">\([a,b]\)</span> para o qual <span
+class="math inline">\(f(x) - g(x) &gt; \frac{\alpha}{2}\)</span> para
+todo <span class="math inline">\(x \in [c, d]\)</span>. Ainda nesse
+intervalo <span class="math display">\[\dfrac{f(x)}{g(x)} - 1 &gt;
+\dfrac{\alpha}{2g(x)}.\]</span> Agora tomando um <span
+class="math inline">\(M &gt; 0\)</span> tal que <span
+class="math inline">\(0 &lt; g(x) &lt; M\)</span> para todo <span
+class="math inline">\(x \in [a,b]\)</span> temos <span
+class="math display">\[\dfrac{f(x)}{g(x)} &gt; 1+ \beta\]</span> para
+todo <span class="math inline">\(x \in [c,d]\)</span>, onde <span
+class="math inline">\(\beta = \dfrac{\alpha}{2M}\)</span>.</em></p>
+<p><em>Agora veja que <span class="math display">\[\begin{aligned}
+    I_{n+1} - I_n &amp;= \int_a^b \dfrac{f(x)^{n+2}}{g(x)^{n+1}} -
+\dfrac{f(x)^{n+1}}{g(x)^{n}} dx \\
+    &amp;= \int_a^b \dfrac{f(x)^{n+1}}{g(x)^{n+1}}[f(x) - g(x)] dx \\
+    &amp;= \int_a^b \dfrac{f(x)^{n+1}}{g(x)^{n+1}}[f(x) - g(x))] dx \\
+    &amp;- \int_a^b [f(x) - g(x)] dx\\
+    &amp;= \int_a^b \left(\dfrac{f(x)^{n+1}}{g(x)^{n+1}} - 1
+\right)[f(x) - g(x)] dx \\
+    &amp;= \int_a^b \left(\dfrac{f(x)^{n+1} -
+g(x)^{n+1}}{g(x)^{n+1}}\right)[f(x) - g(x)] dx \\         &amp;=
+\int_a^b \left(\dfrac{\sum_{k=0}^{n}
+f(x)^{k}g(x)^{n-k}}{g(x)^{n+1}}\right)[f(x) -  g(x)]^2 dx,
+\end{aligned}\]</span> Em virtude do comentário inicial, a última
+igualdade pode ser estimada como <span
+class="math display">\[\begin{aligned}
+    &amp;\geq \int_c^d \left(\dfrac{\sum_{k=0}^{n}
+f(x)^{k}g(x)^{n-k}}{g(x)^{n+1}}\right)[f(x) - g(x)]^2 dx \\
+    &amp;\geq \int_c^d \left(\dfrac{\sum_{k=0}^{n}
+(1+\beta)^{k}g(x)^kg(x)^{n-k}}{g(x)^{n+1}}\right)\frac{\alpha^2}{4} dx
+\\
+    &amp;= \int_c^d \left(\dfrac{\sum_{k=0}^{n}
+(1+\beta)^{k}g(x)^{n}}{g(x)^{n+1}}\right)\frac{\alpha^2}{4} dx \\
+    &amp;= \int_c^d \left(\dfrac{\sum_{k=0}^{n}
+(1+\beta)^{k}}{g(x)}\right)\frac{\alpha^2}{4} dx \\
+    &amp;\geq \int_c^d \left(\dfrac{\sum_{k=0}^{n}
+(1+\beta)^{k}}{M}\right)\frac{\alpha^2}{4} dx\\\
+%    &amp;= \frac{\alpha^2(d-c)}{4M} \sum_{k=0}^{n} (1+\beta)^{k} \\
+%   &amp;= \frac{\alpha^2(d-c)}{4M} \cdot \frac{[(1+\beta)^{n+1} -
+1]}{[(1+\beta) - 1]} \\
+    &amp;= \frac{\alpha(d-c)}{2} \cdot [(1+\beta)^{n+1} - 1] \\
+    &amp;&gt;0
+\end{aligned}\]</span> De onde segue que <span
+class="math inline">\(I_{n+1} &gt; I_n\)</span> e a sequência é
+crescente, e além disso <span class="math display">\[\begin{aligned}
+I_{n+1} &amp;\geq \frac{\alpha(d-c)}{2} \cdot [(1+\beta)^{n+1} - 1] +
+I_n \\
+        &amp;&gt; \frac{\alpha(d-c)}{2} \cdot [(1+\beta)^{n+1} - 1].
+\end{aligned}\]</span></em></p>
+<p><em>Como <span class="math inline">\(\frac{\alpha(d-c)}{2} \cdot
+[(1+\beta)^{n+1} - 1] \rightarrow + \infty\)</span> quando <span
+class="math inline">\(n \rightarrow + \infty\)</span>, segue que <span
+class="math inline">\(\displaystyle \lim_{n \rightarrow + \infty} I_n =
++ \infty\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 7</strong>. <em>Na figura a seguir, <span
+class="math inline">\(ABCD\)</span> e <span
+class="math inline">\(AEFG\)</span> são quadrados. O segmento <span
+class="math inline">\(BE\)</span> mede <span
+class="math inline">\(5\,cm\)</span>. Encontre a área do retângulo
+sombreado.</em></p>
+<div class="center">
+<figure>
+<img src="figura1_2021.png" />
+</figure>
+</div>
+</div>
+<div class="solution*">
+<p><strong>Solução 7</strong> (Solução de Yure Carneiro). <em>Considere
+a figura a seguir.</em></p>
+<figure>
+<img src="ABCquad.png" />
+</figure>
+<p><em>Da semelhança entre os triângulos <span
+class="math inline">\(ABE\)</span> e <span
+class="math inline">\(AXD\)</span>, obtemos</em></p>
+<p><em><span class="math display">\[\dfrac{AE}{AB} =
+\dfrac{AD}{AX}\]</span> Portanto, <span class="math display">\[AB^2 = AB
+\cdot AD = AE \cdot AX = [AEFG] - [XYFG] (1)\]</span></em></p>
+<p><em>Além disso, do triângulo retângulo <span
+class="math inline">\(ABE\)</span>, temos <span
+class="math display">\[AE^2 = AB^2 + BE^2 = AB^2 + 25\]</span> <span
+class="math display">\[AB^2 = AE^2 - 25\]</span> Como <span
+class="math inline">\([AEFG] = AE^2\)</span>, segue das equações (1) e
+(2) que a aréa do retângulo sombreado é <span
+class="math display">\[[XYFG] = 25 \ cm^2.\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 8</strong>. <em>Na figura a seguir, cada quadradinho
+representa uma cadeira. Note que as quantidades de cadeiras consecutivas
+de uma mesma cor correspondem apenas aos números <span
+class="math inline">\(1\)</span> e <span
+class="math inline">\(3\)</span>, que são ímpares.</em></p>
+<div class="center">
+<figure>
+<img src="cadeiras.png" />
+</figure>
+</div>
+<p><em>De quantas maneiras podemos colocar <span
+class="math inline">\(12\)</span> cadeiras em fila, cada uma sendo da
+cor branca ou cinza, de tal modo que as quantidades de cadeiras
+consecutivas pintadas de uma mesma cor sejam sempre números
+ímpares?</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 8</strong> (Solução de Yure Carneiro). <em>Considere
+o problema de achar o número de maneiras de obter uma soma 12 em que as
+parcelas são números ímpares positivos, onde a ordem das parcelas
+importa, ou seja, aqui consideramos que a soma <span
+class="math inline">\(1+1+1+9 = 12\)</span> é uma forma de somar
+diferente de <span class="math inline">\(1+9+1+1 = 12\)</span>. Então a
+resposta ao problema das cadeiras é o dobro da resposta ao problema da
+soma aqui descrito. Em que cada parcela representa um conjunto de
+cadeiras de uma mesma cor em sequência, e podemos considerar que a
+primeira parcela forma um conjunto de cadeiras brancas e cada parcela na
+sequência está associada a uma cor entre cinza e branca que fica
+alternando. Exemplo: A forma de somar <span
+class="math inline">\(1+1+1+9 = 12\)</span>, representa a fileira de
+cadeiras</em></p>
+<figure>
+<img src="trianguloazul11.png" />
+</figure>
+<p><em>Já a forma de somar <span class="math inline">\(1+9+1+1 =
+12\)</span> representa a fileira</em></p>
+<figure>
+<img src="trianguloazul12.png" />
+</figure>
+<p><em>Veja que ambos começam pela cor branca. A quantidade das fileiras
+que começam com a cor cinza é a mesma das que estão sendo contadas
+começando com a cor branca. Assim, vamos tratar o problema das
+somas.<br />
+Vamos generalizar o problema chamando de <span
+class="math inline">\(K_n\)</span> o número de formas diferentes de
+obter <span class="math inline">\(n\)</span> como soma de ímpares
+positivos, e onde a ordem das parcelas importa. Veja que para achar
+<span class="math inline">\(K_n\)</span> (supondo conhecidos <span
+class="math inline">\(K_i, \ i =1, \ldots, n-1\)</span>) basta
+considerar o seguinte, cada uma das formas de obter soma <span
+class="math inline">\(n\)</span> deve começar com um dos ímpares
+positivos <span class="math inline">\(j\)</span> menores ou iguais a
+<span class="math inline">\(n\)</span>, e a quantidade de maneiras de
+completar a forma de somar que começa com <span
+class="math inline">\(j\)</span> é exatamente igual a <span
+class="math inline">\(K_{n-j}\)</span>. Exemplo: para achar <span
+class="math inline">\(K_7\)</span>, temos as formas de obter soma <span
+class="math inline">\(7\)</span> que começa com <span
+class="math inline">\(1, 3, 5\)</span> e <span
+class="math inline">\(7\)</span>. As formas de obter soma 7 que começa
+com 1 é exatamente <span class="math inline">\(K_6\)</span>. As formas
+de obter soma 7 que começa com 3 é exatamente <span
+class="math inline">\(K_4\)</span>. As formas de obter soma 7 que começa
+com 5 é exatamente <span class="math inline">\(K_2\)</span>. Já as
+formas de obter soma 7 que começa com 7 é exatamente <span
+class="math inline">\(1\)</span> (que denotaremos por <span
+class="math inline">\(K_0 = 1\)</span>). Portanto, <span
+class="math display">\[K_7 = K_6 + K_4 + K_2 + K_0\]</span>
+Generalizando, para <span class="math inline">\(n = 2j+1\)</span> <span
+class="math display">\[K_{2j+1} = K_{2j} + K_{2j-2} + \cdots + K_0 =
+K_{2j} + K_{2j-1}\]</span> e de modo análogo, para <span
+class="math inline">\(n = 2j\)</span> temos <span
+class="math display">\[K_{2j} = K_{2j-1} + K_{2j-3} + \cdots + K_1 =
+K_{2j-1} + K_{2j-2}\]</span></em></p>
+<p><em>Assim, <span class="math display">\[K_{n} = K_{n-1} +
+K_{n-2}\]</span></em></p>
+<p><em>Temos então que <span class="math inline">\(K_n\)</span> é
+definida recursivamente pela fórmula acima, onde <span
+class="math inline">\(K_1 = K_0 = 1\)</span> (ou mesmo <span
+class="math inline">\(K_2 = K_1 = 1\)</span>), ou seja, <span
+class="math inline">\(K_n\)</span> representa a Sequência de Fibonacci.
+Temos então que <span class="math inline">\(K_{12} = 144\)</span> que é
+o décimo segundo termo da sequência <span class="math display">\[1, 1,
+2, 3, 5, 8, 13, 21, 34, 55, 89, 144, \ldots\]</span></em></p>
+<p><em>Com isso a resposta ao problema original, da quantidade de
+maneiras de colocar 12 cadeiras em fila conforme especificado é <span
+class="math display">\[2K_{12} = 288 \
+\mbox{maneiras}.\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 9</strong>. <em>Na figura a seguir, <span
+class="math inline">\(X\)</span> é um ponto no interior do triângulo
+equilátero <span class="math inline">\(ABC\)</span> e <span
+class="math inline">\(Y\)</span>, <span class="math inline">\(W\)</span>
+e <span class="math inline">\(Z\)</span> são os pés das perpendiculares
+de <span class="math inline">\(X\)</span> aos lados <span
+class="math inline">\(AC\)</span>, <span
+class="math inline">\(BC\)</span> e <span
+class="math inline">\(AB\)</span>, respectivamente.</em></p>
+<ol type="a">
+<li><p><em>Se <span class="math inline">\(XY=k\)</span>, <span
+class="math inline">\(XZ=2k\)</span>, <span class="math inline">\(XW =
+4k\)</span> e a área do quadrilátero <span
+class="math inline">\(AYXZ\)</span> é <span
+class="math inline">\(13\,cm^2\)</span>, encontre a área do triângulo
+<span class="math inline">\(ABC\)</span>.</em></p></li>
+<li><p><em>Se <span class="math inline">\(XY=ak\)</span>, <span
+class="math inline">\(XZ=bk\)</span> e <span class="math inline">\(XW =
+ck\)</span>, encontre a razão entre as áreas do triângulo <span
+class="math inline">\(ABC\)</span> e do quadrilátero <span
+class="math inline">\(AYXZ\)</span>.</em></p></li>
+</ol>
+<div class="center">
+<figure>
+<img src="tequilatero.png" />
+</figure>
+</div>
+</div>
+<div class="solution*">
+<p><strong>Solução 9</strong> (Solução de Diego Alberto). </p>
+<div class="center">
+<figure>
+<img src="triangulo.png" />
+</figure>
+</div>
+<ol type="a">
+<li><p><em>Se <span class="math inline">\(h\)</span> é a altura do
+triângulo <span class="math inline">\(ABC\)</span>, temos que <span
+class="math display">\[\begin{aligned}
+XZ \cdot AB + XY \cdot BC + XW \cdot AC &amp; = &amp; h \cdot AB \\
+XZ + XY + XW &amp; = &amp; h
+\end{aligned}\]</span></em></p>
+<p><em>Daí, <span class="math inline">\(h = 7k\)</span>. Por <span
+class="math inline">\(X\)</span>, trace paralelas aos lados do triângulo
+<span class="math inline">\(ABC\)</span>, como indicado na figura. Sejam
+<span class="math inline">\(S_1\)</span>, <span
+class="math inline">\(S_2\)</span>, <span
+class="math inline">\(S_3\)</span> e <span
+class="math inline">\(S\)</span> as áreas dos triângulos <span
+class="math inline">\(XY_1Y_2\)</span>, <span
+class="math inline">\(XZ_1Z_2\)</span>, <span
+class="math inline">\(XW_1W_2\)</span> e <span
+class="math inline">\(ABC\)</span>, respectivamente. Por semelhança de
+triângulos, temos <span class="math display">\[S_1/S = 4/49, S_2/S =
+1/49\, \,\,\, \text{e} \,\,\, S_3/S = 16/49.\]</span> Além disso, como
+os triângulos <span class="math inline">\(ABX\)</span>, <span
+class="math inline">\(BCX\)</span> e <span
+class="math inline">\(ACX\)</span> possuem mesma base, segue que <span
+class="math display">\[A_{ABX}/S = 2/7, A_{BCX}/S = 1/7 \,\,\, \text{e}
+\,\,\,  A_{ACX}/S = 4/7.\]</span> Portanto, considerando as áreas
+representadas pelas letras <span class="math inline">\(m\)</span>, <span
+class="math inline">\(n\)</span> e <span
+class="math inline">\(p\)</span>, temos <span
+class="math display">\[\begin{aligned}
+m+n+S_1 &amp; = &amp; S/7, \\
+m+p+S_2 &amp; = &amp; 2S/7, \\
+n+p+S_3 &amp; = &amp; 4S/7.
+\end{aligned}\]</span> Assim, <span
+class="math display">\[\begin{aligned}
+m+n&amp; = &amp; 3S/49, \\
+m+p&amp; = &amp; 13S/49, \\
+n+p&amp; = &amp; 12S/49.
+\end{aligned}\]</span> Além disso, somando todas as equações, temos
+<span class="math display">\[2m+2n+2p= 28S/49.\]</span> De <span
+class="math display">\[2m+S_1/2+S_2/2=13,\]</span> e <span
+class="math inline">\((4)\)</span>, obtemos <span
+class="math display">\[\dfrac{5/2S}{49}-\dfrac{24S}{49} = 13 -
+\dfrac{28S}{49}\]</span> e assim <span class="math inline">\(S =
+98\,cm^2\)</span></em></p></li>
+<li><p><em>Aproveitando a notação do item anterior, temos <span
+class="math inline">\(h=(a+b+c)k\)</span> e <span
+class="math display">\[\begin{aligned}
+m+n+S_1 &amp; = &amp; \dfrac{a}{(a+b+c)}S \\
+m+p+S_2 &amp; = &amp; \dfrac{b}{(a+b+c)}S \\
+n+p+S_3 &amp; = &amp; \dfrac{c}{(a+b+c)}S
+\end{aligned}\]</span> Portanto, calculando <span
+class="math inline">\((5)+(6)-(7)\)</span>, temos <span
+class="math display">\[2m +S_1+S_2= \dfrac{(a+b-c)S}{(a+b+c)} +
+\dfrac{c^2S}{(a+b+c)^2} = \dfrac{(a+b)^2S}{(a+b+c)^2}.\]</span> <span
+class="math display">\[\begin{aligned}
+\dfrac{S}{A_{AZXY}} &amp; = &amp; \dfrac{S}{2m+S_1/2+S_2/2} \\
+                    &amp; = &amp; \dfrac{2S}{4m+S_1+S_2} \\
+                    &amp; = &amp; \dfrac{2(a+b+c)^2}{2(a+b)^2-a^2-b^2}
+\\
+                    &amp; = &amp; \dfrac{2(a+b+c)^2}{a^2+b^2+4ab}
+\end{aligned}\]</span></em></p></li>
+</ol>
+</div>
+<h1 id="novos-problemas">Novos Problemas</h1>
+<h1 id="problemas-universitários">Problemas Universitários</h1>
+<div class="problem*">
+<p><strong>Problema 10</strong>. <em>Calcule o valor de <span
+class="math inline">\(\int_0^{\pi/2} \frac{dx}{1 + (\textrm{tg}
+x)^{2022}}\)</span> é</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 11</strong>. <em>Encontre o valor de</em></p>
+<p><em><span class="math display">\[\displaystyle \int_0^{\pi/2} \cos^2
+(\cos x)dx + \int_0^{\pi/2} \mathop{\mathrm{sen}}^2
+(\mathop{\mathrm{sen}}x)dx .\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 12</strong>. <em>Seja <span
+class="math inline">\(A_{2022} = (a_{ij})\)</span> a matriz <span
+class="math inline">\(2022 \times 2022\)</span> definida por</em></p>
+<p><em><span class="math display">\[a_{ij} = \left \{ \begin{array}{cl}
+\sqrt{3}, &amp; \text{se}\,\,i=j \\1, &amp; \text{se}\,\,|i-j|=1 \\ 0
+&amp; \text{caso contrário} \end{array} \right .\]</span></em></p>
+<p><em>Encontre o valor de <span class="math inline">\(\det
+A_{2022}\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 13</strong>. <em>Sejam <span class="math inline">\(z
+= e^{\frac{2\pi i}{2023}} = \cos \frac{2\pi}{2023} +
+i\mathop{\mathrm{sen}}\frac{2\pi}{2023}\)</span>, <span
+class="math display">\[A = \{1, z, z^2, \ldots, z^{2022} \}\]</span> e
+<span class="math display">\[B = \{1, 1+z, 1+z+z^2, \ldots, 1+z+z^2+
+\ldots+ z^{2022} \}.\]</span></em></p>
+<p><em>Determine o número de elementos de <span class="math inline">\(A
+\cap B\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 14</strong>. <em>O famoso <span><em>Problema da
+Basileia</em></span><a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> nos permite descobrir que</em></p>
+<p><em><span class="math display">\[\dfrac{\pi^2}{8} =
+\dfrac{1}{1^2}+\dfrac{1}{3^2}+\dfrac{1}{5^2}+\dfrac{1}{7^2}+\ldots
+.\]</span></em></p>
+<p><em>Vamos usar a série anterior para encontrar a soma de outra série.
+Para cada <span class="math inline">\(n \in \mathbb{N}\)</span>, defina
+como <span class="math inline">\(a_n\)</span> seu maior divisor positivo
+ímpar. Por exemplo, <span class="math inline">\(a_{30} = 15\)</span> e
+<span class="math inline">\(a_{24}=3\)</span>. Encontre o valor da
+soma:</em></p>
+<p><em><span class="math display">\[S =
+\dfrac{a_1}{1^3}+\dfrac{a_2}{2^3}+\dfrac{a_3}{3^3}+\ldots
+.\]</span></em></p>
+</div>
+<h1 id="problemas-de-matemática-elementar">Problemas de Matemática
+Elementar</h1>
+<div class="problem*">
+<p><strong>Problema 15</strong>. <em>Bernardo está brincando de desenhar
+quadriláteros em um papel pontilhado como o da imagem a seguir. Os
+pontos pretos são vértices de quadradinhos de lado <span
+class="math inline">\(1\,cm\)</span> e os quadriláteros desenhados só
+podem usar como vértices os pontos pretos.</em></p>
+<figure>
+<img src="F51.png" />
+</figure>
+<p><em>A letra <span class="math inline">\(I\)</span> representa o
+número de pontos pretos no interior de cada quadrilátero.</em></p>
+<ol type="a">
+<li><p><em>Dê exemplos, por meio de um desenho, de quadrados com <span
+class="math inline">\(I=4\)</span> e <span
+class="math inline">\(I=9\)</span> no papel pontilhado.</em></p></li>
+<li><p><em>Explique como Bernardo pode desenhar losangos contendo
+qualquer valor de pontos interiores desejado.</em></p></li>
+<li><p><em>Qual é a menor área possível para um triângulo com vértices
+nos pontos do papel?</em></p></li>
+</ol>
+</div>
+<div class="problem*">
+<p><strong>Problema 16</strong>. <em>O número de todos os inteiros
+positivos de 64 digitos sem zeros em sua representação e que são
+divisíveis por <span class="math inline">\(101\)</span> é par ou
+ímpar?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 17</strong>. <em>É possível arranjar os números
+<span class="math inline">\(1,1,2,2,3,3, \ldots, 1986,1986\)</span> em
+fila de modo que entre quaisquer dois <span
+class="math inline">\(i&#39;s\)</span> hajam <span
+class="math inline">\((i-1)\)</span> números?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 18</strong>. <em>Os alunos da <span
+class="math inline">\(DMAT\)</span> aprendem <span
+class="math inline">\(n\)</span> matérias no semestre. É verdade que
+para cada matéria exatamente 3 alunos são os melhores nessa matéria, e
+que para cada 2 matérias, existe exatamente um aluno que é um dos
+melhores nas duas. Prove que:</em></p>
+<ol type="a">
+<li><p><em>Se <span class="math inline">\(n=8\)</span> existe um aluno
+que é um dos melhores em todas as matérias.</em></p></li>
+<li><p><em>Se <span class="math inline">\(n=7\)</span>, não é necessário
+que haja um aluno que é um dos melhores em todas as
+matérias.</em></p></li>
+</ol>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><em>Euler foi o primeiro a provar que <span
+class="math display">\[\dfrac{\pi^2}{6} =
+\dfrac{1}{1^2}+\dfrac{1}{2^2}+\dfrac{1}{3^2}+\dfrac{1}{4^2}+\ldots
+.\]</span> Além dele, alguns membros da família Bernoulli, que também
+viviam na cidade da Basileia, tentaram obter esse resultado. Por conta
+disso esse resultado também ficou atrelado ao nome da cidade.</em><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
