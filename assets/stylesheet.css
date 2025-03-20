@@ -55,6 +55,9 @@ h1.title {
 p.author {
     font-style: italic;
 } 
+div.sec_name {
+    font-variant: small-caps;
+}
 span.smallcaps {
     font-variant: small-caps;
 }

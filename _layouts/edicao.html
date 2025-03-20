@@ -15,14 +15,13 @@
       <summary>
         <h2>{{ page.edition }}</h2>
         <ul>
-         {% for item in page.sections %}
-         <li>
-           <div class="sec_name"> {{item.section}}<div>
-           <a href="{{ item.url }}/{{ item.url }}.html">{{ item.title }}</a>
-           <div class="sec_author"> {{item.author}}<div>
-           <div class="sec_pages"> Páginas: {{item.pages}}<div>
-         </li>
-         {% endfor %}
+        {% for item in page.sections %}
+        <li>
+          <div class="sec_name"> {{item.section}}</div>
+          <a href="{{ item.url }}/{{ item.url }}.html">{{ item.title }}</a>
+          <div class="sec_author"> {{item.author}}</div>
+        </li>
+        {% endfor %}
         </ul>
       </summary>
     </main>
