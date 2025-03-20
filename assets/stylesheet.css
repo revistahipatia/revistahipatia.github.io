@@ -16,8 +16,12 @@ aside {
     float: right;    
 }
 
+img.banner {
+    width: 600px; 
+}
+
 @media screen and (max-width: 800px) {
-    main, aside {
+    main, aside, img.banner {
       width: 100%;
     }
 }
