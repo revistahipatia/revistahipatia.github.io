@@ -1,13 +1,26 @@
 body {
+    min-width: 90%; 
     width: 90%;
-    margin: 5% auto;
+    margin: 0 0;
     background-color: white;
+    border-color: aqua;
+    border-style: solid;
+    border-width: 30px;
+    border-image-source: url("/assets/meander.png");
+    border-image-slice: 34;
+    border-image-repeat: round;
+    padding: 10px;
 }
 
 main {
     width: 70%;
     height: 100%;
     float: left; 
+}
+
+main.article {
+    margin: 0 auto;
+    float: none;
 }
 
 aside {
@@ -17,7 +30,10 @@ aside {
 }
 
 img.banner {
-    width: 600px; 
+    width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 img.cover {
