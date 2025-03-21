@@ -88,4 +88,13 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
+}
+figure img {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+figcaption {
+    text-align:center;  
 }  
