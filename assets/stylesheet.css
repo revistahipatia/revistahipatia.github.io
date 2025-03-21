@@ -7,8 +7,8 @@ body {
     border-style: solid;
     border-width: 28px;
     border-image-source: url("/assets/meander.png");
-    border-image-slice: 140 140 150 150;
-    border-image-repeat: round;
+    border-image-slice: 145 145 145 145;
+    border-image-repeat: round round;
     padding: 10px;
 }
 
