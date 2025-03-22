@@ -33,7 +33,7 @@ aside {
 }
 
 img.banner {
-    width: 600px;
+    max-width: 600px;
     display: block;
     margin-left: auto;
     margin-right: auto;
