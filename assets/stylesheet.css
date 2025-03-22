@@ -46,8 +46,14 @@ img.cover {
 }
 
 @media screen and (max-width: 975px) {
+    body {
+        padding: 2px;
+    }
     main, aside, img.banner {
-      width: 100%;
+        width: 100%;
+    }
+    main.article {
+        width: 95%;
     }
 }
 
