@@ -140,3 +140,8 @@ figcaption {
     margin-right: auto;
     clear: both;
 }
+
+img.inline {
+    height: 1.2em;
+    vertical-align: -0.3em;
+}

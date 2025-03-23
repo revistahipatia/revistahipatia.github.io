@@ -4,9 +4,58 @@ title: O Lema de Sperner
 subtitle: Teorema
 author: Vinícius Mello
 ---
+<script>
+MathJax = {
+  tex: {packages: {'[+]': ['img']}},
+  startup: {
+    ready() {
+      const {Configuration} = MathJax._.input.tex.Configuration;
+      const CommandMap = MathJax._.input.tex.SymbolMap.CommandMap;
+      const TexError = MathJax._.input.tex.TexError.default;
+      
+      const CheckDimen = function (dimen) {
+        if (dimen === '') return '';
+        if (dimen.match(/^\s*([-+]?(\.\d+|\d+(\.\d*)?))\s*(pt|em|ex|mu|px|mm|cm|in|pc)\s*$/)) {
+          return dimen.replace(/ /g, '');
+        }
+        throw new TexError('BadImageDimen', 'Bad dimension for image: %1', dimen);
+      };
+      new CommandMap('img', {img: 'Img'}, {
+        Img(parser, name) {
+          const arg = parser.GetBrackets(name, '');
+          const def = {
+            valign: '',
+            width:  '',
+            height: ''
+          };
+          if (arg.match(/[,=]/)) {
+            for (const pair of arg.split(/\s*,\s*/)) {
+              const [key, ...value] = pair.split(/\s*=\s*/);
+              if (!def.hasOwnProperty(key)) throw new TexError('UnknownKey', 'Unknown parameter "%1" in %2', key, name);
+              def[key] = CheckDimen(value.join('='));
+            }
+          } else {
+            def.valign = CheckDimen(arg);
+            def.width  = CheckDimen(parser.GetBrackets(name, ''));
+            def.height = CheckDimen(parser.GetBrackets(name, ''));
+          }
+          def.src = parser.GetArgument(name);
+          if (!def.valign) delete def.valign;
+          if (!def.width)  delete def.width;
+          if (!def.height) delete def.height;
+          parser.Push(parser.create('token', 'mglyph', def));
+        }
+      });
+      Configuration.create('img', {handler: {macro: ['img']}});
+
+      MathJax.startup.defaultReady();
+    }
+  }
+}
+</script>
 <h1 id="introdução">Introdução</h1>
 <figure id="fig:ex">
-<img src="spernerlbl.png" style="width:8cm" />
+<img src="spernerlbl.png" />
 <figcaption>Uma triangulação propriamente colorida do triângulo <span
 class="math inline">\(\Delta\)</span>. Você consegue localizar todos os
 subtriângulos cujos vértices possuem as três cores?</figcaption>
@@ -48,7 +97,7 @@ aparência tão singela, explicar por que ele é meu teorema favorito,
 demonstrá-lo, de mais de uma maneira, e, já que trata-se de um lema,
 usá-lo para esboçar a demonstração de um famoso teorema.</p>
 <figure id="fig:exdestac">
-<img src="spernerlbld.png" style="width:8cm" />
+<img src="spernerlbld.png" />
 <figcaption>Triangulação de <span class="math inline">\(\Delta\)</span>
 com todos os <span class="math inline">\(5\)</span> subtriângulos
 completos destacados.</figcaption>
@@ -239,100 +288,54 @@ Sperner. Nela temos um segmento <span class="math inline">\(S\)</span>
 subdividido e com os vértices coloridos com duas cores, sendo que os
 vértices extremos de <span class="math inline">\(S\)</span> possuem
 cores diferentes, como neste exemplo:</p>
-<div class="center">
-
-</div>
+<figure id="fig:ex">
+    <img src="casounidimensional.png" />
+</figure>
 <p>Queremos contar o número de subsegmentos que possuem vértices de
 cores distintas, quantidade que denotaremos por <span
-class="math inline">\(\#
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}\)</span> (no caso acima, <span
-class="math inline">\(\#
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-=5\)</span>). Para tanto, vamos contar uma outra quantidade (e aqui está
+class="math inline">\(\#\img[-.3em][4em][1.2em]{seggb.png}\)</span> (no caso acima, <span
+class="math inline">\(\#\img[-.3em][4em][1.2em]{seggb.png}=5\)</span> ). Para tanto, vamos contar uma outra quantidade (e aqui está
 o “truque” de Sperner). Seja <span
 class="math inline">\(F(\sigma)\)</span> o número de vértices verdes do
 subsegmento <span class="math inline">\(\sigma\)</span>. Claramente,
 <span class="math display">\[\begin{aligned}
-    F(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-)&amp;=2 \\
-    F(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-)&amp;=1 \\
-    F(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-)&amp;=1 \\
-    F(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-)&amp;=0 .
+    F(\img[-.3em][4em][1.2em]{seggg.png})&amp;=2 \\
+    F(\img[-.3em][4em][1.2em]{seggb.png})&amp;=1 \\
+    F(\img[-.3em][4em][1.2em]{segbg.png})&amp;=1 \\
+    F(\img[-.3em][4em][1.2em]{segbb.png})&amp;=0 .
 \end{aligned}\]</span> Vamos contar <span
 class="math display">\[\sum_{\sigma\in S} F(\sigma),\]</span> ou seja, o
 número de vértices verdes contados por subsegmento, de duas maneiras.
-Por um lado, como subsegmentos da forma</p>
-<p>não contribuem para o total, temos que <span
+Por um lado, como subsegmentos da forma
+<span
+class="math inline">
+\(\img[-.3em][4em][1.2em]{segbb.png}\)
+</span>
+não contribuem para o total, temos que <span
 class="math display">\[\label{eq:sperner1D1}
 \sum_{\sigma\in S} F(\sigma) = \#
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-.3em][4em][1.2em]{seggb.png}
 
 +2\times \#
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-,\]</span> onde <span class="math inline">\(\#
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}\)</span> denota o número de subsegmentos com os dois
+\img[-.3em][4em][1.2em]{seggg.png}
+,\]</span>
+onde <span class="math inline">\(\#
+    \img[-.3em][4em][1.2em]{seggg.png}\)</span>    
+denota o número de subsegmentos com os dois
 vértices verdes. Por outro lado, percebemos que cada vértice verde
 interior é contado duas vezes em <span
 class="math inline">\(\sum_{\sigma\in S} F(\sigma)\)</span>, já que é
 incidente a exatamente dois subsegmentos, ao passo que o vértice verde
 na fronteira de <span class="math inline">\(S\)</span> é contado uma
-única vez, assim <span> <span class="math display">\[\begin{aligned}
+única vez, assim <span class="math display">\[\begin{aligned}
 \label{eq:sperner1D2}
 \sum_{\sigma\in S} F(\sigma) &amp;= \#\left(
-\begin{tikzpicture}[baseline=-1mm]
-\fill[fill=c1] (0,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-.3em][1.2em][1.2em]{vertg.png}
 \text{ na fronteira}\right) \\
 &amp;+2\times \#\left(
-\begin{tikzpicture}[baseline=-1mm]
-\fill[fill=c1] (0,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-.3em][1.2em][1.2em]{vertg.png}
 \text{ no  interior}\right).
-
-    \end{aligned}\]</span> </span> Igualando as equações (<a
+    \end{aligned}\]</span> Igualando as equações (<a
 href="#eq:sperner1D1" data-reference-type="ref"
 data-reference="eq:sperner1D1">[eq:sperner1D1]</a>) e (<a
 href="#eq:sperner1D2" data-reference-type="ref"
@@ -340,152 +343,84 @@ data-reference="eq:sperner1D2">[eq:sperner1D2]</a>) e considerando a
 congruência módulo <span class="math inline">\(2\)</span>, temos que
 <span class="math display">\[\label{eq:sperner1d}
 \#
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-.3em][4em][1.2em]{seggb.png}
   \equiv  
 %\#\left(\vtx{1} \text{ na fronteira}\right)=
 1
   \pmod{2},\]</span> donde concluímos que <span class="math inline">\(\#
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}\)</span> é ímpar.</p>
+    \img[-.3em][4em][1.2em]{seggb.png}\)</span> é ímpar.</p>
 <p>O caso bidimensional é bem parecido. Queremos contar <span
 class="math display">\[\#
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-1em][3em][3em]{trirgb.png}
 ,\]</span> ou seja o número de triângulos completos. No caso da figura
 <a href="#fig:exdestac" data-reference-type="ref"
 data-reference="fig:exdestac">2</a>, temos que <span
 class="math display">\[\#
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-1em][3em][3em]{trirgb.png}
 =5.\]</span> Seja <span class="math inline">\(F(\tau)\)</span> o número
-de segmentos do tipo</p>
-<p>no subtriângulo <span class="math inline">\(\tau\)</span>.
+de segmentos do tipo
+<span class="math inline">\(\img[-.3em][4em][1.2em]{seggb.png}\)</span>
+no subtriângulo <span class="math inline">\(\tau\)</span>.
 Claramente, <span class="math display">\[\begin{aligned}
     F\left(
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-\right)&amp;=2 \\
+        \img[-1em][3em][3em]{tribgb.png}
+    \right)&amp;=2 \\
     F\left(
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c1] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-\right)&amp;=2 \\
+        \img[-1em][3em][3em]{triggb.png}
+    \right)&amp;=2 \\
     F\left(
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-\right)&amp;=1.
+        \img[-1em][3em][3em]{trirgb.png}
+    \right)&amp;=1.
 \end{aligned}\]</span> e <span class="math inline">\(F(\tau)=0\)</span>
 nos demais casos. Assim, <span
 class="math display">\[\label{eq:sperner2d1}
 \sum_{\tau\in T} F(\tau) = \#
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-1em][3em][3em]{trirgb.png}
 
 +2\times \#
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-1em][3em][3em]{tribgb.png}
 
 +2\times \#
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c1] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}\]</span> Por outro lado, percebemos que as arestas do
-tipo</p>
-<p>no interior de <span class="math inline">\(T\)</span> são incidentes
-a exatamente dois subtriângulos, enquanto as arestas do tipo</p>
-<p>na fronteira de <span class="math inline">\(T\)</span> são incidentes
-a exatamente um subtriângulo, donde <span> <span
+\img[-1em][3em][3em]{triggb.png}\]</span> Por outro lado, percebemos que as arestas do
+tipo
+<span class="math inline">\(\img[-.3em][4em][1.2em]{seggb.png}\)</span>
+no interior de <span class="math inline">\(T\)</span> são incidentes
+a exatamente dois subtriângulos, enquanto as arestas do tipo
+<span class="math inline">\(\img[-.3em][4em][1.2em]{seggb.png}\)</span>
+na fronteira de <span class="math inline">\(T\)</span> são incidentes
+a exatamente um subtriângulo, donde <span
 class="math display">\[\begin{aligned}
 \label{eq:sperner2d2}
 \sum_{\tau\in T} F(\tau) &amp;= \#\left(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-.3em][4em][1.2em]{seggb.png}
 \text{ na fronteira}\right) \\
 &amp;+2\times \#\left(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-.3em][4em][1.2em]{seggb.png}
 \text{ no  interior}\right).
-
-    \end{aligned}\]</span> </span> Comparando as equações (<a
+    \end{aligned}\]</span> Comparando as equações (<a
 href="#eq:sperner2d1" data-reference-type="ref"
 data-reference="eq:sperner2d1">[eq:sperner2d1]</a>) e (<a
 href="#eq:sperner2d2" data-reference-type="ref"
 data-reference="eq:sperner2d2">[eq:sperner2d2]</a>) e tomando-as módulo
 <span class="math inline">\(2\)</span>, temos que <span
 class="math display">\[\#
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-1em][3em][3em]{trirgb.png}
   \equiv  
 \#\left(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-.3em][4em][1.2em]{seggb.png}
 \text{ na fronteira}\right)
   \pmod{2}.\]</span> Mas pelo caso unidimensional, ou seja, pela equação
 <a href="#eq:sperner1d" data-reference-type="ref"
 data-reference="eq:sperner1d">[eq:sperner1d]</a>, concluímos que <span
 class="math display">\[\#
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-1em][3em][3em]{trirgb.png}
   \equiv  1
   \pmod{2},\]</span> que é exatamente a tese do Lema de Sperner, o
 número de triângulos completos é ímpar. Observamos também o padrão
 indutivo que pode ser usado para demonstrar o Lema para qualquer
 dimensão <span class="math inline">\(n\)</span>.</p>
 <figure id="fig:spernerori">
-<img src="spernerori.png" style="width:8cm" />
+<img src="spernerori.png" />
 <figcaption>Triangulação de <span class="math inline">\(\Delta\)</span>
 com todos os <span class="math inline">\(5\)</span> subtriângulos
 completos destacados de acordo com a orientação: se ao percorrer os
@@ -512,32 +447,16 @@ class="math inline">\(G(\sigma)\)</span> para um subsegmento <span
 class="math inline">\(\sigma\)</span> da seguinte forma: <span
 class="math display">\[\begin{aligned}
     G(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+            
 )&amp;=1+(-1)=0 \\
     G(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+        \img[-.3em][4em][1.2em]{seggb.png}
 )&amp;=1 \\
     G(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+        \img[-.3em][4em][1.2em]{segbg.png}
 )&amp;=-1 \\
     G(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+        \img[-.3em][4em][1.2em]{segbb.png}
 )&amp;=0 ,
 \end{aligned}\]</span> ou seja, <span
 class="math inline">\(G(\sigma)\)</span> conta o total de vértices
@@ -547,24 +466,17 @@ class="math inline">\(1\)</span> e à direita, <span
 class="math inline">\(-1\)</span>. Assim, <span
 class="math display">\[\label{eq:sperner1dori1}
 \sum_{\sigma\in S} G(\sigma) = \#
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-.3em][4em][1.2em]{seggb.png}
 -
 \#
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-,\]</span> já que os segmentos</p>
-<p>e</p>
-<p>não contribuem para o total. Note que estamos distinguindo agora os
-tipos de segmentos completos</p>
-<p>e</p>
-<p>. Por outro lado, cada vértice verde interior contribui em <span
+\img[-.3em][4em][1.2em]{segbg.png}
+,\]</span> já que os segmentos
+<span class="math inline">\(\img[-.3em][4em][1.2em]{seggg.png}\)</span>
+e
+<span class="math inline">\(\img[-.3em][4em][1.2em]{segbb.png}\)</span>
+não contribuem para o total. Note que estamos distinguindo agora os
+tipos de segmentos completos 
+<span class="math inline">\(\img[-.3em][4em][1.2em]{seggb.png}\)</span> e <span class="math inline">\(\img[-.3em][4em][1.2em]{segbg.png}\)</span>. Por outro lado, cada vértice verde interior contribui em <span
 class="math inline">\(\sum_{\sigma\in S} G(\sigma)\)</span> com <span
 class="math inline">\(+1\)</span> para o segmento a sua direita e com
 <span class="math inline">\(-1\)</span> para o segmento a sua esquerda,
@@ -573,9 +485,7 @@ class="math inline">\(S\)</span> contribui com <span
 class="math inline">\(1\)</span>, de modo que <span
 class="math display">\[\label{eq:sperner1dori2}
 \sum_{\sigma\in S} G(\sigma) = 1+0\times \#\left(
-\begin{tikzpicture}[baseline=-1mm]
-\fill[fill=c1] (0,0) circle(1.5mm);
-\end{tikzpicture}
+    \img[-.3em][1.2em][1.2em]{vertg.png}
 \text{ no  interior}\right).\]</span> Igualando as equações (<a
 href="#eq:sperner1dori1" data-reference-type="ref"
 data-reference="eq:sperner1dori1">[eq:sperner1dori1]</a>) e (<a
@@ -583,129 +493,57 @@ href="#eq:sperner1dori2" data-reference-type="ref"
 data-reference="eq:sperner1dori2">[eq:sperner1dori2]</a>), concluímos
 que <span class="math display">\[\label{eq:sperner1dori}
 \#
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-.3em][4em][1.2em]{seggb.png}
   -
 \#
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-
+\img[-.3em][4em][1.2em]{segbg.png}
 = 1.\]</span></p>
 <p>Vamos agora ao caso bidimensional. Seja <span
 class="math inline">\(G(\tau)\)</span> quantas vezes o segmento <span
-class="math inline">\(\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}\)</span> aparece na fronteira do triângulo <span
+class="math inline">\(
+    \img[-.3em][4em][1.2em]{seggb.png}
+    \)</span> aparece na fronteira do triângulo <span
 class="math inline">\(\tau\)</span>, no sentido anti-horário, contando a
 orientação, ou seja, <span class="math display">\[\begin{aligned}
     G\left(
-\begin{tikzpicture}[baseline=2mm]
-\draw[draw=cl,fill=cp,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
-cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+        \img[-1em][3em][3em]{trirgbp.png}
 \right) &amp;= 1 \\
     G\left(
-\begin{tikzpicture}[baseline=2mm]
-\draw[draw=cl,fill=cn,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
-cycle;
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-\right) &amp;= -1 \\
+        \img[-1em][3em][3em]{trirbgn.png}\right) &amp;= -1 \\
     G\left(
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c1] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+        \img[-1em][3em][3em]{triggb.png}
 \right) &amp;= 1+(-1)=0 \\
     G\left(
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c2] (60:6mm) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+        \img[-1em][3em][3em]{tribbg.png}
 \right) &amp;= (-1)+1=0 \\
-\end{aligned}\]</span> etc. Assim, <span> <span
+\end{aligned}\]</span> etc. Assim,  <span
 class="math display">\[\begin{aligned}
 \label{eq:sperner2dori1}
 \sum_{\tau\in T} G(\tau) &amp;= \#
-\begin{tikzpicture}[baseline=2mm]
-\draw[draw=cl,fill=cp,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
-cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-1em][3em][3em]{trirgbp.png}
 
 -\#
-\begin{tikzpicture}[baseline=2mm]
-\draw[draw=cl,fill=cn,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
-cycle;
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-\\
+\img[-1em][3em][3em]{trirbgn.png}\\
 &amp;+0\times \#
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-1em][3em][3em]{tribgb.png}
 
 +0\times \#
-\begin{tikzpicture}[baseline=2mm]
-\draw[cl,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) -- cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c1] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-
-
-    \end{aligned}\]</span> </span> Por outro lado, cada subsegmento</p>
+\img[-1em][3em][3em]{triggb.png}
+    \end{aligned}\]</span> Por outro lado, cada subsegmento</p>
 <p>no interior de <span class="math inline">\(T\)</span> contribui com
-sinais opostos para seus subtriângulos incidentes, donde <span> <span
+sinais opostos para seus subtriângulos incidentes, donde  <span
 class="math display">\[\begin{aligned}
 \label{eq:sperner2dori2}
 \sum_{\tau\in T} G(\tau) &amp;= \#\left(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+    \img[-.3em][4em][1.2em]{seggb.png}
 \text{ na fronteira}\right)\\[-0.4cm]
 &amp;-\#\left(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+    \img[-.3em][4em][1.2em]{segbg.png}
 \text{ na fronteira}\right) \\
 &amp;+0\times \#\left(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+    \img[-.3em][4em][1.2em]{seggb.png}
 \text{ no  interior}\right).
-
-    \end{aligned}\]</span> </span> Igualando as equações (<a
+    \end{aligned}\]</span> Igualando as equações (<a
 href="#eq:sperner2dori1" data-reference-type="ref"
 data-reference="eq:sperner2dori1">[eq:sperner2dori1]</a>) e (<a
 href="#eq:sperner2dori2" data-reference-type="ref"
@@ -713,37 +551,16 @@ data-reference="eq:sperner2dori2">[eq:sperner2dori2]</a>), vemos que
 <span> <span class="math display">\[\begin{aligned}
 
 \#
-\begin{tikzpicture}[baseline=2mm]
-\draw[draw=cl,fill=cp,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
-cycle;
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+\img[-1em][3em][3em]{trirgbp.png}
 
 -\#
-\begin{tikzpicture}[baseline=2mm]
-\draw[draw=cl,fill=cn,line width=1.5pt] (0,0) -- (60:6mm) -- (6mm,0) --
-cycle;
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c0] (60:6mm) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
-
+\img[-1em][3em][3em]{trirbgn.png}
 &amp;=
 \#\left(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c1] (0,0) circle(1.5mm);
-\fill[fill=c2] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+    \img[-.3em][4em][1.2em]{seggb.png}
 \text{ na fronteira}\right)\\[-0.2cm]
 &amp;-\#\left(
-\begin{tikzpicture}[baseline=-1mm]
-\draw[cl,line width=1.5pt] (0,0) -- (6mm,0);
-\fill[fill=c2] (0,0) circle(1.5mm);
-\fill[fill=c1] (6mm,0) circle(1.5mm);
-\end{tikzpicture}
+    \img[-.3em][4em][1.2em]{segbg.png}
 \text{ na fronteira}\right) \nonumber \\
 &amp;=1,
 
@@ -763,7 +580,7 @@ negativa.</em></p>
 </div>
 <h1 id="outras-demonstrações">Outras Demonstrações</h1>
 <figure id="fig:spernergraph">
-<img src="spernergraph.png" style="width:8cm" />
+<img src="spernergraph.png" />
 <figcaption>Podemos também usar cores para colorir certas arestas do
 <em>grafo de adjacência</em> da triangulação e assim observar certos
 padrões.</figcaption>
@@ -772,13 +589,27 @@ padrões.</figcaption>
 comentar algumas delas.</p>
 <p>Uma demonstração bastante intuitiva envolve um certo <em>grafo</em>
 construído a partir da triangulação. Vamos pensar nos subsegmentos do
-tipo</p>
-<p>como portas que dão acesso a quartos, que são os subtriângulos de
+tipo
+<span
+class="math inline">\(\#\img[-.3em][4em][1.2em]{segrg.png}\)</span>
+como portas que dão acesso a quartos, que são os subtriângulos de
 <span class="math inline">\(T\)</span> que possuem ao menos uma porta.
-Obviamente os quartos possuem ou duas portas (como</p>
-<p>e</p>
-<p>), ou uma única porta (como</p>
-<p>), os quais são certamente triângulos completos. Contemple a figura
+Obviamente os quartos possuem ou duas portas (como
+<span
+class="math inline">
+\(\img[-1em][3em][3em]{trirgg.png}\)
+</span>
+e 
+<span
+class="math inline">
+\(\img[-1em][3em][3em]{trirrg.png}\)
+</span>
+), ou uma única porta (como 
+<span
+class="math inline">
+\(\img[-1em][3em][3em]{trirgb.png}\)
+</span>
+), os quais são certamente triângulos completos. Contemple a figura
 <a href="#fig:spernergraph" data-reference-type="ref"
 data-reference="fig:spernergraph">4</a> por um momento e veja os
 segmentos azuis que atravessam as portas e que representam os caminhos
@@ -795,7 +626,7 @@ necessariamente um número ímpar de triângulos completos. Uma
 demonstração completa usando esse argumento pode ser vista em <span
 class="citation" data-cites="cohen">(Cohen 1967)</span>.</p>
 <figure id="fig:spernerarea02">
-<img src="area02.png" style="width:8cm" />
+<img src="area02.png" />
 <figcaption>Instante <span class="math inline">\(t=0.02\)</span> da
 animação do movimento dos vértices da triangulação em direção aos
 vértices de mesma cor nos cantos de <span
@@ -866,7 +697,7 @@ resultado do caso orientado do Lema de Sperner: o número de simplexos
 completos com orientação positiva excede em uma unidade o número de
 simplexos completos com orientação negativa!</p>
 <figure id="fig:spernerarea06">
-<img src="area06.png" style="width:8cm" />
+<img src="area06.png" />
 <figcaption>Instante <span class="math inline">\(t=0.06\)</span> da
 animação do movimento dos vértices da triangulação em direção aos
 vértices de mesma cor nos cantos de <span
@@ -911,16 +742,16 @@ casos. (i) Se <span class="math inline">\(\tau\)</span> é completo,
 apenas um dos subtriângulos será completo também, qualquer que seja a
 cor de <span class="math inline">\(v\)</span>, uma vez que os outros
 dois necessariamente compartilham uma aresta com duas cores iguais:</p>
-<div class="center">
-
-</div>
+<figure>
+<img src="itrgbb.png"/>    
+</figure>
 <p>(ii) Se <span class="math inline">\(\tau\)</span> é <em>quase
 completo</em>, ou seja, falta apenas uma cor para ser completo, uma
 subdivisão central com a insercão de um vértice desta cor faltante
 produzirá dois subtriângulos completos:</p>
-<div class="center">
-
-</div>
+<figure>
+    <img src="itrggb.png"/>    
+</figure>
 <p>Note que neste caso os subtriângulos completos têm orientações
 opostas. A inserção de um vértice de outra cor não pode produzir
 triângulos completos. Finalmente, (iii) se <span
@@ -942,17 +773,17 @@ aplicar uma subdivisão central em cada um dos triângulos incidentes a
 ela inserindo vértices <span class="math inline">\(v&#39;\)</span> e
 <span class="math inline">\(v&#39;&#39;\)</span> da mesma cor de <span
 class="math inline">\(v\)</span>:</p>
-<div class="center">
-
-</div>
+<figure>
+    <img src="iedge1.png"/>    
+</figure>
 <p>Como já vimos, isso não altera a paridade do número de triângulos
 completos ou a soma algébrica de suas orientações. Agora vamos “mover”
 os dois vértices <span class="math inline">\(v&#39;\)</span> e <span
 class="math inline">\(v&#39;&#39;\)</span> em direção a <span
 class="math inline">\(v\)</span> para fundi-los em um único vértice:</p>
-<div class="center">
-
-</div>
+<figure>
+    <img src="iedge2.png"/>    
+</figure>
 <p>Note que a fusão dos vértices provoca o colapso dos dois triângulos
 incidentes a aresta <span class="math inline">\(\epsilon\)</span>, mas é
 claro que um deles é completo se, e somente se, o outro também é,
@@ -965,9 +796,9 @@ primeiro uma subdivisão central no triângulo incidente a <span
 class="math inline">\(\epsilon\)</span>, inserindo um vértice <span
 class="math inline">\(v&#39;\)</span> da mesma cor de <span
 class="math inline">\(v\)</span>:</p>
-<div class="center">
-
-</div>
+<figure>
+    <img src="itrgbb.png"/>    
+</figure>
 <p>Mas, como <span class="math inline">\(\epsilon\)</span> é de
 fronteira, a cor de <span class="math inline">\(v\)</span> (e <span
 class="math inline">\(v&#39;\)</span>) não pode ser igual a do vértice
@@ -977,9 +808,9 @@ triângulo colapsado quando fundimos <span
 class="math inline">\(v\)</span> e <span
 class="math inline">\(v&#39;\)</span> é necessariamente não
 completo</em>:</p>
-<div class="center">
-
-</div>
+<figure>
+    <img src="colapse.png"/>    
+</figure>
 <p>E também a paridade do número de triângulos completos ou a soma
 algébrica de suas orientações é invariante.</p>
 <p>Essas operações de subdivisão são denominadas <em>subdivisões
@@ -1023,7 +854,7 @@ class="math inline">\((T_m,L_m)\)</span> excede em uma unidade o número
 de simplexos completos com orientação negativa).</em></p>
 </div>
 <figure id="fig:barysub">
-
+<img src="bary.png"/>
 <figcaption>Exemplo de como podemos produzir triangulações
 arbitrariamente refinadas com subdivisões estelares: a partir do
 triângulo inicial (cima, esquerda), aplicamos uma subdivisão central
