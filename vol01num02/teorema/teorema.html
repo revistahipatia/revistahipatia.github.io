@@ -42,13 +42,13 @@ mais óbvios:</p>
 <li><p>O TP equivale à identidade trigonométrica fundamental, <span
 class="math inline">\(\cos^2 \theta + \mathop{\mathrm{sen}}^2 \theta =
 1\)</span>.</p></li>
-<li><p>Decompondo <span class="math inline">\(v\in \mathds{R}^n\)</span>
-ou <span class="math inline">\(\mathds{C}^n\)</span> numa base ortogonal
+<li><p>Decompondo <span class="math inline">\(v\in \mathbb{R}^n\)</span>
+ou <span class="math inline">\(\mathbb{C}^n\)</span> numa base ortogonal
 como <span class="math inline">\(v = v_1+\cdots +v_n\)</span>, temos
 <span class="math display">\[\label{eq:norma}
         \|v \|^2 = \|v_1\|^2+\cdots +\|v_n\|^2.\]</span></p></li>
-<li><p>Em <span class="math inline">\(\mathds{R}^n\)</span> ou <span
-class="math inline">\(\mathds{C}^n\)</span>, a distância <span
+<li><p>Em <span class="math inline">\(\mathbb{R}^n\)</span> ou <span
+class="math inline">\(\mathbb{C}^n\)</span>, a distância <span
 class="math inline">\(d\)</span> entre <span
 class="math inline">\(A=(a_1,\ldots,a_n)\)</span> e <span
 class="math inline">\(B=(b_1,\ldots,b_n)\)</span> é <span
@@ -635,7 +635,7 @@ class="math inline">\(\overrightarrow{A_0A_1} \times
 class="math inline">\(\overrightarrow{A_0A_2} \times
 \overrightarrow{A_0A_3}\)</span> são perpendiculares). ◻</p>
 </div>
-<p>A versão em <span class="math inline">\(\mathds{R}^n\)</span> desse
+<p>A versão em <span class="math inline">\(\mathbb{R}^n\)</span> desse
 tetraedro é um <em><span class="math inline">\(n\)</span>-simplexo
 retangular</em>. Em um sistema de coordenadas cartesianas ortogonais
 <span class="math inline">\((x_1,\ldots,x_n)\)</span>, ele é um poliedro
@@ -670,7 +670,7 @@ Integral e Geometria Analítica.</p>
 <p><em>Demonstração (<span class="citation"
 data-cites="Eifler2008"></span>)..</em> Seja <span
 class="math inline">\(\vec{v}\)</span> um campo vetorial constante em
-<span class="math inline">\(\mathds{R}^n\)</span>, <span
+<span class="math inline">\(\mathbb{R}^n\)</span>, <span
 class="math inline">\(dV\)</span> o diferencial de <span
 class="math inline">\(n\)</span>-volume, <span
 class="math inline">\(d\mathcal{V}\)</span> o de <span
@@ -681,7 +681,7 @@ class="math inline">\(\mathop{\mathrm{div}}\vec{v} = 0\)</span>, o
 Teorema da Divergência dá <span class="math display">\[\begin{aligned}
         0 &amp;= \int_S \mathop{\mathrm{div}}\vec{v} \,dV
         %       = \int_{F_0\cup\cdots\cup F_n} \vec{v}\cdot\hat{n}
-\,d\VV \\
+\,d\mathcal{V} \\
         = \sum_{k=0}^n \int_{F_k} \vec{v}\cdot\hat{n}_k \,d\mathcal{V}
         = \sum_{k=0}^n \vec{v}\cdot\hat{n}_k
 \int_{F_k}  \,d\mathcal{V}\\
@@ -732,7 +732,7 @@ class="math inline">\(\lambda\vec{v}\)</span> satisfaz a equação quando
 class="math inline">\(h_0 = \|\lambda\vec{v}\| = \left(\frac{1}{a_1^2} +
 \cdots + \frac{1}{a_n^2}\right)^{-\frac12}\)</span>. Assim, obtemos
 <span class="math inline">\(\sum_{k=1}^n \mathcal{V}_k^2
-%   = \sum_{k=1}^n \VV_0^2 \frac{h_0^2}{a_k^2}
+%   = \sum_{k=1}^n \mathcal{V}_0^2 \frac{h_0^2}{a_k^2}
     = \mathcal{V}_0^2 h_0^2 \cdot \sum_{k=1}^n  \frac{1}{a_k^2}
     = \mathcal{V}_0^2\)</span>. ◻</p>
 </div>
@@ -776,7 +776,7 @@ class="math inline">\(\mathcal{A}^2 = \mathcal{A}_1^2 + \mathcal{A}_2^2
 data-reference="eq:simplexo">[eq:simplexo]</a> vale para qualquer <span
 class="math inline">\((n-1)\)</span>-volume <span
 class="math inline">\(\mathcal{V}_0\)</span> num hiperplano de <span
-class="math inline">\(\mathds{R}^n\)</span>, e suas projeções <span
+class="math inline">\(\mathbb{R}^n\)</span>, e suas projeções <span
 class="math inline">\(\mathcal{V}_k\)</span> em hiperplanos coordenados
 perpendiculares.</p>
 <p>Vamos estender para <span class="math inline">\(m\)</span>-volumes.
@@ -798,7 +798,7 @@ class="math inline">\(\mathcal{V}\)</span> é o <span
 class="math inline">\(m\)</span>-volume de uma região <span
 class="math inline">\(R\)</span> num subespaço <span
 class="math inline">\(m\)</span>-dimensional de <span
-class="math inline">\(\mathds{R}^n\)</span>, e <span
+class="math inline">\(\mathbb{R}^n\)</span>, e <span
 class="math inline">\(\mathcal{V}_I\)</span> é o de sua projeção em
 <span class="math inline">\(C_I\)</span>, então <span
 class="math display">\[\label{eq:Conant Beyer}
@@ -869,7 +869,7 @@ data-reference="eq:norma">[eq:norma]</a>. ◻</p>
 <p><strong>Exemplo 1</strong>. Se <span
 class="math inline">\(\mathcal{A}\)</span> é a área de uma figura plana
 em <span
-class="math inline">\(\mathds{R}^4=\{(x_1,\ldots,x_4)\}\)</span>, e
+class="math inline">\(\mathbb{R}^4=\{(x_1,\ldots,x_4)\}\)</span>, e
 <span class="math inline">\(\mathcal{A}_{ij}\)</span> é sua projeção no
 plano <span class="math inline">\(x_i x_j\)</span>, <span
 class="math display">\[\label{eq:areas R4}
@@ -901,7 +901,7 @@ data-reference="eq:areas R4">[eq:areas R4]</a>.</p>
 <p><strong>Exemplo 2</strong>. Se <span
 class="math inline">\(\mathcal{V}\)</span> é o volume de uma região em
 um subespaço tridimensional de <span
-class="math inline">\(\mathds{R}^4\)</span>, e <span
+class="math inline">\(\mathbb{R}^4\)</span>, e <span
 class="math inline">\(\mathcal{V}_{ijk}\)</span> é sua projeção no
 subespaço <span class="math inline">\(x_i x_j x_k\)</span>, <span
 class="math display">\[\mathcal{V}^2 = \mathcal{V}^2_{123} +
@@ -917,7 +917,7 @@ class="math inline">\(\mathcal{V}\)</span> é o <span
 class="math inline">\(p\)</span>-volume de uma região <span
 class="math inline">\(R\)</span> em um subespaço de dimensão <span
 class="math inline">\(p\leq m\)</span> de <span
-class="math inline">\(\mathds{R}^n\)</span>, e <span
+class="math inline">\(\mathbb{R}^n\)</span>, e <span
 class="math inline">\(\mathcal{V}_I\)</span> é sua projeção em <span
 class="math inline">\(C_I\)</span>, com <span class="math inline">\(I
 \in \mathcal{I}_m\)</span>, então <span
@@ -939,7 +939,7 @@ data-reference="eq:Conant Beyer">[eq:Conant Beyer]</a>. ◻</p>
 <div class="example">
 <p><strong>Exemplo 3</strong>. Sejam <span
 class="math inline">\(\mathcal{L}\)</span> o comprimento de um segmento
-em <span class="math inline">\(\mathds{R}^3\)</span>, <span
+em <span class="math inline">\(\mathbb{R}^3\)</span>, <span
 class="math inline">\(\mathcal{L}_1\)</span>, <span
 class="math inline">\(\mathcal{L}_2\)</span> e <span
 class="math inline">\(\mathcal{L}_3\)</span> suas projeções nos planos
@@ -967,12 +967,12 @@ TP pode ser reinterpretada como uma soma de áreas, e estendida para
 volumes de maior dimensão, com fórmulas mais simples que as do caso
 real.</p>
 <p>Vamos rever a geometria real desses espaços. Pode-se identificar
-<span class="math inline">\(z = x + \mathrm{i}y \in \mathds{C}\)</span>
-com o vetor <span class="math inline">\((x,y) \in \mathds{R}^2\)</span>,
+<span class="math inline">\(z = x + \mathrm{i}y \in \mathbb{C}\)</span>
+com o vetor <span class="math inline">\((x,y) \in \mathbb{R}^2\)</span>,
 e seu módulo é a norma do vetor, ou seja, <span
 class="math inline">\(|z|^2 = x^2 + y^2\)</span>. O que diferencia <span
-class="math inline">\(\mathds{C}\)</span> de <span
-class="math inline">\(\mathds{R}^2\)</span> é a multiplicação por <span
+class="math inline">\(\mathbb{C}\)</span> de <span
+class="math inline">\(\mathbb{R}^2\)</span> é a multiplicação por <span
 class="math inline">\(\mathrm{i}\)</span>, que pode ser vista apenas
 como uma rotação de <span class="math inline">\(90^\circ\)</span>, pois
 <span class="math inline">\(\mathrm{i}z = -y + \mathrm{i}x\)</span>
@@ -982,10 +982,10 @@ Assim, <span class="math inline">\(\mathrm{i}^2=-1\)</span> significa
 apenas que <span class="math inline">\(\mathrm{i}^2(x,y) =
 \mathrm{i}(-y,x)=(-x,-y)\)</span>.</p>
 <p>Da mesma forma, identifica-se <span class="math inline">\(v =
-(z_1,\ldots,z_n) \in \mathds{C}^n\)</span>, onde <span
+(z_1,\ldots,z_n) \in \mathbb{C}^n\)</span>, onde <span
 class="math inline">\(z_k = x_k + \mathrm{i}y_k\)</span>, com <span
 class="math inline">\((x_1,y_1,\ldots,x_n,y_n) \in
-\mathds{R}^{2n}\)</span>, e <span
+\mathbb{R}^{2n}\)</span>, e <span
 class="math inline">\(\|v\|^2=|z_1|^2+\cdots+|z_n|^2 =
 x_1^2+y_1^2+\cdots+x_n^2+y_n^2\)</span>. De novo, <span
 class="math inline">\(\mathrm{i}v =
@@ -993,12 +993,12 @@ class="math inline">\(\mathrm{i}v =
 class="math inline">\((-y_1,x_1,\ldots,-y_n,x_n)\)</span>, que é <span
 class="math inline">\(v\)</span> girado <span
 class="math inline">\(90^\circ\)</span> numa certa direção. Assim, <span
-class="math inline">\(\mathds{C}^n\)</span> é só <span
-class="math inline">\(\mathds{R}^{2n}\)</span> com um operador <span
+class="math inline">\(\mathbb{C}^n\)</span> é só <span
+class="math inline">\(\mathbb{R}^{2n}\)</span> com um operador <span
 class="math inline">\(\mathrm{i}\)</span> de rotação de <span
 class="math inline">\(90^\circ\)</span>.</p>
-<p>Se <span class="math inline">\(v \in \mathds{C}^n\)</span> e <span
-class="math inline">\(z = x+ \mathrm{i}y \in \mathds{C}\)</span> então
+<p>Se <span class="math inline">\(v \in \mathbb{C}^n\)</span> e <span
+class="math inline">\(z = x+ \mathrm{i}y \in \mathbb{C}\)</span> então
 <span class="math inline">\(zv = x v + y(\mathrm{i}v)\)</span> é
 combinação linear (com coeficientes reais <span
 class="math inline">\(x\)</span> e <span
@@ -1007,7 +1007,7 @@ class="math inline">\(v\)</span> e <span
 class="math inline">\(\mathrm{i}v\)</span>. Assim, a <em>linha</em> <a
 href="#fn1" class="footnote-ref" id="fnref1"
 role="doc-noteref"><sup>1</sup></a> <em>complexa</em> <span
-class="math inline">\(\mathds{C}v = \{zv:z\in \mathds{C}\}\)</span> é o
+class="math inline">\(\mathbb{C}v = \{zv:z\in \mathbb{C}\}\)</span> é o
 plano real <span
 class="math inline">\(\mathop{\mathrm{span}}\{v,\mathrm{i}v\}\)</span>,
 no qual esses vetores formam um quadrado de área <span
@@ -1019,14 +1019,14 @@ data-reference="fig:complex square">22</a>).</p>
 <figcaption>Quadrado numa linha complexa.</figcaption>
 </figure>
 <p>Seja <span class="math inline">\((e_1,\ldots,e_n)\)</span> uma base
-ortogonal de <span class="math inline">\(\mathds{C}^n\)</span>.</p>
+ortogonal de <span class="math inline">\(\mathbb{C}^n\)</span>.</p>
 <div class="theorem*">
 <p><strong>Teorema 8</strong> (Pitágoras para Linhas Complexas <span
 class="citation" data-cites="Mandolesi_Pythagorean"></span>). <em>Se
 <span class="math inline">\(\mathcal{A}\)</span> é a área de uma região
-em uma linha complexa <span class="math inline">\(\mathds{C}v\)</span>,
+em uma linha complexa <span class="math inline">\(\mathbb{C}v\)</span>,
 e <span class="math inline">\(\mathcal{A}_k\)</span> é sua projeção em
-<span class="math inline">\(\mathds{C}e_k\)</span>, então <span
+<span class="math inline">\(\mathbb{C}e_k\)</span>, então <span
 class="math display">\[\label{eq:soma areas complexo}
         \mathcal{A}= \mathcal{A}_1 + \cdots +
 \mathcal{A}_n.\]</span></em></p>
@@ -1035,8 +1035,8 @@ class="math display">\[\label{eq:soma areas complexo}
 <p><em>Proof.</em> Basta provar para o quadrado da Fig. <a
 href="#fig:complex square" data-reference-type="ref"
 data-reference="fig:complex square">22</a>. Como a projeção <span
-class="math inline">\(P:\mathds{C}v \rightarrow \mathds{C}e_k\)</span> é
-<span class="math inline">\(\mathds{C}\)</span>-linear, se <span
+class="math inline">\(P:\mathbb{C}v \rightarrow \mathbb{C}e_k\)</span> é
+<span class="math inline">\(\mathbb{C}\)</span>-linear, se <span
 class="math inline">\(P(v) = v_k\)</span> então <span
 class="math inline">\(P(\mathrm{i}v) = \mathrm{i}v_k\)</span>. Logo, a
 projeção de <span class="math inline">\(\mathcal{A}\)</span> é outro
@@ -1054,8 +1054,8 @@ data-reference-type="ref" data-reference="fig:complex lines">23</a>,
 <span class="math inline">\(\mathcal{A}\)</span> é a soma de 2 áreas,
 das projeções nas linhas complexas de uma base ortogonal <span
 class="math inline">\((e_1,e_2)\)</span> de <span
-class="math inline">\(\mathds{C}^2\)</span>. Identificando <span
-class="math inline">\(\mathds{C}^2 \cong \mathds{R}^4\)</span>, teríamos
+class="math inline">\(\mathbb{C}^2\)</span>. Identificando <span
+class="math inline">\(\mathbb{C}^2 \cong \mathbb{R}^4\)</span>, teríamos
 <a href="#eq:areas R4" data-reference-type="eqref"
 data-reference="eq:areas R4">[eq:areas R4]</a>, com 6 termos
 quadráticos.</p>
@@ -1067,11 +1067,11 @@ class="math inline">\(\mathcal{A}= \mathcal{A}_1 +
 </figure>
 <div class="example">
 <p><strong>Exemplo 4</strong>. Em <span
-class="math inline">\(\mathds{C}^2\)</span>, os vetores <span
+class="math inline">\(\mathbb{C}^2\)</span>, os vetores <span
 class="math inline">\(v=(a+ib,c+id)\)</span> e <span
 class="math inline">\(\mathrm{i}v
 =(-b+\mathrm{i}a,-d+\mathrm{i}c)\)</span>, com <span
-class="math inline">\(a,b,c,d\in\mathds{R}\)</span>, têm norma <span
+class="math inline">\(a,b,c,d\in\mathbb{R}\)</span>, têm norma <span
 class="math inline">\(\sqrt{a^2+b^2+c^2+d^2}\)</span>, e formam um
 quadrado de área <span class="math inline">\(\mathcal{A}=
 a^2+b^2+c^2+d^2\)</span>. Sejam <span
@@ -1079,16 +1079,16 @@ class="math inline">\(e_1=(1,0)\)</span> e <span
 class="math inline">\(e_2=(0,1)\)</span>. As projeções de <span
 class="math inline">\(v\)</span> e <span
 class="math inline">\(\mathrm{i}v\)</span> em <span
-class="math inline">\(\mathds{C}e_1\)</span> são <span
+class="math inline">\(\mathbb{C}e_1\)</span> são <span
 class="math inline">\((a+\mathrm{i}b,0)\)</span> e <span
 class="math inline">\((-b+\mathrm{i}a,0)\)</span>, e formam um quadrado
 de área <span class="math inline">\(\mathcal{A}_1 = a^2+b^2\)</span>. E
-em <span class="math inline">\(\mathds{C}e_2\)</span> formam um quadrado
+em <span class="math inline">\(\mathbb{C}e_2\)</span> formam um quadrado
 de área <span class="math inline">\(\mathcal{A}_2 = c^2 + d^2\)</span>.
 Como previsto, <span class="math inline">\(\mathcal{A}= \mathcal{A}_1 +
 \mathcal{A}_2\)</span>.</p>
-<p>Identificando <span class="math inline">\(\mathds{C}^2 \cong
-\mathds{R}^4\)</span>, este se torna o exemplo dado após <a
+<p>Identificando <span class="math inline">\(\mathbb{C}^2 \cong
+\mathbb{R}^4\)</span>, este se torna o exemplo dado após <a
 href="#eq:areas R4" data-reference-type="eqref"
 data-reference="eq:areas R4">[eq:areas R4]</a>, com <span
 class="math inline">\(w = iv\)</span>. Note como a abordagem real foi
@@ -1096,8 +1096,8 @@ mais complexa <a href="#fn2" class="footnote-ref" id="fnref2"
 role="doc-noteref"><sup>2</sup></a>. Naquele exemplo, aos planos <span
 class="math inline">\(x_1 x_2\)</span> e <span class="math inline">\(x_3
 x_4\)</span> correspondem a <span
-class="math inline">\(\mathds{C}e_1\)</span> e <span
-class="math inline">\(\mathds{C}e_2\)</span>, por isso as projeções
+class="math inline">\(\mathbb{C}e_1\)</span> e <span
+class="math inline">\(\mathbb{C}e_2\)</span>, por isso as projeções
 deram quadrados. O plano <span class="math inline">\(x_1 x_3\)</span>
 não corresponde a uma linha complexa, pois <span
 class="math inline">\(\mathrm{i}(1,0,0,0) = (0,1,0,0)\)</span> sai dele,
@@ -1122,7 +1122,7 @@ class="citation" data-cites="Mandolesi_Pythagorean"></span>). <em>Se
 class="math inline">\(2m\)</span>-volume de uma região <span
 class="math inline">\(R\)</span> num subespaço complexo <span
 class="math inline">\(m\)</span>-dimensional em <span
-class="math inline">\(\mathds{C}^n\)</span>, e <span
+class="math inline">\(\mathbb{C}^n\)</span>, e <span
 class="math inline">\(\mathcal{V}_I\)</span> é sua projeção em <span
 class="math inline">\(C_I\)</span>, então <span
 class="math display">\[\label{eq:complex volumes}

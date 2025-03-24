@@ -224,7 +224,7 @@ class="math display">\[{\bf HI}: \ \ S_n = -1 + \dfrac{(-1)^n \cdot
 1)}{k!} \\
         &amp;= &amp; S_n + (-1)^{n+1} \dfrac{((n+1)^2 + (n+1) +
 1)}{(n+1)!}\\
-        &amp;=_{{\bf HI}} &amp; -1 + \dfrac{(-1)^n \cdot (n+1)}{n!} \\
+        &amp;=_{ {\bf HI} } &amp; -1 + \dfrac{(-1)^n \cdot (n+1)}{n!} \\
         &amp; +&amp;  (-1)^{n+1} \dfrac{((n+1)^2 + (n+1) + 1)}{(n+1)!}
 \\
         &amp;=&amp; -1 + \dfrac{(-1)^n \cdot (n+1)^2}{(n+1)!} \\
@@ -292,21 +292,18 @@ f(x)^{k}g(x)^{n-k}}{g(x)^{n+1}}\right)[f(x) -  g(x)]^2 dx,
 igualdade pode ser estimada como <span
 class="math display">\[\begin{aligned}
     &amp;\geq \int_c^d \left(\dfrac{\sum_{k=0}^{n}
-f(x)^{k}g(x)^{n-k}}{g(x)^{n+1}}\right)[f(x) - g(x)]^2 dx \\
+f(x)^{k}g(x)^{n-k} }{g(x)^{n+1} }\right)[f(x) - g(x)]^2 dx \\
     &amp;\geq \int_c^d \left(\dfrac{\sum_{k=0}^{n}
-(1+\beta)^{k}g(x)^kg(x)^{n-k}}{g(x)^{n+1}}\right)\frac{\alpha^2}{4} dx
+(1+\beta)^{k}g(x)^kg(x)^{n-k} }{g(x)^{n+1} }\right)\frac{\alpha^2}{4} dx
 \\
     &amp;= \int_c^d \left(\dfrac{\sum_{k=0}^{n}
-(1+\beta)^{k}g(x)^{n}}{g(x)^{n+1}}\right)\frac{\alpha^2}{4} dx \\
+(1+\beta)^{k}g(x)^{n} }{g(x)^{n+1} }\right)\frac{\alpha^2}{4} dx \\
     &amp;= \int_c^d \left(\dfrac{\sum_{k=0}^{n}
-(1+\beta)^{k}}{g(x)}\right)\frac{\alpha^2}{4} dx \\
+(1+\beta)^{k} }{g(x)}\right)\frac{\alpha^2}{4} dx \\
     &amp;\geq \int_c^d \left(\dfrac{\sum_{k=0}^{n}
-(1+\beta)^{k}}{M}\right)\frac{\alpha^2}{4} dx\\\
-%    &amp;= \frac{\alpha^2(d-c)}{4M} \sum_{k=0}^{n} (1+\beta)^{k} \\
-%   &amp;= \frac{\alpha^2(d-c)}{4M} \cdot \frac{[(1+\beta)^{n+1} -
-1]}{[(1+\beta) - 1]} \\
+(1+\beta)^{k} }{M}\right)\frac{\alpha^2}{4} dx\\
     &amp;= \frac{\alpha(d-c)}{2} \cdot [(1+\beta)^{n+1} - 1] \\
-    &amp;&gt;0
+    &amp; >0
 \end{aligned}\]</span> De onde segue que <span
 class="math inline">\(I_{n+1} &gt; I_n\)</span> e a sequência é
 crescente, e além disso <span class="math display">\[\begin{aligned}
