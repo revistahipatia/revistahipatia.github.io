@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheet.css" media="screen" />
+    {% include font.html %}
+  </head>
+  <body>
+    <header>
+      <img class="banner" src="/assets/banner.png" alt="Logo"> 
+    </header>
+    <main class="pagina">
+    {{ content }}
+    </main>
+       
+    <footer>
+      <hr/>
+      <address>
+        <a href="mailto:hipatia@ufba.br">hipatia@ufba.br</a>  
+      </address>
+    </footer>
+  </body>
+</html>

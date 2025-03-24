@@ -20,7 +20,7 @@ main {
     float: left; 
 }
 
-main.article {
+main.article, main.pagina {
     width: 80%;
     margin: 0 auto;
     float: none;
