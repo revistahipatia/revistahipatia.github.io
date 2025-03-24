@@ -60,7 +60,6 @@ img.cover {
 footer {
     padding-top: 20px;
     width: 100%;
-    bottom: 20px;
     position: relative;
     clear:both;
 }
@@ -139,6 +138,10 @@ figcaption {
     margin-left: auto;
     margin-right: auto;
     clear: both;
+}
+
+footer address {
+    text-align:center;
 }
 
 img.inline {
