@@ -10,26 +10,25 @@ body {
     border-image-slice: 145;
     border-image-repeat: round;
     padding: 20px;
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     box-sizing: border-box;
 }
 
 main {
     width: 70%;
     height: 100%;
-    float: left; 
 }
 
 main.article, main.pagina {
     width: 80%;
     margin: 0 auto;
-    float: none;
 }
 
 aside {
     height: 100%;
     width: 30%;
-    float: right;    
 }
 
 img.banner {

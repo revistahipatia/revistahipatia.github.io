@@ -6,7 +6,7 @@ author: Vinícius Mello
 ---
 <script>
 MathJax = {
-  tex: {packages: {'[+]': ['img']}},
+  tex: {packages: {'[+]': ['img']}, tags: 'ams'},
   startup: {
     ready() {
       const {Configuration} = MathJax._.input.tex.Configuration;
@@ -312,13 +312,13 @@ class="math inline">
 \(\img[-.3em][4em][1.2em]{segbb.png}\)
 </span>
 não contribuem para o total, temos que <span
-class="math display">\[\label{eq:sperner1D1}
+class="math display">\[\begin{equation}\label{eq:sperner1D1}
 \sum_{\sigma\in S} F(\sigma) = \#
 \img[-.3em][4em][1.2em]{seggb.png}
 
 +2\times \#
 \img[-.3em][4em][1.2em]{seggg.png}
-,\]</span>
+,\end{equation}\]</span>
 onde <span class="math inline">\(\#
     \img[-.3em][4em][1.2em]{seggg.png}\)</span>    
 denota o número de subsegmentos com os dois
@@ -327,27 +327,26 @@ interior é contado duas vezes em <span
 class="math inline">\(\sum_{\sigma\in S} F(\sigma)\)</span>, já que é
 incidente a exatamente dois subsegmentos, ao passo que o vértice verde
 na fronteira de <span class="math inline">\(S\)</span> é contado uma
-única vez, assim <span class="math display">\[\begin{aligned}
-\label{eq:sperner1D2}
+única vez, assim <span class="math display">\[\begin{equation}\label{eq:sperner1D2}\begin{aligned}
 \sum_{\sigma\in S} F(\sigma) &amp;= \#\left(
 \img[-.3em][1.2em][1.2em]{vertg.png}
 \text{ na fronteira}\right) \\
 &amp;+2\times \#\left(
 \img[-.3em][1.2em][1.2em]{vertg.png}
 \text{ no  interior}\right).
-    \end{aligned}\]</span> Igualando as equações (<a
+    \end{aligned}\end{equation}\]</span> Igualando as equações (<a
 href="#eq:sperner1D1" data-reference-type="ref"
-data-reference="eq:sperner1D1">[eq:sperner1D1]</a>) e (<a
+data-reference="eq:sperner1D1">\(\ref{eq:sperner1D1}\)</a>) e (<a
 href="#eq:sperner1D2" data-reference-type="ref"
-data-reference="eq:sperner1D2">[eq:sperner1D2]</a>) e considerando a
+data-reference="eq:sperner1D2">\(\ref{eq:sperner1D2}\)</a>) e considerando a
 congruência módulo <span class="math inline">\(2\)</span>, temos que
-<span class="math display">\[\label{eq:sperner1d}
+<span class="math display">\[\begin{equation}\label{eq:sperner1d}
 \#
 \img[-.3em][4em][1.2em]{seggb.png}
   \equiv  
 %\#\left(\vtx{1} \text{ na fronteira}\right)=
 1
-  \pmod{2},\]</span> donde concluímos que <span class="math inline">\(\#
+  \pmod{2},\end{equation}\]</span> donde concluímos que <span class="math inline">\(\#
     \img[-.3em][4em][1.2em]{seggb.png}\)</span> é ímpar.</p>
 <p>O caso bidimensional é bem parecido. Queremos contar <span
 class="math display">\[\#
@@ -373,7 +372,7 @@ Claramente, <span class="math display">\[\begin{aligned}
     \right)&amp;=1.
 \end{aligned}\]</span> e <span class="math inline">\(F(\tau)=0\)</span>
 nos demais casos. Assim, <span
-class="math display">\[\label{eq:sperner2d1}
+class="math display">\[\begin{equation}\label{eq:sperner2d1}
 \sum_{\tau\in T} F(\tau) = \#
 \img[-1em][3em][3em]{trirgb.png}
 
@@ -381,7 +380,7 @@ class="math display">\[\label{eq:sperner2d1}
 \img[-1em][3em][3em]{tribgb.png}
 
 +2\times \#
-\img[-1em][3em][3em]{triggb.png}\]</span> Por outro lado, percebemos que as arestas do
+\img[-1em][3em][3em]{triggb.png}\end{equation}\]</span> Por outro lado, percebemos que as arestas do
 tipo
 <span class="math inline">\(\img[-.3em][4em][1.2em]{seggb.png}\)</span>
 no interior de <span class="math inline">\(T\)</span> são incidentes
@@ -389,19 +388,20 @@ a exatamente dois subtriângulos, enquanto as arestas do tipo
 <span class="math inline">\(\img[-.3em][4em][1.2em]{seggb.png}\)</span>
 na fronteira de <span class="math inline">\(T\)</span> são incidentes
 a exatamente um subtriângulo, donde <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{equation}
 \label{eq:sperner2d2}
+\begin{aligned}
 \sum_{\tau\in T} F(\tau) &amp;= \#\left(
 \img[-.3em][4em][1.2em]{seggb.png}
 \text{ na fronteira}\right) \\
 &amp;+2\times \#\left(
 \img[-.3em][4em][1.2em]{seggb.png}
 \text{ no  interior}\right).
-    \end{aligned}\]</span> Comparando as equações (<a
+    \end{aligned}\end{equation}\]</span> Comparando as equações (<a
 href="#eq:sperner2d1" data-reference-type="ref"
-data-reference="eq:sperner2d1">[eq:sperner2d1]</a>) e (<a
+data-reference="eq:sperner2d1">\(\ref{eq:sperner2d1}\)</a>) e (<a
 href="#eq:sperner2d2" data-reference-type="ref"
-data-reference="eq:sperner2d2">[eq:sperner2d2]</a>) e tomando-as módulo
+data-reference="eq:sperner2d2">\(\ref{eq:sperner2d2}\)</a>) e tomando-as módulo
 <span class="math inline">\(2\)</span>, temos que <span
 class="math display">\[\#
 \img[-1em][3em][3em]{trirgb.png}
@@ -410,8 +410,8 @@ class="math display">\[\#
 \img[-.3em][4em][1.2em]{seggb.png}
 \text{ na fronteira}\right)
   \pmod{2}.\]</span> Mas pelo caso unidimensional, ou seja, pela equação
-<a href="#eq:sperner1d" data-reference-type="ref"
-data-reference="eq:sperner1d">[eq:sperner1d]</a>, concluímos que <span
+(<a href="#eq:sperner1d" data-reference-type="ref"
+data-reference="eq:sperner1d">\(\ref{eq:sperner1d}\)</a>), concluímos que <span
 class="math display">\[\#
 \img[-1em][3em][3em]{trirgb.png}
   \equiv  1
@@ -464,13 +464,13 @@ verdes em <span class="math inline">\(\sigma\)</span> de acordo com sua
 posição: um vértice à esquerda conta <span
 class="math inline">\(1\)</span> e à direita, <span
 class="math inline">\(-1\)</span>. Assim, <span
-class="math display">\[\label{eq:sperner1dori1}
+class="math display">\[\begin{equation}\label{eq:sperner1dori1}
 \sum_{\sigma\in S} G(\sigma) = \#
 \img[-.3em][4em][1.2em]{seggb.png}
 -
 \#
 \img[-.3em][4em][1.2em]{segbg.png}
-,\]</span> já que os segmentos
+,\end{equation}\]</span> já que os segmentos
 <span class="math inline">\(\img[-.3em][4em][1.2em]{seggg.png}\)</span>
 e
 <span class="math inline">\(\img[-.3em][4em][1.2em]{segbb.png}\)</span>
@@ -483,21 +483,22 @@ class="math inline">\(+1\)</span> para o segmento a sua direita e com
 enquanto o vértice verde da fronteira de <span
 class="math inline">\(S\)</span> contribui com <span
 class="math inline">\(1\)</span>, de modo que <span
-class="math display">\[\label{eq:sperner1dori2}
+class="math display">\[\begin{equation}\label{eq:sperner1dori2}
 \sum_{\sigma\in S} G(\sigma) = 1+0\times \#\left(
     \img[-.3em][1.2em][1.2em]{vertg.png}
-\text{ no  interior}\right).\]</span> Igualando as equações (<a
+\text{ no  interior}\right).\end{equation}\]</span> Igualando as equações (<a
 href="#eq:sperner1dori1" data-reference-type="ref"
-data-reference="eq:sperner1dori1">[eq:sperner1dori1]</a>) e (<a
+data-reference="eq:sperner1dori1">\(\ref{eq:sperner1dori1}\)</a>) e (<a
 href="#eq:sperner1dori2" data-reference-type="ref"
-data-reference="eq:sperner1dori2">[eq:sperner1dori2]</a>), concluímos
-que <span class="math display">\[\label{eq:sperner1dori}
+data-reference="eq:sperner1dori2">\(\ref{eq:sperner1dori2}\)</a>), concluímos
+que <span class="math display">\[\begin{equation}
+\label{eq:sperner1dori}
 \#
 \img[-.3em][4em][1.2em]{seggb.png}
   -
 \#
 \img[-.3em][4em][1.2em]{segbg.png}
-= 1.\]</span></p>
+= 1.\end{equation}\]</span></p>
 <p>Vamos agora ao caso bidimensional. Seja <span
 class="math inline">\(G(\tau)\)</span> quantas vezes o segmento <span
 class="math inline">\(
@@ -517,8 +518,9 @@ orientação, ou seja, <span class="math display">\[\begin{aligned}
         \img[-1em][3em][3em]{tribbg.png}
 \right) &amp;= (-1)+1=0 \\
 \end{aligned}\]</span> etc. Assim,  <span
-class="math display">\[\begin{aligned}
-\label{eq:sperner2dori1}
+class="math display">\[
+\begin{equation}\label{eq:sperner2dori1}
+\begin{aligned}
 \sum_{\tau\in T} G(\tau) &amp;= \#
 \img[-1em][3em][3em]{trirgbp.png}
 
@@ -529,11 +531,13 @@ class="math display">\[\begin{aligned}
 
 +0\times \#
 \img[-1em][3em][3em]{triggb.png}
-    \end{aligned}\]</span> Por outro lado, cada subsegmento</p>
+    \end{aligned}\end{equation}\]</span> Por outro lado, cada subsegmento</p>
 <p>no interior de <span class="math inline">\(T\)</span> contribui com
 sinais opostos para seus subtriângulos incidentes, donde  <span
-class="math display">\[\begin{aligned}
+class="math display">\[
+\begin{equation}
 \label{eq:sperner2dori2}
+\begin{aligned}
 \sum_{\tau\in T} G(\tau) &amp;= \#\left(
     \img[-.3em][4em][1.2em]{seggb.png}
 \text{ na fronteira}\right)\\[-0.4cm]
@@ -543,11 +547,11 @@ class="math display">\[\begin{aligned}
 &amp;+0\times \#\left(
     \img[-.3em][4em][1.2em]{seggb.png}
 \text{ no  interior}\right).
-    \end{aligned}\]</span> Igualando as equações (<a
+    \end{aligned}\end{equation}\]</span> Igualando as equações (<a
 href="#eq:sperner2dori1" data-reference-type="ref"
-data-reference="eq:sperner2dori1">[eq:sperner2dori1]</a>) e (<a
+data-reference="eq:sperner2dori1">\(\ref{eq:sperner2dori1}\)</a>) e (<a
 href="#eq:sperner2dori2" data-reference-type="ref"
-data-reference="eq:sperner2dori2">[eq:sperner2dori2]</a>), vemos que
+data-reference="eq:sperner2dori2">\(\ref{eq:sperner2dori2}\)</a>), vemos que
 <span> <span class="math display">\[\begin{aligned}
 
 \#
@@ -911,8 +915,8 @@ g_0(p)&amp;=w_0(f(p))-w_0(p)  \\
 g_1(p)&amp;=w_1(f(p))-w_1(p)  \\
 g_2(p)&amp;=w_2(f(p))-w_2(p).
 \end{aligned}\]</span> Note que <span
-class="math display">\[\label{eq:barvec}
-    g_0(p)+g_1(p)+g_2(p)=1-1=0\]</span> e <span
+class="math display">\[\begin{equation}\label{eq:barvec}
+    g_0(p)+g_1(p)+g_2(p)=1-1=0\end{equation}\]</span> e <span
 class="math inline">\(g(p)=(0,0,0)\)</span> se, e somente se <span
 class="math inline">\(p=f(p)\)</span>, ou seja, se <span
 class="math inline">\(p\)</span> é um ponto fixo de <span
@@ -927,7 +931,7 @@ class="math inline">\(\Delta\)</span>.</p>
 ponto fixo, de modo que nem todas as coordenadas de <span
 class="math inline">\(g(p)\)</span> são nulas. Pela equação (<a
 href="#eq:barvec" data-reference-type="ref"
-data-reference="eq:barvec">[eq:barvec]</a>), ao menos uma das
+data-reference="eq:barvec">\(\ref{eq:barvec}\)</a>), ao menos uma das
 coordenadas de <span class="math inline">\(g(p)\)</span> é negativa e ao
 menos uma é positiva. Seja <span class="math inline">\(L(p)\)</span> o
 índice da menor coordenada de <span class="math inline">\(g(p)\)</span>
@@ -951,8 +955,8 @@ class="math inline">\(p\notin\partial_0\Delta\)</span> e <span
 class="math inline">\(L(p)=1\)</span>, caso contrário.</p>
 <p>Em qualquer dos casos, temos que a função de rotulação <span
 class="math inline">\(L\)</span> satisfaz <span
-class="math display">\[\label{eq:cond}
-    g_{L(p)}(p)\leq 0.\]</span></p>
+class="math display">\[\begin{equation}\label{eq:cond}
+    g_{L(p)}(p)\leq 0.\end{equation}\]</span></p>
 <p>Vamos construir agora uma sequência <span
 class="math inline">\(T_i\)</span> de triangulações de <span
 class="math inline">\(\Delta\)</span> que vão ficando cada vez mais
@@ -991,11 +995,11 @@ também convergem para <span class="math inline">\(p\)</span>. Ora, como
 <span class="math inline">\(g(p_{j,i})\)</span> converge para <span
 class="math inline">\(g(p)\)</span>. Mas pela equação (<a
 href="#eq:cond" data-reference-type="ref"
-data-reference="eq:cond">[eq:cond]</a>), <span
+data-reference="eq:cond">\(\ref{eq:cond}\)</a>), <span
 class="math inline">\(g_j(p_{j,i})\leq 0\)</span>, portanto <span
 class="math inline">\(g_j(p)\leq 0\)</span> e pela equação (<a
 href="#eq:barvec" data-reference-type="ref"
-data-reference="eq:barvec">[eq:barvec]</a>), a única chance disso
+data-reference="eq:barvec">\(\ref{eq:barvec}\)</a>), a única chance disso
 ocorrer é se <span class="math inline">\(g(p)=(0,0,0)\)</span>, logo
 <span class="math inline">\(p\)</span> é um ponto fixo.</p>
 <p>Esse argumento é uma adaptação do que li no livro de M. Henle citado
