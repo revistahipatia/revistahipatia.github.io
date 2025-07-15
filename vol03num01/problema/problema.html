@@ -1,0 +1,682 @@
+---
+layout: artigo
+title: Contando Inversões e Outros Problemas
+subtitle: Problema
+author: Yure Carneiro e Samuel Feitosa
+---
+<h1 id="soluções-da-edição-anterior">Soluções da Edição Anterior</h1>
+<h1 id="problemas-universitários">Problemas Universitários</h1>
+<div class="problem*">
+<p><strong>Problema 1</strong>. <em>No plano complexo (plano de
+Argand-Gauss) um quadrado <span class="math inline">\(ABCD\)</span> tem
+centro no ponto <span class="math inline">\(z=0\)</span>.</em></p>
+<div class="center">
+
+</div>
+<p><em>Se o vértice <span class="math inline">\(A\)</span> encontra-se
+no afixo do número complexo <span class="math inline">\(z_1\)</span>,
+determine o número complexo que representa o baricentro do triângulo
+<span class="math inline">\(ABC\)</span>.</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 1</strong>. <em>Observe a figura a seguir. Se o
+vértice <span class="math inline">\(A\)</span> é o afixo do número
+complexo <span class="math inline">\(z_1\)</span>, segue que o vértice
+<span class="math inline">\(B\)</span> corresponde ao afixo do número
+complexo <span class="math inline">\(iz_1\)</span>.(O número complexo
+cujo afixo é o ponto <span class="math inline">\(B\)</span> é obtido de
+<span class="math inline">\(z_1\)</span> por uma rotação de <span
+class="math inline">\(90^o\)</span> no sentido anti-horário, o que é
+obtido por uma multiplicação por <span
+class="math inline">\(i\)</span>).</em></p>
+<div class="center">
+<p><img src="ElonComplexosSol.png" alt="image" /></p>
+</div>
+<p><em>Por fim, como o triângulo <span
+class="math inline">\(ABC\)</span> é isósceles de base <span
+class="math inline">\(AC\)</span>, segue que <span
+class="math inline">\(OB\)</span> é uma das medianas do triângulo. Sendo
+<span class="math inline">\(G\)</span> o braricentro do triângulo <span
+class="math inline">\(ABC\)</span>, segue que <span
+class="math inline">\(OG=\frac{1}{3}OB \Rightarrow
+z_G=\frac{1}{3}i.z_1\)</span> (onde <span
+class="math inline">\(z_G\)</span> é o número complexo cujo afixo é o
+ponto <span class="math inline">\(G\)</span>). Diante do exposto, <span
+class="math display">\[z_G=\frac{1}{3} \cdot
+z_1=\frac{z_3}{3}\left(cos\frac{\pi}{2}+isen\frac{\pi}{2}\right).\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 2</strong>. <em>Qual o número de pares ordenados
+<span class="math inline">\((a,b)\)</span> de inteiros positivos <span
+class="math inline">\(a, b\)</span> tais que as seguintes condições
+sejam simultaneamente satisfeitas?</em></p>
+<ul>
+<li><p><em><span class="math inline">\(a\mid
+6000\)</span>;</em></p></li>
+<li><p><em><span class="math inline">\(1\le b \le
+\frac{6000}{a}\)</span>;</em></p></li>
+<li><p><em><span class="math inline">\(\operatorname{mdc}(a,
+b,\frac{6000}{a}) = 1\)</span>.</em></p></li>
+</ul>
+</div>
+<div class="solution*">
+<p><strong>Solução 2</strong>. <em>A função <span
+class="math inline">\(f(n)\)</span> que conta tais pares com <span
+class="math inline">\(n\)</span> no lugar de 6000 é multiplicativa, ou
+seja, <span class="math inline">\(f(mn) = f(m)f(n)\)</span> se <span
+class="math inline">\(m,n\)</span> são primos entre si. Daí é fácil ver
+que <span class="math inline">\(f(n) =n \cdot \prod_{p\mid n} (1 +
+\frac{1}{p})\)</span> com <span class="math inline">\(p\)</span>
+primo.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 3</strong>. <em>Seja <span
+class="math inline">\(r(x)\)</span> o polinômio que é o resto na divisão
+de <span class="math inline">\(x^{2050}\)</span> por <span
+class="math inline">\(x^5 + x^2  +1\)</span>. Quantos coeficientes
+ímpares possui <span class="math inline">\(r(x)\)</span>?</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 3</strong>. <em>Vamos trabalhar no anel de polinômios
+<span class="math inline">\(\mathbb{F}_2[x]\)</span>, em que <span
+class="math inline">\(\mathbb{F}_2\)</span> é o corpo dos inteiros
+módulo 2. Neste anel, temos <span class="math display">\[x^5 \equiv x^2
++ 1 \pmod{x^5 + x^2 + 1}\]</span> implica que <span
+class="math display">\[x^{10} \equiv (x^2 + 1)^2 \equiv x^4 + 1
+\pmod{x^5 + x^2 + 1},\]</span> ou seja, <span
+class="math display">\[\begin{aligned}
+  x^{20} &amp;\equiv (x^4 + 1)^2 \\
+  &amp; \equiv x^8 + 1 \equiv x^3 (x^2+1) + 1 \\
+  &amp;\equiv x^2 + x^3 \pmod{x^5 + x^2 + 1}
+  \end{aligned}\]</span> e portanto, módulo <span
+class="math inline">\(x^5 + x^2 + 1\)</span>, <span
+class="math display">\[\begin{aligned}
+    x^{30} &amp;\equiv&amp; (x^2 + x^3)\cdot (x^4 + 1)
+\\             &amp;\equiv&amp; x^7 + x^6 + x^3 + x^2\\
+           &amp;\equiv&amp; x^2(x^2+1) + x(x^2+1) + x^3 + x^2\\
+&amp;\equiv&amp; x^4 + x\\
+    \implies x^{31} &amp;\equiv&amp; x^5 + x^2 \\
+    &amp;\equiv&amp; 1\end{aligned}\]</span> (Uma maneira mais rápida de
+obter a última congruência seria perceber que <span
+class="math inline">\(x^5 + x^2 + 1\)</span> é irredutítvel em <span
+class="math inline">\(\mathbb{F}_2[x]\)</span>, logo <span
+class="math inline">\(\mathbb{F}_2[x]/(x^5 + x^2 + 1)\)</span> é um
+corpo, extensão de <span class="math inline">\(\mathbb{F}_2\)</span> de
+grau 5, logo possui <span class="math inline">\(2^5 = 32\)</span>
+elementos e por Lagrange <span class="math inline">\(a^{31} \equiv 1
+\pmod{x^5 + x^2 + 1}\)</span> se <span class="math inline">\(a\not\equiv
+0 \pmod{x^5 + x^2 + 1}\)</span>). Por fim, <span
+class="math inline">\(x^{2046} \equiv (x^{31})^{66} \equiv 1 \implies
+x^{2050} \equiv x^4\)</span>. Assim, <span
+class="math inline">\(r(x)\)</span> é congruente a <span
+class="math inline">\(x^4\)</span> módulo <span
+class="math inline">\(2\)</span> e possui apenas 1 coeficiente
+ímpar.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 4</strong>. <em>Considere <span
+class="math inline">\(\Gamma\)</span> o lugar geométrico dos pontos
+<span class="math inline">\(P\)</span> do plano cuja razão entre a
+distância de <span class="math inline">\(P\)</span> à origem e a
+distância entre <span class="math inline">\(P\)</span> e a reta <span
+class="math inline">\(y=-1\)</span> é constante e igual a <span
+class="math inline">\(\frac{1}{2}\)</span>. Qual a maior distância entre
+dois pontos de <span class="math inline">\(\Gamma\)</span> ?</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 4</strong>. <em>A descrição de tal lugar geométrico
+<span class="math inline">\(\Gamma\)</span> é de uma cônica com
+excentricidade <span class="math inline">\(e = \frac{c}{a} =
+\frac{1}{2}\)</span>, ou seja, <span
+class="math inline">\(\Gamma\)</span> é uma elipse. Além disso, um dos
+focos dessa elipse é a origem e a reta <span class="math inline">\(y =
+-1\)</span> é uma diretriz. Assim, o eixo focal (sendo perpendicular à
+diretriz) é vertical, paralelo ao eixo <span
+class="math inline">\(y\)</span>. De onde, o eixo focal é o próprio eixo
+<span class="math inline">\(y\)</span>. Assim, a maior distância entre
+dois pontos de <span class="math inline">\(\Gamma\)</span> é exatamente
+o dobro do comprimento do semieixo maior, isto é, <span
+class="math inline">\(2a\)</span>.</em></p>
+<p><em>Para completar, sendo <span class="math inline">\(A\)</span> o
+vértice da elipse que está entre o foco <span class="math inline">\(F_1
+= (0,0)\)</span> e a diretriz <span class="math inline">\(r :
+y=-1\)</span>, temos <span class="math display">\[1 + \frac{
+d(A,r)}{d(A,F_1)} = \frac{d(A,F_1) + d(A,r)}{d(A,F_1)} =
+\frac{d(F_1,r)}{d(A,F_1)} = \frac{1}{d(A,F_1)}\]</span> e <span
+class="math display">\[a - c = d(A,F_1) = \frac{1}{1 + \frac{1}{e}} =
+\frac{1}{1+2} = \frac{1}{3}.\]</span> Também, <span
+class="math display">\[\frac{c}{a} = \frac{1}{2} \ \ \Rightarrow \ \ c =
+\frac{a}{2}.\]</span> Então, <span class="math inline">\(a - \frac{a}{2}
+= \frac{1}{3}\)</span> e <span class="math inline">\(a =
+\frac{2}{3}\)</span>. De onde, a máxima distância procurada é <span
+class="math inline">\(2a = \frac{4}{3}\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 5</strong>. <em>Seja <span class="math inline">\(f :
+\mathbb{R} \rightarrow \mathbb{R}\)</span> uma função ímpar e
+diferenciável satisfazendo:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(f(f(x)) = x\)</span> para todo
+<span class="math inline">\(x \in \mathbb{R}\)</span>;</em></p></li>
+<li><p><em><span class="math inline">\(f&#39;(0) =
+-1\)</span>.</em></p></li>
+</ul>
+<p><em>Mostre que <span class="math inline">\(f(x) = -x\)</span> para
+todo <span class="math inline">\(x \in \mathbb{R}\)</span>.</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 5</strong>. <em>Como <span
+class="math inline">\(f(f(x)) = x\)</span> para todo <span
+class="math inline">\(x \in \mathbb{R}\)</span>, então <span
+class="math inline">\(f&#39;(f(x)) \cdot f&#39;(x) = 1\)</span>. De
+onde, <span class="math inline">\(f&#39;(x) \neq 0\)</span>, para todo
+<span class="math inline">\(x \in \mathbb{R}\)</span>.</em></p>
+<p><em>Agora, se existisse <span class="math inline">\(a\)</span> tal
+que <span class="math inline">\(f&#39;(a) &gt; 0\)</span> e como <span
+class="math inline">\(f&#39;(0) = -1\)</span>, teríamos <span
+class="math display">\[-1 = f&#39;(0) &lt; 0 &lt; f&#39;(a).\]</span>
+Então, pelo Teorema de Darboux (valor intermediário para a derivada),
+existiria <span class="math inline">\(b\)</span> entre <span
+class="math inline">\(0\)</span> e <span
+class="math inline">\(a\)</span> tal que <span
+class="math inline">\(f&#39;(b) = 0\)</span>, o que contraria o que
+acabamos de descobrir acima. Portanto, <span
+class="math inline">\(f&#39;(x) &lt; 0\)</span> para todo <span
+class="math inline">\(x \in \mathbb{R}\)</span>, e <span
+class="math inline">\(f\)</span> é estritamente decrescente.</em></p>
+<p><em>Assim, se <span class="math inline">\(f(x) &gt; -x\)</span> para
+algum <span class="math inline">\(x\)</span>, então <span
+class="math inline">\(x = f(f(x)) &lt; f(-x) = -f(x)\)</span>, isto é,
+<span class="math inline">\(f(x) &lt; -x\)</span> , sendo uma
+contradição. Analogamente, não pode ocorrer <span
+class="math inline">\(f(x) &lt; -x\)</span>. Portanto, <span
+class="math inline">\(f(x) = -x\)</span> para todo <span
+class="math inline">\(x \in \mathbb{R}\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 6</strong>. <em>Sejam <span class="math inline">\(A,
+B \in M_n(\mathbb{R})\)</span>. Prove que <span
+class="math inline">\(\mbox{rank}(A) + \mbox{rank}(B) \leq n\)</span>
+se, e somente se, existe uma matriz invertível <span
+class="math inline">\(X \in M_n(\mathbb{R})\)</span> tal que <span
+class="math inline">\(AXB = O_n\)</span>, onde <span
+class="math inline">\(O_n\)</span> é a matriz nula de ordem <span
+class="math inline">\(n\)</span>.</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 6</strong>. <em>Queremos mostrar que <span
+class="math display">\[\mbox{rank}(A) + \mbox{rank}(B) \leq n \ \ \ \
+\Leftrightarrow \ \ \ \ \exists X \ \mbox{invertível} \ : \ AXB =
+O_n\]</span></em></p>
+<p><em><span class="math inline">\(( \ \Leftarrow \ ) :\)</span> Supondo
+a existência de uma matriz invertível <span
+class="math inline">\(X\)</span> satisfazendo <span
+class="math inline">\(AXB = O_n\)</span>, pela desigualdade de Sylvester
+para o posto de matrizes, tem-se <span class="math display">\[0 =
+\mbox{rank}(O_n) = \mbox{rank}(AXB) \geq \mbox{rank}(A) +
+\mbox{rank}(XB) - n\]</span> e <span
+class="math display">\[\mbox{rank}(XB) \geq \mbox{rank}(B) +
+\mbox{rank}(X) - n\]</span> <span class="math display">\[=
+\mbox{rank}(B) + n - n = \mbox{rank}(B).\]</span></em></p>
+<p><em>Daí, <span class="math inline">\(0 \geq \mbox{rank}(A) +
+\mbox{rank}(B) - n\)</span>, ou seja, <span
+class="math inline">\(\mbox{rank}(A) + \mbox{rank}(B) \leq
+n\)</span>.</em></p>
+<p><em><span class="math inline">\(( \ \Rightarrow \ ) :\)</span>
+Estamos supondo agora que <span class="math inline">\(\mbox{rank}(A) +
+\mbox{rank}(B) \leq n\)</span>. Existem matrizes inversíveis <span
+class="math inline">\(X_A, Y_A, X_B\)</span> e <span
+class="math inline">\(Y_B\)</span> tais que <span
+class="math display">\[Y_A \cdot A \cdot X_A = \begin{bmatrix}
+    I_{\mbox{rank}(A)} &amp; \ \ 0 \\ 0 &amp; \ \ O_{n - \mbox{rank}(A)}
+\end{bmatrix}\]</span> e <span class="math display">\[X_B \cdot B \cdot
+Y_B = \begin{bmatrix}
+    O_{n - \mbox{rank}(B)} &amp; \ \ 0 \\ 0 &amp; \ \ I_{\mbox{rank}(B)}
+\end{bmatrix}\]</span> onde <span
+class="math inline">\(I_{\mbox{rank}(A)}\)</span> e <span
+class="math inline">\(I_{\mbox{rank}(B)}\)</span> são matrizes
+identidades de ordens <span
+class="math inline">\(\mbox{rank}(A)\)</span> e <span
+class="math inline">\(\mbox{rank}(B)\)</span>, respectivamente. E <span
+class="math inline">\(0\)</span> ali representam matrizes nulas com as
+devidas ordens para preencherem as entradas restantes. Assim,
+multiplicando <span class="math inline">\(Y_A \cdot A \cdot X_A\)</span>
+e <span class="math inline">\(X_B \cdot B \cdot Y_B\)</span>, obtemos
+<span class="math display">\[\begin{bmatrix}
+    I_{\mbox{rank}(A)} &amp; \ \ 0 \\ 0 &amp; \ \ O_{n - \mbox{rank}(A)}
+\end{bmatrix} \cdot \begin{bmatrix}
+    O_{n - \mbox{rank}(B)} &amp; \ \ 0 \\ 0 &amp; \ \ I_{\mbox{rank}(B)}
+\end{bmatrix} = O_n\]</span> essa última igualdade ocorre pois <span
+class="math inline">\(n - \mbox{rank}(B) \geq \mbox{rank}(A)\)</span> e
+<span class="math inline">\(n - \mbox{rank}(A) \geq
+\mbox{rank}(B)\)</span>.</em></p>
+<p><em>Portanto, tomando <span class="math inline">\(X = X_A \cdot
+X_B\)</span> (que é invertível), obtemos <span
+class="math display">\[AXB = Y_A^{-1} \cdot O_n \cdot Y_B^{-1} =
+O_n.\]</span></em></p>
+</div>
+<h1 id="problemas-de-matemática-elementar">Problemas de Matemática
+Elementar</h1>
+<div class="problem*">
+<p><strong>Problema 7</strong>. <em>Nas Olimpíadas de Pirajuba, existem
+<span class="math inline">\(6\)</span> competidores e <span
+class="math inline">\(8\)</span> dias de evento. Os três primeiros
+competidores de cada dia do evento recebem uma medalha, que pode ser de
+ouro, prata e bronze. Não existem empates e uma medalhade cada tipo é
+dada a apenas um atleta em cada dia do evento. Cada competidor recebe
+<span class="math inline">\(5\)</span> pontos por cada medalha de ouro,
+<span class="math inline">\(3\)</span> pontos por cada medalha de prata
+e <span class="math inline">\(1\)</span> ponto por cada medalha de
+bronze. Se Luciana, que é uma das competidoras, conseguiu um total de
+<span class="math inline">\(27\)</span> pontos no final do evento, qual
+o número máximo de medalhas de prata que ela pode ter recebido?</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 7</strong>. <em>Como são oito dias de evento, ela não
+pode ter ganho mais que <span class="math inline">\(8\)</span> medalhas
+de prata. Veja que essa quantidade não satisfaz o enunciado, pois <span
+class="math inline">\(8 \cdot 3 = 24 &lt; 27\)</span>. Assim, ela obteve
+menos de <span class="math inline">\(8\)</span> medalhas de prata. Vamos
+analisar os casos possíveis para determinar o número máximo de medalhas
+de prata que ela pode obter:</em></p>
+<ol type="a">
+<li><p><em>Se ela tivesse obtido <span class="math inline">\(7\)</span>
+medalhas de prata, teria que fazer <span class="math inline">\(27-3
+\cdot 7 = 6\)</span> pontos em um dia de evento, mas isso não é
+possível.</em></p></li>
+<li><p><em>Se ela tivesse obtido <span class="math inline">\(6\)</span>
+medalhas de prata, teria que fazer <span class="math inline">\(27 - 3
+\cdot 6 = 9\)</span> pontos em dois dias de evento, mas isso não é
+possível pois <span
+class="math inline">\(5+3&lt;9&lt;5+5\)</span>.</em></p></li>
+<li><p><em>Se ela tivesse obtido <span class="math inline">\(5\)</span>
+medalhas de prata, teria que fazer <span class="math inline">\(27 - 3
+\cdot 5 = 12\)</span> pontos em três dias de evento. Como <span
+class="math inline">\(12&gt; 3 \cdot 3\)</span>, pelo menos uma medalha
+de ouro, valendo <span class="math inline">\(5\)</span> pontos, teria
+que ser obtida. Por outro lado, não é possível combinar apenas duas
+parcelas de <span class="math inline">\(1\)</span>, <span
+class="math inline">\(3\)</span> e <span
+class="math inline">\(5\)</span> para obter os <span
+class="math inline">\(12-5 = 7\)</span> pontos restantes.
+Consequentemente, ela não pode ter obtido <span
+class="math inline">\(5\)</span> medalhas de prata.</em></p></li>
+</ol>
+<p><em>Para mostrar que <span class="math inline">\(4\)</span> medalhas
+de prata é o máximo, basta exibirmos um exemplo. Após obter <span
+class="math inline">\(3 \cdot 4 = 12\)</span> pontos em <span
+class="math inline">\(4\)</span> dias com medalhas de prata, ela
+precisaria ter obtido <span class="math inline">\(27 - 3 \cdot 4 =
+15\)</span> pontos nos outros <span class="math inline">\(4\)</span>
+dias. Luciana pode obter essa pontuação com <span
+class="math inline">\(3\)</span> medalhas de ouro em <span
+class="math inline">\(3\)</span> dias e <span
+class="math inline">\(1\)</span> dia sem premiação.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 8</strong>. <em>Um encontro de britânicos e
+italianos em uma cafeteria reuniu 55 pessoas. Cada uma dessas pessoas
+pediu café ou chá. Sabemos que os britânicos sempre contam a verdade
+quando bebem chá e mentem quando bebem café. Já os italianos se
+comportam de modo oposto. Um repórter realizou uma rápida pesquisa e
+descobriu os seguintes fatos:</em></p>
+<ol>
+<li><p><em>44 pessoas responderam “sim” para a pergunta: “Você está
+bebendo café?”</em></p></li>
+<li><p><em>33 pessoas responderam “sim” para a pergunta: “Você é
+italiano?”</em></p></li>
+<li><p><em>22 pessoas concordaram com a afirmação: “Está chovendo lá
+fora”.</em></p></li>
+</ol>
+<p><em>Quantos britânicos na cafeteria estavam tomando chá?</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 8</strong>. <em>Qualquer pessoa que afirme estar
+bebendo café necessariamente precisa ser italiana. Portanto, existem
+<span class="math inline">\(44\)</span> italianos e <span
+class="math inline">\(11\)</span> britânicos. Qualquer pessoa que afirme
+ser italiano tem que estar bebendo café. Portanto, havia 33 pessoas
+bebendo café. Seja <span class="math inline">\(n\)</span> o número de
+britânicos bebendo café. Então existiam <span
+class="math inline">\(11-n\)</span> britânicos bebendo chá, <span
+class="math inline">\(33-n\)</span> italianos bebendo café e <span
+class="math inline">\(44-(33-n)=11+n\)</span> italianos bebendo chá. Se
+não estava chovendo no lado de fora, então <span
+class="math inline">\(n+(11+n)=22\)</span>, mas <span
+class="math inline">\(n\)</span> não é um inteiro nesse caso. Portanto,
+estava chovendo no exterior e <span
+class="math inline">\((11-n)+(33-n)=22\)</span>, consequentemente, <span
+class="math inline">\(n=11\)</span>. Segue daí que <span
+class="math inline">\(0\)</span> britânicos estavam bebendo
+chá.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 9</strong>. <em>Érica viajou para um país
+estrangeiro e sacou <span class="math inline">\(\$800\)</span> da moeda
+local em um banco. O caixa deu essa quantia usando notas de <span
+class="math inline">\(\$20\)</span>, <span
+class="math inline">\(\$50\)</span> e <span
+class="math inline">\(\$100\)</span>, usando pelo menos uma nota de cada
+tipo. De quantas maneiras diferentes ele pode ter feito esse pagamento
+para ela?</em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 9</strong>. <em>Se <span
+class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>
+e <span class="math inline">\(z\)</span> são as quantias de notas de
+<span class="math inline">\(\$20\)</span>, <span
+class="math inline">\(\$50\)</span> e <span
+class="math inline">\(\$100\)</span>, respectivamente, portanto <span
+class="math inline">\(2x+5y+10z=80\)</span>. Como temos uma nota de cada
+tipo, podemos descontar uma <span class="math inline">\(1\)</span>
+unidade de cada uma das incógnitas anteriores e reduzir a equação para
+<span class="math inline">\(2a+5b+10c=63\)</span>. Como <span
+class="math inline">\(63\)</span> é ímpar, precisamos que <span
+class="math inline">\(b\)</span> seja ímpar. Podemos analisar os casos.
+Quando <span class="math inline">\(b=1\)</span>, <span
+class="math inline">\(2a+10c=58\)</span>. Daí <span
+class="math inline">\(10c=0,10,20,30,40\)</span> ou <span
+class="math inline">\(50\)</span>, ou seja, temos <span
+class="math inline">\(6\)</span> soluções. Quando <span
+class="math inline">\(b=3\)</span>, <span
+class="math inline">\(2a+10c=48\)</span> e daí <span
+class="math inline">\(10c=0,10,20,30\)</span> ou <span
+class="math inline">\(40\)</span>, ou seja, temos <span
+class="math inline">\(5\)</span> soluções. Continuando essa contagem,
+para <span class="math inline">\(b=5\)</span>, <span
+class="math inline">\(7\)</span>, <span class="math inline">\(9\)</span>
+e <span class="math inline">\(11\)</span>, teremos <span
+class="math display">\[6+5+4+3+2+1=21\]</span> soluções.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 10</strong>. <em>Na malha a seguir, todos os
+quadradinhos possuem lados de mesma medida. Explique o porquê de os
+ângulos <span class="math inline">\(\angle BAC\)</span> e <span
+class="math inline">\(\angle EDF\)</span> possuírem a mesma
+medida.</em></p>
+<div class="center">
+<p><img src="2024S17.png" alt="image" /></p>
+</div>
+</div>
+<div class="solution*">
+<p><strong>Solução 10</strong>. <em>(Solução de Yan Lima Machado) Seja
+<span class="math inline">\(BC=x\)</span>. Pelo Teorema de Pitágoras,
+tem-se que: <span class="math display">\[\begin{aligned}
+AB &amp; = &amp; \sqrt{5}x\\
+AC &amp; = &amp; \sqrt{8}x \\
+DF &amp; = &amp; \sqrt{10}x \\\end{aligned}\]</span></em></p>
+<p><em>Ademais, considere <span class="math inline">\(\angle
+BAC=\alpha\)</span> e <span class="math inline">\(\angle
+EDF=\beta\)</span>. Temos <span
+class="math inline">\(\cos(\beta)=\frac{3x}{\sqrt{10}x}=\frac{3}{\sqrt{10}}\)</span>
+e, pela Lei dos Cossenos no triângulo <span
+class="math inline">\(ABC\)</span>, <span
+class="math inline">\(x^{2}=8x^{2}+5x^{2}-4\sqrt{10}x^{2}\cos(\alpha)\)</span>,
+ou seja, <span
+class="math inline">\(\cos(\alpha)=\dfrac{12x^2}{4\sqrt{10}x^2} =
+\frac{3}{\sqrt{10}}\)</span>. Como <span class="math inline">\(\alpha,
+\beta \in (0,\pi/2)\)</span> e <span class="math inline">\(\cos \alpha =
+\cos \beta\)</span>, segue que <span class="math inline">\(\alpha =
+\beta\)</span>.</em></p>
+<p><em><br />
+Segunda Solução: Note que <span class="math inline">\(DH = HF\)</span>,
+pois ambos são diagonais de um retângulo <span class="math inline">\(2
+\times 1\)</span> e, além disso, <span class="math inline">\(\angle IHF
+= \angle IDH\)</span>.</em></p>
+<div class="center">
+<p><img src="2024S18.png" alt="image" /></p>
+</div>
+<p><em>Portanto, <span class="math display">\[\angle DHF = \angle DHI +
+\angle IHF = \angle DHI + \angle HDI = 90^{\circ}.\]</span> Assim, <span
+class="math inline">\(AGC\)</span> e <span
+class="math inline">\(DHF\)</span> são ambos triângulos retângulos
+isósceles. Como os triângulos <span class="math inline">\(AGB\)</span> e
+<span class="math inline">\(DHI\)</span> são congruentes, segue que
+<span class="math display">\[\angle BAC = 45^{\circ} - \angle BAG =
+45^{\circ} - \angle HDI = \angle FDE.\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 11</strong>. <em>Na figura a seguir, todos os
+triângulos são equiláteros e idênticos. Encontre a medida do ângulo
+<span class="math inline">\(\angle ABC\)</span>.</em></p>
+<div class="center">
+
+</div>
+</div>
+<div class="solution*">
+<p><strong>Solução 11</strong>. <em>(Solução de Yan Lima Machado)
+Considere a medida dos lados dos triângulos igual a <span
+class="math inline">\(x\)</span> e sejam <span
+class="math inline">\(D\)</span>, <span
+class="math inline">\(E\)</span>, e <span
+class="math inline">\(F\)</span> os vértices marcados na figura a
+seguir.</em></p>
+<div class="center">
+
+</div>
+<p><em>Como o triângulo <span class="math inline">\(AEC\)</span> é
+retângulo em <span class="math inline">\(E\)</span>, pois <span
+class="math inline">\(AE\)</span> é mediatriz de um dos segmentos da
+malha, temos pelo Teorema de Pitágoras: <span
+class="math display">\[\begin{aligned}
+AC^2 &amp; = &amp; AE^2 + EC^2 \\
+      &amp; = &amp; 3x^2+ 25x^2 \\
+      &amp; = &amp; 28x^2.\end{aligned}\]</span> Pela Lei dos Cossenos
+nos triângulos <span class="math inline">\(ADB\)</span> e <span
+class="math inline">\(BCF\)</span>, temos <span
+class="math display">\[\begin{aligned}
+AB^2 &amp; = &amp; AD^2-2AD \cdot DB \cdot \cos 120^{\circ} + DB^2 \\
+      &amp; = &amp; x^{2}-2\cdot4x^{2}(\frac{-1}{2}) +16x^{2}\\
+      &amp; = &amp; 21x^2\end{aligned}\]</span> e <span
+class="math display">\[\begin{aligned}
+BC^2 &amp; = &amp; CF^2-2CF \cdot FB \cdot \cos 120^{\circ} + FB^2 \\
+      &amp; = &amp; x^{2}-2\cdot2x^{2}(\frac{-1}{2})+4x^{2}\\
+      &amp; = &amp; 7x^2.\end{aligned}\]</span> Como <span
+class="math inline">\(AC^2=AB^2+BC^2\)</span>, pela recíproca do Teorema
+de Pitágoras, temos que <span class="math inline">\(\angle
+ABC=90^{\circ}\)</span></em></p>
+<p><em><br />
+Segunda Solução: Continue o ladrilhamento com triângulos equiláteros
+como na figura anterior.</em></p>
+<div class="center">
+
+</div>
+<p><em>Note que o segmento <span class="math inline">\(CB\)</span> é a
+diagonal de um paralelogramo formado por <span
+class="math inline">\(4\)</span> triângulos do reticulado e, por
+simetria, o seu prolongamento irá encontrar o vértice <span
+class="math inline">\(D\)</span> de outro paralelogramo também formado
+por <span class="math inline">\(4\)</span> triângulos do reticulado.
+Tanto <span class="math inline">\(AD\)</span> quanto <span
+class="math inline">\(AC\)</span> são diagonais de paralelogramos
+congruentes, que estão pintados de cinza no desenho, portanto, <span
+class="math inline">\(AC = AD\)</span>. Assim, como <span
+class="math inline">\(B\)</span> é o ponto médio de <span
+class="math inline">\(CD\)</span>, o segmento <span
+class="math inline">\(AB\)</span> é uma altura do triângulo isósceles
+<span class="math inline">\(ACD\)</span> e daí <span
+class="math inline">\(\angle ABC = 90^{\circ}\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 12</strong>. <em>Prove que <span
+class="math display">\[\frac{1}{15} &lt; \frac{1}{2}\cdot \frac{3}{4}
+\cdot \frac{5}{6} \cdots \frac{99}{100} &lt;
+\frac{1}{12}\]</span></em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 12</strong>. <em>Se <span class="math display">\[K =
+\frac{1}{2}\cdot \frac{3}{4} \cdot \frac{5}{6} \cdots
+\frac{99}{100},\]</span> temos <span class="math display">\[K  &gt;
+\frac{1}{2}\cdot \frac{2}{3} \cdot \frac{4}{5} \cdots
+\frac{98}{99}.\]</span> Portanto, multiplicando a igualdade anterior por
+essa última desigualdade, obtemos: <span class="math display">\[K^2 &gt;
+\dfrac{1}{200} &gt; \dfrac{1}{225},\]</span> ou seja, <span
+class="math display">\[K &gt; \dfrac{1}{15}.\]</span></em></p>
+<p><em>Agora, para mostrar a outra desigualdade do problema,
+temos</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+K &amp; =&amp;  \frac{1}{2} \cdot \frac{3}{4} \cdot \frac{5}{6} \cdot
+\frac{7}{8}\cdots \frac{97}{98}\cdot \frac{99}{100} \\
+&amp;&lt;&amp; \frac{1}{2} \cdot \frac{3}{4} \cdot \frac{5}{6} \cdot
+\left(\frac{8}{9} \cdots \frac{98}{99} \cdot  \frac{100}{101}
+\right)\cdot \frac{2}{3} \cdot \frac{4}{5} \cdot \frac{6}{7} \cdot
+\frac{3}{2} \cdot \frac{5}{4} \cdot \frac{7}{6} \\ &amp;=&amp;
+\frac{1}{2} \cdot \frac{3}{4} \cdot \frac{5}{6} \cdot \frac{3}{2} \cdot
+\frac{5}{4} \cdot \frac{7}{6} \cdot \left(\frac{2}{3} \cdot \frac{4}{5}
+\cdot \frac{6}{7}  \cdot \frac{8}{9} \cdots \frac{98}{99}
+\cdot  \frac{100}{101} \right)\end{aligned}\]</span> O último membro
+pode ser reescrito como <span class="math display">\[\frac{1}{2} \cdot
+\frac{3}{4} \cdot \frac{5}{6} \cdot \frac{3}{2} \cdot \frac{5}{4} \cdot
+\frac{7}{6} \cdot \frac{1}{101K} = \frac{175}{16 \cdot 16 \cdot
+101K}\]</span> Daí, <span class="math display">\[K^2 &lt; \frac{175}{16
+\cdot 1616} &lt; \frac{175}{16 \cdot 1575} = \frac{175}{16 \cdot 9 \cdot
+175} = \frac{1}{144} = \frac{1}{12^2}\]</span> e, portanto, <span
+class="math inline">\(K &lt; \frac{1}{12}\)</span>. Logo, <span
+class="math display">\[\frac{1}{15} &lt; K &lt;
+\frac{1}{12}.\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 13</strong>. <em>Avalie a soma simplificando ao
+máximo sua expressão <span class="math display">\[\frac{2}{0! + 1! + 2!}
++ \frac{3}{1! + 2! + 3!} + \cdots + \frac{2024}{2022! + 2023! +
+2024!}.\]</span></em></p>
+</div>
+<div class="solution*">
+<p><strong>Solução 13</strong>. <em>Queremos simplicar ao máximo a
+expressão da soma <span class="math display">\[\frac{2}{0! + 1! + 2!} +
+\frac{3}{1! + 2! + 3!} + \cdots + \frac{2024}{2022! + 2023! + 2024!}
+.\]</span></em></p>
+<p><em>Veja que <span class="math display">\[\frac{k}{(k-2)! + (k-1)! +
+k!} = \frac{k}{(k-2)! \cdot [1 + (k-1) + (k-1)k]}\]</span> <span
+class="math display">\[= \frac{k}{(k-2)! \cdot (k + k^2 - k)} =
+\frac{k}{(k-2)!k^2} = \frac{k-1}{(k-2)!(k-1)k}\]</span> <span
+class="math display">\[= \frac{k-1}{k!} = \frac{1}{(k-1)!} -
+\frac{1}{k!}.\]</span></em></p>
+<p><em>Daí, <span class="math display">\[\sum_{k=2}^{2024} \ \
+\frac{k}{(k-2)! + (k-1)! + k!} = \sum_{k=2}^{2024} \ \ \frac{1}{(k-1)!}
+- \frac{1}{k!}\]</span> é uma soma telescópica. Com isso, <span
+class="math display">\[\frac{2}{0! + 1! + 2!} + \frac{3}{1! + 2! + 3!} +
+\cdots + \frac{2024}{2022! + 2023! + 2024!}\]</span> <span
+class="math display">\[= \left( 1 - \frac{1}{2!} \right) + \left(
+\frac{1}{2!} - \frac{1}{3!} \right) + \cdots + \left( \frac{1}{2023!} -
+\frac{1}{2024!} \right) = 1 - \frac{1}{2024!}.\]</span></em></p>
+<p><em><span><em>Também recebemos uma solução correta de Yan Lima
+Machado</em></span></em></p>
+</div>
+<h1 id="novos-problemas">Novos Problemas</h1>
+<h1 id="problemas-universitários-1">Problemas Universitários</h1>
+<div class="problem*">
+<p><strong>Problema 14</strong>. <em>Sejam <span
+class="math inline">\(A_1, A_2, \ldots, A_{n+1}\)</span> subconjuntos
+não vazios de <span class="math inline">\(\{1,2,\ldots, n\}\)</span>.
+Prove que existem conjuntos de índices disjuntos e não vazios <span
+class="math inline">\(I,J \subset \{1,2,\ldots, n+1\}\)</span> tais que
+<span class="math display">\[\displaystyle \bigcup_{k \in I} A_k =
+\bigcup_{k \in J} A_k.\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 15</strong>. <em>Dizemos que um grupo <span
+class="math inline">\(G=(G,\ast)\)</span> tem raiz se existe um grupo
+<span class="math inline">\(H=(H,\cdot)\)</span> de tal sorte que <span
+class="math inline">\(G\)</span> é isomorfo a <span
+class="math inline">\(H \times H\)</span>. Mostre que o grupo <span
+class="math inline">\((\mathbb{R}, +)\)</span> não possui raiz.</em></p>
+<p><em>Dica: Tente ver a possível raíz como um subespaço vetorial de
+<span class="math inline">\(\mathbb{R}\)</span> sobre <span
+class="math inline">\(\mathbb{Q}\)</span>. Como construir uma base para
+esse espaço vetorial?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 16</strong>. <em>Seja <span
+class="math inline">\(G\)</span> um conjunto finito de matrizes <span
+class="math inline">\(n \times n\)</span> de coeficientes reais <span
+class="math inline">\(\{M_i\}\)</span>, <span class="math inline">\(1
+\leq i \leq r\)</span>, que forma um grupo sobre a multiplicação
+matricial. Suponha que <span class="math inline">\(\sum_{i=1}^{r}
+tr(M_i)=0\)</span>, onde <span class="math inline">\(tr(A)\)</span>
+denota o traço da matriz <span class="math inline">\(A\)</span>. Prove
+que <span class="math inline">\(\sum_{i=1}^r M_i\)</span> é a matriz
+nula.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 17</strong>. <em>Seja <span
+class="math inline">\(f(x)=a_1\sin x+a_2 \sin 2x+\ldots +a_n \sin
+nx\)</span>, onde <span class="math inline">\(a_1,a_2, \ldots,
+a_n\)</span> são números reais e <span class="math inline">\(n\)</span>
+é um inteiro positivo. Dado que <span class="math inline">\(|f(x)|\leq
+|\sin x|\)</span> para todo o número real <span
+class="math inline">\(x\)</span>, prove que <span
+class="math inline">\(|a_1+2a_2+\ldots+na_n| \leq 1\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 18</strong>. <em>Calcule a integral <span
+class="math display">\[\displaystyle \int_{0}^{\pi/2}
+\dfrac{\sin^{25}x}{\cos^{25}x+\sin^{25}x}dx.\]</span></em></p>
+</div>
+<h1 id="problemas-de-matemática-elementar-1">Problemas de Matemática
+Elementar</h1>
+<div class="problem*">
+<p><strong>Problema 19</strong>. <em>A figura a seguir consiste de <span
+class="math inline">\(5\)</span> quadrados iguais colocados no interior
+de um retângulo <span class="math inline">\(8 cm \times 7 cm\)</span>.
+Qual a medida do lado desses quadrados?</em></p>
+<div class="center">
+
+</div>
+</div>
+<div class="problem*">
+<p><strong>Problema 20</strong>. <em>Na figura a seguir, <span
+class="math inline">\(ABCD\)</span> é um quadrado e <span
+class="math inline">\(M\)</span>, <span
+class="math inline">\(N\)</span>, <span class="math inline">\(P\)</span>
+e <span class="math inline">\(Q\)</span> são os pontos médios dos seus
+lados. As áreas de três regiões do seu interior são <span
+class="math inline">\(20\,cm^2\)</span>, <span
+class="math inline">\(32\,cm^2\)</span> e <span
+class="math inline">\(16\,cm^2\)</span>, também como indicado na figura.
+Qual a área da quarta região?</em></p>
+<div class="center">
+
+</div>
+</div>
+<div class="problem*">
+<p><strong>Problema 21</strong>. <em>Dois inteiros positivos <span
+class="math inline">\(x\)</span> e <span
+class="math inline">\(y\)</span> são tais que <span
+class="math display">\[\dfrac{2010}{2011} &lt; \dfrac{x}{y} &lt;
+\dfrac{2011}{2012}.\]</span> Encontre o menor valor possível para a soma
+<span class="math inline">\(x+y\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 22</strong>. <em>Sejam <span
+class="math inline">\(a, b\)</span> e <span
+class="math inline">\(c\)</span> reais satisfazendo <span
+class="math inline">\(a+b+c = 0\)</span> e <span
+class="math inline">\(a^2 + b^2 + c^2 = 4\)</span>. Qual o valor de
+<span class="math inline">\((ab)^2 + (bc)^2 + (ca)^2\)</span> ?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 23</strong>. <em>Mostre que <span
+class="math display">\[\frac{1}{1+\sqrt{2}} +
+\frac{1}{\sqrt{3}+\sqrt{4}} + \frac{1}{\sqrt{5}+\sqrt{6}} + \cdots +
+\frac{1}{\sqrt{99}+\sqrt{100}} &gt; \frac{9}{2}\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 24</strong>. <em>Em uma sequência de inteiros
+positivos, uma <span><em>inversão</em></span> é um par de posições em
+que o elemento da posição mais a esquerda é maior que o elemento da
+posição mais a direita. Por exemplo, a sequência <span
+class="math inline">\(2,5,3,1,3\)</span> tem <span
+class="math inline">\(5\)</span> inversões: entre a primeira e a quarta
+posição, entre a segunda e todas as demais para a direita e, finalmente,
+entre a terceira e a quarta. Qual é o maior número possível de inversões
+em uma sequência de inteiros positivos cuja a soma de seus elementos é
+<span class="math inline">\(2019\)</span>?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 25</strong>. <em>A soma dos números positivos <span
+class="math inline">\(x_1, x_2, \ldots, x_n\)</span> é igual a <span
+class="math inline">\(\frac{1}{2}\)</span>. Prove que <span
+class="math display">\[\frac{1-x_1}{1+x_1} \cdot \frac{1-x_2}{1+x_2}
+\cdots \frac{1-x_n}{1+x_n} \geq \frac{1}{3}\]</span></em></p>
+</div>

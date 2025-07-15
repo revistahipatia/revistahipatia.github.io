@@ -1,0 +1,1324 @@
+---
+layout: artigo
+title: A Hipótese Generalizada do Contínuo Implica o Axioma da Escolha
+author: Samuel Gomes da Silva e Diego Lima Bomfim
+subtitle: História
+---
+<h1 id="introdução">Introdução</h1>
+<p>O Axioma da Escolha surgiu “oficialmente” em 1908 a partir da
+publicação, por Ernst Zermelo, de dois trabalhos (<span class="citation"
+data-cites="Zer1908 Zer1908a"></span>) que marcaram o início da
+axiomatização da <span><em>Teoria dos Conjuntos</em></span>, tendo sido
+utilizado pela primeira vez quatro anos antes pelo mesmo autor em sua
+demonstração de que todo conjunto pode ser bem ordenado (<span
+class="citation" data-cites="Zer1904"></span>) – que por sua vez é
+conhecido como Teorema da Boa Ordenação (denotado por <span
+class="math inline">\(\mathbf{WO}\)</span>, de <span> <em>Well-Ordering
+Theorem</em></span>).</p>
+<p>Devido ao seu caráter não-construtivo, <span
+class="math inline">\(\mathbf{AC}\)</span> (como é geralmente denotado o
+Axioma da Escolha – advindo de <span> <em>Axiom of Choice</em></span>)
+foi, e ainda é, alvo de muita discussão e polêmica: afinal, ele garante
+ao trabalhador matemático a tentadora possibilidade de fazer infinitas
+escolhas arbitrárias. Em termos simples, ele garante que dada uma
+família de conjuntos não-vazios sempre é possível obter um conjunto que
+tem exatamente um elemento escolhido em cada conjunto da família, no que
+se diz que toda família de conjuntos não-vazios admite uma <span>
+<em>função-escolha</em></span><a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Tal axioma tem aceitação bastante variada, a depender do ramo da
+matemática e do contexto em que se aplica. Por um lado, admite várias
+implicações (ou mesmo equivalências) muito conhecidas e importantes, de
+peso central em várias áreas da Matemática – equivalências como o
+<span><em>Lema de Zorn</em></span>, o <span><em>Teorema de
+Krull</em></span>  sobre a existência de ideais maximais em anéis
+comutativos com unidade (da Álgebra), e o <span><em>Teorema de
+Tychonoff</em></span>   <a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a> (da Topologia Geral), e
+consequências como o <span><em>Teorema do Ultrafiltro</em></span>, ou o
+<span><em>Teorema de Hahn-Banach</em></span> (da Análise Funcional). Por
+outro lado, o Axioma da Escolha também implica alguns resultados
+bastante contraintuitivos, como o famoso <span><em>Paradoxo de
+Banach-Tarski</em></span>, o qual demonstra ser possível dividir uma
+esfera tridimensional em um número finito de peças e reorganizá-las
+(usando apenas movimentos rígidos) de modo a formar duas esferas do
+mesmo tamanho que a original.</p>
+<p>Não obstante, temos que <span
+class="math inline">\(\mathbf{AC}\)</span> é independente dos axiomas da
+teoria dos conjuntos usual, a chamada <span><em>Teoria dos Conjuntos de
+Zermelo-Fraenkel</em></span> — denotada por <span
+class="math inline">\(\mathbf{ZF}\)</span> —, o que significa que ele
+não pode ser provado nem refutado a partir dos axiomas básicos da
+teoria. Devido a isso, o axioma da escolha é considerado um axioma
+adicional, culminando na axiomática <span
+class="math inline">\(\mathbf{ZFC}\)</span> dada por <span
+class="math inline">\(\mathbf{ZF}+\mathbf{AC}\)</span>, a <span>
+<em>Teoria dos Conjuntos de Zermelo-Fraenkel com o Axioma da
+Escolha</em></span>.</p>
+<p>Já a <span><em>Hipótese do Contínuo</em></span> — conjecturada por
+Cantor nos anos 1880, e muito provavelmente a mais célebre asserção
+matemática cuja independência de <span
+class="math inline">\(\mathbf{ZFC}\)</span> já foi demonstrada — declara
+que, dado um subconjunto infinito da reta real, então devemos ter que
+este conjunto está em bijeção ou com o conjunto dos números naturais ou
+então com a própria reta.</p>
+<p>O contexto que levou Cantor a enunciar tal conjectura (à qual vamos
+nos referir como <span class="math inline">\(\mathbf{CH}\)</span>, de
+<span><em>Continuum Hypothesis</em></span>) foi resultado de uma série
+de tentativas fracassadas de exibir algum subconjunto da reta com
+cardinalidade intermediária entre <span
+class="math inline">\(\aleph_0\)</span> (a cardinalidade de <span
+class="math inline">\(\mathbb{N}\)</span>) - e <span
+class="math inline">\(\mathfrak{c}\)</span> (o
+<span><em>continuum</em></span>, a cardinalidade de <span
+class="math inline">\(\mathbb{R}\)</span>), o que culminou na sua
+hipótese de que tal feito seria impossível: uma questão tão importante à
+época que ocupou a primeira posição na lista dos famosos 23 problemas de
+Hilbert, na virada para o século XX.</p>
+<p>Assim, <span class="math inline">\(\mathbf{CH}\)</span> pode ser
+traduzido em uma linguagem mais técnica de teoria dos conjuntos
+(assumindo o Teorema da Boa Ordenação)<a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+como a afirmação de que não existe nenhum cardinal intermediário entre
+<span class="math inline">\(\aleph_0\)</span> e <span
+class="math inline">\(2^{\aleph_0}\)</span> (sendo este último cardinal
+igual a <span class="math inline">\(\mathfrak{c}\)</span>, já que tem a
+mesma quantidade de elementos do que o conjunto das partes de <span
+class="math inline">\(\mathbb{N}\)</span> - sendo este último, por sua
+vez, equipotente ao conjunto <span
+class="math inline">\(\mathbb{R}\)</span> dos números reais, sendo que a
+existência dessa bijeção <span><em>não depende do Axioma da
+Escolha</em></span>).</p>
+<p>As consequências dos estudos sobre a Hipótese do Contínuo são
+bastante numerosas, o que levou por exemplo à sua natural generalização,
+a chamada <span><em>Hipótese Generalizada do Contínuo</em></span> (<span
+class="math inline">\(\mathbf{GCH}\)</span>, de <span><em>Generalized
+Continuum Hypothesis</em></span>), a qual (assumindo novamente a boa
+ordenação dos conjuntos) é a afirmação de que, assim como no caso
+anterior, não existe nenhum cardinal na lacuna entre qualquer cardinal
+<span class="math inline">\(\aleph_\alpha\)</span> e o cardinal <span
+class="math inline">\(2^{\aleph_\alpha}\)</span>.</p>
+<p>Embora a prova da independência de <span
+class="math inline">\(\mathbf{CH}\)</span> tenha vindo apenas em 1963,
+no contexto da invenção do métodode <span><em>forcing</em></span> por
+Paul Cohen — independência essa que complementou um trabalho anterior de
+Kurt Gödel de 1940 —, um resultado de 1947 devido a Sierpiński (<span
+class="citation" data-cites="Sierp"></span>) pulula aos olhos: ele
+estabelece que <span class="math inline">\(\mathbf{GCH}\)</span>, que
+mimetiza a organização suprema dos cardinais, acaba tendo poder dedutivo
+o suficiente para implicar o Axioma da Escolha. Neste artigo veremos a
+prova desta implicação com uma demonstração um pouco diferente da
+original de Sierpiński, dado que a demonstração a ser apresentada
+utiliza o <span><em>Teorema de Specker</em></span>.</p>
+<h1 id="primeiras-definições">Primeiras Definições</h1>
+<p>Para fixar as ideias vamos dar enunciado formal para algumas das
+asserções que comentamos:</p>
+<p><span><strong>Axioma da Escolha (AC)</strong></span>: O produto
+cartesiano de conjuntos não vazios é um conjunto não-vazio.<a
+href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a><br />
+<strong>Teorema da Boa Ordenação (WO):</strong> Todo conjunto pode ser
+bem-ordenado.<a href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a><br />
+<strong>Lema de Zorn (ZL):</strong> Toda ordem parcial não-vazia na qual
+toda cadeia é limitada superiormente admite um elemento maximal.</p>
+<p>Mostra-se que tais asserções são logicamente equivalentes em <span
+class="math inline">\(\mathbf{ZF}\)</span> (uma demonstração em
+português desse fato pode ser vista em <span class="citation"
+data-cites="deJesusdaSilva"></span>); no entanto, devido à ampla
+utilização de <span class="math inline">\(\mathbf{AC}\)</span>, à muito
+menor utilização de <span class="math inline">\(\mathbf{WO}\)</span> e
+dificuldade de compreensão inicial do enunciado de <span
+class="math inline">\(\mathbf{ZL}\)</span>, existe uma famosa anedota
+(atribuída ao matemático norte-americano Jerry Bona) na qual se diz que
+o Axioma da Escolha é obviamente verdadeiro, enquanto o Teorema da Boa
+Ordenação é obviamente falso e “quem pode dizer alguma coisa sobre o
+Lema de Zorn?”.</p>
+<p>A difusão desta piada mostra como a noção intuitiva pode ser traída
+pela rigidez matemática, uma vez que a equivalência das asserções,
+embora clara, é motivo de muita polêmica no meio matemático.</p>
+<p>Devido à referida equivalência entre <span
+class="math inline">\(\mathbf{AC}\)</span> e <span
+class="math inline">\(\mathbf{WO}\)</span> e à nossa futura definição de
+cardinalidade, em boa parte das situações vamos querer comparar
+conjuntos sem ter que falar de suas cardinalidades – já que, sendo o
+Teorema da Boa Ordenação uma equivalência do Axioma da Escolha, assumir
+que todo conjunto tem alguma cardinalidade (em sua definição usual, a
+qual será apresentada mais adiante mas que <span><em>somente se aplica a
+conjuntos que possam ser bem ordenados</em></span>) acaba sendo
+equivalente a assumir o Axioma da Escolha, o que muitas vezes queremos
+evitar.</p>
+<p>Com vistas a comparar a quantidade de elementos de conjuntos que não
+necessariamente possam ser bem ordenados, apresentamos as seguintes
+definições: dizemos que um conjunto <span
+class="math inline">\(x\)</span> é
+<span><strong>dominado</strong></span> por um conjunto <span
+class="math inline">\(y\)</span> (denotado por <span
+class="math inline">\(x \preccurlyeq y\)</span>) se existe uma função
+<span class="math inline">\(f\colon
+x\rightarrow y\)</span> que é injetiva, e dizemos que <span
+class="math inline">\(x\)</span> é <span>
+<strong>equipotente</strong></span> a <span
+class="math inline">\(y\)</span> (denotado <span class="math inline">\(x
+\approx y\)</span>) se existe uma função <span
+class="math inline">\(f\colon x\rightarrow y\)</span> que é
+bijetiva.</p>
+<p>Depreende-se desta definição que dizer que um conjunto é dominado por
+outro significa intuitivamente pensar que “aquele tem tamanho menor do
+que este”. Como indício positivo dessa intuição temos o famoso Teorema
+de Cantor-Bernstein-Schröder (o qual o primeiro autor deste artigo
+prefere, como também em outras referências disponíveis na literatura,
+enunciar como “Teorema de Schröder-Bernstein-Cantor” – de modo que sua
+sigla se torne S.B.C., ao que se segue uma anedótica alusão à cidade de
+São Bernardo do Campo, em São Paulo, seu Estado originário).</p>
+<p><strong>Teorema. (<span class="math inline">\(\mathbf{ZF}\)</span>)<a
+href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a> S.B.C. -
+Schröder-Bernstein-Cantor.</strong> Se <span
+class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> são conjuntos tais que <span
+class="math inline">\(a\)</span> é dominado por <span
+class="math inline">\(b\)</span> e <span
+class="math inline">\(b\)</span> é dominado por <span
+class="math inline">\(a\)</span> então temos que <span
+class="math inline">\(a\)</span> é equipotente a <span
+class="math inline">\(b\)</span>.</p>
+<p>Para podermos avançar e definir a cardinalidade de um conjunto (o que
+será feito em breve, após cuidadosa preparação), precisamos primeiro
+introduzir o conceito de <strong>números ordinais</strong>, os quais
+podem ser entendidos como uma generalização dos números naturais e que
+são utilizados para descrever a estrutura de qualquer conjunto que possa
+ser bem-ordenado.</p>
+<p>Formalmente, um ordinal é um conjunto <span
+class="math inline">\(x\)</span> que satisfaz duas condições: ele é
+<span><em>transitivo</em></span> — isto é, sempre que valer <span
+class="math inline">\(z \in y \in x\)</span> tem-se <span
+class="math inline">\(z \in x\)</span> (ou, equivalentemente, <span
+class="math inline">\(\bigcup x \subseteq x\)</span>) — e é bem-ordenado
+pela própria relação de pertinência, <span
+class="math inline">\(\in\)</span>. A partir desta definição, adota-se
+uma notação bastante intuitiva: ordinais são indicados por letras gregas
+minúsculas (<span class="math inline">\(\alpha, \beta, \gamma\)</span>,
+etc.) e a relação de ordem <span class="math inline">\(\in\)</span> é
+denotada pelo símbolo <span class="math inline">\(&lt;\)</span>, de modo
+que se escreve <span class="math inline">\(\alpha &lt; \beta\)</span> em
+vez de <span class="math inline">\(\alpha \in \beta\)</span>. Uma
+consequência fundamental desta estrutura é que um ordinal coincide com o
+conjunto de todos os ordinais menores do que ele; ou seja, para todo
+<span class="math inline">\(\alpha\)</span> vale que <span
+class="math inline">\(\alpha = \{\beta \mid \beta &lt;
+\alpha\}\)</span>. É precisamente esta propriedade que confere aos
+ordinais seu papel como representantes canônicos das boas ordens, no
+sentido de que toda boa ordem é isomorfa a um (e único) ordinal.</p>
+<p>Os ordinais finitos, nesta construção, são exatamente os
+<span><em>números naturais de von Neumann</em></span>: <span
+class="math inline">\(0\coloneq\emptyset\)</span>,<span
+class="math inline">\(1\coloneq\{0\}\)</span>, <span
+class="math inline">\(2\coloneq\{0,1\}, \ldots,
+n\coloneq\{0,1,2,\ldots,n-1\}, \ldots~\)</span>. Consequentemente, o
+menor ordinal infinito é <span class="math inline">\(\omega\)</span>,
+que é o próprio conjunto de todos os números naturais.</p>
+<p>Finalmente, podemos introduzir a noção de cardinalidade (a qual pode
+ser bastante difícil de lidar, no caso de conjuntos que <span><em>não
+possam</em></span> ser bem-ordenados). Se por algum motivo (ainda em
+<span class="math inline">\(\mathbf{ZF}\)</span>, digamos !) sabemos que
+um conjunto <span class="math inline">\(x\)</span> pode ser bem
+ordenado, podemos definir a <strong>cardinalidade</strong> de <span
+class="math inline">\(x\)</span> como sendo o menor ordinal que é
+equipotente a <span class="math inline">\(x\)</span>, o qual denotamos
+por<span class="math inline">\(|x|=\min{\{\alpha\mid
+x\approx\alpha\}}\)</span><a href="#fn7" class="footnote-ref"
+id="fnref7" role="doc-noteref"><sup>7</sup></a>. A partir daí, um
+ordinal <span class="math inline">\(\alpha\)</span> será dito um
+<strong>cardinal</strong> exatamente quando tiver a si mesmo como sua
+cardinalidade, ou seja, se <span
+class="math inline">\(|\alpha|=\alpha\)</span>.</p>
+<p>Além disso, observamos que dados <span
+class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> conjuntos, denotamos por <span
+class="math inline">\(^ab\)</span> o conjunto das funções de <span
+class="math inline">\(a\)</span> em <span
+class="math inline">\(b\)</span>, e supondo que <span
+class="math inline">\(^a b\)</span> possa ser bem ordenado (assunção
+essa que vale trivialmente sob <span
+class="math inline">\(\mathbf{AC}\)</span>, dado que este último é
+equivalente a <span class="math inline">\(\mathbf{WO}\)</span>), temos
+que a cardinalidade de <span class="math inline">\(^ab\)</span> é dada
+justamente pela cardinalidade de <span class="math inline">\(b\)</span>
+elevada a cardinalidade de <span class="math inline">\(a\)</span>.</p>
+<p>Esta última definição tem importante destaque no caso particular no
+qual <span class="math inline">\(b=2 (=\{0,1\})\)</span> , pois sabemos
+que o conjunto das partes de um conjunto <span
+class="math inline">\(a\)</span> qualquer está sempre em bijeção com o
+conjunto das funções de <span class="math inline">\(a\)</span> em <span
+class="math inline">\(2\)</span>, ou seja, vale que <span
+class="math inline">\(^a2\approx\mathcal{P}(a)\)</span>. Traduzida para
+a linguagem de cardinais, obtemos a bem conhecida igualdade <span
+class="math inline">\(2^\kappa =
+|^\kappa 2| = |\mathcal{P}(\kappa)|\)</span> para qualquer cardinal
+<span class="math inline">\(\kappa\)</span>, finito ou infinito.</p>
+<p>Em nosso contexto, destacamos duas ferramentas matemáticas que nos
+permitem trabalhar, em <span class="math inline">\(\mathbf{ZF}\)</span>,
+com o “tamanho” de conjuntos sem ter que falar de cardinalidades (em
+particular, sem ter que discutir se tal conjunto pode ou não ser bem
+ordenado): a primeira é o <strong>Teorema de Cantor</strong> — cuja
+demonstração utiliza o famoso <span><em>Argumento Diagonal de
+Cantor</em></span> —, o qual afirma que para qualquer conjunto <span
+class="math inline">\(x\)</span> vale que <span
+class="math inline">\(x\)</span> é estritamente dominado pelo conjunto
+das suas partes (<span class="math inline">\(x%
+\mathrel{\ooalign{$\preccurlyeq$\cr\kern 1.2pt$
+  \mathrel{\raisebox{-.95pt}{$\rotatebox[origin=c]{-315}{\scaleobj{0.55}{-}}$}}
+$}}\mathcal{P}(x)\)</span>), isto é, temos que existe uma injeção de
+<span class="math inline">\(x\)</span> em <span
+class="math inline">\(\mathcal{P}(x)\)</span>, mas que nenhuma injeção
+pode ser sobrejetiva. Já a segunda é o chamado <strong>número de
+Hartogs</strong>, que permite comparar um conjunto <span
+class="math inline">\(x\)</span> com os números ordinais mesmo que <span
+class="math inline">\(x\)</span> não possa ser bem ordenado: dado <span
+class="math inline">\(x\)</span> conjunto qualquer, o número de Hartogs
+de <span class="math inline">\(x\)</span> é, exatamente, o menor ordinal
+<span class="math inline">\(\beta\)</span> tal que <span
+class="math inline">\(\beta\)</span> não pode ser injetado em <span
+class="math inline">\(x\)</span> (<span
+class="math inline">\(\beta\npreccurlyeq
+x\)</span>); denotamos este menor ordinal simplesmente por <span
+class="math inline">\(H(x)\)</span>  <a href="#fn8" class="footnote-ref"
+id="fnref8" role="doc-noteref"><sup>8</sup></a>.</p>
+<div class="center">
+
+</div>
+<p>Embora a última definição possa ser aplicada a qualquer conjunto,
+temos um fenômeno interessante caso esse conjunto possa ser bem
+ordenado: de fato, se <span class="math inline">\(\kappa\)</span> é um
+cardinal, então <span class="math inline">\(H(\kappa)\)</span> é o menor
+cardinal que não é menor ou igual a <span
+class="math inline">\(\kappa\)</span>, ou seja, <span
+class="math inline">\(H(\kappa)\)</span> é (pela tricotomia dos
+ordinais) o menor cardinal que é maior que <span
+class="math inline">\(\kappa\)</span>, ou seja, é o cardinal sucessor de
+<span class="math inline">\(\kappa\)</span>. Esta observação nos permite
+definir recursivamente (por <span><em>recursão transfinita sobre os
+ordinais</em></span>) a chamada <span><strong>Hierarquia dos
+Alephs</strong></span>: definimos <span
+class="math inline">\(\aleph_0\coloneq\omega\)</span>, o menor cardinal
+infinito; dado um ordinal <span class="math inline">\(\alpha\)</span> e
+seu correspondente <span class="math inline">\(\aleph_\alpha\)</span> já
+definido, definimos <span
+class="math inline">\(\aleph_{\alpha+1}\coloneq{\left(\aleph_\alpha\right)}^{+}\)</span>,
+onde <span
+class="math inline">\({\left(\aleph_\alpha\right)}^{+}\)</span> é, pelo
+que vimos, <span class="math inline">\(H(\aleph_\alpha)\)</span>; por
+fim, dado um ordinal limite<a href="#fn9" class="footnote-ref"
+id="fnref9" role="doc-noteref"><sup>9</sup></a> <span
+class="math inline">\(\gamma\)</span> definimos <span
+class="math inline">\(\aleph_\gamma\coloneq\sup{\{\aleph_\alpha\mid\alpha&lt;\gamma\}}\)</span>.</p>
+<p>Além disso, é interessante observar que a função de Hartogs é
+utilizada na prova da equivalência com o Axioma da Escolha de uma
+asserção que, num primeiro momento, parece ser inofensiva, trivial ou
+absolutamente intuitiva (e a qual, por conta dessa aparência tão
+intuitiva, muitos poderiam acreditar que a mesma deveria ser um teorema
+de <span class="math inline">\(\mathbf{ZF}\)</span> – o que não é!).
+Seja então <span class="math inline">\(\mathbf{CC}\)</span> (de
+“Comparação de Cardinalidades" ) a seguinte asserção:</p>
+<div class="center">
+<p>“Se <span class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span> são conjuntos quaisquer,<br />
+então <span class="math inline">\(A \preccurlyeq B\)</span> ou <span
+class="math inline">\(B \preccurlyeq A\)</span>”</p>
+</div>
+<p>Ou seja, <span class="math inline">\(\mathbf{CC}\)</span>
+simplesmente afirma que, dados dois conjuntos quaisquer, deveria ser
+verdade que poderíamos <span> <em>compará-los por funções
+injetoras</em></span>, de modo a descobrir “qual dos dois conjuntos é o
+maior <span><em>(por conter uma cópia do outro)</em></span>”. <span
+class="math inline">\(\mathbf{CC}\)</span> segue diretamente de <span
+class="math inline">\(\mathbf{AC}\)</span> via <span
+class="math inline">\(\mathbf{WO}\)</span>: dados os conjuntos <span
+class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span>, por <span
+class="math inline">\(\mathbf{WO}\)</span> podem ser ambos bem ordenados
+e portanto suas cardinalidades são definidas da maneira usual, e assim
+sendo <span class="math inline">\(\kappa =
+|A|\)</span> e <span class="math inline">\(\lambda = |B|\)</span>, a
+tricotomia existente entre ordinais (logo, entre cardinais também)
+resolve a situação facilmente.</p>
+<p>Por outro lado, <span class="math inline">\(\mathbf{CC}\)</span>
+implica <span class="math inline">\(\mathbf{AC}\)</span> (também via
+<span class="math inline">\(\mathbf{WO}\)</span>): pois dado um conjunto
+<span class="math inline">\(A\)</span> qualquer, considere <span
+class="math inline">\(B =
+H(A)\)</span>. Como <span class="math inline">\(B\)</span> não pode ser
+dominado por <span class="math inline">\(A\)</span> neste caso
+particular, vale <span class="math inline">\(A \preccurlyeq B\)</span>
+por <span class="math inline">\(\mathbf{CC}\)</span>, e, por poder ser
+injetado no ordinal <span class="math inline">\(H(A)\)</span>, é
+imediato usar essa injeção para definir uma boa ordem em <span
+class="math inline">\(A\)</span>, o que verificaria que “todo conjunto
+pode ser bem ordenado”<a href="#fn10" class="footnote-ref" id="fnref10"
+role="doc-noteref"><sup>10</sup></a>.</p>
+<p>Com estas definições e observações, principalmente no que se refere à
+Hierarquia dos Alephs, podemos retornar a nossa discussão sobre a
+Hipótese do Contínuo com uma outra linguagem: de fato, temos do Teorema
+de Cantor que <span
+class="math inline">\(\aleph_0&lt;2^{\aleph_0}\)</span>, e, como <span
+class="math inline">\(\aleph_1\)</span> é o sucessor de <span
+class="math inline">\(\aleph_0\)</span>, concluímos que <span
+class="math inline">\(\aleph_1\leq2^{\aleph_0}\)</span>. Assim, o que
+<span class="math inline">\(\mathbf{CH}\)</span> diz é que nesta última
+expressão vale a igualdade, enquanto <span
+class="math inline">\(\neg\mathbf{CH}\)</span> (a negação de <span
+class="math inline">\(\mathbf{CH}\)</span>) diz que vale a desigualdade
+estrita.</p>
+<p>Em suma, na linguagem dos alephs, o significado de <span
+class="math inline">\(\mathbf{CH}\)</span> é justamente traduzido pela
+equação <span class="math display">\[2^{\aleph_0}=\aleph_1\]</span> –
+donde a reta teria o menor tamanho possível. E, utilizando este mesmo
+raciocínio, temos que para um ordinal <span
+class="math inline">\(\alpha\)</span> vale <span
+class="math inline">\(\aleph_\alpha&lt;2^{\aleph_\alpha}\)</span>, donde
+<span
+class="math inline">\(\aleph_{\alpha+1}\leq2^{\aleph_\alpha}\)</span>, e
+<span class="math inline">\(\mathbf{GCH}\)</span> seria justamente a
+afirmação da igualdade para cada um dos ordinais <span
+class="math inline">\(\alpha\)</span>, isto é, é a afirmação de que vale
+<span
+class="math inline">\(2^{\aleph_\alpha}=\aleph_{\alpha+1}\)</span>, para
+cada <span class="math inline">\(\alpha\)</span> ordinal (o que é
+claramente uma generalização de <span
+class="math inline">\(\mathbf{CH}\)</span>).</p>
+<div class="center">
+
+</div>
+<p>Não obstante, observando que um conjunto arbitrário dado não
+necessariamente pode ser bem-ordenado em <span
+class="math inline">\(\mathbf{ZF}\)</span> – e como o nosso objetivo
+neste artigo é justamente provar <span
+class="math inline">\(\mathbf{AC}\)</span> (que é equivalente a <span
+class="math inline">\(\mathbf{WO}\)</span>) assumindo <span
+class="math inline">\(\mathbf{GCH}\)</span> <span><em>em <span
+class="math inline">\(\mathbf{ZF}\)</span></em></span>, precisamos
+enunciar <span class="math inline">\(\mathbf{GCH}\)</span> em uma versão
+que não faça referência aos números cardinais: com efeito, daqui pra
+frente <span class="math inline">\(\mathbf{GCH}\)</span> será entendida
+como a seguinte asserção <span class="math inline">\((*)\)</span>:</p>
+<p>“Para quaisquer conjuntos <span class="math inline">\(X\)</span> e
+<span class="math inline">\(Y\)</span> infinitos, se <span
+class="math inline">\(X\)</span> é dominado por <span
+class="math inline">\(Y\)</span>, e este por sua vez é dominado por
+<span class="math inline">\(\mathcal{P}(X)\)</span>, então vale que
+<span class="math inline">\(X\)</span> é equipotente a <span
+class="math inline">\(Y\)</span> ou que <span
+class="math inline">\(Y\)</span> é equipotente a <span
+class="math inline">\(\mathcal{P}(X)\)</span>.”</p>
+<p>Assim, identificaremos, em <span
+class="math inline">\(\mathbf{ZF}\)</span>, a seguinte asserção <span
+class="math inline">\((\ast)\)</span> com <span
+class="math inline">\(\mathbf{GCH}\)</span>:</p>
+<div class="center">
+<p><span class="math inline">\((\ast)\)</span> “Para quaisquer <span
+class="math inline">\(X\)</span> e <span
+class="math inline">\(Y\)</span> infinitos,<br />
+<span class="math inline">\(X \preccurlyeq Y
+\preccurlyeq\mathcal{P}(X)\Longrightarrow X \approx Y\)</span> ou <span
+class="math inline">\(Y \approx \mathcal{P}(X)\)</span>."</p>
+</div>
+<p>Chamamos a atenção para o fato de que a asserção acima “plasma” a
+ausência de alternativas, digamos assim, que temos — em termos do
+tamanho de um conjunto infinito <span class="math inline">\(X\)</span> —
+para os conjuntos que estejam “ensanduichados” entre o conjunto <span
+class="math inline">\(X\)</span> e o conjunto de suas partes <span
+class="math inline">\(\mathcal{P}(X)\)</span> (na comparação de tamanho
+por funções injetoras): um tal conjunto deverá ser equipotente ou a
+<span class="math inline">\(X\)</span> ou a <span
+class="math inline">\(\mathcal{P}(X)\)</span>, não havendo
+possibilidades para “tamanhos intermediários”.</p>
+<h1 id="resultados-intermediários">Resultados Intermediários</h1>
+<p>Com essas definições podemos apresentar alguns teoremas
+intermediários, cujas demonstrações fogem do escopo deste texto, por
+isso omitiremos.</p>
+<p>O primeiro teorema estabelece uma importante característica dos
+cardinais infinitos que, obviamente, os diferencia dos cardinais
+finitos, que é a idempotência com respeito ao produto (seja produto
+cartesiano ou produto de cardinais):</p>
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>)
+Teorema</span> Para todo <span class="math inline">\(\kappa\)</span>
+cardinal infinito vale que <span
+class="math inline">\(\kappa\times\kappa\approx\kappa\)</span>.</p>
+</div>
+<p>Uma demonstração deste resultado pode ser encontrada em qualquer uma
+das principais referências modernas para a Teoria dos Conjuntos, como
+por exemplo <span class="citation" data-cites="Jech"></span> ou <span
+class="citation" data-cites="Kunen"></span>. Como vimos que o Axioma da
+Escolha é equivalente ao Teorema da Boa Ordenação (donde cada conjunto
+infinito tem como cardinalidade um cardinal infinito <span
+class="math inline">\(\kappa\)</span>), temos o seguinte corolário:</p>
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>)
+Corolário</span> <span class="math inline">\(\mathbf{AC}\)</span>
+implica que para todo <span class="math inline">\(X\)</span> conjunto
+infinito vale que <span class="math inline">\(X\times X\approx
+X\)</span>.</p>
+</div>
+<p>Por fim, temos que a recíproca deste resultado também é verdadeira,
+num resultado que é atribuído a Tarski (de 1924), sendo sua prova uma
+argumentação bastante mais elaborada e que faz uso da função de
+Hartogs.</p>
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>) Teorema
+(Tarski) <span class="citation" data-cites="Tarski"></span></span> Se
+para todo <span class="math inline">\(X\)</span> conjunto infinito vale
+que <span class="math inline">\(X\times X\approx X\)</span>, então temos
+que <span class="math inline">\(\mathbf{AC}\)</span> é válido.</p>
+</div>
+<p>Na última seção deste artigo voltaremos a dar destaque a esse
+resultado clássico de Tarski.</p>
+<p>Com os dois últimos resultados, concluímos que em <span
+class="math inline">\(\mathbf{ZF}\)</span> vale que <span
+class="math inline">\(\mathbf{AC}\)</span> é equivalente à asserção
+“para todo <span class="math inline">\(X\)</span> conjunto infinito vale
+a equipotência dada por<span class="math inline">\(X\times
+X\approx X\)</span>”. No que segue, vamos utilizar exatamente essa
+conclusão para implicar o Axioma da Escolha.</p>
+<p>Finalmente, observamos que a prova que apresentamos é levemente
+diferente daquela apresentada originalmente por Sierpiński em 1947 <span
+class="citation" data-cites="Sierp"></span>, dado que incorporamos
+resultados provados logo depois (em 1954) por Specker <span
+class="citation" data-cites="Specker"></span>.</p>
+<h1 id="resultados-principais">Resultados Principais</h1>
+<p>Chegamos agora aos principais resultados que gostaríamos de
+trabalhar, sendo o primeiro o já citado Teorema de Specker. A sua
+demonstração é relativamente longa, mas é aqui que está grande parte do
+trabalho, e após superarmos este desafio estaremos praticamente prontos
+para mostrar o resultado desejado. <a href="#fn11" class="footnote-ref"
+id="fnref11" role="doc-noteref"><sup>11</sup></a></p>
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>) Teorema de
+Specker <span class="citation" data-cites="Specker"></span></span> Se
+<span class="math inline">\(X\)</span> é um conjunto com pelo menos
+<span class="math inline">\(5\)</span> elementos, então <span
+class="math inline">\(\mathcal{P}(X)\)</span> não é dominado por <span
+class="math inline">\(X^2\)</span> (isto é, <span
+class="math inline">\(\mathcal{P}(X)\npreccurlyeq X^2\)</span>).</p>
+</div>
+<p>Observa-se que a hipótese deste teorema é extremamente razoável: ora,
+sabemos que para um conjunto <span class="math inline">\(X\)</span>
+finito com <span class="math inline">\(n\)</span> elementos vale que a
+cardinalidade do conjunto <span
+class="math inline">\(\mathcal{P}(X)\)</span> é exatamente <span
+class="math inline">\(2^n\)</span>, enquanto que a cardinalidade de
+<span class="math inline">\(X\times X\)</span> é <span
+class="math inline">\(n\cdot n=n^2\)</span>, e a expressão <span
+class="math inline">\(2^n\nleq n^2\)</span> se verifica para todo número
+natural <span class="math inline">\(n\)</span> maior ou igual a <span
+class="math inline">\(5\)</span> (e note que <span
+class="math inline">\(2^4 = 4^2\)</span>).</p>
+<p>Já a idéia da demonstração consiste em tomar <span
+class="math inline">\(H(X)\)</span>, o número de Hartogs de <span
+class="math inline">\(X\)</span>, e, ao supor por absurdo que exista uma
+função <span class="math inline">\(f\colon\mathcal{P}(X)\rightarrow
+X^2\)</span> que é injetiva, construir uma sequência injetora (com
+respeito aos índices) <span class="math inline">\(\langle
+x_\alpha\mid\alpha &lt;H(X)\rangle\)</span> de elementos de <span
+class="math inline">\(X\)</span> com comprimento <span
+class="math inline">\(H(X)\)</span>, o que implicaria <span
+class="math inline">\(H(X)\preccurlyeq X\)</span>, uma contradição com a
+definição que demos para a função de Hartogs.</p>
+<p>Sejam <span class="math inline">\(X\)</span> conjunto e <span
+class="math inline">\(\lambda\coloneq H(X)\)</span>, e suponha por
+absurdo que exista uma <span
+class="math inline">\(f\colon\mathcal{P}(X)\rightarrow X^2\)</span>
+função injetiva. Vamos construir uma sequência de elementos de <span
+class="math inline">\(X\)</span> conforme o descrito anteriormente:</p>
+<p>Primeiramente, dado que <span class="math inline">\(X\)</span> tem
+pelo menos <span class="math inline">\(5\)</span> elementos, podemos
+tomar <span class="math inline">\(x_0, x_1, x_2, x_3\)</span> e <span
+class="math inline">\(x_4\)</span> 2-a-2 distintos de forma arbitrária.
+A partir daí vamos argumentar indutivamente: seja <span
+class="math inline">\(n\)</span> com <span class="math inline">\(5\leq
+n&lt;\omega\)</span> tal que <span class="math inline">\(\langle
+x_\alpha\mid\alpha&lt;n\rangle\)</span> é uma sequência injetora já
+construída; se <span class="math inline">\(n&lt;\lambda\)</span>,
+aplicando a hipótese de indução vamos obter o elemento <span
+class="math inline">\(x_n\)</span>.</p>
+<p>Considere <span
+class="math inline">\(C_n=\{x_\alpha\mid\alpha&lt;n\}\)</span>, a imagem
+da sequência <span class="math inline">\(\langle
+x_\alpha\mid\alpha&lt;n\rangle\)</span>. Note que dado um subconjunto
+<span class="math inline">\(U\)</span> de <span
+class="math inline">\(C_n\)</span> vale que <span
+class="math inline">\(U\)</span> é um elemento de <span
+class="math inline">\(\mathcal{P}(X)\)</span>, donde podemos nos
+perguntar o que acontece com <span
+class="math inline">\(f(U)\)</span>.</p>
+<p>Afirmamos que existe pelo menos um subconjunto <span
+class="math inline">\(U\)</span> de <span
+class="math inline">\(C_n\)</span> tal que <span
+class="math inline">\(f(U)\)</span> não pertence a <span
+class="math inline">\(C_n\times C_n\)</span>, que é subconjunto de <span
+class="math inline">\(X^2\)</span>. Com efeito, esta afirmação é uma
+mera aplicação do bastante conhecido <span><em>Princípio da Casa dos
+Pombos</em></span>.</p>
+<p>Suponha que não valesse a afirmação. Nesse caso, como sabemos que
+<span class="math inline">\(\mathcal{P}(C_n)\)</span> tem <span
+class="math inline">\(2^n\)</span> elementos e que <span
+class="math inline">\(C_n\times C_n\)</span> tem <span
+class="math inline">\(n^2\)</span> elementos (e <span
+class="math inline">\(n\geq 5\)</span> implica <span
+class="math inline">\(2^n&gt;n^2\)</span>), estamos numa situação na
+qual “temos mais pombos do que casas”, isto é, existiriam dois
+subconjuntos <span class="math inline">\(U\)</span> e <span
+class="math inline">\(U&#39;\)</span> de <span
+class="math inline">\(C_n\)</span> distintos tais que <span
+class="math inline">\(f(U)=f(U&#39;)\)</span>, o que contradiz a
+assunção de <span class="math inline">\(f\)</span> ser injetiva.</p>
+<p>Assim, concluímos que existe pelo menos um <span
+class="math inline">\(U\subseteq C_n\)</span> com <span
+class="math inline">\(f(U)\notin C_n\times C_n\)</span>. Além disso,
+temos que este <span class="math inline">\(U\)</span> pode ser tomado de
+forma não arbitrária: para isso, dado que o conjunto dos subconjuntos
+finitos de <span class="math inline">\(\omega\)</span> é um conjunto
+infinito enumerável, podemos tomar uma única vez uma enumeração sobre
+este conjunto e a partir daí induzir uma boa ordem natural em cada um
+dos conjuntos <span class="math inline">\(\mathcal{P}(C_n)\)</span>
+identificando cada subconjunto de <span
+class="math inline">\(C_n\)</span> pelo conjunto dos índices de seus
+elementos, os quais constitutem uma boa ordem pela enumeração fixada
+anteriormente<a href="#fn12" class="footnote-ref" id="fnref12"
+role="doc-noteref"><sup>12</sup></a>.</p>
+<p>Com isso, conseguimos fixar construtivamente um <span
+class="math inline">\(U\subseteq
+C_n\)</span> tal que <span class="math inline">\(f(U)\)</span> é
+elemento do conjunto<span class="math inline">\(X\times
+X~\setminus~C_n\times C_n\)</span>, o que garante que alguma das duas
+coordenadas de <span class="math inline">\(f(U)\)</span> não pertence a
+<span class="math inline">\(C_n\)</span> de modo que podemos tomar essa
+coordenada como nosso próximo elemento da sequência que queremos
+definir.</p>
+<p>Formalmente, definimos <span
+class="math inline">\(x_n\coloneq\pi_1\big(f(U)\big)\)</span> caso valha
+que <span class="math inline">\(\pi_1\big(f(U)\big)\)</span> não
+pertence a <span class="math inline">\(C_n\)</span>, e <span
+class="math inline">\(x_n\coloneq\pi_2\big(f(U)\big)\)</span> no caso
+contrário. Assim, é claro que <span class="math inline">\(x_n\)</span>
+está bem definido e é um elemento de <span
+class="math inline">\(X\)</span> que não pertence a <span
+class="math inline">\(C_n\)</span>, de modo que a sequência <span
+class="math inline">\(\langle
+x_0, \ldots, x_{n-1}, x_n\rangle\)</span> é, portanto, injetora.</p>
+<p>Caso o conjunto <span class="math inline">\(X\)</span> seja finito,
+temos que <span class="math inline">\(X\)</span> é claramente bem
+ordenado, e <span class="math inline">\(|X|\)</span> é um número
+natural, donde <span class="math inline">\(\lambda\)</span> é
+simplesmente <span class="math inline">\(|X|+1\)</span>, e o argumento
+anterior é suficiente para provar o teorema.</p>
+<p>Por outro lado, caso <span class="math inline">\(X\)</span> não seja
+finito temos que <span class="math inline">\(\lambda\)</span> é um
+cardinal infinito, donde <span
+class="math inline">\(\lambda\geq\omega\)</span>, e o argumento acima
+mostra que podemos construir uma sequência <span
+class="math inline">\(\langle
+x_\alpha\mid\alpha&lt;\omega\rangle\)</span> de elementos de <span
+class="math inline">\(X\)</span> que é injetora.</p>
+<p>Agora, se por acaso <span
+class="math inline">\(\omega&lt;\lambda\)</span>, ainda devemos mostrar
+como expandir esta sequência. Para isso, vamos utilizar um argumento
+similar ao anteriormente feito:</p>
+<ul>
+<li><p>Seja <span
+class="math inline">\(\omega\leq\beta&lt;\lambda\)</span> tal que <span
+class="math inline">\(\langle
+x_\alpha\mid\alpha&lt;\beta\rangle\)</span> é uma sequência injetora de
+elementos de <span class="math inline">\(X\)</span> já construída, e
+faça <span
+class="math inline">\(C_\beta=\{x_\alpha\mid\alpha&lt;\beta\}\)</span>,
+como antes;</p></li>
+<li><p>Agora, considere a bijeção canônica<a href="#fn13"
+class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>
+<span
+class="math inline">\(f_\beta\colon\beta\rightarrow\beta\times\beta\)</span>
+que é obtida usando-se as potências ordinais de <span
+class="math inline">\(\omega\)</span> (“Forma Normal de Cantor"), e
+também uma bijeção <span class="math inline">\(F_\beta\colon
+C_\beta\rightarrow C_\beta\times C_\beta\)</span> naturalmente induzida
+por <span class="math inline">\(f_\beta\)</span>;</p></li>
+<li><p>Como antes, queremos determinar canonicamente um subconjunto
+<span class="math inline">\(U\)</span> de <span
+class="math inline">\(C_\beta\)</span> tal que <span
+class="math inline">\(f(U)\)</span> não pertence a <span
+class="math inline">\(C_\beta\times C_\beta\)</span> e aplicar o mesmo
+argumento anterior para determinar o próximo elemento da
+sequência;</p></li>
+<li><p>Como <span class="math inline">\(f\)</span> é função injetiva de
+<span class="math inline">\(\mathcal{P}(X)\)</span> em <span
+class="math inline">\(X\times X\)</span>, podemos definir uma função
+<span class="math inline">\(h_\beta\)</span> que se comporta como uma
+espécie de inversa de <span class="math inline">\(f\)</span> restrita a
+<span class="math inline">\(C_\beta\times
+C_\beta\)</span>: formalmente, definimos <span
+class="math inline">\(h_\beta\colon C_\beta\times
+C_\beta\rightarrow\mathcal{P}(X)\)</span> tal que dado <span
+class="math inline">\(\langle a,b\rangle\)</span> em <span
+class="math inline">\(C_\beta\times C_\beta\)</span>, vale que <span
+class="math inline">\(h\big(\langle a,b\rangle\big)\)</span> é igual a
+<span class="math inline">\(f^{-1}\big(\langle a,b\rangle\big)\)</span>
+se <span class="math inline">\(\langle
+a,b\rangle\)</span> pertence a imagem de <span
+class="math inline">\(f\)</span>, e <span
+class="math inline">\(h(\langle
+a,b\rangle)=\varnothing\)</span> caso contrário;</p></li>
+<li><p>Note que <span class="math inline">\(h_\beta(\langle
+a,b\rangle)=\bigcup
+f^{-1}\big[\{\langle
+a,b\rangle\}\cap\text{im}(f)\big]\)</span>;</p></li>
+<li><p>Com isso, podemos definir <span class="math inline">\(g\coloneq
+h_\beta\circ
+F_\beta\)</span> como a composição que sai de <span
+class="math inline">\(C_\beta\subseteq X\)</span> e vai para <span
+class="math inline">\(\mathcal{P}(X)\)</span>, que associa cada elemento
+<span class="math inline">\(x_\alpha\in
+C_\beta\)</span> da sequência já construída em um <span
+class="math inline">\(g(x_\alpha)\in\mathcal{P}(X)\)</span>, subconjunto
+de <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Definamos agora o subconjunto <span
+class="math inline">\(U\)</span> de <span
+class="math inline">\(C_\beta\)</span> constituído dos elementos <span
+class="math inline">\(x_\alpha\)</span> que não pertencem a <span
+class="math inline">\(g(x_\alpha)\)</span>, isto é, <span
+class="math inline">\(U=\{x_\alpha\in
+C_\beta\mid x_\alpha\notin g(x_\alpha)\}\)</span>;</p></li>
+<li><p>Utilizando um tipo de argumento bastante similar ao argumento
+diagonal de Cantor, temos que <span class="math inline">\(U\)</span> não
+pertence à imagem da função <span class="math inline">\(g\)</span>: com
+efeito, se <span class="math inline">\(U\)</span> pertencesse à imagem
+de <span class="math inline">\(g\)</span> então existiria um <span
+class="math inline">\(x_\gamma\)</span> em <span
+class="math inline">\(C_\beta\)</span> tal que <span
+class="math inline">\(g(x_\gamma)=U\)</span>, mas daí <span
+class="math inline">\(x_\gamma\in U\)</span> implicaria pela definição
+de <span class="math inline">\(U\)</span> que <span
+class="math inline">\(x_\gamma\notin g(x_\gamma)=U\)</span>, enquanto
+<span class="math inline">\(x_\gamma\notin U\)</span> implicaria pela
+definição de <span class="math inline">\(U\)</span> que <span
+class="math inline">\(x_\gamma\in g(x_\gamma)=U\)</span>, o que é
+absurdo;</p></li>
+<li><p>Dito isso, afirmamos que este subconjunto de <span
+class="math inline">\(C_\beta\)</span> satisfaz o desejado, isto é, que
+<span class="math inline">\(f(U)\)</span> não pertence a <span
+class="math inline">\(C_\beta\times C_\beta\)</span>: com efeito, se não
+fosse este o caso, teríamos que existe um elemento <span
+class="math inline">\(x_\delta\)</span> em <span
+class="math inline">\(C_\beta\)</span> tal que <span
+class="math inline">\(F_\beta(x_\delta)=f(U)\)</span>, pois foi
+estabelecido que <span class="math inline">\(F_\beta\)</span> é uma
+bijeção entre <span class="math inline">\(C_\beta\)</span> e <span
+class="math inline">\(C_\beta\times C_\beta\)</span>;</p></li>
+<li><p>Como <span class="math inline">\(x_\delta\)</span> pertence ao
+domínio da função <span class="math inline">\(g\)</span>, podemos
+calcular <span class="math inline">\(g(x_\delta)\)</span>, donde <span
+class="math display">\[g(x_\delta)\coloneq\big(h_\beta\circ
+F_\beta\big)(x_\delta)=h_\beta\big(F_\beta(x_\delta)\big)=h_\beta\big(f(U)\big)=U,\]</span>
+onde esta última igualdade é válida devido à <span
+class="math inline">\(h_\beta\)</span> se comportar como a inversa de
+<span class="math inline">\(f\)</span> para elementos da imagem desta
+função;</p></li>
+<li><p>Da equação acima segue que <span class="math inline">\(U\)</span>
+pertenceria à imagem de <span class="math inline">\(g\)</span>,
+contradizendo a conclusão, obtida via argumento diagonal, de que <span
+class="math inline">\(U\)</span> não pode pertencer à imagem de <span
+class="math inline">\(g\)</span>;</p></li>
+<li><p>Com isso, conseguimos apontar construtivamente um subconjunto
+<span class="math inline">\(U\)</span> de <span
+class="math inline">\(C_\beta\)</span> tal que <span
+class="math inline">\(f(U)\)</span> não pertence a <span
+class="math inline">\(C_\beta\times C_\beta\)</span>, e exatamente como
+no caso finito, construímos <span class="math inline">\(x_\beta\)</span>
+não pertencente a <span class="math inline">\(C_\beta\)</span>, de modo
+que a sequência <span class="math inline">\(\langle
+x_\alpha\mid\alpha\leq\beta\rangle\)</span> é injetora.</p></li>
+</ul>
+<p>Utilizando este último argumento como passo indutivo em uma indução
+sobre o cardinal <span class="math inline">\(\lambda\)</span> temos que
+existe uma sequência <span class="math inline">\(\langle
+x_\alpha\mid\alpha&lt;\lambda\rangle\)</span> de elementos de <span
+class="math inline">\(X\)</span> que é injetora.</p>
+<p>Esta construção, como explicado no começo, é uma contradição com
+<span class="math inline">\(\lambda\)</span> ser o número de Hartogs de
+<span class="math inline">\(X\)</span>, o que implica que tal não pode
+ser feita, donde não existe função de <span
+class="math inline">\(\mathcal{P}(X)\)</span> em <span
+class="math inline">\(X^2\)</span> injetiva, e o teorema está finalmente
+demonstrado.0◻</p>
+<p>Superada esta demonstração, vejamos um corolário rápido que será
+diretamente utilizado para demonstrar o resultado principal. Para
+auxiliar a sua demonstração, vamos definir a <span><strong>União
+Disjunta</strong></span> de dois conjuntos <span
+class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span> pondo <span
+class="math display">\[A\oplus
+B\coloneq\big(A\times\{0\}\big)\cup\big(B\times\{1\}\big).\]</span></p>
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>) Corolário do
+Teorema de Specker</span> Se <span class="math inline">\(X\)</span> é um
+conjunto infinito e <span class="math inline">\(n\)</span> é um número
+natural qualquer, então <span class="math inline">\(n\times X\)</span> é
+estritamente dominado por <span
+class="math inline">\(\mathcal{P}(X)\)</span>, isto é, <span
+class="math inline">\(n\times X%
+\mathrel{\ooalign{$\preccurlyeq$\cr\kern 1.2pt$
+  \mathrel{\raisebox{-.95pt}{$\rotatebox[origin=c]{-315}{\scaleobj{0.55}{-}}$}}
+$}}\mathcal{P}(X)\)</span>.</p>
+</div>
+<p>Note que o resultado é imediato se <span
+class="math inline">\(n=0\)</span>, pois o produto cartesiano de <span
+class="math inline">\(n\)</span> com <span
+class="math inline">\(X\)</span> seria o conjunto vazio; além disso, se
+<span class="math inline">\(n=1\)</span>, estaremos diante do Teorema de
+Cantor, e o resultado é imediatamente verdadeiro. Assim, podemos assumir
+que <span class="math inline">\(n\)</span> é maior ou igual a <span
+class="math inline">\(2\)</span>. Na verdade, para nosso objetivo final
+o caso que importará será precisamente <span
+class="math inline">\(n=2\)</span>.</p>
+<p>Como <span class="math inline">\(X\)</span> é um conjunto infinito e
+<span class="math inline">\(n\)</span> é um número natural (maior ou
+igual a 2), podemos fixar um subconjunto <span
+class="math inline">\(Y\)</span> de <span
+class="math inline">\(X\)</span> com <span
+class="math inline">\(Y\)</span> equipotente a <span
+class="math inline">\(n\)</span>, e escrever <span
+class="math inline">\(Y=\{y_j\mid j&lt;n\}\)</span>.</p>
+<p>Definindo <span class="math inline">\(Z\coloneq
+X~\setminus~Y\)</span>, temos que <span class="math inline">\(Z\)</span>
+é um conjunto infinito, e que <span class="math inline">\(n\times
+X\)</span> é a união disjunta entre <span class="math inline">\(n\times
+Z\)</span> e <span class="math inline">\(n\times Y\)</span>.</p>
+<p>Devido a isso, temos que <span class="math inline">\(n\times
+X\)</span> é equipotente a<span class="math inline">\(\big((n\times
+Z)\oplus n^2\big)\)</span>, pois a função que leva <span
+class="math inline">\((i,z)\in n\times Z\)</span> em <span
+class="math inline">\((i,z,0)\)</span> e <span
+class="math inline">\((i,y_j)\in n\times Y\)</span> em <span
+class="math inline">\(((i,j),1)\)</span> claramente é bijetiva.</p>
+<p>Por outro lado, como <span class="math inline">\(n^2\preccurlyeq
+Z\)</span>, e para todo <span class="math inline">\(n\geq 2\)</span>
+vale que <span class="math inline">\(n\leq 2^{n-1}\)</span>, temos que
+<span class="math inline">\(\big((n\times Z)\oplus n^2\big)\)</span> é
+dominado por <span class="math inline">\((2^{n-1}\times Z)\oplus
+Z\)</span>, que por sua vez é dominado por <span
+class="math inline">\((2^{n-1}+1)\times Z\)</span>.</p>
+<p>Como este último é dominado por <span class="math inline">\(2^n\times
+Z\)</span> concluímos que <span class="math inline">\(n\times
+X\preccurlyeq 2^n\times
+Z.\)</span> Além disso, temos que <span class="math inline">\(2^n\times
+Z\)</span> é equipotente a <span class="math inline">\(^n2\times
+Z\)</span> (pois a quantidade de funções de <span
+class="math inline">\(n\)</span> em <span
+class="math inline">\(2\)</span> coincide com o tamanho do conjunto das
+partes de <span class="math inline">\(n\)</span>, que é igual a <span
+class="math inline">\(2^n\)</span>), que por sua vez é equipotente a
+<span class="math inline">\(^Y2\times Z\)</span>.</p>
+<p>Como pelo teorema de Cantor vale <span
+class="math inline">\(Z\preccurlyeq\mathcal{P}(Z)\approx {}^Z2\)</span>,
+temos que <span class="math inline">\(^Y2\times Z\)</span> é dominado
+por <span class="math inline">\(^Y2\times{}^Z2\)</span>, que por sua vez
+é equipotente a <span class="math inline">\(^{Y\cup Z}2\)</span>, pois
+<span class="math inline">\(Y\)</span> e <span
+class="math inline">\(Z\)</span> são disjuntos.</p>
+<p>Mas <span class="math inline">\(^{Y\cup Z}2\)</span> é igual a <span
+class="math inline">\(^X2\)</span>, que é equipotente a <span
+class="math inline">\(\mathcal{P}(X)\)</span>. Concluímos assim que:
+<span class="math display">\[\begin{matrix} n\times
+X&amp;\preccurlyeq&amp;2^n\times
+Z \\&amp;\approx&amp;{}^n2\times Z
+\\&amp;\approx&amp;{}^Y2\times Z&amp;
+\\&amp;\preccurlyeq&amp;{}^Y2\times {}^Z2
+\\&amp;\approx&amp;{}^{Y\cup Z}2&amp; \\&amp;=&amp;{}^X2&amp;
+\\&amp;\approx&amp;\mathcal{P}(X) \end{matrix}\]</span> Portanto, vale
+que <span class="math inline">\(n\times X\)</span> é dominado por <span
+class="math inline">\(\mathcal{P}(X)\)</span>. Contudo, se valesse a
+dominação reversa, teríamos que <span
+class="math inline">\(\mathcal{P}(X)\preccurlyeq n\times X
+\preccurlyeq X\times X=X^2\)</span>, contradizendo o Teorema de
+Specker.</p>
+<p>Com isso segue que <span class="math inline">\(n\times
+X\preccurlyeq\mathcal{P}(X)\)</span> e que, portanto, <span
+class="math inline">\(n\times
+X\not\approx\mathcal{P}(X)\)</span>.0◻</p>
+<p>Finalmente chegamos ao resultado desejado.</p>
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>) Teorema de
+Sierpiński <span class="citation" data-cites="Sierp"></span></span> A
+Hipótese Generalizada do Contínuo implica o Axioma da Escolha: <span
+class="math display">\[\underbrace{\mathbf{GCH}}_{(\ast)}\Longrightarrow\mathbf{AC}\]</span></p>
+</div>
+<p>Recordamos que para esta prova em <span
+class="math inline">\(\mathbf{ZF}\)</span> estamos identificando <span
+class="math inline">\(\mathbf{GCH}\)</span> com seu enunciado dado por
+<span class="math inline">\((\ast)\)</span><a href="#fn14"
+class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a>,
+e que em <span class="math inline">\(\mathbf{ZF}\)</span> também vale
+que o Axioma da Escolha é equivalente à sua mais conhecida forma
+cardinal – que é aquela devida a Tarski e dada por “para todo conjunto
+infinito <span class="math inline">\(X\)</span> vale que <span
+class="math inline">\(X^2\)</span> é equipotente a <span
+class="math inline">\(X\)</span>". Nesta demonstração vamos implicar
+esta última asserção.</p>
+<p>Seja <span class="math inline">\(X\)</span> um conjunto infinito.
+Assim, é imediato que <span class="math inline">\(X\)</span> é dominado
+por <span class="math inline">\(2\times X\)</span>; pelo corolário
+anterior vale que <span class="math inline">\(2\times X\)</span> é
+estritamente dominado por <span
+class="math inline">\(\mathcal{P}(X)\)</span>, ou seja, vale que: <span
+class="math display">\[X\preccurlyeq 2\times
+X%
+\mathrel{\ooalign{$\preccurlyeq$\cr\kern 1.2pt$
+  \mathrel{\raisebox{-.95pt}{$\rotatebox[origin=c]{-315}{\scaleobj{0.55}{-}}$}}
+$}}\mathcal{P}(X).\]</span> Como estamos assumindo <span
+class="math inline">\((\ast)\)</span>, esta expressão implica que <span
+class="math inline">\(X\)</span> tem que ser equipotente a <span
+class="math inline">\(2\times X\)</span>.</p>
+<p>Por outro lado, vale pelo teorema de Cantor que <span
+class="math inline">\(X^2\)</span> é dominado por <span
+class="math inline">\(\big(\mathcal{P}(X)\big)^2\)</span>, que por sua
+vez é equipotente a <span
+class="math inline">\(\big(^X2\big)^2\)</span>, que também é equipotente
+a <span class="math inline">\(^2\big(^X2\big)\)</span>.</p>
+<p>Como <span class="math inline">\(^2\big(^X2\big)\)</span> é
+equipotente a <span class="math inline">\(^{2\times
+X}2\)</span>, e acabamos de mostrar que <span
+class="math inline">\(2\times X\)</span> é equipotente a <span
+class="math inline">\(X\)</span>, concluímos que:</p>
+<p><span class="math display">\[\begin{matrix}
+\big(X\big)^2&amp;\preccurlyeq&amp;\big(\mathcal{P}(X)\big)^2
+\\&amp;\approx&amp;\big(^X2\big)^2
+\\&amp;\approx&amp;^2\big(^X2\big) \\&amp;\approx&amp;^{2\times
+X}2 \\&amp;\approx&amp;^X2 \\&amp;\approx&amp;\mathcal{P}(X),
+\end{matrix}\]</span></p>
+<p>donde segue que <span class="math inline">\(X^2\)</span> é dominado
+por <span class="math inline">\(\mathcal{P}(X)\)</span>. Como pelo
+Teorema de Specker vale que <span
+class="math inline">\(\mathcal{P}(X)\npreccurlyeq X^2\)</span>,
+concluímos que <span class="math inline">\(X^2%
+\mathrel{\ooalign{$\preccurlyeq$\cr\kern 1.2pt$
+  \mathrel{\raisebox{-.95pt}{$\rotatebox[origin=c]{-315}{\scaleobj{0.55}{-}}$}}
+$}}\mathcal{P}(X)\)</span>.</p>
+<p>Por fim, temos que <span class="math inline">\(X\preccurlyeq
+X^2%
+\mathrel{\ooalign{$\preccurlyeq$\cr\kern 1.2pt$
+  \mathrel{\raisebox{-.95pt}{$\rotatebox[origin=c]{-315}{\scaleobj{0.55}{-}}$}}
+$}}\mathcal{P}(X)\)</span>, donde novamente por <span
+class="math inline">\((\ast)\)</span> vale que <span
+class="math inline">\(X\approx X^2\)</span>, como queríamos
+mostrar.0◻</p>
+<h1 id="notas-e-sugestões">Notas e Sugestões</h1>
+<p>Conforme já comentado, as demonstrações combinatórias (de Sierpiński
+e de Specker) para o resultado principal deste artigo valem-se
+diretamente, e de forma crucial, da equivalência de <span
+class="math inline">\(\mathbf{AC}\)</span> na forma cardinal devida a
+Tarski (“Para todo conjunto <span class="math inline">\(X\)</span>
+infinito vale que <span class="math inline">\(X^2 \approx
+X\)</span>”). No que segue, apresentamos ao leitor mais interessado um
+roteiro de exercícios guiados os quais, quando combinados, consistem em
+uma prova da equivalência dessa asserção com o Axioma da Escolha.</p>
+<p>Para este “<em>sprint</em> final", seguimos os passos da referência
+<span class="citation" data-cites="JechAC"></span>. Lembre-se que, como
+estamos querendo ao final mostrar uma equivalência para o Axioma da
+Escolha, no que segue nós <span><em>não podemos usar o Axioma da Escolha
+em nenhuma passagem</em></span>, ou seja, os seguintes exercícios
+guiados devem ser realizados em <span
+class="math inline">\(\mathbf{ZF}\)</span>.</p>
+<p>Iniciamos com um exercício que dá mais trabalho do que aparenta a
+princípio!</p>
+<p>. Se <span class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span> são conjuntos disjuntos, ambos
+possuindo <span><em>mais do que um elemento</em></span>, então <span
+class="math display">\[A \cup B \preccurlyeq A \times
+B\,.\]</span></p>
+<p>(<span><em>Sugestão</em></span>: Siga o seguinte roteiro:</p>
+<ul>
+<li><p>Convença-se que a hipótese de que ambos <span
+class="math inline">\(A,B\)</span> possuem mais do que um elemento
+<span><em>não pode ser descartada</em></span>!!!<br />
+Dica: Note que <span class="math inline">\(1 +
+1 \nleqslant 1\,.\,1\,\,\ldots\)</span>.</p></li>
+<li><p>Ache o <span><em>erro</em></span> na seguinte demonstração (note
+com certeza essa demonstração a seguir está errada porque a essa altura
+você já exibiu um contraexemplo conforme sugerido no começo do roteiro,
+que está logo acima, porém acreditamos ser salutar que você <span>
+<em>identifique exatamente onde está o erro</em></span>):</p>
+<p><span><em>Fato</em></span>(?): “Se <span
+class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span> são conjuntos disjuntos não-vazios,
+então vale que <span class="math inline">\(A \cup B
+\preccurlyeq A \times B\)</span>." </p>
+<p><span><em>Demonstração</em></span>(?): “Fixe <span
+class="math inline">\(x\)</span> em <span
+class="math inline">\(A\)</span> e <span
+class="math inline">\(y\)</span> em <span
+class="math inline">\(B\)</span>.</p>
+<p>Defina <span class="math inline">\(\varphi\colon A\cup B\to A\times
+B\)</span> pondo, para cada elemento <span class="math inline">\(t\in
+A\cup B\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+\varphi(t) = \left\{
+\begin{array}{ll} \langle t,y \rangle&amp; \hbox{se
+$t \in A$; e} \\ \langle x,t \rangle&amp; \hbox{caso
+contrário.} \end{array} \right.\end{aligned}\]</span></p>
+<p>Então, <span class="math inline">\(\varphi\)</span> é injetora." </p>
+<p>Procure desenhar o que essa <span
+class="math inline">\(\varphi\)</span> faz. Ela realmente
+<span><em>parece</em></span> ser injetora, não é? Mas <span><em>qual é o
+problema</em></span> dela, o qual acarreta que na verdade ela
+<span><em>não é</em></span> injetora?</p></li>
+<li><p>Para facilitar a definição da função <span>
+<em>realmente</em></span> injetora que vai ser construída, você pode
+supor s.p.g. que seus conjuntos disjuntos são da forma <span
+class="math inline">\(A \times \{0\}\)</span> e <span
+class="math inline">\(B
+\times \{1\}\)</span> (<span><em>certo?</em></span> Ou seja, podemos
+tomar <span><em>quaisquer</em></span> dois conjuntos <span
+class="math inline">\(A\)</span>, <span
+class="math inline">\(B\)</span>, ambos com mais do que um elemento, e
+considerar cópias disjuntas deles na hora de definir a função e
+argumentar sobre a injetividade).</p></li>
+<li><p>Agora, fixe <span class="math inline">\(x \neq y\)</span> em
+<span class="math inline">\(A\)</span> e <span class="math inline">\(z
+\neq w\)</span> em <span class="math inline">\(B\)</span>. Verifique que
+a <span class="math inline">\(\varphi\)</span> definida a seguir,</p>
+<div class="center">
+<p><span class="math inline">\(\varphi\colon (A \times \{0\}) \cup (B
+\times \{1\}) \to A \times B\)</span></p>
+</div>
+<p>e é, de fato, injetora. É instrutivo, novamente, fazer um desenho
+para entender como essa função usa o fato de termos dois elementos em
+cada um dos conjuntos, na hora em que vamos defini-la, e em como ela
+“dribla o problema"  da tentativa frustrada.</p>
+<p><span class="math display">\[\begin{aligned}
+\varphi(\langle t, i\rangle) = \left\{
+\begin{array}{ll} \langle t,z \rangle&amp; \hbox{se
+$i = 0$ e $t \neq x$;} \\ \langle t,w \rangle&amp;
+\hbox{se $i = 0$ e $t = x$;} \\ \langle x,t
+\rangle&amp; \hbox{se $i = 1$ e $t \neq z$; e}
+\\ \langle y,t \rangle&amp; \hbox{se $i = 1$ e $t
+= z$.} \end{array} \right. \end{aligned}\]</span></p></li>
+<li><p>Finalmente, conclua o desejado!!!)</p></li>
+</ul>
+<p>. (Este é fácil! E é uma versão cardinal de um <span><em>produto
+notável</em></span>  !) Voltando a usar a notação da união disjunta
+<span class="math inline">\(\oplus\)</span>, mostre que, para quaisquer
+conjuntos <span class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span>, vale que<span
+class="math display">\[(A \oplus B)^2 \approx
+A^2 \oplus(2 \times A \times B) \oplus
+B^2.\]</span></p>
+<p>. Prove o seguinte:</p>
+<p><span><strong>Lema.</strong></span> Sejam <span
+class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span> conjuntos, e suponha que <span
+class="math inline">\(B\)</span> possa ser bem-ordenado. Nessas
+condições, se <span class="math inline">\(A \oplus B \approx A \times
+B\)</span> então <span class="math inline">\(A \preccurlyeq B\)</span>
+ou <span class="math inline">\(B \preccurlyeq A\)</span>.</p>
+<p><span><em>Sugestão</em></span>: Fixe inicialmente uma função bijetiva
+<span class="math inline">\(f\colon A \oplus B \rightarrow A \times
+B\)</span> e uma boa ordem <span class="math inline">\(&lt;\)</span>
+sobre <span class="math inline">\(B\)</span>. A partir de agora daremos
+algumas indicações do que deve ser feito, mas as conclusões ficarão a
+cargo do leitor!!!</p>
+<p>Pois bem: divida a demonstração em 2 casos:</p>
+<p><em>Caso 1</em>. Existe <span class="math inline">\(a \in A\)</span>
+tal que <span class="math inline">\((a,b) \in f[A \times \{0\}]\)</span>
+para todo <span class="math inline">\(b \in
+B\)</span>.</p>
+<p>(Graficamente: “Existe uma coluna do produto cartesiano inteiramente
+contida na imagem de <span class="math inline">\(A \times
+\{0\}\)</span>".)</p>
+<p>Neste caso temos</p>
+<div class="center">
+<p><span class="math inline">\(B \approx\{(a,b): b \in B\}
+\subseteq\ldots\)</span>.</p>
+</div>
+<p>e neste caso teremos <span class="math inline">\(\ldots
+\preccurlyeq\ldots\)</span></p>
+<p><em>Caso 2</em>. Suponha que não vale o Caso 1. Neste caso, o
+conjunto <span class="math inline">\(X_a = \{b \in B: (a,b)\in f[B
+\times
+\{1\}]\}\)</span> é não-vazio para todo <span class="math inline">\(a
+\in A\)</span>.</p>
+<p>(Graficamente: “Toda coluna intersecta a imagem de <span
+class="math inline">\(B \times \{1\}\)</span>".)</p>
+<p>Como, por hipótese, <span class="math inline">\(B\)</span> é bem
+ordenado por <span class="math inline">\(&lt;\)</span>, use a boa ordem
+para definir <span class="math inline">\(g\colon A
+\rightarrow B\)</span>, pondo <span class="math inline">\(g(a) =
+\ldots\)</span> (lembre-se do que significa <span
+class="math inline">\(B\)</span> estar bem ordenado!). Segue agora
+que</p>
+<div class="center">
+<p><span class="math inline">\(A \approx\{(a,g(a)): a \in A\}
+\subseteq\ldots\)</span></p>
+</div>
+<p>e neste caso teremos <span class="math inline">\(\ldots \preccurlyeq
+\ldots\)</span>)</p>
+<p>. (Surpreendentemente óbvio, se você se lembra da principal
+propriedade da função de Hartogs! E que <span> <em>todo subconjunto de
+um conjunto bem ordenado pode ser bem ordenado</em></span> …) Prove o
+seguinte:</p>
+<p><span><strong>Corolário do Lema do Exercício 2</strong></span>. Seja
+<span class="math inline">\(A\)</span> um conjunto infinito qualquer. Se
+vale que <span class="math display">\[A \oplus H(A) \approx A \times
+H(A)\]</span> então <span class="math inline">\(A\)</span> pode ser
+bem-ordenado.</p>
+<div class="center">
+
+</div>
+<p>. Prove o</p>
+<p><span><strong>Teorema de Tarski</strong></span>. São equivalentes, em
+<span class="math inline">\(\mathbf{ZF}\)</span>:</p>
+<p>(1) <span class="math inline">\(\mathbf{AC}\)</span>.</p>
+<p>(2) Para todo conjunto infinito <span
+class="math inline">\(X\)</span> vale que <span
+class="math inline">\(X^2 \approx X\)</span>.</p>
+<p>(<span><em>Sugestão</em></span>: Siga o seguinte roteiro:</p>
+<ul>
+<li><p>Conforme já comentado, (1) implica (2) é imediato, pelo fato de
+<span class="math inline">\(\kappa \approx
+\kappa^2\)</span> ser válido para todo cardinal infinito <span
+class="math inline">\(\kappa\)</span> em <span
+class="math inline">\(\mathbf{ZF}\)</span>, e, sob <span
+class="math inline">\(\mathbf{AC}\)</span>, qualquer conjunto infinito
+<span class="math inline">\(X\)</span> vai ter sua cardinalidade
+definida da maneira usual, e a partir daí é só transferir propriedades
+combinatórias da cardinalidade do conjunto para o próprio conjunto (dado
+que, sob a definição usual, o conjunto e sua cardinalidade são
+equipotentes!).</p></li>
+<li><p>Pois bem! Assumamos (2). Afirmamos que vale <span
+class="math inline">\(\mathbf{WO}\)</span>, ou seja, que todo conjunto
+pode ser bem ordenado! O que nos é suficiente, dado que <span
+class="math inline">\(\mathbf{WO}\)</span> é uma das mais conhecidas
+equivalências de <span
+class="math inline">\(\mathbf{AC}\)</span>.</p></li>
+<li><p>Note que todo conjunto finito pode ser bem ordenado trivialmente
+(por quê?), assim o que temos que verificar é que todo conjunto
+<span><em>infinito</em></span> pode ser bem ordenado.</p></li>
+<li><p>Seja então <span class="math inline">\(X\)</span> um conjunto
+infinito.</p></li>
+<li><p>Note que, pelo Exercício 3, é suficiente mostrar que vale <span
+class="math display">\[X \oplus
+H(X) \approx X \times H(X)\]</span> – certo?</p></li>
+<li><p>Porém, temos por hipótese que <span class="math display">\[X
+\oplus H(X) \approx(X \oplus H(X))^2\]</span></p>
+<p>– certo?</p></li>
+<li><p>Aplicando o Exercício 1 com sabedoria, você agora pode afirmar
+que <span class="math display">\[X \times
+H(X) \preccurlyeq X \oplus H(X)\]</span> – certo?</p></li>
+<li><p>No entanto, o Exercício 0 nos garante que <span
+class="math display">\[X \oplus H(X) \preccurlyeq X \times
+H(X)\]</span></p>
+<p>– certo?</p></li>
+<li><p>Com isso, você pode concluir (com uma última participação do
+nosso querido “Teorema de São Bernardo do Campo"…) que, dado o Exercício
+3, o seu conjunto infinito <span class="math inline">\(X\)</span> pode
+ser bem ordenado – o que conclui a demonstração do Teorema de
+Tarski.</p></li>
+</ul>
+<h1 id="conclusão">Conclusão</h1>
+<p>Os autores se colocam à disposição dos leitores para dirimir
+quaisquer dúvidas que permaneçam após a leitura deste artigo, bem como
+em quaisquer questões outras que sejam relacionadas à Teoria dos
+Conjuntos.</p>
+<p>Encerramos este artigo agradecendo aos colegas da Revista de
+Matemática Hipátia pela oportunidade (em particular, ao(à) anônimo(a)
+revisor(a), pela leitura cuidadosa do manuscrito), aos leitores por
+terem investido o seu tempo em nosso trabalho, e convidando todos a
+estudar essa belíssima disciplina que é a Teoria dos Conjuntos –
+lembrando que no Instituto de Matemática e Estatística da Universidade
+Federal da Bahia temos um Grupo de Pesquisa em Lógica do qual a Teoria
+dos Conjuntos é uma das linhas de investigação ativas, ou seja, não é
+necessário (e nem verdadeiro) pensar que a Teoria dos Conjuntos
+“pertence ao Museu da História da Matemática", mas sim que é uma área de
+pesquisa viva e muito apaixonante.</p>
+<div class="thebibliography">
+<p><span>9</span></p>
+<p><span>Caicedo, A., <span><em>580 - Some choiceless results
+(3)</em></span>. Teaching blog. Updated Tuesday, January 27th, 2009. <a
+href="https://andrescaicedo.wordpress.com/2009/01/27/580-some-choiceless-results-3/"
+class="uri">https://andrescaicedo.wordpress.com/2009/01/27/580-some-choiceless-results-3/</a></span>
+Engelking, R., <span> <em>General topology</em></span>, Second edition.
+Sigma Series in Pure Mathematics <span><strong>6</strong></span>,
+Heldermann Verlag, Berlin, 1989, viii+529 pp. Jech, T., <span><em>The
+axiom of choice</em></span>, Studies in Logic and the Foundations of
+Mathematics, vol.75, North-Holland, Amsterdam, 1973, xi+202p. Jech, T.,
+<span><em>Set theory –The third millennium edition, revised and
+expanded</em></span>, Springer Monographs in Mathematics,
+Springer-Verlag, Berlin, 2003, xiv+769 pp. de Jesus, J. P. C., e da
+Silva, S. G. (2007) <span><em>Cem Anos do Axioma da Escolha: Boa
+Ordenação, Lema de Zorn e o Teorema de Tychonoff</em></span>. Revista
+Matemática Universitária (RMU/SBM), 42, 16—34. Kunen, K., <span><em>Set
+theory – An introduction to independence proofs</em></span>. Studies in
+Logic and the Foundations of Mathematics, 102, North-Holland Publishing
+Co., Amsterdam, 1983, xvi+313 pp. Lévy, A., <span><em>Basic Set
+Theory</em></span>, Springer-Verlag, Berlin-New York, 1979, xiv+391 pp.
+<span>Tarski, A., <span><em>Sur quelques
+th<span>é</span>or<span>è</span>mes qui <span>é</span>quivalent
+<span>à</span> l’axiome du choix.</em></span> Fundamenta Mathematicae
+5.1 (1924): pp 147–154.</span></p>
+</div>
+<div class="wrapfigure">
+<p><span>L</span><span>1.7cm</span> <img src="Samuel.jpeg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Samuel Gomes da Silva nasceu e cresceu em Pirituba (periferia de São
+Paulo), participou do movimento estudantil secundarista logo após o
+final do regime militar e teve formação em Matemática no IME/USP
+(licenciatura noturno na graduação, depois mestrado e doutorado, tendo
+concluído o doutoramento em 2004). Atualmente é professor titular no
+Departamento de Matemática da UFBA, onde ingressou em 2006. Antes de
+concluir sua graduação foi monitor de matemática na Estação Ciência
+(museu paulista de ciências, ligado à USP, atualmente fechado) e antes
+de concluir seu mestrado foi professor na rede pública do Estado de São
+Paulo, com destaque para o período em que lecionou no CEFAM Experimental
+da Lapa. Feliz proprietário de um Gol 90 branco quadrado. Lógico,
+topólogo e teorista de conjuntos. Pós-doutorados em Morelia, México
+(onde conheceu sua esposa Consuelo) e em Barcelona, Catalunha. Hoje se
+considera paulista, baiano, mexicano e catalão, não necessariamente
+nessa ordem (mas num quadrangular entre Corinthians, Bahia, Pumas e
+Barcelona, ainda torceria para o Corinthians). Membro de várias
+diretorias da Sociedade Brasileira de Lógica desde 2011, sendo
+atualmente 2o. Vice Presidente. Foi coordenador da Comissão Organizadora
+do XX Encontro Brasileiro de Lógica, realizado em Salvador em 2022.</p>
+<div class="wrapfigure">
+<p><span>L</span><span>1.7cm</span> <img src="diego.png"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Nascido na seca cidade de Caculé, no sertão da Bahia, Diego Lima
+Bomfim peregrinou por considerável parte do Estado: fez o ensino médio e
+técnico na fria Vitória da Conquista, formou-se em Matemática na
+calorosa São Salvador — onde também concluiu o mestrado e iniciou o
+doutorado — e é, desde 2024, professor efetivo do Instituto Federal de
+Educação, Ciência e Tecnologia da Bahia (IFBA), na chuvosa cidade de
+Valença. Medalhista da OBMEP na juventude, tornou-se pai no mesmo ano em
+que assumiu o cargo de professor e agora se divide entre equações e as
+traquinagens de Vinicius, um menino sapeca, curioso, cheio de energia e
+imaginação – típico de um episódio de <span><em>Os Anjinhos</em></span>.
+Flamenguista de coração e fã de esportes em geral, acredita que a
+matemática, assim como o futebol, é melhor quando compartilhada.</p>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Uma função-escolha para uma família
+<span class="math inline">\(\mathcal{F}\)</span> de conjuntos não-vazios
+é uma função que efetivamente “escolhe” um elemento de cada um dos
+membros da família, mais precisamente é uma aplicação <span
+class="math inline">\(f\colon \mathcal{F} \to
+\bigcup \mathcal{F}\)</span> satisfazendo <span
+class="math inline">\(f(F) \in F\)</span> para todo <span
+class="math inline">\(F \in \mathcal{F}\)</span>.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Para um enunciado e demonstração do
+Teorema de Tychonoff — o qual declara que todo produto de espaços
+topológicos compactos é compacto —, indicamos nossa principal referência
+em Topologia Geral, que é <span class="citation"
+data-cites="Engel"></span>. Uma prova (em português) da equivalência
+entre <span class="math inline">\(\mathbf{AC}\)</span> e o Teorema de
+Tychonoff pode ser encontrada em <span class="citation"
+data-cites="deJesusdaSilva"></span>.<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>A necessidade desta ressalva advém da
+transição de uma pergunta específica para uma asserção de caráter
+universal. Com efeito, enquanto a formulação original de Cantor se
+restringe a subconjuntos da reta real, a afirmação de que não existe
+<em>nenhuma</em> cardinalidade intermediária em todo o universo dos
+conjuntos requer que todas as cardinalidades, de todos os conjuntos,
+possam ser dispostos em uma única hierarquia ordenada — propriedade esta
+que é garantida precisamente pelo Teorema da Boa Ordenação, sob o qual
+todos os conjuntos possuem “ordinais iniciais” — i.e., “alephs” — como
+suas cardinalidades.<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>Note que esta formulação é
+equivalente à apresentada anteriormente: por definição, um elemento do
+produto cartesiano de uma família de conjuntos <span
+class="math inline">\(\mathcal{F}\)</span> é uma função a qual, também,
+“escolhe” exatamente um elemento de cada conjunto <span
+class="math inline">\(F \in \mathcal{F}\)</span>.<a href="#fnref4"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>Uma ordem sobre um conjunto é dita
+ser uma <em>boa ordem</em> se for uma ordem total na qual todo
+subconjunto não-vazio admite elemento mínimo. O exemplo canônico é o
+conjunto dos números naturais com a ordem usual.<a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p>Observamos que a singela notação “”
+tem aqui um papel fundamental, pois sinaliza que o resultado pode ser
+demonstrado utilizando-se apenas os axiomas de Zermelo-Fraenkel, ou
+seja, sem a necessidade de se invocar o Axioma da Escolha. Este é um
+fato crucial para a nossa discussão, uma vez que estamos estabelecendo
+ferramentas para comparar conjuntos em um ambiente onde <span
+class="math inline">\(\mathbf{AC}\)</span> não é pressuposto.<a
+href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7" role="doc-endnote"><p>Notar que, sob o Axioma da Escolha,
+<span><em>todo</em></span> conjunto poderá ser bem-ordenado, e assim
+essa definição que demos para a cardinalidade - à qual sempre nos
+referiremos como sendo a <span><em>definição usual</em></span> - poderá
+ser aplicada uniformemente para todos os conjuntos.<a href="#fnref7"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8" role="doc-endnote"><p><span
+class="math inline">\(H(x)\)</span> é o menor ordinal que não pode ser
+injetado em <span class="math inline">\(x\)</span> exatamente pelo fato
+dele ser, estruturalmente digamos, exatamente o conjunto de
+<span><em>todos os ordinais que podem ser injetados em <span
+class="math inline">\(x\)</span>!!</em></span><a href="#fnref8"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9" role="doc-endnote"><p>Um ordinal <span
+class="math inline">\(\gamma\)</span> é dito ser um <em>ordinal
+limite</em> se ele não for o <span><em>zero</em></span> e tampouco for
+um <em>ordinal sucessor</em>, isto é, não existir nenhum ordinal <span
+class="math inline">\(\beta\)</span> tal que <span
+class="math inline">\(\gamma = \beta \cup \{\beta\} = \beta +
+1\)</span>. De forma intuitiva, são os ordinais que não possuem um
+antecessor imediato, como é o caso de <span
+class="math inline">\(\omega\)</span>, o primeiro ordinal limite.<a
+href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10" role="doc-endnote"><p>Em particular, temos aqui um dos
+principais <span><em>“monstros”</em></span> que aparecem na ausência do
+Axioma da Escolha: em um modelo de <span
+class="math inline">\(\mathbf{ZF}\)</span> no qual <span
+class="math inline">\(\mathbf{AC}\)</span> seja falso, seguramente
+existem conjuntos que são <span><em>incomparáveis segundo a relação de
+dominação</em></span> – de modo que não teremos como saber qual dos dois
+é o maior conjunto!<a href="#fnref10" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn11" role="doc-endnote"><p>Para nossa demonstração do resultado
+de Specker, bem como dos passos subsequentes até chegarmos na
+verificação de que <span class="math inline">\(\mathbf{GCH}\)</span>
+implica <span class="math inline">\(\mathbf{AC}\)</span>, seguimos as
+linhas da exposição de Lévy no seu clássico livro <span class="citation"
+data-cites="Levy"></span>.<a href="#fnref11" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn12" role="doc-endnote"><p>Em particular, o nosso argumento
+<span><em>indutivo</em></span> pode ser, na verdade, tornado <span>
+<em>recursivo</em></span> – no sentido de que existe, essencialmente, um
+algoritmo recursivo bem definido para a construção dessa sequência.<a
+href="#fnref12" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn13" role="doc-endnote"><p>Essa bijeção canônica <span
+class="math inline">\(f_\beta\)</span> é bastante menos conhecida do que
+aquela existente entre um cardinal <span
+class="math inline">\(\kappa\)</span> e seu quadrado <span
+class="math inline">\(\kappa \times \kappa\)</span> (dado que esta
+última está presente na maioria dos livros-texto). O leitor mais curioso
+poderá encontrar uma descrição de sua construção no blog de Andrés
+Caicedo (<span class="citation" data-cites="Caicedo"></span>).<a
+href="#fnref13" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn14" role="doc-endnote"><p>“Para quaisquer <span
+class="math inline">\(X\)</span> e <span
+class="math inline">\(Y\)</span> infinitos, <span
+class="math inline">\(X \preccurlyeq Y
+\preccurlyeq\mathcal{P}(X)\Longrightarrow X
+\approx Y\)</span> ou <span class="math inline">\(Y \approx
+\mathcal{P}(X)\)</span>."<a href="#fnref14" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
