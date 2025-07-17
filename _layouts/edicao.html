@@ -18,7 +18,8 @@
         {% for item in page.sections %}
         <li>
           <div class="sec_name"> {{item.section}}</div>
-          <a href="{{ item.url }}/{{ item.url }}.html">{{ item.title }}</a>
+          <a href="{{ item.url }}/{{ item.url }}.html">{{ item.title }}</a> 
+          <a href="{{ item.url }}/{{ item.url }}.pdf" download> (pdf) </a> 
           <div class="sec_author"> {{item.author}}</div>
         </li>
         {% endfor %}
