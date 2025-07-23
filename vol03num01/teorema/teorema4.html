@@ -4,24 +4,15 @@ title: A Hipótese Generalizada do Contínuo Implica o Axioma da Escolha
 author: Samuel Gomes da Silva e Diego Lima Bomfim
 subtitle: Teorema
 ---
-<style>
-.teoremacaixa {
-	border-radius: 15px;
-  border:3px solid black;
-}
-.titulocaixa {
-	font-weight: bold;
-}
-</style>
 <h1 id="introdução">Introdução</h1>
 <p>O Axioma da Escolha surgiu “oficialmente” em 1908 a partir da
-publicação, por Ernst Zermelo, de dois trabalhos <span class="citation"
-data-cites="Zer1908 Zer1908a">(Zermelo 1908a, 1908b)</span> que
+publicação, por Ernst Zermelo, de dois trabalhos (<span class="citation"
+data-cites="Zer1908 Zer1908a">(Zermelo 1908a, 1908b)</span>) que
 marcaram o início da axiomatização da <span><em>Teoria dos
 Conjuntos</em></span>, tendo sido utilizado pela primeira vez quatro
 anos antes pelo mesmo autor em sua demonstração de que todo conjunto
-pode ser bem ordenado <span class="citation"
-data-cites="Zer1904">(Zermelo 1904)</span> – que por sua vez é
+pode ser bem ordenado (<span class="citation"
+data-cites="Zer1904">(Zermelo 1904)</span>) – que por sua vez é
 conhecido como Teorema da Boa Ordenação (denotado por <span
 class="math inline">\(\mathbf{WO}\)</span>, de <span> <em>Well-Ordering
 Theorem</em></span>).</p>
@@ -112,8 +103,8 @@ class="math inline">\(2^{\aleph_\alpha}\)</span>.</p>
 class="math inline">\(\mathbf{CH}\)</span> tenha vindo apenas em 1963,
 no contexto da invenção do métodode <span><em>forcing</em></span> por
 Paul Cohen — independência essa que complementou um trabalho anterior de
-Kurt Gödel de 1940 —, um resultado de 1947 devido a Sierpiński <span
-class="citation" data-cites="Sierp">(Sierṕinski 1947)</span>
+Kurt Gödel de 1940 —, um resultado de 1947 devido a Sierpiński (<span
+class="citation" data-cites="Sierp">(Sierṕinski, Wacław 1947)</span>)
 pulula aos olhos: ele estabelece que <span
 class="math inline">\(\mathbf{GCH}\)</span>, que mimetiza a organização
 suprema dos cardinais, acaba tendo poder dedutivo o suficiente para
@@ -278,9 +269,9 @@ demonstração utiliza o famoso <span><em>Argumento Diagonal de
 Cantor</em></span> —, o qual afirma que para qualquer conjunto <span
 class="math inline">\(x\)</span> vale que <span
 class="math inline">\(x\)</span> é estritamente dominado pelo conjunto
-das suas partes (<span
-class="math inline">\(x\prec\mathcal{P}(x)\)</span>), isto é, temos que
-existe uma injeção de <span class="math inline">\(x\)</span> em <span
+das suas partes (<span class="math inline">\(\newcommand{\preccurlyneq}{\rlap{\preccurlyeq}{\;\!_\diagup}}x%
+\preccurlyneq\mathcal{P}(x)\)</span>), isto é, temos que existe uma injeção de
+<span class="math inline">\(x\)</span> em <span
 class="math inline">\(\mathcal{P}(x)\)</span>, mas que nenhuma injeção
 pode ser sobrejetiva. Já a segunda é o chamado <strong>número de
 Hartogs</strong>, que permite comparar um conjunto <span
@@ -291,28 +282,12 @@ de <span class="math inline">\(x\)</span> é, exatamente, o menor ordinal
 <span class="math inline">\(\beta\)</span> tal que <span
 class="math inline">\(\beta\)</span> não pode ser injetado em <span
 class="math inline">\(x\)</span> (<span
-class="math inline">\(\newcommand{\npreccurlyeq}{\rlap{\preccurlyeq}{\;|}\;}\beta\npreccurlyeq
+class="math inline">\(\beta\preccurlyneq
 x\)</span>); denotamos este menor ordinal simplesmente por <span
 class="math inline">\(H(x)\)</span>  <a href="#fn8" class="footnote-ref"
 id="fnref8" role="doc-noteref"><sup>8</sup></a>.</p>
 <div class="center">
-<figure>
-<img src="cantor.png" id="fig:cantor" style="width:8cm"
-alt="cantor" />
-<figcaption aria-hidden="true">
-<p>
-O Argumento Diagonal de Cantor em ação. A figura mostra como, a partir 
-de uma suposta lista enumerável completa de todos os
- subconjuntos de <span class="math inline">\(\mathbb{N}\)</span> (indicados na matriz via
- a representação por suas funções características), 
- é possível construir um novo subconjunto, <span class="math inline">\(D\)</span>. A construção de <span class="math inline">\(D\)</span> (indicada 
-pelas setas vermelhas) se dá pela inversão dos elementos da diagonal (destacada 
-em amarelo), garantindo que <span class="math inline">\(D\)</span> seja diferente de todos os subconjuntos na lista.
-Isso mostra que não existe uma função injetora de <span class="math inline">\(\mathbb{N}\)</span> 
-em <span class="math inline">\(\mathcal{P}(\mathbb{N})\)</span> que seja sobrejetora.
-</p>
-</figcaption>
-</figure>
+
 </div>
 <p>Embora a última definição possa ser aplicada a qualquer conjunto,
 temos um fenômeno interessante caso esse conjunto possa ser bem
@@ -414,27 +389,7 @@ cada <span class="math inline">\(\alpha\)</span> ordinal (o que é
 claramente uma generalização de <span
 class="math inline">\(\mathbf{CH}\)</span>).</p>
 <div class="center">
-<figure>
-<img src="hierarquia.png" id="fig:hierarquia" style="width:8cm"
-alt="hierarquia" />
-<figcaption aria-hidden="true">
-<p>
-A hierarquia dos cardinais infinitos. 
-A seta azul indica a função de Hartogs \(H(.)\), 
-que leva um cardinal \(\aleph_\alpha\) ao primeiro 
-cardinal estritamente maior, que é
-\((\aleph_\alpha)^+ = \aleph_{\alpha + 1}\). 
-A GCH (e CH como caso particular), 
-indicada em vermelho, estabelece que não há 
-cardinais intermediários
-entre \(\aleph_\alpha\) e \(2^{\aleph_\alpha}\) 
-(sendo este último maior do que \(\aleph_\alpha\) 
-pelo Teorema de Cantor),
-forçando a igualdade entre o cardinal sucessor 
-\(\aleph_{\alpha+1}\) e a potência \(2^{\aleph_\alpha}\).
-</p>
-</figcaption>
-</figure>
+
 </div>
 <p>Não obstante, observando que um conjunto arbitrário dado não
 necessariamente pode ser bem-ordenado em <span
@@ -487,8 +442,8 @@ isso omitiremos.</p>
 cardinais infinitos que, obviamente, os diferencia dos cardinais
 finitos, que é a idempotência com respeito ao produto (seja produto
 cartesiano ou produto de cardinais):</p>
-<div class="teoremacaixa">
-<p><span class="titulocaixa">(<span class="math inline">\(\mathbf{ZF}\)</span>)
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>)
 Teorema</span> Para todo <span class="math inline">\(\kappa\)</span>
 cardinal infinito vale que <span
 class="math inline">\(\kappa\times\kappa\approx\kappa\)</span>.</p>
@@ -501,8 +456,8 @@ vimos que o Axioma da Escolha é equivalente ao Teorema da Boa Ordenação
 (donde cada conjunto infinito tem como cardinalidade um cardinal
 infinito <span class="math inline">\(\kappa\)</span>), temos o seguinte
 corolário:</p>
-<div class="teoremacaixa">
-<p><span class="titulocaixa">(<span class="math inline">\(\mathbf{ZF}\)</span>)
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>)
 Corolário</span> <span class="math inline">\(\mathbf{AC}\)</span>
 implica que para todo <span class="math inline">\(X\)</span> conjunto
 infinito vale que <span class="math inline">\(X\times X\approx
@@ -512,8 +467,8 @@ X\)</span>.</p>
 num resultado que é atribuído a Tarski (de 1924), sendo sua prova uma
 argumentação bastante mais elaborada e que faz uso da função de
 Hartogs.</p>
-<div class="teoremacaixa">
-<p><span class="titulocaixa">(<span class="math inline">\(\mathbf{ZF}\)</span>) Teorema
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>) Teorema
 (Tarski) <span class="citation" data-cites="Tarski">(Tarski
 1924)</span></span> Se para todo <span class="math inline">\(X\)</span>
 conjunto infinito vale que <span class="math inline">\(X\times X\approx
@@ -531,7 +486,7 @@ X\approx X\)</span>”. No que segue, vamos utilizar exatamente essa
 conclusão para implicar o Axioma da Escolha.</p>
 <p>Finalmente, observamos que a prova que apresentamos é levemente
 diferente daquela apresentada originalmente por Sierpiński em 1947 <span
-class="citation" data-cites="Sierp">(Sierṕinski 1947)</span>,
+class="citation" data-cites="Sierp">(Sierṕinski, Wacław 1947)</span>,
 dado que incorporamos resultados provados logo depois (em 1954) por
 Specker <span class="citation" data-cites="Specker">(Specker
 1954)</span>.</p>
@@ -542,14 +497,14 @@ demonstração é relativamente longa, mas é aqui que está grande parte do
 trabalho, e após superarmos este desafio estaremos praticamente prontos
 para mostrar o resultado desejado. <a href="#fn11" class="footnote-ref"
 id="fnref11" role="doc-noteref"><sup>11</sup></a></p>
-<div class="teoremacaixa">
-<p><span class="titulocaixa">(<span class="math inline">\(\mathbf{ZF}\)</span>) Teorema de
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>) Teorema de
 Specker <span class="citation" data-cites="Specker">(Specker
 1954)</span></span> Se <span class="math inline">\(X\)</span> é um
 conjunto com pelo menos <span class="math inline">\(5\)</span>
 elementos, então <span class="math inline">\(\mathcal{P}(X)\)</span> não
 é dominado por <span class="math inline">\(X^2\)</span> (isto é, <span
-class="math inline">\(\mathcal{P}(X)\npreccurlyeq X^2\)</span>).</p>
+class="math inline">\(\mathcal{P}(X)\preccurlyneq X^2\)</span>).</p>
 </div>
 <p>Observa-se que a hipótese deste teorema é extremamente razoável: ora,
 sabemos que para um conjunto <span class="math inline">\(X\)</span>
@@ -807,14 +762,15 @@ class="math inline">\(A\)</span> e <span
 class="math inline">\(B\)</span> pondo <span
 class="math display">\[A\oplus
 B\coloneq\big(A\times\{0\}\big)\cup\big(B\times\{1\}\big).\]</span></p>
-<div class="teoremacaixa">
-<p><span class="titulocaixa">(<span class="math inline">\(\mathbf{ZF}\)</span>) Corolário do
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>) Corolário do
 Teorema de Specker</span> Se <span class="math inline">\(X\)</span> é um
 conjunto infinito e <span class="math inline">\(n\)</span> é um número
 natural qualquer, então <span class="math inline">\(n\times X\)</span> é
 estritamente dominado por <span
 class="math inline">\(\mathcal{P}(X)\)</span>, isto é, <span
-class="math inline">\(n\times X\prec\mathcal{P}(X)\)</span>.</p>
+class="math inline">\(n\times X%
+\preccurlyneq\mathcal{P}(X)\)</span>.</p>
 </div>
 <p>Note que o resultado é imediato se <span
 class="math inline">\(n=0\)</span>, pois o produto cartesiano de <span
@@ -892,9 +848,9 @@ X\preccurlyeq\mathcal{P}(X)\)</span> e que, portanto, <span
 class="math inline">\(n\times
 X\not\approx\mathcal{P}(X)\)</span>.0◻</p>
 <p>Finalmente chegamos ao resultado desejado.</p>
-<div class="teoremacaixa">
-<p><span class="titulocaixa">(<span class="math inline">\(\mathbf{ZF}\)</span>) Teorema de
-Sierpiński <span class="citation" data-cites="Sierp">(Sierṕinski
+<div class="teoremacaixa*">
+<p><span>(<span class="math inline">\(\mathbf{ZF}\)</span>) Teorema de
+Sierpiński <span class="citation" data-cites="Sierp">(Sierṕinski, Wacław
 1947)</span></span> A Hipótese Generalizada do Contínuo implica o Axioma
 da Escolha: <span
 class="math display">\[\underbrace{\mathbf{GCH}}_{(\ast)}\Longrightarrow\mathbf{AC}\]</span></p>
@@ -918,7 +874,8 @@ anterior vale que <span class="math inline">\(2\times X\)</span> é
 estritamente dominado por <span
 class="math inline">\(\mathcal{P}(X)\)</span>, ou seja, vale que: <span
 class="math display">\[X\preccurlyeq 2\times
-X\prec\mathcal{P}(X).\]</span> Como estamos assumindo <span
+X%
+\preccurlyneq\mathcal{P}(X).\]</span> Como estamos assumindo <span
 class="math inline">\((\ast)\)</span>, esta expressão implica que <span
 class="math inline">\(X\)</span> tem que ser equipotente a <span
 class="math inline">\(2\times X\)</span>.</p>
@@ -942,11 +899,12 @@ X}2 \\&amp;\approx&amp;^X2 \\&amp;\approx&amp;\mathcal{P}(X),
 <p>donde segue que <span class="math inline">\(X^2\)</span> é dominado
 por <span class="math inline">\(\mathcal{P}(X)\)</span>. Como pelo
 Teorema de Specker vale que <span
-class="math inline">\(\mathcal{P}(X)\npreccurlyeq X^2\)</span>,
-concluímos que <span
-class="math inline">\(X^2\prec\mathcal{P}(X)\)</span>.</p>
+class="math inline">\(\mathcal{P}(X)\preccurlyneq X^2\)</span>,
+concluímos que <span class="math inline">\(X^2%
+\preccurlyneq\mathcal{P}(X)\)</span>.</p>
 <p>Por fim, temos que <span class="math inline">\(X\preccurlyeq
-X^2\prec\mathcal{P}(X)\)</span>, donde novamente por <span
+X^2%
+\preccurlyneq\mathcal{P}(X)\)</span>, donde novamente por <span
 class="math inline">\((\ast)\)</span> vale que <span
 class="math inline">\(X\approx X^2\)</span>, como queríamos
 mostrar.0◻</p>
@@ -969,7 +927,7 @@ exercícios guiados devem ser realizados em <span
 class="math inline">\(\mathbf{ZF}\)</span>.</p>
 <p>Iniciamos com um exercício que dá mais trabalho do que aparenta a
 princípio!</p>
-<p><span><strong>Exercício 0.</strong></span> Se <span class="math inline">\(A\)</span> e <span
+<p>. Se <span class="math inline">\(A\)</span> e <span
 class="math inline">\(B\)</span> são conjuntos disjuntos, ambos
 possuindo <span><em>mais do que um elemento</em></span>, então <span
 class="math display">\[A \cup B \preccurlyeq A \times
@@ -1043,7 +1001,7 @@ $i = 0$ e $t \neq x$;} \\ \langle t,w \rangle&amp;
 = z$.} \end{array} \right. \end{aligned}\]</span></p></li>
 <li><p>Finalmente, conclua o desejado!!!)</p></li>
 </ul>
-<p><span><strong>Exercício 1.</strong></span> (Este é fácil! E é uma versão cardinal de um <span><em>produto
+<p>. (Este é fácil! E é uma versão cardinal de um <span><em>produto
 notável</em></span>  !) Voltando a usar a notação da união disjunta
 <span class="math inline">\(\oplus\)</span>, mostre que, para quaisquer
 conjuntos <span class="math inline">\(A\)</span> e <span
@@ -1051,7 +1009,7 @@ class="math inline">\(B\)</span>, vale que<span
 class="math display">\[(A \oplus B)^2 \approx
 A^2 \oplus(2 \times A \times B) \oplus
 B^2.\]</span></p>
-<p><span><strong>Exercício 2.</strong></span> Prove o seguinte:</p>
+<p>. Prove o seguinte:</p>
 <p><span><strong>Lema.</strong></span> Sejam <span
 class="math inline">\(A\)</span> e <span
 class="math inline">\(B\)</span> conjuntos, e suponha que <span
@@ -1100,29 +1058,19 @@ que</p>
 </div>
 <p>e neste caso teremos <span class="math inline">\(\ldots \preccurlyeq
 \ldots\)</span>)</p>
-<p><span><strong>Exercício 3.</strong></span> (Surpreendentemente óbvio, se você se lembra da principal
+<p>. (Surpreendentemente óbvio, se você se lembra da principal
 propriedade da função de Hartogs! E que <span> <em>todo subconjunto de
 um conjunto bem ordenado pode ser bem ordenado</em></span> …) Prove o
 seguinte:</p>
-<p><span><strong>Corolário do Lema do Exercício 2.</strong></span> Seja
+<p><span><strong>Corolário do Lema do Exercício 2</strong></span>. Seja
 <span class="math inline">\(A\)</span> um conjunto infinito qualquer. Se
 vale que <span class="math display">\[A \oplus H(A) \approx A \times
 H(A)\]</span> então <span class="math inline">\(A\)</span> pode ser
 bem-ordenado.</p>
 <div class="center">
-<figure>
-<img src="fluxo.png" id="fig:fluxo" style="width:8cm"
-alt="fluxo" />
-<figcaption aria-hidden="true">
-<p>
-Fluxograma ilustrando o caminho lógico da prova do Teorema de Tarski.
-A figura demonstra como a hipótese de que \(X^2 \approx X\) para todo conjunto infinito \(X\)
-leva, através de passos intermediários, à validade do Axioma da Escolha (AC).
-</p>
-</figcaption>
-</figure>
+
 </div>
-<p><span><strong>Exercício 4.</strong></span> Prove o</p>
+<p>. Prove o</p>
 <p><span><strong>Teorema de Tarski</strong></span>. São equivalentes, em
 <span class="math inline">\(\mathbf{ZF}\)</span>:</p>
 <p>(1) <span class="math inline">\(\mathbf{AC}\)</span>.</p>
@@ -1231,20 +1179,18 @@ matemática, assim como o futebol, é melhor quando compartilhada.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">
 <div id="ref-Caicedo" class="csl-entry" role="doc-biblioentry">
-Caicedo, Andrés. <span>“580 - Some Choiceless Results (3).”</span>
-Updated Tuesday, January 27th, 2009.
+Caicedo, Andrés. 2009. <span>“580 - Some Choiceless Results (3).”</span>
 <a
 href="https://andrescaicedo.wordpress.com/2009/01/27/580-some-choiceless-results-3/"
 class="uri">https://andrescaicedo.wordpress.com/2009/01/27/580-some-choiceless-results-3/</a>.
 </div>
 <div id="ref-Engel" class="csl-entry" role="doc-biblioentry">
-Engelking, R.,  <em>General Topology</em>. 2nd ed. Vol. 6.
-Sigma Series in Pure Mathematics. Berlin: Heldermann Verlag, 1989,
-viii+529 pp.
+Engelking, Ryszard. 1989. <em>General Topology</em>. 2nd ed. Vol. 6.
+Sigma Series in Pure Mathematics. Berlin: Heldermann Verlag.
 </div>
 <div id="ref-JechAC" class="csl-entry" role="doc-biblioentry">
-Jech, T. <em>The Axiom of Choice</em>. Vol. 75. Studies in
-Logic and the Foundations of Mathematics. North-Holland, Amsterdam, 1973.
+Jech, Thomas. 1973. <em>The Axiom of Choice</em>. Vol. 75. Studies in
+Logic and the Foundations of Mathematics. Amsterdam: North-Holland.
 </div>
 <div id="ref-Jech" class="csl-entry" role="doc-biblioentry">
 ———. 2003. <em>Set Theory – the Third Millennium Edition, Revised and
@@ -1252,48 +1198,48 @@ Expanded</em>. Springer Monographs in Mathematics. Berlin:
 Springer-Verlag.
 </div>
 <div id="ref-deJesusdaSilva" class="csl-entry" role="doc-biblioentry">
-de Jesus, J. P. C., e da Silva S. G. (2007) <span>“<span
+Jesus, J. P. C. de, and S. G. da Silva. 2007. <span>“<span
 class="nocase">Cem Anos do Axioma da Escolha: Boa Ordenação, Lema de
 Zorn e o Teorema de Tychonoff</span>.”</span> <em>Revista Matemática
 Universitária (RMU/SBM)</em> 42: 16–34.
 </div>
 <div id="ref-Kunen" class="csl-entry" role="doc-biblioentry">
-Kunen, K.,  <em>Set Theory – an Introduction to Independence
+Kunen, Kenneth. 1983. <em>Set Theory – an Introduction to Independence
 Proofs</em>. Vol. 102. Studies in Logic and the Foundations of
-Mathematics. Amsterdam: North-Holland Publishing Co, 1983.
+Mathematics. Amsterdam: North-Holland Publishing Co.
 </div>
 <div id="ref-Levy" class="csl-entry" role="doc-biblioentry">
-Lévy, A. , <em>Basic Set Theory</em>. Berlin-New York:
-Springer-Verlag, 1979.
+Lévy, Azriel. 1979. <em>Basic Set Theory</em>. Berlin-New York:
+Springer-Verlag.
 </div>
 <div id="ref-Sierp" class="csl-entry" role="doc-biblioentry">
-Sierṕinski, W. <span>“L’hypothèse Généralisée Du Continu Et
-l’axiome Du Choix.”</span> <em>Fundamenta Mathematicae</em> 34 (1) (1947): 1–5.
+Sierṕinski, Wacław. 1947. <span>“L’hypothèse Généralisée Du Continu Et
+l’axiome Du Choix.”</span> <em>Fundamenta Mathematicae</em> 34 (1): 1–5.
 </div>
 <div id="ref-Specker" class="csl-entry" role="doc-biblioentry">
-Specker, E., <span>“<span class="nocase">Verallgemeinerte
+Specker, Ernst. 1954. <span>“<span class="nocase">Verallgemeinerte
 Kontinuumshypothese und Auswahlaxiom</span>.”</span> <em>Archiv Der
-Mathematik</em> 5 (1954): 332–37.
+Mathematik</em> 5: 332–37.
 </div>
 <div id="ref-Tarski" class="csl-entry" role="doc-biblioentry">
-Tarski, A. <span>“Sur Quelques Théorèmes Qui Équivalent à
-l’axiome Du Choix.”</span> <em>Fundamenta Mathematicae</em> 5.1 (1924):
+Tarski, Alfred. 1924. <span>“Sur Quelques Théorèmes Qui Équivalent à
+l’axiome Du Choix.”</span> <em>Fundamenta Mathematicae</em> 5 (1):
 147–54.
 </div>
 <div id="ref-Zer1904" class="csl-entry" role="doc-biblioentry">
-Zermelo, E., <span>“<span class="nocase">Beweis, dass jede
+Zermelo, Ernst. 1904. <span>“<span class="nocase">Beweis, dass jede
 Menge wohlgeordnet werden kann (Aus einem an Herrn Hilbert gerichteten
-Briefe)</span>.”</span> <em>Mathematische Annalen</em> 59 (1904): 514–16.
+Briefe)</span>.”</span> <em>Mathematische Annalen</em> 59: 514–16.
 </div>
 <div id="ref-Zer1908" class="csl-entry" role="doc-biblioentry">
-———.  <span>“<span class="nocase">Neuer Beweis für die Möglichkeit
-einer Wohlordnung</span>.”</span> <em>Mathematische Annalen</em> 65 (1908):
+———. 1908a. <span>“<span class="nocase">Neuer Beweis für die Möglichkeit
+einer Wohlordnung</span>.”</span> <em>Mathematische Annalen</em> 65:
 107–28.
 </div>
 <div id="ref-Zer1908a" class="csl-entry" role="doc-biblioentry">
-———. <span>“<span class="nocase">Untersuchungen über die
+———. 1908b. <span>“<span class="nocase">Untersuchungen über die
 Grundlagen der Mengenlehre. I</span>.”</span> <em>Mathematische
-Annalen</em> 65 (1908): 261–81.
+Annalen</em> 65: 261–81.
 </div>
 </div>
 <section class="footnotes footnotes-end-of-document"
@@ -1401,8 +1347,8 @@ class="math inline">\(\kappa\)</span> e seu quadrado <span
 class="math inline">\(\kappa \times \kappa\)</span> (dado que esta
 última está presente na maioria dos livros-texto). O leitor mais curioso
 poderá encontrar uma descrição de sua construção no blog de Andrés
-Caicedo <span class="citation" data-cites="Caicedo">(Caicedo
-2009)</span>.<a href="#fnref13" class="footnote-back"
+Caicedo (<span class="citation" data-cites="Caicedo">(Caicedo
+2009)</span>).<a href="#fnref13" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
 <li id="fn14" role="doc-endnote"><p>“Para quaisquer <span
 class="math inline">\(X\)</span> e <span
