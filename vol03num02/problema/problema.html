@@ -1,0 +1,614 @@
+---
+layout: artigo
+title: O Método de Heron e Outros Problemas
+subtitle: Problema
+author: Yure Carneiro e Samuel Feitosa
+---
+<h1 id="soluções-da-edição-anterior">Soluções da Edição Anterior</h1>
+<h1 id="problemas-universitários">Problemas Universitários</h1>
+<div class="problem*">
+<p><strong>Problema 1</strong>. <em>Sejam <span
+class="math inline">\(A_1, A_2, \ldots, A_{n+1}\)</span> subconjuntos
+não vazios de <span class="math inline">\(\{1,2,\ldots, n\}\)</span>.
+Prove que existem conjuntos de índices disjuntos e não vazios <span
+class="math inline">\(I,J \subset \{1,2,\ldots, n+1\}\)</span> tais que
+<span class="math display">\[\displaystyle \bigcup_{k \in I} A_k =
+\bigcup_{k \in J} A_k.\]</span></em></p>
+</div>
+<p><br />
+Considere a matriz <span class="math inline">\(A = (a_{ij})_{i, j}^{n,
+n+1}\)</span> (<span class="math inline">\(n\)</span> linhas e <span
+class="math inline">\(n+1\)</span> colunas) definida da seguinte
+maneira: <span class="math display">\[a_{ij} = \begin{cases}
+    1, \ \ \mbox{se} \ i \in A_j \\ 0, \ \ \mbox{se} \ i \not\in A_j
+\end{cases}.\]</span> Ou seja, dispomos os conjuntos <span
+class="math inline">\(A_1, \ldots, A_{n+1}\)</span> como vetores colunas
+<span class="math inline">\(\overline{A}_1, \ldots,
+\overline{A}_{n+1}\)</span> representando as indicadoras da <span
+class="math inline">\(n-\)</span>upla ordenada <span
+class="math inline">\((1, 2, \ldots, n)\)</span> em cada um dos
+conjuntos. Por hipótese, como cada um deles é não vazio, significa que
+os vetores colunas dessa matriz são não nulos.</p>
+<p>Agora, sendo o posto da matriz <span class="math inline">\(A\)</span>
+no máximo <span class="math inline">\(n\)</span>, então o números de
+colunas linearmente independentes é no máximo <span
+class="math inline">\(n\)</span>, de onde segue que, <span
+class="math inline">\(\overline{A}_1, \ldots,
+\overline{A}_{n+1}\)</span> são linearmente dependentes. De onde segue
+que, existem números reais <span class="math inline">\(\alpha_1,
+\alpha_2, \ldots, \alpha_{n+1}\)</span>, não todos nulos, para os quais
+<span class="math display">\[\alpha_1 \overline{A}_1 + \cdots +
+\alpha_{n+1} \overline{A}_{n+1} = 0.\]</span></p>
+<p>Como todos esses vetores são não nulos e com entradas <span
+class="math inline">\(0\)</span> ou <span
+class="math inline">\(1\)</span> (não negativas), segue que existem
+entre esses escalares, alguns que são positivos <span
+class="math inline">\((\alpha_i &gt; 0)\)</span> e alguns que são
+negativos <span class="math inline">\((\alpha_j &lt; 0)\)</span>.
+Considere então <span class="math inline">\(I\)</span> e <span
+class="math inline">\(J\)</span> os conjuntos destes escalares que são
+positivos e negativos, respectivamente (são não vazios e disjuntos).
+Daí, <span class="math display">\[v = \sum_{i \in I} \alpha_i
+\overline{A}_i = \sum_{j \in J} (-\alpha_j) \overline{A}_j.\]</span>
+Essa igualdade entre as duas representações do vetor <span
+class="math inline">\(v\)</span> acima (que possui entradas não
+negativas), em termos dos conjuntos <span
+class="math inline">\(A_k\)</span> significa que, se a entrada <span
+class="math inline">\(\ell\)</span> de <span
+class="math inline">\(v\)</span> é diferente de <span
+class="math inline">\(0\)</span>, então <span class="math inline">\(\ell
+\in A_i, A_j\)</span> para algum <span class="math inline">\(i \in
+I\)</span> e <span class="math inline">\(j \in J\)</span>. Agora, se a
+entrada <span class="math inline">\(\ell\)</span> de <span
+class="math inline">\(v\)</span> é igual a <span
+class="math inline">\(0\)</span>, então <span class="math inline">\(\ell
+\not\in A_i, A_j\)</span> para todos <span class="math inline">\(i \in
+I\)</span> e <span class="math inline">\(j \in J\)</span>. Ou seja,
+<span class="math display">\[\displaystyle \bigcup_{i \in I} A_i =
+\bigcup_{j \in J} A_j.\]</span></p>
+<div class="problem*">
+<p><strong>Problema 2</strong>. <em>Dizemos que um grupo <span
+class="math inline">\(G=(G,\ast)\)</span> tem raiz se existe um grupo
+<span class="math inline">\(H=(H,\cdot)\)</span> de tal sorte que <span
+class="math inline">\(G\)</span> é isomorfo a <span
+class="math inline">\(H \times H\)</span>. Mostre que o grupo <span
+class="math inline">\((\mathbb{R}, +)\)</span> possui raiz.</em></p>
+<p><em>Dica: Tente ver a possível raíz como um subespaço vetorial de
+<span class="math inline">\(\mathbb{R}\)</span> sobre <span
+class="math inline">\(\mathbb{Q}\)</span>. Como construir uma base para
+esse espaço vetorial?</em></p>
+</div>
+<p><br />
+Suponha que <span class="math inline">\((\mathbb{R},+)\)</span> possui
+uma raiz <span class="math inline">\(X\)</span> via um isomorfismo <span
+class="math inline">\(\phi\)</span>. Podemos considerá-la como um
+subgrupo aditivo de <span class="math inline">\(\mathbb{R}\)</span>
+identificando <span class="math inline">\(X\)</span> com a imagem por
+<span class="math inline">\(\phi\)</span> de <span
+class="math inline">\(X \times {0}\)</span>. É simples de ver que <span
+class="math inline">\(X\)</span>, com as operações usuais, é um
+subespaço de <span class="math inline">\(\mathbb{R}\)</span> sobre <span
+class="math inline">\(\mathbb{Q}\)</span>. De fato, dado qualquer
+natural <span class="math inline">\(q\)</span> e um elemento <span
+class="math inline">\(x \in X\)</span>, existe <span
+class="math inline">\((a, b)\)</span> em <span class="math inline">\(X
+\times X\)</span> tal que <span class="math inline">\(q \cdot (a, b) =
+(x, 0)\)</span> e, portanto, <span class="math inline">\(b = 0\)</span>.
+Assim, <span class="math inline">\(a \in X\)</span> é tal que <span
+class="math inline">\(a = x/q\)</span> e daí segue da estrutura de grupo
+que <span class="math inline">\(X\)</span> é fechado por produto por
+escalar racional.<br />
+Disso segue que <span class="math inline">\(X\)</span> é raiz de <span
+class="math inline">\(\mathbb{R}\)</span>, por analogia ao conceito
+definido no enunciado, também como estrutura de espaço vetorial sobre
+<span class="math inline">\(\mathbb{Q}\)</span>. Feito isso, note que se
+<span class="math inline">\(B\)</span> é base de Hamel de <span
+class="math inline">\(X\)</span>, <span class="math inline">\(B \times
+\{0\} \cup \{0\} \times B\)</span> é base de <span
+class="math inline">\(X \times X\)</span> e suas imagens serão uma base
+de Hamel de <span class="math inline">\(\mathbb{R}\)</span>. Daí, o
+problema de achar uma raiz de <span
+class="math inline">\((\mathbb{R},+)\)</span> resume-se a, dada uma base
+de Hamel <span class="math inline">\(H\)</span> de <span
+class="math inline">\(\mathbb{R}\)</span>, encontramos um subconjunto
+<span class="math inline">\(B\)</span> contido em <span
+class="math inline">\(H\)</span> em bijeção com <span
+class="math inline">\(H \setminus B\)</span>.<br />
+Para isso, defina o conjunto dos pares <span class="math inline">\((C,
+f)\)</span>, <span class="math inline">\(C\)</span> contido em <span
+class="math inline">\(H\)</span> e <span class="math inline">\(f: C \to
+H \setminus C\)</span> injetivas ordenado com <span
+class="math inline">\((C, f) \leq (D, g) \Leftrightarrow C \subset
+D\)</span> e <span class="math inline">\(g\)</span> estende <span
+class="math inline">\(f\)</span>. Esse conjunto satisfaz as condições do
+Lema de Zorn, logo tem um elemento maximal <span
+class="math inline">\((B, h)\)</span>. Agora, em virtude da
+maximalidade, <span class="math inline">\((H \setminus B) \setminus
+h(B)\)</span> tem, no máximo, um elemento, e em ambos os casos de
+cardinalidades de <span class="math inline">\((H \setminus B) \setminus
+h(B)\)</span>, <span class="math inline">\(B\)</span> é um subconjunto
+como pedimos no parágrafo acima.</p>
+<div class="problem*">
+<p><strong>Problema 3</strong>. <em>Seja <span
+class="math inline">\(G\)</span> um conjunto finito de matrizes <span
+class="math inline">\(n \times n\)</span> de coeficientes reais <span
+class="math inline">\(\{M_i\}\)</span>, <span class="math inline">\(1
+\leq i \leq r\)</span>, que forma um grupo sobre a multiplicação
+matricial. Suponha que <span class="math inline">\(\sum_{i=1}^{r}
+tr(M_i)=0\)</span>, onde <span class="math inline">\(tr(A)\)</span>
+denota o traço da matriz <span class="math inline">\(A\)</span>. Prove
+que <span class="math inline">\(\sum_{i=1}^r M_i\)</span> é a matriz
+nula.</em></p>
+</div>
+<p><br />
+Seja <span class="math inline">\(S = \sum_{i=1}^r M_i\)</span>. Para
+qualquer <span class="math inline">\(j\)</span>, a sequência <span
+class="math inline">\(M_jM_1, M_jM_2, \ldots, M_jM_r\)</span> é uma
+permutação dos elementos de <span class="math inline">\(G\)</span>.
+Somando todos eles, obtemos <span class="math inline">\(M_jS =
+S\)</span>. Somando essas expressões de <span class="math inline">\(j =
+1\)</span> até <span class="math inline">\(r\)</span> resulta em <span
+class="math inline">\(S^2 = rS\)</span>. Portanto, o polinômio minimal
+de <span class="math inline">\(S\)</span> divide <span
+class="math inline">\(x^2 - rx\)</span> e, consequentemente, todo
+autovalor de <span class="math inline">\(S\)</span> é <span
+class="math inline">\(0\)</span> ou <span
+class="math inline">\(r\)</span>. Por outro lado, soma dos autovalores,
+contados com multiplicidade, é <span
+class="math inline">\(\operatorname{tr}(S) = 0\)</span>, então todos os
+autovalores são iguais a <span class="math inline">\(0\)</span>. Todo
+autovalor de <span class="math inline">\(S - rI\)</span> é <span
+class="math inline">\(-r \neq 0\)</span>, logo <span
+class="math inline">\(S - rI\)</span> é invertível. Portanto, de <span
+class="math inline">\(S(S - rI) = 0\)</span>, obtemos <span
+class="math inline">\(S = 0\)</span>.</p>
+<div class="problem*">
+<p><strong>Problema 4</strong>. <em>Seja <span
+class="math inline">\(f(x)=a_1\mathop{\mathrm{sen}}x+a_2
+\mathop{\mathrm{sen}}2x+\ldots +a_n \mathop{\mathrm{sen}}nx\)</span>,
+onde <span class="math inline">\(a_1,a_2, \ldots, a_n\)</span> são
+números reais e <span class="math inline">\(n\)</span> é um inteiro
+positivo. Dado que <span class="math inline">\(|f(x)|\leq
+|\mathop{\mathrm{sen}}x|\)</span> para todo o número real <span
+class="math inline">\(x\)</span>, prove que <span
+class="math display">\[|a_1+2a_2+\ldots+na_n| \leq 1.\]</span></em></p>
+</div>
+<p><br />
+Dado o <span class="math inline">\(f(x)\)</span> do enunciado, tem-se
+que <span class="math display">\[f&#39;(x) = a_1 \cdot \cos(x) + 2\cdot
+a_2 \cdot \cos(2x) +\ldots + n \cdot a_n \cdot \cos(nx).\]</span> Daí,
+nota-se que <span class="math display">\[\begin{aligned}
+f(0) &amp; = a_1 \cdot sen(0) + a_2 \cdot sen(0) + \ldots + a_n \cdot
+sen(0) \\
+      &amp; =  0; \\
+f&#39;(0) &amp; =  a_1 \cdot \cos(0) + 2\cdot a_2 \cdot \cos(0) + \ldots
++ n \cdot a_n \cdot \cos(0);\\
+      &amp; =  a_1 + 2 \cdot a_2 + \ldots  + n \cdot
+a_n.\end{aligned}\]</span> Portanto, basta mostrarmos que <span
+class="math inline">\(|f&#39;(0)| \leq 1\)</span>. Pelo enunciado, <span
+class="math inline">\(|f(x)| \leq |\mathop{\mathrm{sen}}(x)|\)</span>,
+então supondo que <span class="math inline">\(x \neq 0\)</span>, tem-se
+que <span class="math display">\[\left|\dfrac{f(x)}{x}\right| \leq
+\left|\dfrac{\mathop{\mathrm{sen}}(x)}{x}\right|.\]</span> Daí <span
+class="math display">\[|f&#39;(0)| = \left|\lim_{x \to
+0}\dfrac{f(x)-f(0)}{x-0}\right| \leq \left|\lim_{x \to
+0}\dfrac{\mathop{\mathrm{sen}}(x)}{x}\right| = 1.\]</span></p>
+<div class="problem*">
+<p><strong>Problema 5</strong>. <em>Calcule a integral <span
+class="math display">\[\displaystyle \int_{0}^{\pi/2}
+\dfrac{\mathop{\mathrm{sen}}^{25}x}{\cos^{25}x+\mathop{\mathrm{sen}}^{25}x}dx.\]</span></em></p>
+</div>
+<p><br />
+Denote o valor da integral acima por <span
+class="math inline">\(I\)</span>. Fazendo a mudança de variável <span
+class="math inline">\(u = \dfrac{\pi}{2} - x\)</span>, tem-se que <span
+class="math display">\[\dfrac{\mathop{\mathrm{sen}}^{25}(x)}{\mathop{\mathrm{sen}}^{25}(x)
++ \cos^{25}(x)} = \dfrac{\cos^{25}(u)}{\cos^{25}(u) +
+\mathop{\mathrm{sen}}^{25}(u)}.\]</span> Além do mais, <span
+class="math inline">\(du = -dx\)</span> para <span
+class="math inline">\(x=0\)</span> temos <span class="math inline">\(u =
+{\pi}/{2}\)</span> e para <span
+class="math inline">\(x=\pi/{2}\)</span>, temos <span
+class="math inline">\(u = 0\)</span>. Daí, obtemos <span
+class="math display">\[\begin{aligned}
+\int_{0}^{\pi/2}\dfrac{\mathop{\mathrm{sen}}^{25}(x)}{\mathop{\mathrm{sen}}^{25}(x)
++ \cos^{25}(x)}\ dx
+&amp;= \\
+-\int_{\pi/2}^{0}\dfrac{\cos^{25}(u)}{\mathop{\mathrm{sen}}^{25}(u) +
+\cos^{25}(u)}\ du  
+&amp;= \\
+\int_{0}^{\pi/2}\dfrac{\cos^{25}(x)}{\mathop{\mathrm{sen}}^{25}(x) +
+\cos^{25}(x)}\ dx &amp;.\end{aligned}\]</span> Portanto, <span
+class="math inline">\(I + I = \int_0^{\pi/ 2}1 dx  = \pi/2\)</span> e,
+consequentemente, <span class="math inline">\(I =
+\dfrac{\pi}{4}\)</span>.</p>
+<h1 id="problemas-de-matemática-elementar">Problemas de Matemática
+Elementar</h1>
+<div class="problem*">
+<p><strong>Problema 6</strong>. <em>A figura a seguir consiste de <span
+class="math inline">\(5\)</span> quadrados iguais colocados no interior
+de um retângulo <span class="math inline">\(8 cm \times 7 cm\)</span>.
+Qual a medida do lado desses quadrados?</em></p>
+<div class="center">
+<figure>
+<img src="fig01.png" style="width: 50%"/>
+</figure>
+</div>
+</div>
+<p><br />
+Seja <span class="math inline">\(a\)</span> o comprimento do lado do
+quadrado. Como as inclinações dos lados dos quadrados formam <span
+class="math inline">\(90^{\circ}\)</span> entre si, só existem dois
+comprimentos possíveis de projeções dos lados dos quadrados sobre os
+lados dos retângulos: <span class="math inline">\(x\)</span> ou <span
+class="math inline">\(y\)</span>.</p>
+<div class="center">
+<figure>
+<img src="fig02.png" style="width: 50%"/>
+</figure>
+</div>
+<p>Comparando as medidas dos dois lados dos retângulos com essas
+projeções, temos <span class="math inline">\(8 = 2x+y+x+y=3x+2y\)</span>
+e <span class="math inline">\(7 = 3x+y\)</span>. Resolvendo o sistema
+resultante, encontramos <span class="math inline">\(x=2\)</span> e <span
+class="math inline">\(y=1\)</span>. Portanto, pelo Teorema de Pitágoras,
+<span class="math inline">\(a =\sqrt{x^2+y^2}=\sqrt{5}\,
+cm\)</span>.</p>
+<div class="problem*">
+<p><strong>Problema 7</strong>. <em>Na figura a seguir, <span
+class="math inline">\(ABCD\)</span> é um quadrado e <span
+class="math inline">\(M\)</span>, <span
+class="math inline">\(N\)</span>, <span class="math inline">\(P\)</span>
+e <span class="math inline">\(Q\)</span> são os pontos médios dos seus
+lados. As áreas de três regiões do seu interior são <span
+class="math inline">\(20\,cm^2\)</span>, <span
+class="math inline">\(32\,cm^2\)</span> e <span
+class="math inline">\(16\,cm^2\)</span>, também como indicado na figura.
+Qual a área da quarta região?</em></p>
+<div class="center">
+<figure>
+<img src="fig03.png" style="width: 50%"/>
+</figure>
+</div>
+</div>
+<p><br />
+Seja <span class="math inline">\(R\)</span> o ponto central da figura,
+<span class="math inline">\(2x\)</span> o comprimento de metade de um
+lado do quadrado e <span class="math inline">\(d_1\)</span>, <span
+class="math inline">\(d_2\)</span>, <span
+class="math inline">\(d_3\)</span> e <span
+class="math inline">\(d_4\)</span> as distâncias de <span
+class="math inline">\(R\)</span> aos lados.</p>
+<div class="center">
+<figure>
+<img src="fig04.png" style="width: 50%"/>
+</figure>
+</div>
+<p>A área do quadrilátero <span class="math inline">\(DPRQ\)</span> é a
+soma das áreas de dois triângulos de bases de comprimento <span
+class="math inline">\(2x\)</span> e alturas <span
+class="math inline">\(d_3\)</span> e <span
+class="math inline">\(d_4\)</span>. Ou seja, <span
+class="math display">\[A_{DPRQ} = \dfrac{2x \cdot d_3}{2}+\dfrac{2x
+\cdot d_4}{2} = x \cdot (d_3+d_4) .\]</span> De modo semelhante, <span
+class="math display">\[A_{AQRM} = x \cdot (d_1+d_4), A_{BMRN} = x \cdot
+(d_1+d_2)\]</span> <span class="math display">\[\text{e }A_{CNRP} = x
+\cdot (d_2+d_3).\]</span> Portanto, <span
+class="math display">\[\begin{aligned}
+A_{CNRP} + A_{AQRM} &amp; = &amp; A_{BMRN} + A_{DPRQ} \\
+A_{CNRP} + 20 &amp; = &amp; 32 + 16.\end{aligned}\]</span> Assim, <span
+class="math inline">\(A_{CNRP} = 32+16-20 = 28\,cm^2\)</span>.</p>
+<div class="problem*">
+<p><strong>Problema 8</strong>. <em>Dois inteiros positivos <span
+class="math inline">\(x\)</span> e <span
+class="math inline">\(y\)</span> são tais que <span
+class="math display">\[\dfrac{2010}{2011} &lt; \dfrac{x}{y} &lt;
+\dfrac{2011}{2012}.\]</span> Encontre o menor valor possível para a soma
+<span class="math inline">\(x+y\)</span>.</em></p>
+</div>
+<p><br />
+A desigualdade acima pode ser reescrita como: <span
+class="math display">\[\begin{aligned}
+\dfrac{2010}{2011} &lt; \frac{x}{y} &lt; \dfrac{2011}{2012}
+&amp;\Leftrightarrow \\
+1 - \dfrac{1}{2011} &lt; 1 -\frac{t}{y} &lt; 1 -
+\dfrac{1}{2012}  &amp;\Leftrightarrow \\
+2011 &lt; \dfrac{y}{t} &lt; 2012. \end{aligned}\]</span> com <span
+class="math inline">\(t = y - x \in \mathbb{Z}\)</span>. Devemos ter
+<span class="math inline">\(t \geq 2\)</span>, pois para <span
+class="math inline">\(t = 1\)</span> não existe um inteiro <span
+class="math inline">\(y\)</span> tal que <span
+class="math inline">\(2011&lt;y&lt;2012\)</span>. Da desigualdade <span
+class="math inline">\(2011 \cdot t &lt; y &lt; 2012 \cdot t\)</span>,
+tem-se que <span class="math inline">\(y \geq  2011 \cdot t +
+1\)</span>. Daí:</p>
+<p><span class="math display">\[\begin{aligned}
+x + y &amp; =  (y - t) + y \\
+      &amp; =  2y -t \\
+      &amp; =  2\cdot (2011 \cdot t + 1) - t \\ &amp; = 4021 \cdot t +
+2.\end{aligned}\]</span> Como <span class="math inline">\(t \geq
+2\)</span>, tem-se que o menor valor possível para <span
+class="math inline">\(x+y\)</span> é <span class="math display">\[x + y
+= 4021 \cdot 2 + 2 = 8042 + 2 = 8044.\]</span> Um exemplo é <span
+class="math inline">\(x = 4021\)</span> e <span
+class="math inline">\(y=4023\)</span>.</p>
+<div class="problem*">
+<p><strong>Problema 9</strong>. <em>Sejam <span class="math inline">\(a,
+b\)</span> e <span class="math inline">\(c\)</span> reais satisfazendo
+<span class="math inline">\(a+b+c = 0\)</span> e <span
+class="math inline">\(a^2 + b^2 + c^2 = 4\)</span>. Qual o valor de
+<span class="math inline">\((ab)^2 + (bc)^2 + (ca)^2\)</span> ?</em></p>
+</div>
+<p>Veja que <span class="math display">\[a^2 + b^2 + c^2 + 2(ab + bc +
+ca) = (a + b + c)^2 = 0.\]</span> De onde, <span
+class="math display">\[ab + bc + ca = -2\]</span> (pois <span
+class="math inline">\(a^2 + b^2 + c^2 = 4\)</span>).</p>
+<p>Assim, <span class="math display">\[(ab)^2 + (bc)^2 + (ca)^2 +
+2(ab^2c + bc^2a + ca^2b) =\]</span> <span class="math display">\[(ab +
+bc + ca)^2 = (-2)^2 = 4\]</span> <span class="math display">\[\therefore
+(ab)^2 + (bc)^2 + (ca)^2 + 2abc(a + b + c) = 4\]</span> <span
+class="math display">\[\therefore (ab)^2 + (bc)^2 + (ca)^2 =
+4.\]</span></p>
+<div class="problem*">
+<p><strong>Problema 10</strong>. <em>Mostre que <span
+class="math display">\[\frac{1}{1+\sqrt{2}} +
+\frac{1}{\sqrt{3}+\sqrt{4}} + \frac{1}{\sqrt{5}+\sqrt{6}} + \cdots +
+\frac{1}{\sqrt{99}+\sqrt{100}} &gt; \frac{9}{2}.\]</span></em></p>
+</div>
+<p>Note que, <span class="math display">\[\begin{aligned}
+\frac{1}{\sqrt{n} + \sqrt{n+1}} &amp;= \frac{\sqrt{n+1} -
+\sqrt{n}}{(\sqrt{n+1} + \sqrt{n})(\sqrt{n+1} - \sqrt{n})} \\
+&amp;= \frac{\sqrt{n+1} - \sqrt{n}}{n+1 - n} \\
+&amp;= \sqrt{n+1} - \sqrt{n}.   \end{aligned}\]</span> Assim, <span
+class="math display">\[\begin{aligned}
+\sum_{n=1}^{99} \frac{1}{\sqrt{n} + \sqrt{n+1}} &amp;= \sum_{n=1}^{99}
+\sqrt{n+1} - \sqrt{n} \\
+&amp;= \sqrt{100} - \sqrt{1} = 10 - 1 = 9.\end{aligned}\]</span> Além
+disso, <span class="math display">\[\frac{1}{1+\sqrt{2}} +
+\frac{1}{\sqrt{3}+\sqrt{4}} + \frac{1}{\sqrt{5}+\sqrt{6}} + \cdots +
+\frac{1}{\sqrt{99}+\sqrt{100}} =\]</span> <span
+class="math display">\[\sum_{k=0}^{49} \frac{1}{\sqrt{2k+1} +
+\sqrt{2k+2}} &gt; \sum_{k=0}^{48} \frac{1}{\sqrt{2k+2} +
+\sqrt{2k+3}}\]</span> e <span class="math display">\[\sum_{k=0}^{49}
+\frac{1}{\sqrt{2k+1} + \sqrt{2k+2}} + \sum_{k=0}^{48}
+\frac{1}{\sqrt{2k+2} + \sqrt{2k+3}} =\]</span> <span
+class="math display">\[\sum_{n=1}^{99} \frac{1}{\sqrt{n} + \sqrt{n+1}} =
+9.\]</span> Portanto, <span class="math display">\[2 \sum_{k=0}^{49}
+\frac{1}{\sqrt{2k+1} + \sqrt{2k+2}} &gt; 9\]</span> e <span
+class="math display">\[\sum_{k=0}^{49} \frac{1}{\sqrt{2k+1} +
+\sqrt{2k+2}} &gt; \frac{9}{2}.\]</span></p>
+<div class="problem*">
+<p><strong>Problema 11</strong>. <em>Em uma sequência de inteiros
+positivos, uma <span><em>inversão</em></span> é um par de posições em
+que o elemento da posição mais a esquerda é maior que o elemento da
+posição mais a direita. Por exemplo, a sequência <span
+class="math inline">\(2,5,3,1,3\)</span> tem <span
+class="math inline">\(5\)</span> inversões: entre a primeira e a quarta
+posição, entre a segunda e todas as demais para a direita e, finalmente,
+entre a terceira e a quarta. Qual é o maior número possível de inversões
+em uma sequência de inteiros positivos cuja a soma de seus elementos é
+<span class="math inline">\(2019\)</span>?</em></p>
+</div>
+<p><br />
+Primeiramente vamos mostrar que qualquer sequência maximizante do número
+de inversões precisa ser não-crescente. De fato, se existe um par de
+números consecutivos <span class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span>, com <span class="math inline">\(a&lt;
+b\)</span>, então a troca de posição desses elementos não altera a soma
+e aumenta o número de inversões em uma unidade. A seguir, mostraremos
+que qualquer sequência não-crescente que maximiza o número de inversões
+deve possuir apenas números iguais a <span
+class="math inline">\(1\)</span> e <span
+class="math inline">\(2\)</span>. Suponha, por absurdo, que a sequência
+contém algum número <span class="math inline">\(k&gt;2\)</span>. Troque
+o último <span class="math inline">\(k\)</span> por um par de elementos:
+<span class="math inline">\(k-1\)</span> na posição original e <span
+class="math inline">\(1\)</span> na posição final. Claramente essa
+operação não altera a soma. O <span class="math inline">\(1\)</span>
+final é parte de uma inversão com todo o elemento que era membro de uma
+inversão com o <span class="math inline">\(k\)</span> original, exceto
+pelos números <span class="math inline">\(1\)</span> a sua direita. O
+novo <span class="math inline">\(k-1\)</span> é parte de uma inversão
+com todo elemento que era menor que o <span
+class="math inline">\(k\)</span> original, incluindo as parcelas <span
+class="math inline">\(1\)</span> a sua direita. Assim, contabilizando a
+inversão criada entre o novo <span class="math inline">\(k-1\)</span> e
+o novo <span class="math inline">\(1\)</span>, essa troca criada aumenta
+o número de inversões em pelo menos uma unidade. Finalmente,
+considerando uma sequência qualquer que maximiza o número de inversões e
+que possui de soma de seus elementos igual a <span
+class="math inline">\(2019\)</span>, podemos supor que existem <span
+class="math inline">\(a\)</span> parcelas iguais a <span
+class="math inline">\(2\)</span> e <span
+class="math inline">\(2019-2a\)</span> parcelas iguais a <span
+class="math inline">\(1\)</span>. O número de inversões é <span
+class="math display">\[\begin{aligned}
+a(2019-2a) &amp; = &amp; 2019a-2a^2 \\
+           &amp; = &amp; \dfrac{2019^2}{8} - 2\left ( a-\dfrac{2019}{4}
+\right )^2.\end{aligned}\]</span> Para maximizar a expressão anterior,
+devemos minimizar <span class="math inline">\(|a-2019/4|\)</span> e isso
+ocorre para <span class="math inline">\(a=505\)</span>. Portanto, o
+maior número de inversões é <span class="math inline">\(505 \cdot
+1009\)</span>.</p>
+<div class="problem*">
+<p><strong>Problema 12</strong>. <em>A soma dos números positivos <span
+class="math inline">\(x_1, x_2, \ldots, x_n\)</span> é igual a <span
+class="math inline">\(\frac{1}{2}\)</span>. Prove que <span
+class="math display">\[\frac{1-x_1}{1+x_1} \cdot \frac{1-x_2}{1+x_2}
+\cdots \frac{1-x_n}{1+x_n} \geq \frac{1}{3}.\]</span></em></p>
+</div>
+<p><br />
+Provaremos esse resultado por indução. Vejamos.</p>
+<p> </p>
+<p>Se <span class="math inline">\(n=1\)</span>, temos <span
+class="math inline">\(x_1 = \frac{1}{2}\)</span> e então <span
+class="math inline">\(\frac{1-x_1}{1+x_1} = \frac{1/2}{3/2} =
+\frac{1}{3}\)</span>.</p>
+<p> </p>
+<p>Agora, vamos supor que a afirmação é válida para <span
+class="math inline">\(n\)</span>, e suponhamos que <span
+class="math inline">\(x_1, x_2, \ldots, x_n, x_{n+1}\)</span> são
+números positivos para os quais <span class="math inline">\(x_1 + \cdots
++ x_n + x_{n+1} = \frac{1}{2}\)</span>.</p>
+<p> </p>
+<p>Primeiro vejamos o seguinte: se <span class="math inline">\(0 &lt; a
+\leq b\)</span> e <span class="math inline">\(c \geq 0\)</span>, então
+<span class="math inline">\(bc \geq ac\)</span> e <span
+class="math inline">\((a+c)b = ab + bc \geq ab + ac = (b+c)a\)</span> e
+portanto, <span class="math inline">\(\frac{a+c}{b+c} \geq
+\frac{a}{b}\)</span>. Aplicando esse fato aos números <span
+class="math inline">\(a=1-(x_n+x_{n+1}), \ b=1+(x_n+x_{n+1})\)</span> e
+<span class="math inline">\(c=x_nx_{n+1}\)</span>, segue que <span
+class="math display">\[\frac{1-(x_n+x_{n+1}) +
+x_nx_{n+1}}{1+(x_n+x_{n+1}) + x_nx_{n+1}} \geq
+\frac{1-(x_n+x_{n+1})}{1+(x_n+x_{n+1})}.\]</span> Portanto, <span
+class="math display">\[\frac{1-x_n}{1+x_n} \cdot
+\frac{1-x_{n+1}}{1+x_{n+1}} \geq
+\frac{1-(x_n+x_{n+1})}{1+(x_n+x_{n+1})}.\]</span></p>
+<p>Agora, fazendo <span class="math inline">\(y_n = x_n +
+x_{n+1}\)</span>, temos que <span class="math inline">\(x_1, \ldots,
+x_{n-1}, y_n\)</span> são <span class="math inline">\(n\)</span> números
+positivos cuja soma é igual a <span
+class="math inline">\(\frac{1}{2}\)</span>, e por hipótese de indução
+vale que, <span class="math display">\[\frac{1-x_1}{1+x_1} \cdot
+\frac{1-x_2}{1+x_2} \cdots \frac{1-y_n}{1+y_n} \geq
+\frac{1}{3},\]</span> isto é, <span
+class="math display">\[\frac{1-x_1}{1+x_1} \cdot \frac{1-x_2}{1+x_2}
+\cdots \frac{1-(x_n+x_{n+1})}{1+(x_n+x_{n+1})} \geq
+\frac{1}{3}.\]</span> Por <span class="math inline">\((1)\)</span> e
+<span class="math inline">\((2)\)</span>, segue que, <span
+class="math display">\[\frac{1-x_1}{1+x_1} \cdot \frac{1-x_2}{1+x_2}
+\cdots \frac{1-x_n}{1+x_n} \cdot \frac{1-x_{n+1}}{1+x_{n+1}} \geq
+\frac{1}{3}\]</span> e por indução, a afirmação é vale para todo <span
+class="math inline">\(n \geq 1\)</span>, de onde segue o desejado.</p>
+<h1 id="novos-problemas">Novos Problemas</h1>
+<h1 id="problemas-universitários-1">Problemas Universitários</h1>
+<div class="problem*">
+<p><strong>Problema 13</strong>. <em>Mostre que para qualquer primo
+<span class="math inline">\(p &gt; 17\)</span>, o número <span
+class="math display">\[p^{32} - 1\]</span> é divisivel por <span
+class="math inline">\(16320\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 14</strong>. <em>Sejam <span
+class="math inline">\(c\)</span> e <span
+class="math inline">\(x_0\)</span> números reais positivos fixados.
+Defina a sequência <span class="math display">\[x_n = \frac{1}{2}\left(
+x_{n-1} + \frac{c}{x_{n-1}}\right), \ \mbox{para} \ n \geq 1.\]</span>
+Prove que a sequência converge e que o limite é <span
+class="math inline">\(\sqrt{c}\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 15</strong>. <em>Calcule o determinante da matriz
+quadrada de ordem <span class="math inline">\(n\)</span>, <span
+class="math inline">\(A = (a_{ij})_{ij}\)</span>, definida por <span
+class="math display">\[a_{ij} = \begin{cases}
+    (-1)^{|i-j|}, \ \ \mbox{se} \ i \neq j \\ 2, \ \ \mbox{se} \ i=j
+\end{cases}.\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 16</strong>. <em>Considere uma esfera de raio
+unitário centrada na origem de um sistemas de coordenadas <span
+class="math inline">\(xyz\)</span>. Seja <span
+class="math inline">\(C\)</span> um pentágono regular inscrito na esfera
+e contido no plano <span class="math inline">\(xy\)</span>. Determine a
+área da região contida na esfera cuja projeção com respeito à terceira
+coordenada coincide com a região delimitada por <span
+class="math inline">\(C\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 17</strong>. <em>Seja <span
+class="math inline">\(f\)</span> diferenciável em <span
+class="math inline">\(x=a\)</span> com <span class="math inline">\(f(a)
+\neq 0\)</span>. Calcule: <span class="math display">\[\displaystyle
+\lim_{n \to \infty} \left [ \dfrac{f(a+1/n)}{f(a)} \right
+]^n.\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 18</strong>. <em>Sejam <span
+class="math inline">\(A, B \in M(n, \mathbb{C})\)</span> e <span
+class="math inline">\(P \in \mathbb{C}[X]\)</span> um polinômio
+năo-constante tal que <span class="math inline">\(P(0) \neq 0\)</span> e
+<span class="math inline">\(A B=P(A)\)</span>. Prove que a matriz <span
+class="math inline">\(A\)</span> é invertível e que as matrizes <span
+class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span> comutam (isto é, que <span
+class="math inline">\(AB=BA\)</span>).</em></p>
+</div>
+<h1 id="problemas-de-matemática-elementar-1">Problemas de Matemática
+Elementar</h1>
+<div class="problem*">
+<p><strong>Problema 19</strong>. <em>O produto dos números reais
+positivos <span class="math inline">\(a_1, a_2, \ldots, a_n\)</span> é
+igual a 1. Prove, <strong>sem ser por indução</strong>, que <span
+class="math display">\[(1+a_1)\cdot(1+a_2)\cdots (1+a_n) \geq
+2^n.\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 20</strong>. <em>Seja <span
+class="math inline">\(A\)</span> um subconjunto dos números naturais tal
+que, entre 100 números naturais consecutivos, existe um elemento de
+<span class="math inline">\(A\)</span>. Prove que podemos encontrar
+quatro números diferentes <span class="math inline">\(a, b, c\)</span> e
+<span class="math inline">\(d\)</span> em <span
+class="math inline">\(A\)</span> tais que <span
+class="math inline">\(a+b = c+d\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 21</strong>. <em>Uma pilha tem 40 pedras. A pilha é
+dividida em duas partes, depois uma das partes é dividida em duas
+novamente, etc., até termos 40 pedras separadas (40 pilhas formadas com
+uma pedra cada). Depois de cada divisão de uma das pilhas em duas
+menores, escrevemos o produto dos números de pedras nestas duas pilhas
+em um quadro. Mostre que, no final, a soma de todos os números no quadro
+será igual a 780.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 22</strong>. <em>A sequência de números inteiros
+<span class="math inline">\(x_n\)</span> é definida por <span
+class="math inline">\(x_1=4\)</span>, <span
+class="math inline">\(x_2=6\)</span> e, para <span
+class="math inline">\(n \geq 3\)</span>, <span
+class="math inline">\(x_n\)</span> é o menor número composto maior que
+<span class="math inline">\(2x_{n-1}-x_{n-2}\)</span>. Encontre o valor
+de <span class="math inline">\(x_{2026}\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 23</strong>. <em>Em uma festa, existem <span
+class="math inline">\(25\)</span> membros que satisfazem a seguinte
+condição: quando dois deles não se conhecem, então eles possuem algum
+amigo em comum. Sabemos que ninguém conhece todos na festa. Prove que a
+soma dos números de amigos de cada pessoa na festa é pelo menos <span
+class="math inline">\(72\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 24</strong>. <em>Seja <span
+class="math inline">\(ABCD\)</span> um quadrilátero inscritível e <span
+class="math inline">\(P=BD \cap AC\)</span>. Os pés das perpendiculares
+de <span class="math inline">\(P\)</span> aos lados <span
+class="math inline">\(AB\)</span> e <span
+class="math inline">\(CD\)</span> são <span
+class="math inline">\(X\)</span> e <span
+class="math inline">\(Y\)</span>. Se <span
+class="math inline">\(M\)</span> e <span
+class="math inline">\(N\)</span> são os pontos médios dos lados <span
+class="math inline">\(BC\)</span> e <span
+class="math inline">\(AD\)</span>, prove que <span
+class="math inline">\(MN \perp XY\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 25</strong>. <em>Uma máquina tem dois botões: um
+deles dobra um número inteiro e o outro aumenta ele em <span
+class="math inline">\(1\)</span> unidade. Por exemplo, apertando os
+botões dessa máquina é possível realizar as seguintes
+operações:</em></p>
+<p><em><span class="math display">\[1 \rightarrow_{+1} 2
+\rightarrow_{\times 2} 4 \rightarrow_{+1} 5.\]</span></em></p>
+<p><em>Se no início você começa com o número <span
+class="math inline">\(0\)</span>, qual o número mínimo de vezes que você
+precisa apertar botões dessa máquina para obter:</em></p>
+<ol type="a">
+<li><p><em><span class="math inline">\(100\)</span>?</em></p></li>
+<li><p><em><span class="math inline">\(2024\)</span>?</em></p></li>
+</ol>
+</div>

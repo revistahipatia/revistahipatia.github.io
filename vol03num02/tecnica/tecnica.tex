@@ -1,0 +1,582 @@
+\documentclass{hipatia}
+\usepackage{lipsum}
+\usepackage{makecell}
+\usepackage{mathtools}
+
+\newtheorem{problema}{\noindent \sffamily\textbf{Problema}}
+\newcommand{\sol}{\noindent \sffamily \textbf{Solução: }\rmfamily}
+
+%Use \DeclareMathOperator para definir novos
+% operadores para o modo matemático
+\DeclareMathOperator{\sen}{sen}
+%\DeclareMathOperator{\cos}{cos}
+\DeclareMathOperator{\cis}{cis}
+
+%Evite numerar teoremas
+%Prefira nomeá-los
+%Use os ambientes abaixo
+\newtheorem*{theorem*}{Teorema}
+\newtheorem*{lemma*}{Lema}
+\newcommand{\superou}{\textsuperscript{\underline{o}}~}
+
+
+
+% Evite títulos muito longos
+\title{Equações de 3\superou  grau}
+% Se for necessário diminuir a fonte do título
+% para caber no quadro, use
+% \title{ \fontsize{28}{28}\selectfont Uma Nova Demonstração do\\  \fontsize{28}{28}\selectfont Teorema de Pitágoras}
+
+% O Subtítulo é o nome da seção da revista
+% Deve ser uma palavra de origem grega
+\subtitle{Técnica}
+\author{Armando Barbosa}
+% A data não é necessária
+%\date{October 2023}
+% Não se preocupe com a numeração
+% das páginas ou com o número da edição
+
+\begin{document}
+\setcounter{page}{\tecnicapage}
+\maketitle
+
+\section{Introdução}
+
+A busca por soluções explícitas de equações polinomiais envolvendo radicais é um dos episódios mais fascinantes do desenvolvimento da matemática. Ele se inicia ainda na antiguidade com fórmulas conhecidas dos babilônicos e atinge o seu ápice no século XIX com os trabalhos Abel e Galois.
+
+O objetivo deste artigo é apresentar aplicações das fórmulas de Tartaglia--Cardano, que surgiram no Renascimento Italiano, para solucionar equações de 3\superou  grau em problemas de vestibulares e olimpíadas de matemática. No final, também discutiremos brevemente fórmulas por radicais para equações de graus maiores.
+
+Uma equação do 3\superou  grau 
+de coeficientes reais 
+na variável $x$
+é uma expressão algébrica da forma
+$$
+ax^3 + bx^2 + cx + d = 0, 
+$$
+com $a,b,c,d \in \mathbb{R}$  e $a \neq 0$.
+O Teorema Fundamental da Álgebra garante que essa equação possui três 
+soluções complexas, contando-se multiplicidades. 
+Estamos interessados em saber quais são
+os três valores complexos de $x$ que
+satisfazem a equação acima. Para isso, 
+podemos dividir a estratégia
+para obter uma fórmula para esses valores
+em três partes:
+
+\begin{enumerate}
+ \item Eliminar o coeficiente de $x^2$ através
+ de uma mudança de variável que crie uma
+ nova equação do 3\superou  grau cuja 
+ soma das raízes é nula;
+ \item Realizar uma nova mudança de variável, 
+ reduzindo o problema de determinar 
+ uma raiz da equação do 3\superou  grau do passo anterior
+ à resolução de uma equação do 
+ 2\superou grau com raízes $u^3$ e $v^3$;
+ \item Perceber que as outras duas soluções, 
+ álem de $u+v$,
+ conjugadas ou não, são $uw + vw^2$ e 
+ $uw^2 +vw$, sendo $w = \cis 120^{\circ}$.
+\end{enumerate}
+
+Expliquemos agora 
+cada um desses passos
+com mais detalhes.
+
+\section{Eliminando o termo quadrático}
+
+Dividindo a equação original por $a$, temos que
+$$
+x^3 + \dfrac{b}{a} x^2 + \dfrac{c}{a} x + \dfrac{d}{a} = 0.
+$$
+Pelas relações de Girard, as três soluções $x_1$, $x_2$ e $x_3$ 
+somadas resultam em $-\dfrac{b}{a}$. Daí, considerando a 
+substituição de variáveis
+$$
+t = x + \dfrac{b}{3a} \Leftrightarrow x=t - \dfrac{b}{3a},
+$$
+teremos que
+\begin{align*}
+t_1 + t_2 + t_3 &= (x_1+\dfrac{b}{3a}) + (x_2+\dfrac{b}{3a}) + (x_3+\dfrac{b}{3a}) \\
+&= (x_1 + x_2 + x_3) + 3 \cdot \dfrac{b}{3a} \\
+&= -\dfrac{b}{a} + \dfrac{b}{a} = 0,
+\end{align*}              
+e a soma das raízes na variável $t$ será igual a $0$.
+Substituindo, então, na equação do 3\superou  grau, podemos concluir que
+\begin{gather*}
+ \left( t - \dfrac{b}{3a} \right)^3 + \dfrac{b}{a} \cdot \left( t - \dfrac{b}{3a} \right)^2 + \dfrac{c}{a} \cdot \left( t - \dfrac{b}{3a} \right) + \dfrac{d}{a} = 0 \\
+\therefore t^3 - 3t^2 \cdot \dfrac{b}{3a} + 3t \cdot \dfrac{b^2}{9a^2} - \dfrac{b^3}{27a^3} +\\
+  t^2 \cdot \dfrac{b}{a} - 2t \cdot  \dfrac{b^2}{3a^2} + \dfrac{b^3}{9a^3}+ \\
+ t \cdot \dfrac{c}{a} - \dfrac{bc}{3a^2} + \dfrac{d}{a} = 0 \\
+ \therefore t^3 + t \left( \dfrac{b^2}{3a^2} - 2\dfrac{b^2}{3a^2} + \dfrac{c}{a} \right) + \left( - \dfrac{b^3}{27a^3} + \dfrac{b^3}{9a^3} - \dfrac{bc}{3a^2} + \dfrac{d}{a} \right) = 0, \\
+\end{gather*}
+ou seja,
+$$
+\boxed{ t^3 + t \left( \dfrac{-b^2+3ac}{3a^2} \right) + \left( \dfrac{2b^3-9abc+27a^2d}{27a^3} \right) = 0, }
+$$
+e o termo quadrático foi eliminado.
+
+
+\section{Redução para uma equação quadrática}
+
+Sejam
+$$
+p = \dfrac{-b^2+3ac}{3a^2} \,\,\,\textrm{e}\,\,\, q = \dfrac{2b^3-9abc+27a^2d}{27a^3}.
+$$
+Daí, temos que
+$$
+t^3 + pt + q = 0.
+$$
+Considerando a nova substituição de variáveis
+$$
+t = u + v,
+$$
+%\noindent sendo $u$, $v$ reais que escolheremos em breve.
+podemos concluir que
+\begin{gather*}
+ \left( u + v \right)^3 + p \cdot \left( u + v \right) + q = 0 \\
+\therefore u^3 + v^3 + 3uv \left( u+ v \right) + p \cdot \left( u + v \right) + q = 0 \\
+\therefore \left( u^3 + v^3 + q \right) + \left( u + v \right) \cdot \left( 3uv + p \right) = 0.
+\end{gather*}
+
+\begin{figure}[htb!]
+\begin{center}
+\includegraphics[width=6cm]{formulasecreta.png}
+\end{center}       
+\caption{
+``Niccolò Tartaglia (à direita) era um professor 
+ambicioso que possuía uma fórmula secreta
+--- a chave para desvendar um problema matemático
+aparentemente insolúvel. Gerolamo Cardano (à esquerda) 
+era um médico, erudito brilhante e 
+notório jogador que não hesitaria em usar 
+bajulação e até mesmo artimanhas 
+para descobrir o segredo de Tartaglia.''
+\cite{Toscano}
+}
+\end{figure}
+
+
+Podemos, então, definir $u$ e $v$ de modo a zerar as duas parcelas acima. Para isso, basta escolher $u$ e $v$ tais que
+\begin{equation}
+\left\{\begin{array}{rl}
+u^3 + v^3 +q&= 0 \\
+3uv + p&=0,
+\end{array}\right.,\tag{I}
+\end{equation}
+de modo que obtemos o sistema
+\begin{equation}
+\left\{\begin{array}{rl}
+ u^3 + v^3 &= -q \\
+ u^3 v^3 &=  -\dfrac{p^3}{27}
+\end{array}\right.,\tag{II}
+\end{equation}
+em $u^3$ e $v^3$.
+Note que toda soluçao de (I)
+é uma solução de (II), mas
+a recíproca não é necessariamente verdadeira,
+se considerarmos $u$ e $v$ complexos.
+Ou seja, devemos verificar posteriormente
+quais soluções de (II) satisfazem (I).
+
+De todo modo, pelas 
+relações de soma e produto, podemos concluir que $u^3$
+ e $v^3$ são raízes da equação do 2\superou  grau em $z$ dada por
+$$
+ z^2-(u^3+v^3)z+u^3v^3 =  0,
+$$
+ou seja, 
+$$
+ z^2 + q z - \dfrac{p^3}{27} = 0.
+$$
+Portanto, temos que
+$$
+ z = \dfrac{-q \pm \sqrt{q^2 + \dfrac{4p^3}{27}}}{2},
+ $$
+e definindo  
+ $\Delta = \dfrac{q^2}{4} + \dfrac{p^3}{27}$,
+temos que 
+       $$
+       z = \dfrac{-q \pm \sqrt{4\Delta}}{2} = -\dfrac{q}{2} \pm \sqrt{\Delta}.
+       $$
+       Logo,
+       $$
+       \left\{\begin{array}{rl}
+       u^3 &= -\dfrac{q}{2} + \sqrt{\Delta} \\
+       v^3 &= -\dfrac{q}{2} - \sqrt{\Delta}
+       \end{array}\right..
+       $$ 
+Lembrando que 
+$x=t-\dfrac{b}{3a}$ e
+$$ t = u + v = \sqrt[3]{u^3} + \sqrt[3]{v^3},$$
+obtemos finalmente que
+$$
+\boxed{ x = - \dfrac{b}{3a} + \sqrt[3]{-\dfrac{q}{2} + \sqrt{\dfrac{q^2}{4} + \dfrac{p^3}{27}}} + \sqrt[3]{-\dfrac{q}{2} - \sqrt{\dfrac{q^2}{4} + \dfrac{p^3}{27}}} },
+$$
+que é a fórmula de Tartaglia--Cardano para uma das raízes da equação do 3\superou  grau.
+Mais adiante entenderemos o que acontece
+nos casos em que $\Delta > 0$, $\Delta = 0$ e $\Delta < 0$.
+
+\section{Fórmulas para as demais raízes}
+
+Se $\omega = \cis \left( 120^{\circ} \right) = -\dfrac{1}{2} + i \dfrac{\sqrt{3}}{2}$, podemos escrever
+$$\left\{\begin{array}{rl}
+ \left( u \omega \right)^3 + \left( v \omega^2 \right)^3 &=  u^3 + v^3 \\
+ \left( u \omega \right)^3 \cdot \left( v \omega^2 \right)^3 &=  u^3 v^3
+\end{array}\right.,$$
+já que $\omega^3 = 1$.
+Assim o par $u \omega$ e $v \omega^2$ 
+satisfaz os mesmo sistemas que $u$ e $v$
+(por outro lado, o par $u \omega$ e $v \omega$
+satisfaz o sistema (II), mas não o (I),
+assim um elemento do par deve ter o $\omega$ e o outro $\omega^2$
+para satisfazer (I)).
+Logo $u \omega + v \omega^2$ também
+ é raiz da mesma equação de 3\superou
+grau em $t$ encontrada no passo anterior. 
+O mesmo vale para $u\omega^2 + v\omega$, que é o 
+conjugado de $u \omega + v \omega^2$ quando $u$ e $v$ 
+são reais, pois $\omega^2 = \overline{\omega}$.
+Portanto, as três raízes de
+ $ax^3 + bx^2 + cx + d = 0$ são da forma
+\begin{gather*}
+ x_1 = -\dfrac{b}{3a} + \sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}} + \sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}} \\
+ x_2 = -\dfrac{b}{3a} + \sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}} \cdot w
+ + \sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}} \cdot w^2\\
+ x_3 = -\dfrac{b}{3a} + \sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}} \cdot w^2 
+ + \sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}} \cdot w
+\end{gather*}
+onde, 
+$$ q = \dfrac{2b^3-9abc+27a^2d}{27a^3} $$
+e $$ p = \dfrac{-b^2+3ac}{3a^2}.$$
+
+Assim como ocorre nas equações de 2\superou  grau,
+o valor
+$$
+\Delta = \dfrac{q^2}{4} + \dfrac{p^3}{27}
+$$
+é muito importante,   
+ uma vez que seu sinal
+ajuda a entender quando temos raízes reais.
+Vamos ver como isso acontece através 
+de alguns problemas.
+
+\section{Problemas}
+
+Seja $x_i = -\dfrac{b}{3a} + t_i$. 
+Como $-\dfrac{b}{3a}$ é um número real, 
+$x_i$ é real se, e somente se, $t_i$ é real. 
+Portanto, para encontrar as raízes reais, 
+podemos nos ater a estudar apenas equações 
+do tipo $t^3 +pt + q = 0$. 
+
+%Além disso, podemos ver que $\Delta > 0$ gera uma raiz real e duas complexas conjugadas.
+
+%Vejamos um exemplo prático disso, atráves de uma questão tradicional:
+
+\begin{problema} Calcule o valor de 
+$$\sqrt[3]{20 + 14 \sqrt{2}} + \sqrt[3]{20-14\sqrt{2}}.$$ 
+\end{problema}
+\sol Considere os números reais $u$ e $v$ tais que
+$$
+u^3 = 20 + 14 \sqrt{2} \qquad v^3 = 20 - 14\sqrt{2}
+$$
+Note que $u^3+v^3=40$ e $u^3v^3=400-392=8=2^3$.
+Como
+$$
+\left( u + v \right)^3 = u^3 + v^3 + 3uv \left( u + v \right), $$
+se $t=u+v$, que é o valor procurado, obtemos
+$$t^3 - 6t - 40 = 0.
+$$
+
+Pelo teste da raiz racional, testando os divisores de $-40$, temos que $t=4$ é raiz. Dividindo por $\left( t-4 \right)$, podemos concluir que
+\begin{gather*}
+ t^3 - 6t - 40 = \left( t - 4 \right) \cdot \left( t^2 + 4t + 10 \right) \\
+ t_1 = 4 \qquad t_{2,3} = \dfrac{-4 \pm \sqrt{-24}}{2} = -2 \pm i\sqrt{6}
+\end{gather*}
+
+Logo, nossa resposta é $t=4$, pois $-2 \pm i\sqrt{6} \not \in \mathbb{R}$. \hfill $\blacksquare$ \\
+
+Na notação anterior, considerando a equação $t^3 - 6t - 40=0$, temos que
+$$
+p = -6 ,\quad q = -40$$
+e
+\begin{eqnarray*}
+\Delta & = &  \dfrac{q^2}{4} + \dfrac{p^3}{27} \\
+       & = & \dfrac{\left(-40 \right)^2}{4} + \dfrac{\left(-6 \right)^3}{27} \\
+       & = & 392 > 0
+\end{eqnarray*}
+
+Daí, as raízes $t_2$ e $t_3$ e, consequentemente, 
+$x_2$ e $x_3$ não são reais, pois teremos valores
+ reais distintos 
+ $$\sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}}
+ \text{ e }
+ \sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}}$$
+ multiplicados por 
+ $w = -\dfrac{1}{2} + i \dfrac{\sqrt{3}}{2} $
+  e por $ w^2 = -\dfrac{1}{2} - i \dfrac{\sqrt{3}}{2}$
+   na fórmula encontrada no final da seção anterior,
+produzindo necessariamente um número com parte
+imaginária não nula. 
+
+%Percebamos também que um termo $i\sqrt{6}$ faz sentido juntando o $i\sqrt{3}$ com o $\sqrt{\Delta} = \sqrt{392} = 14\sqrt{2}$.
+
+Vejamos agora um exemplo com $\Delta < 0$ ao trocarmos o $-40$ 
+por $+4$ na última equação:  \\
+
+\begin{problema} Determine todas as soluções de 
+       $t^3 - 6t + 4 = 0$. \end{problema}
+
+\sol Pelo teste da raiz racional, testando os divisores 
+de $+4$, temos que $t_1 = 2$ é raiz.
+
+Dividindo por $\left( t-2 \right)$, 
+podemos concluir que
+\begin{gather*}
+ t^3 - 6t + 4 = \left( t - 2 \right) \cdot \left( t^2 + 2t - 2 \right) \\
+ t_1 = \boxed{ 2 } \qquad t_{2,3} = \dfrac{-2 \pm \sqrt{12}}{2} = \boxed{ -1 \pm \sqrt{3} }
+\end{gather*} \hfill $\blacksquare$
+
+Repetindo a analise anterior para 
+$t^3 - 6t + 4=0$, temos que
+$$
+p = -6 ,\quad q = 4$$
+e 
+\begin{eqnarray*}
+\Delta & = & \dfrac{q^2}{4} + \dfrac{p^3}{27} \\
+       & = & -4.
+%= \dfrac{\left(4 \right)^2}{4} + \dfrac{\left(-6 \right)^3}{27} = -4 < 0
+\end{eqnarray*}
+
+% \Rightarrow \dfrac{q^2}{4} + \dfrac{p^3}{27} = \dfrac{\left(4 \right)^2}{4} + \dfrac{\left(-6 \right)^3}{27} = -4 < 0
+
+
+Calculemos $t_1$ pela fórmula, lembrando que $-2 \pm 2i = \sqrt{8} \cdot \cis \left( \pm 135^{\circ} \right)$:
+\begin{eqnarray*}
+ t_1 & = &  \sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}} + \sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}} \\
+& = & \sqrt[3]{ -2 + 2i} + \sqrt[3]{ -2 - 2i} \\
+& = & \sqrt{2} \cdot \left( \cis \left( 45^{\circ} \right) + \cis \left( - 45^{\circ} \right) \right) \\
+& = &  2\sqrt{2} \cdot \cos \left( 45^{\circ} \right) \\
+& = & 2. 
+\end{eqnarray*}
+
+
+Calculando agora $t_2$:
+\begin{eqnarray*}
+ t_2 & = & \sqrt[3]{ -2 + 2i} \cdot w + \sqrt[3]{ -2 - 2i} w^2 \\
+  & = & \sqrt[3]{ -2 + 2i} \cdot \left( -\dfrac{1}{2} + i \dfrac{\sqrt{3}}{2} \right) + \sqrt[3]{ -2 - 2i} \left( -\dfrac{1}{2} - i \dfrac{\sqrt{3}}{2} \right).
+\end{eqnarray*}
+
+Analisando a expressão acima, é difícil 
+acreditar que $t_2$ é um número real. Porém, 
+podemos simplificá-la:
+\begin{eqnarray*}
+ t_2 & = & \sqrt{2} \cdot \cis \left( 45^{\circ} \right)  \cdot w + \sqrt{2} \cdot \cis \left( -45^{\circ} \right)  \cdot w^2 \\
+ & = & \sqrt{2} \cdot \cis \left( 45^{\circ} \right)  \cdot w + \sqrt{2} \cdot \overline{\cis \left( 45^{\circ} \right)}  \cdot \overline{w} \\
+ & = & \sqrt{2} \cdot \left( 2\text{Re}\,\left( \cis 45^{\circ} \cdot  w \right) \right)\\
+ & = & 2 \sqrt{2} \cdot \cos \left( 165^{\circ} \right) \\
+% & = & - 2\sqrt{2} \cdot \cos \left( 15^{\circ} \right) \\
+% & = & - 2\sqrt{2} \cdot \left( \dfrac{\sqrt{6}}{4} + \dfrac{\sqrt{2}}{4} \right) \\
+ & = & -\sqrt{3} - 1  \in \mathbb{R}.
+\end{eqnarray*}
+De modo análogo, podemos
+ obter $t_3 = \sqrt{3} - 1  \in \mathbb{R}$.
+
+
+%calcular $t_3$ só para conferir os resultados:
+%\begin{gather*}
+% t_3 = \sqrt{2} \cdot \cis \left( 45^{\circ} \right)  \cdot \cis \left( 240^{\circ} \right) + %\sqrt{2} \cdot \cis \left( -45^{\circ} \right)  \cdot \cis \left( 120^{\circ} \right) \\
+% = \sqrt{2} \cdot \left( \cis \left( 285^{\circ} \right) + \cis \left( 75^{\circ} \right) %\right) = 2 \sqrt{2} \cdot \cos \left( 75^{\circ} \right) \\
+% =  \boxed{ \sqrt{3} - 1 } \in \mathbb{R}
+%\end{gather*}
+
+Isso é o que ocorre com qualquer equação 
+cúbica com $\Delta$ negativo,
+pois 
+$$-\dfrac{q}{2} + \sqrt{\Delta}
+\text{ e }
+-\dfrac{q}{2} - \sqrt{\Delta},$$
+são números complexos conjugados,
+ cujas raízes cúbicas também são
+ conjugadas. Assim, ao multiplicá-las por
+ $w$ e $w^2=\overline{w}$, respectivamente,
+as partes imaginárias se cancelam e 
+obtemos três soluções reais. 
+O caso $\Delta = 0$ gera $t_2 = t_3$, 
+sendo um número real, pois cancelam-se 
+as partes imaginárias. 
+
+Em resumo,
+obtemos o seguinte resultado geral:
+\begin{center}
+ \begin{tabular}{|c|c|}
+    \hline
+        $ \Delta > 0$ & \makecell{ 1 raiz real e 2 raízes \\ complexas conjugadas} \\
+    \hline
+    $ \Delta < 0$ & 3 raízes reais e distintas \\
+    \hline
+    $ \Delta = 0$ & \makecell {3 raízes reais, sendo \\ 
+    pelo menos 2 iguais } \\
+    \hline
+ \end{tabular}
+\end{center}
+
+\mbox{ } \\
+
+%\noindent lembrando que, para $ax^3 + bx^2 + cx +d = 0$, temos que:
+%$$
+%p = \dfrac{-b^2+3ac}{3a^2} \qquad q = \dfrac{2b^3-9abc+27a^2d}{27a^3}
+%$$
+
+%Para treinar um pouco, façamos uma questão do IME:
+
+\begin{problema} \emph{(IME/2025)} A equação 
+$x^3 - \alpha x + \beta= 0$, onde $\alpha$ e $\beta$ 
+são constantes reais, admite raiz não real de módulo 
+$\gamma$. Determine $\alpha$ em função de $\beta$ e $\gamma$.
+\end{problema}
+
+\sol Se admite raiz não real $g$, conforme vimos anteriormente considerando $x = u + v$, temos que
+
+\begin{gather*}
+ (I) \begin{cases}
+  u^3 + v^3 = -\beta \\
+  3uv = \alpha
+ \end{cases} \qquad \begin{cases} \qquad g = u \omega + v \omega^2 \\
+ \omega = \cis \left( 120^{\circ} \right) \qquad \gamma = \left| g \right|  \end{cases} \\
+ \Rightarrow \gamma^2 = \left[ \left( - \dfrac{1}{2} \right) \cdot \left( u + v \right) \right]^2 + \left[ \left(  \dfrac{\sqrt{3}}{2} \right) \cdot \left( u - v \right) \right]^2  \\
+ \gamma^2 = \dfrac{1}{4} \cdot \left[ \left( u + v \right)^2 + 3 \left( u - v \right)^2 \right] \Rightarrow \boxed{ \gamma^2 = u^2 + v^2 - uv } \quad (II) \\
+ \gamma^2 = u^2 + v^2 - uv = \left( u + v \right)^2 - 3uv \\
+ \xRightarrow{(I)} u^3 + v^3 = -\beta \xRightarrow{(II)} \left( u + v \right) = \dfrac{-\beta}{\gamma^2} \\
+ \xRightarrow{(I)} \gamma^2 = \left( u + v \right)^2 - 3uv = \left(\dfrac{-\beta}{\gamma^2} \right)^2 - \alpha \Rightarrow \boxed{ \alpha = \dfrac{\beta^2}{\gamma^4} - \gamma^2 }
+\end{gather*} \hfill $\blacksquare$ \\
+
+\begin{problema} Encontre o valor de $\sen 18^{\circ}$.
+\end{problema}
+\sol 
+A partir da identidade $ \sen 3x = 3 \sen x - 4\sen^3 x$ podemos concluir que 
+
+\begin{eqnarray*}
+4 \sen^3 18^{\circ} -3 \sen 18^{\circ} & = &  - \sen 54^{\circ} \\
+                                       & = & - \cos 36^{\circ} \\
+                                       & = & -1 + 2 \sen^2 18^{\circ}
+\end{eqnarray*}
+Se  $x = \sen 18^{\circ}$, temos $4x^3 -2x^2   - 3x +1 = 0$. Como 
+ $x = 1$ é raiz, segue que $4x^3 -2x^2   - 3x +1 = \left( x - 1 \right) \cdot \left( 4x^2 +2x -1 \right) =0$. Daí, como $ \sen 18^{\circ} \neq 1$, temos $\sen 18^{\circ} = \dfrac{-1 \pm \sqrt{5}}{4}$. Dado que $\sen 18^{\circ} > 0$, obtemos $\sen 18^{\circ} = \dfrac{\sqrt{5}-1}{4} $.
+
+
+\section{Considerações sobre equações de graus maiores}
+
+Para equações do 4\superou  grau, também existe um método para a obtenção de fórmulas para as raízes por meio de radicais conhecido como método de Ferrari. Para equações de grau $\geqslant 5$, tem-se o teorema de Abel-Ruffini que afirma que não há uma solução geral através de operações com radicais, incluindo soma, subtração, multiplicação e divisão envolvendo os coeficientes da equação polinomial.
+
+Notemos que isso não significa que é impossível resolver qualquer uma dessas equações de grau $\geqslant 5$. Por exemplo, a equação do 6\superou  grau
+$$
+x^6 - 9x^3 + 8 = 0
+$$
+\noindent pode ser completamente resolvida e reduzida para um caso já estudado realizando a troca de $x^3$ por $y$. A nova equação possui raízes $y=1$ e $y=8$. Daí,
+$$
+\Rightarrow \begin{cases}
+             y =x^3 = 1 \Rightarrow x = 1, \omega, \omega^2 \\
+             y = x^3 = 8 \Rightarrow x = 2, 2\omega, 2\omega^2
+            \end{cases}
+$$
+
+Além disso, por vezes, podemos adaptar as ideias apresentadas para situações parecidas. Por exemplo, para a equação do 5\superou  grau
+$$
+x^5 + px^3 + \dfrac{p^2}{5} x + q = 0,
+$$
+sendo $p$ um valor dado, podemos fazer a mudança $x = u + v$ para obter que
+\begin{gather*}
+ \left( u + v \right)^5 + p \cdot \left( u + v \right)^3 + \dfrac{p^2}{5} \cdot \left( u + v \right) + q = 0 \\
+ \therefore \left( u^5 + v^5 \right) + 5uv \left( u + v \right)^3 - 5u^2v^2 \left( u + v \right) + p \left( u + v \right)^3 \\
+ + \dfrac{p^2}{5} \left( u + v \right) + q = 0 \\
+ \Rightarrow \begin{cases}
+              u^5 + v^5 = -q \\
+              5uv = -p \Rightarrow u^5 v^5 = -\dfrac{p^5}{5^5}
+             \end{cases} \\
+             \Rightarrow u^5, v^5 \text{ são raízes de } z^2 + qz - \dfrac{p^5}{5^5} = 0
+\end{gather*}
+
+\begin{problema} 
+       \emph{(Bulgária/2023 - Outono)} Encontre todas as soluções da equação
+$$
+ \left( x+1 \right) \sqrt{x^2+2x+2} + x \sqrt{x^2+1} = 0.
+$$\end{problema}
+
+\sol Passando o segundo termo para o outro lado e elevando ao quadrado, temos que
+$$
+ \left( x+1 \right)^2 \left[ \left( x + 1 \right)^2 + 1 \right] = x^2 \left( x^2 + 1 \right)
+$$
+
+A expressão $t \left( t +1 \right)$ é crescente para $t \geqslant 0$.
+
+Logo, temos que
+$$
+\left( x + 1 \right)^2 = x^2 \Rightarrow \boxed{ x = -\dfrac{1}{2} }
+$$
+
+\noindent que é a única solução. \hfill $\blacksquare$ \\
+
+Para finalizar, deixaremos duas questões de equações de 3\superou  grau de treino para o leitor.
+
+\begin{problema}
+Determine todas as raízes das equações do 3\superou  grau a seguir:
+\begin{enumerate}
+ \item $t^3 - 6t - 9=0$;
+ \item $t^3 - 6t - 4=0$.
+\end{enumerate}
+\end{problema}
+
+\begin{problema}
+\emph{(Hong Kong/2014 - adaptada)} Determine o valor simplificado de $\left( \sqrt[3]{\sqrt{5}+ 2} + \sqrt[3]{\sqrt{5}-2} \right)^{2014}$.
+\end{problema} 
+\addtocounter{problema}{-2}
+
+\section{Respostas}
+
+\begin{problema} 
+ \begin{enumerate}
+ \item $3$ e $-\dfrac{3}{2} \pm \dfrac{\sqrt{3}}{2}i$;
+ \item $-2$ e $1 \pm \sqrt{3}$.
+\end{enumerate}
+\end{problema} 
+
+
+\begin{problema}  $5^{1007}$. Uma ideia é fazer $a = \sqrt[3]{\sqrt{5}+ 2}$, $b= \sqrt[3]{\sqrt{5}- 2}$ e $x= a + b$ para chegar a
+$$
+x^3 = a^3 + b^3 + 3ab \left( a + b \right) = 2\sqrt{5} + 3x.
+$$\end{problema} 
+
+Daí, basta perceber que $x = \sqrt{5}$ é raiz e as outras raízes são complexas, podendo só dividir por $\left( x - \sqrt{5} \right)$ para concluir isso.
+
+Portanto, $x = \sqrt{5}$ e $x^{2014} = \boxed{ 5^{1007} }$.
+
+%\pagebreak
+
+\begin{thebibliography}{99}
+\bibitem{Toscano} Toscano, Fábio. \textit{A Fórmula Secreta}. Editora Unicamp,  São Paulo, 2012.
+\end{thebibliography}
+
+\vspace{0.1cm}
+
+\begin{wrapfigure}{L}{1.7cm}
+\includegraphics[width=2cm]{armando.jpg}
+\end{wrapfigure}  
+\noindent José Armando Barbosa Filho é iteano, 
+ex-olímpico e trabalha olimpíadas de matemática 
+desde 2012. Os principais destaques de sua carreira 
+são os livros da coleção IME/ITA/Cone Sul/EGMO, 
+da qual se orgulha de ser o autor, e ter sido 
+vice-líder da equipe do Brasil na IMO/2018. 
+Atualmente, está vivendo os primeiros dias de 
+pai do José Heitor. Muito \emph{nerd} a ponto 
+de ser fã do personagem Leonard Hofstadter, da 
+série \emph{The Big Bang Theory}.
+
+\vspace{0.5cm}
+
+
+\end{document}
+
+

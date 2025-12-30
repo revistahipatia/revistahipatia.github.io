@@ -1,0 +1,15 @@
+# Fdb version 4
+["pdflatex"] 1767033269 "/home/vinicius/code/revistahipatia.github.io/vol03num02/historia/historia.tex" "historia.pdf" "historia" 1767033269 2
+  "/etc/texmf/web2c/texmf.cnf" 1748598366 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/vinicius/code/revistahipatia.github.io/vol03num02/historia/historia.tex" 1767033268 65904 21378d267d9a02e9bb26f01c8651685a ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1681034085 39561 34c98e380bf7c7201ee6a7909aff625a ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1681034085 39561 34c98e380bf7c7201ee6a7909aff625a ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1748598455 7879989 6633cfac50d0260136828fd319e0947b ""
+  "hipatia.cls" 0 -1 0 ""
+  "historia.aux" 1767033269 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "historia.tex" 1767033268 65904 21378d267d9a02e9bb26f01c8651685a ""
+  (generated)
+  "historia.aux"
+  "historia.log"
+  "historia.pdf"
+  (rewritten before read)

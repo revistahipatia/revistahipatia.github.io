@@ -1,0 +1,535 @@
+---
+layout: artigo
+title: Equações de 3° Grau
+subtitle: Técnica
+author: Armando Barbosa
+---
+<h1 id="introdução">Introdução</h1>
+<p>A busca por soluções explícitas de equações polinomiais envolvendo
+radicais é um dos episódios mais fascinantes do desenvolvimento da
+matemática. Ele se inicia ainda na antiguidade com fórmulas conhecidas
+dos babilônicos e atinge o seu ápice no século XIX com os trabalhos Abel
+e Galois.</p>
+<p>O objetivo deste artigo é apresentar aplicações das fórmulas de
+Tartaglia–Cardano, que surgiram no Renascimento Italiano, para
+solucionar equações de 3<sup><u>o</u></sup> grau em problemas de
+vestibulares e olimpíadas de matemática. No final, também discutiremos
+brevemente fórmulas por radicais para equações de graus maiores.</p>
+<p>Uma equação do 3<sup><u>o</u></sup> grau de coeficientes reais na
+variável <span class="math inline">\(x\)</span> é uma expressão
+algébrica da forma <span class="math display">\[ax^3 + bx^2 + cx + d =
+0,\]</span> com <span class="math inline">\(a,b,c,d \in
+\mathbb{R}\)</span> e <span class="math inline">\(a \neq 0\)</span>. O
+Teorema Fundamental da Álgebra garante que essa equação possui três
+soluções complexas, contando-se multiplicidades. Estamos interessados em
+saber quais são os três valores complexos de <span
+class="math inline">\(x\)</span> que satisfazem a equação acima. Para
+isso, podemos dividir a estratégia para obter uma fórmula para esses
+valores em três partes:</p>
+<ol>
+<li><p>Eliminar o coeficiente de <span
+class="math inline">\(x^2\)</span> através de uma mudança de variável
+que crie uma nova equação do 3<sup><u>o</u></sup> grau cuja soma das
+raízes é nula;</p></li>
+<li><p>Realizar uma nova mudança de variável, reduzindo o problema de
+determinar uma raiz da equação do 3<sup><u>o</u></sup> grau do passo
+anterior à resolução de uma equação do 2<sup><u>o</u></sup> grau com
+raízes <span class="math inline">\(u^3\)</span> e <span
+class="math inline">\(v^3\)</span>;</p></li>
+<li><p>Perceber que as outras duas soluções, álem de <span
+class="math inline">\(u+v\)</span>, conjugadas ou não, são <span
+class="math inline">\(uw + vw^2\)</span> e <span
+class="math inline">\(uw^2 +vw\)</span>, sendo <span
+class="math inline">\(w =
+\mathop{\mathrm{cis}}120^{\circ}\)</span>.</p></li>
+</ol>
+<p>Expliquemos agora cada um desses passos com mais detalhes.</p>
+<h1 id="eliminando-o-termo-quadrático">Eliminando o termo
+quadrático</h1>
+<p>Dividindo a equação original por <span
+class="math inline">\(a\)</span>, temos que <span
+class="math display">\[x^3 + \dfrac{b}{a} x^2 + \dfrac{c}{a} x +
+\dfrac{d}{a} = 0.\]</span> Pelas relações de Girard, as três soluções
+<span class="math inline">\(x_1\)</span>, <span
+class="math inline">\(x_2\)</span> e <span
+class="math inline">\(x_3\)</span> somadas resultam em <span
+class="math inline">\(-\dfrac{b}{a}\)</span>. Daí, considerando a
+substituição de variáveis <span class="math display">\[t = x +
+\dfrac{b}{3a} \Leftrightarrow x=t - \dfrac{b}{3a},\]</span> teremos que
+<span class="math display">\[\begin{aligned}
+t_1 + t_2 + t_3 &amp;= (x_1+\dfrac{b}{3a}) + (x_2+\dfrac{b}{3a}) +
+(x_3+\dfrac{b}{3a}) \\
+&amp;= (x_1 + x_2 + x_3) + 3 \cdot \dfrac{b}{3a} \\
+&amp;= -\dfrac{b}{a} + \dfrac{b}{a} = 0,\end{aligned}\]</span> e a soma
+das raízes na variável <span class="math inline">\(t\)</span> será igual
+a <span class="math inline">\(0\)</span>. Substituindo, então, na
+equação do 3<sup><u>o</u></sup> grau, podemos concluir que <span
+class="math display">\[\begin{gathered}
+\left( t - \dfrac{b}{3a} \right)^3 + \dfrac{b}{a} \cdot \left( t -
+\dfrac{b}{3a} \right)^2 + \dfrac{c}{a} \cdot \left( t - \dfrac{b}{3a}
+\right) + \dfrac{d}{a} = 0 \\
+\therefore t^3 - 3t^2 \cdot \dfrac{b}{3a} + 3t \cdot \dfrac{b^2}{9a^2} -
+\dfrac{b^3}{27a^3} +\\
+  t^2 \cdot \dfrac{b}{a} - 2t \cdot  \dfrac{b^2}{3a^2} +
+\dfrac{b^3}{9a^3}+ \\
+t \cdot \dfrac{c}{a} - \dfrac{bc}{3a^2} + \dfrac{d}{a} = 0 \\
+\therefore t^3 + t \left( \dfrac{b^2}{3a^2} - 2\dfrac{b^2}{3a^2} +
+\dfrac{c}{a} \right) + \left( - \dfrac{b^3}{27a^3} + \dfrac{b^3}{9a^3} -
+\dfrac{bc}{3a^2} + \dfrac{d}{a} \right) = 0, \\\end{gathered}\]</span>
+ou seja, <span class="math display">\[\boxed{ t^3 + t \left(
+\dfrac{-b^2+3ac}{3a^2} \right) + \left( \dfrac{2b^3-9abc+27a^2d}{27a^3}
+\right) = 0, }\]</span> e o termo quadrático foi eliminado.</p>
+<h1 id="redução-para-uma-equação-quadrática">Redução para uma equação
+quadrática</h1>
+<p>Sejam <span class="math display">\[p = \dfrac{-b^2+3ac}{3a^2}
+\,\,\,\textrm{e}\,\,\, q = \dfrac{2b^3-9abc+27a^2d}{27a^3}.\]</span>
+Daí, temos que <span class="math display">\[t^3 + pt + q = 0.\]</span>
+Considerando a nova substituição de variáveis <span
+class="math display">\[t = u + v,\]</span> podemos concluir que <span
+class="math display">\[\begin{gathered}
+\left( u + v \right)^3 + p \cdot \left( u + v \right) + q = 0 \\
+\therefore u^3 + v^3 + 3uv \left( u+ v \right) + p \cdot \left( u + v
+\right) + q = 0 \\
+\therefore \left( u^3 + v^3 + q \right) + \left( u + v \right) \cdot
+\left( 3uv + p \right) = 0.\end{gathered}\]</span></p>
+<div class="center">
+<figure>
+<img src="formulasecreta.png" style="width:50%"
+alt=" “Niccolò Tartaglia (à direita) era um professor ambicioso que possuía uma fórmula secreta — a chave para desvendar um problema matemático aparentemente insolúvel. Gerolamo Cardano (à esquerda) era um médico, erudito brilhante e notório jogador que não hesitaria em usar bajulação e até mesmo artimanhas para descobrir o segredo de Tartaglia.”  " />
+<figcaption aria-hidden="true"> “Niccolò Tartaglia (à direita) era um
+professor ambicioso que possuía uma fórmula secreta — a chave para
+desvendar um problema matemático aparentemente insolúvel. Gerolamo
+Cardano (à esquerda) era um médico, erudito brilhante e notório jogador
+que não hesitaria em usar bajulação e até mesmo artimanhas para
+descobrir o segredo de Tartaglia.” <span class="citation"
+data-cites="Toscano"></span> </figcaption>
+</figure>
+</div>
+<p>Podemos, então, definir <span class="math inline">\(u\)</span> e
+<span class="math inline">\(v\)</span> de modo a zerar as duas parcelas
+acima. Para isso, basta escolher <span class="math inline">\(u\)</span>
+e <span class="math inline">\(v\)</span> tais que <span
+class="math display">\[\left\{\begin{array}{rl}
+u^3 + v^3 +q&amp;= 0 \\
+3uv + p&amp;=0,
+\end{array}\right.,\tag{I}\]</span> de modo que obtemos o sistema <span
+class="math display">\[\left\{\begin{array}{rl}
+u^3 + v^3 &amp;= -q \\
+u^3 v^3 &amp;=  -\dfrac{p^3}{27}
+\end{array}\right.,\tag{II}\]</span> em <span
+class="math inline">\(u^3\)</span> e <span
+class="math inline">\(v^3\)</span>. Note que toda soluçao de (I) é uma
+solução de (II), mas a recíproca não é necessariamente verdadeira, se
+considerarmos <span class="math inline">\(u\)</span> e <span
+class="math inline">\(v\)</span> complexos. Ou seja, devemos verificar
+posteriormente quais soluções de (II) satisfazem (I).</p>
+<p>De todo modo, pelas relações de soma e produto, podemos concluir que
+<span class="math inline">\(u^3\)</span> e <span
+class="math inline">\(v^3\)</span> são raízes da equação do
+2<sup><u>o</u></sup> grau em <span class="math inline">\(z\)</span> dada
+por <span class="math display">\[z^2-(u^3+v^3)z+u^3v^3 =  0,\]</span> ou
+seja, <span class="math display">\[z^2 + q z - \dfrac{p^3}{27} =
+0.\]</span> Portanto, temos que <span class="math display">\[z =
+\dfrac{-q \pm \sqrt{q^2 + \dfrac{4p^3}{27}}}{2},\]</span> e definindo
+<span class="math inline">\(\Delta = \dfrac{q^2}{4} +
+\dfrac{p^3}{27}\)</span>, temos que <span class="math display">\[z =
+\dfrac{-q \pm \sqrt{4\Delta}}{2} = -\dfrac{q}{2} \pm
+\sqrt{\Delta}.\]</span> Logo, <span
+class="math display">\[\left\{\begin{array}{rl}
+       u^3 &amp;= -\dfrac{q}{2} + \sqrt{\Delta} \\
+       v^3 &amp;= -\dfrac{q}{2} - \sqrt{\Delta}
+       \end{array}\right..\]</span> Lembrando que <span
+class="math inline">\(x=t-\dfrac{b}{3a}\)</span> e <span
+class="math display">\[t = u + v = \sqrt[3]{u^3} +
+\sqrt[3]{v^3},\]</span> obtemos finalmente que <span
+class="math display">\[\boxed{ x = - \dfrac{b}{3a} +
+\sqrt[3]{-\dfrac{q}{2} + \sqrt{\dfrac{q^2}{4} + \dfrac{p^3}{27}}} +
+\sqrt[3]{-\dfrac{q}{2} - \sqrt{\dfrac{q^2}{4} + \dfrac{p^3}{27}}}
+},\]</span> que é a fórmula de Tartaglia–Cardano para uma das raízes da
+equação do 3<sup><u>o</u></sup> grau. Mais adiante entenderemos o que
+acontece nos casos em que <span class="math inline">\(\Delta &gt;
+0\)</span>, <span class="math inline">\(\Delta = 0\)</span> e <span
+class="math inline">\(\Delta &lt; 0\)</span>.</p>
+<h1 id="fórmulas-para-as-demais-raízes">Fórmulas para as demais
+raízes</h1>
+<p>Se <span class="math inline">\(\omega = \mathop{\mathrm{cis}}\left(
+120^{\circ} \right) = -\dfrac{1}{2} + i \dfrac{\sqrt{3}}{2}\)</span>,
+podemos escrever <span class="math display">\[\left\{\begin{array}{rl}
+\left( u \omega \right)^3 + \left( v \omega^2 \right)^3 &amp;=  u^3 +
+v^3 \\
+\left( u \omega \right)^3 \cdot \left( v \omega^2 \right)^3 &amp;=  u^3
+v^3
+\end{array}\right.,\]</span> já que <span class="math inline">\(\omega^3
+= 1\)</span>. Assim o par <span class="math inline">\(u \omega\)</span>
+e <span class="math inline">\(v \omega^2\)</span> satisfaz os mesmo
+sistemas que <span class="math inline">\(u\)</span> e <span
+class="math inline">\(v\)</span> (por outro lado, o par <span
+class="math inline">\(u \omega\)</span> e <span class="math inline">\(v
+\omega\)</span> satisfaz o sistema (II), mas não o (I), assim um
+elemento do par deve ter o <span class="math inline">\(\omega\)</span> e
+o outro <span class="math inline">\(\omega^2\)</span> para satisfazer
+(I)). Logo <span class="math inline">\(u \omega + v \omega^2\)</span>
+também é raiz da mesma equação de 3<sup><u>o</u></sup>  grau em <span
+class="math inline">\(t\)</span> encontrada no passo anterior. O mesmo
+vale para <span class="math inline">\(u\omega^2 + v\omega\)</span>, que
+é o conjugado de <span class="math inline">\(u \omega + v
+\omega^2\)</span> quando <span class="math inline">\(u\)</span> e <span
+class="math inline">\(v\)</span> são reais, pois <span
+class="math inline">\(\omega^2 = \overline{\omega}\)</span>. Portanto,
+as três raízes de <span class="math inline">\(ax^3 + bx^2 + cx + d =
+0\)</span> são da forma <span class="math display">\[\begin{gathered}
+x_1 = -\dfrac{b}{3a} + \sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}} +
+\sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}} \\
+x_2 = -\dfrac{b}{3a} + \sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}} \cdot w
++ \sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}} \cdot w^2\\
+x_3 = -\dfrac{b}{3a} + \sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}} \cdot w^2
++ \sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}} \cdot w\end{gathered}\]</span>
+onde, <span class="math display">\[q =
+\dfrac{2b^3-9abc+27a^2d}{27a^3}\]</span> e <span
+class="math display">\[p = \dfrac{-b^2+3ac}{3a^2}.\]</span></p>
+<p>Assim como ocorre nas equações de 2<sup><u>o</u></sup> grau, o valor
+<span class="math display">\[\Delta = \dfrac{q^2}{4} +
+\dfrac{p^3}{27}\]</span> é muito importante, uma vez que seu sinal ajuda
+a entender quando temos raízes reais. Vamos ver como isso acontece
+através de alguns problemas.</p>
+<h1 id="problemas">Problemas</h1>
+<p>Seja <span class="math inline">\(x_i = -\dfrac{b}{3a} + t_i\)</span>.
+Como <span class="math inline">\(-\dfrac{b}{3a}\)</span> é um número
+real, <span class="math inline">\(x_i\)</span> é real se, e somente se,
+<span class="math inline">\(t_i\)</span> é real. Portanto, para
+encontrar as raízes reais, podemos nos ater a estudar apenas equações do
+tipo <span class="math inline">\(t^3 +pt + q = 0\)</span>.</p>
+<div class="problema">
+<p><strong><strong>Problema</strong> 1</strong>. <em>Calcule o valor de
+<span class="math display">\[\sqrt[3]{20 + 14 \sqrt{2}} +
+\sqrt[3]{20-14\sqrt{2}}.\]</span></em></p>
+</div>
+<p><strong>Solução:</strong> Considere os números reais <span
+class="math inline">\(u\)</span> e <span
+class="math inline">\(v\)</span> tais que <span
+class="math display">\[u^3 = 20 + 14 \sqrt{2} \qquad v^3 = 20 -
+14\sqrt{2}\]</span> Note que <span
+class="math inline">\(u^3+v^3=40\)</span> e <span
+class="math inline">\(u^3v^3=400-392=8=2^3\)</span>. Como <span
+class="math display">\[\left( u + v \right)^3 = u^3 + v^3 + 3uv \left( u
++ v \right),\]</span> se <span class="math inline">\(t=u+v\)</span>, que
+é o valor procurado, obtemos <span class="math display">\[t^3 - 6t - 40
+= 0.\]</span></p>
+<p>Pelo teste da raiz racional, testando os divisores de <span
+class="math inline">\(-40\)</span>, temos que <span
+class="math inline">\(t=4\)</span> é raiz. Dividindo por <span
+class="math inline">\(\left( t-4 \right)\)</span>, podemos concluir que
+<span class="math display">\[\begin{gathered}
+t^3 - 6t - 40 = \left( t - 4 \right) \cdot \left( t^2 + 4t + 10 \right)
+\\
+t_1 = 4 \qquad t_{2,3} = \dfrac{-4 \pm \sqrt{-24}}{2} = -2 \pm
+i\sqrt{6}\end{gathered}\]</span></p>
+<p>Logo, nossa resposta é <span class="math inline">\(t=4\)</span>, pois
+<span class="math inline">\(-2 \pm i\sqrt{6} \not \in
+\mathbb{R}\)</span>. <span
+class="math inline">\(\blacksquare\)</span><br />
+Na notação anterior, considerando a equação <span
+class="math inline">\(t^3 - 6t - 40=0\)</span>, temos que <span
+class="math display">\[p = -6 ,\quad q = -40\]</span> e <span
+class="math display">\[\begin{aligned}
+\Delta &amp; = &amp;  \dfrac{q^2}{4} + \dfrac{p^3}{27} \\
+       &amp; = &amp; \dfrac{\left(-40 \right)^2}{4} + \dfrac{\left(-6
+\right)^3}{27} \\
+       &amp; = &amp; 392 &gt; 0\end{aligned}\]</span></p>
+<p>Daí, as raízes <span class="math inline">\(t_2\)</span> e <span
+class="math inline">\(t_3\)</span> e, consequentemente, <span
+class="math inline">\(x_2\)</span> e <span
+class="math inline">\(x_3\)</span> não são reais, pois teremos valores
+reais distintos <span class="math display">\[\sqrt[3]{-\dfrac{q}{2} +
+\sqrt{\Delta}}
+\text{ e }
+\sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}}\]</span> multiplicados por <span
+class="math inline">\(w = -\dfrac{1}{2} + i \dfrac{\sqrt{3}}{2}\)</span>
+e por <span class="math inline">\(w^2 = -\dfrac{1}{2} - i
+\dfrac{\sqrt{3}}{2}\)</span> na fórmula encontrada no final da seção
+anterior, produzindo necessariamente um número com parte imaginária não
+nula.</p>
+<p>Vejamos agora um exemplo com <span class="math inline">\(\Delta &lt;
+0\)</span> ao trocarmos o <span class="math inline">\(-40\)</span> por
+<span class="math inline">\(+4\)</span> na última equação:<br />
+</p>
+<div class="problema">
+<p><strong><strong>Problema</strong> 2</strong>. <em>Determine todas as
+soluções de <span class="math inline">\(t^3 - 6t + 4 =
+0\)</span>.</em></p>
+</div>
+<p><strong>Solução:</strong> Pelo teste da raiz racional, testando os
+divisores de <span class="math inline">\(+4\)</span>, temos que <span
+class="math inline">\(t_1 = 2\)</span> é raiz.</p>
+<p>Dividindo por <span class="math inline">\(\left( t-2
+\right)\)</span>, podemos concluir que <span
+class="math display">\[\begin{gathered}
+t^3 - 6t + 4 = \left( t - 2 \right) \cdot \left( t^2 + 2t - 2 \right) \\
+t_1 = \boxed{ 2 } \qquad t_{2,3} = \dfrac{-2 \pm \sqrt{12}}{2} = \boxed{
+-1 \pm \sqrt{3} }\end{gathered}\]</span> <span
+class="math inline">\(\blacksquare\)</span></p>
+<p>Repetindo a analise anterior para <span class="math inline">\(t^3 -
+6t + 4=0\)</span>, temos que <span class="math display">\[p = -6 ,\quad
+q = 4\]</span> e <span class="math display">\[\begin{aligned}
+\Delta &amp; = &amp; \dfrac{q^2}{4} + \dfrac{p^3}{27} \\
+       &amp; = &amp; -4.
+%= \dfrac{\left(4 \right)^2}{4} + \dfrac{\left(-6 \right)^3}{27} = -4
+&lt; 0\end{aligned}\]</span></p>
+<p>Calculemos <span class="math inline">\(t_1\)</span> pela fórmula,
+lembrando que <span class="math inline">\(-2 \pm 2i = \sqrt{8} \cdot
+\mathop{\mathrm{cis}}\left( \pm 135^{\circ} \right)\)</span>: <span
+class="math display">\[\begin{aligned}
+t_1 &amp; = &amp;  \sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}} +
+\sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}} \\
+&amp; = &amp; \sqrt[3]{ -2 + 2i} + \sqrt[3]{ -2 - 2i} \\
+&amp; = &amp; \sqrt{2} \cdot \left( \mathop{\mathrm{cis}}\left(
+45^{\circ} \right) + \mathop{\mathrm{cis}}\left( - 45^{\circ} \right)
+\right) \\
+&amp; = &amp;  2\sqrt{2} \cdot \cos \left( 45^{\circ} \right) \\
+&amp; = &amp; 2. \end{aligned}\]</span></p>
+<p>Calculando agora <span class="math inline">\(t_2\)</span>: <span
+class="math display">\[\begin{aligned}
+t_2 &amp; = &amp; \sqrt[3]{ -2 + 2i} \cdot w + \sqrt[3]{ -2 - 2i} w^2 \\
+  &amp; = &amp; \sqrt[3]{ -2 + 2i} \cdot \left( -\dfrac{1}{2} + i
+\dfrac{\sqrt{3}}{2} \right) + \sqrt[3]{ -2 - 2i} \left( -\dfrac{1}{2} -
+i \dfrac{\sqrt{3}}{2} \right).\end{aligned}\]</span></p>
+<p>Analisando a expressão acima, é difícil acreditar que <span
+class="math inline">\(t_2\)</span> é um número real. Porém, podemos
+simplificá-la: <span class="math display">\[
+\begin{aligned}
+t_2 &amp; = &amp; \sqrt{2} \cdot \mathop{\mathrm{cis}}\left( 45^{\circ}
+\right)  \cdot w + \sqrt{2} \cdot \mathop{\mathrm{cis}}\left(
+-45^{\circ} \right)  \cdot w^2 \\
+&amp; = &amp; \sqrt{2} \cdot \mathop{\mathrm{cis}}\left( 45^{\circ}
+\right)  \cdot w + \sqrt{2} \cdot \overline{\mathop{\mathrm{cis}}\left(
+45^{\circ} \right)}  \cdot \overline{w} \\
+&amp; = &amp; \sqrt{2} \cdot \left( 2\text{Re}\,\left(
+\mathop{\mathrm{cis}}45^{\circ} \cdot  w \right) \right)\\
+&amp; = &amp; 2 \sqrt{2} \cdot \cos \left( 165^{\circ} \right) \\
+&amp; = &amp; -\sqrt{3} - 1  \in \mathbb{R}.
+\end{aligned}\]</span> De
+modo análogo, podemos obter <span class="math inline">\(t_3 = \sqrt{3} -
+1  \in \mathbb{R}\)</span>.</p>
+<p>Isso é o que ocorre com qualquer equação cúbica com <span
+class="math inline">\(\Delta\)</span> negativo, pois <span
+class="math display">\[-\dfrac{q}{2} + \sqrt{\Delta}
+\text{ e }
+-\dfrac{q}{2} - \sqrt{\Delta},\]</span> são números complexos
+conjugados, cujas raízes cúbicas também são conjugadas. Assim, ao
+multiplicá-las por <span class="math inline">\(w\)</span> e <span
+class="math inline">\(w^2=\overline{w}\)</span>, respectivamente, as
+partes imaginárias se cancelam e obtemos três soluções reais. O caso
+<span class="math inline">\(\Delta = 0\)</span> gera <span
+class="math inline">\(t_2 = t_3\)</span>, sendo um número real, pois
+cancelam-se as partes imaginárias.</p>
+<p>Em resumo, obtemos o seguinte resultado geral:</p>
+<div class="center">
+<style>
+  table, th, td {
+    border: 1px solid black; /* Sets width, style, and color */
+  }
+</style>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\Delta &gt;
+0\)</span></td>
+<td style="text-align: center;">
+       1 raiz real e 2 raízes
+complexas conjugadas
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\Delta &lt;
+0\)</span></td>
+<td style="text-align: center;">3 raízes reais e distintas</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\Delta =
+0\)</span></td>
+<td style="text-align: center;">3 raízes reais, sendo
+pelo menos 2 iguais</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> <br />
+</p>
+<div class="problema">
+<p><strong><strong>Problema</strong> 3</strong>. <em><em>(IME/2025)</em>
+A equação <span class="math inline">\(x^3 - \alpha x + \beta=
+0\)</span>, onde <span class="math inline">\(\alpha\)</span> e <span
+class="math inline">\(\beta\)</span> são constantes reais, admite raiz
+não real de módulo <span class="math inline">\(\gamma\)</span>.
+Determine <span class="math inline">\(\alpha\)</span> em função de <span
+class="math inline">\(\beta\)</span> e <span
+class="math inline">\(\gamma\)</span>.</em></p>
+</div>
+<p><strong>Solução:</strong> Se admite raiz não real <span
+class="math inline">\(g\)</span>, conforme vimos anteriormente
+considerando <span class="math inline">\(x = u + v\)</span>, temos
+que</p>
+<p><span class="math display">\[\begin{gathered}
+(I) \begin{cases}
+  u^3 + v^3 = -\beta \\
+  3uv = \alpha
+\end{cases} \qquad \begin{cases} \qquad g = u \omega + v \omega^2 \\
+\omega = \mathop{\mathrm{cis}}\left( 120^{\circ} \right) \qquad \gamma =
+\left| g \right|  \end{cases} \\
+\Rightarrow \gamma^2 = \left[ \left( - \dfrac{1}{2} \right) \cdot \left(
+u + v \right) \right]^2 + \left[ \left(  \dfrac{\sqrt{3}}{2} \right)
+\cdot \left( u - v \right) \right]^2  \\
+\gamma^2 = \dfrac{1}{4} \cdot \left[ \left( u + v \right)^2 + 3 \left( u
+- v \right)^2 \right] \Rightarrow \boxed{ \gamma^2 = u^2 + v^2 - uv }
+\quad (II) \\
+\gamma^2 = u^2 + v^2 - uv = \left( u + v \right)^2 - 3uv \\
+\xRightarrow{(I)} u^3 + v^3 = -\beta \xRightarrow{(II)} \left( u + v
+\right) = \dfrac{-\beta}{\gamma^2} \\
+\xRightarrow{(I)} \gamma^2 = \left( u + v \right)^2 - 3uv =
+\left(\dfrac{-\beta}{\gamma^2} \right)^2 - \alpha \Rightarrow \boxed{
+\alpha = \dfrac{\beta^2}{\gamma^4} - \gamma^2 }\end{gathered}\]</span>
+<span class="math inline">\(\blacksquare\)</span><br />
+</p>
+<div class="problema">
+<p><strong><strong>Problema</strong> 4</strong>. <em>Encontre o valor de
+<span
+class="math inline">\(\mathop{\mathrm{sen}}18^{\circ}\)</span>.</em></p>
+</div>
+<p><strong>Solução:</strong> A partir da identidade <span
+class="math inline">\(\mathop{\mathrm{sen}}3x = 3 \mathop{\mathrm{sen}}x
+- 4\mathop{\mathrm{sen}}^3 x\)</span> podemos concluir que</p>
+<p><span class="math display">\[\begin{aligned}
+4 \mathop{\mathrm{sen}}^3 18^{\circ} -3 \mathop{\mathrm{sen}}18^{\circ}
+&amp; = &amp;  - \mathop{\mathrm{sen}}54^{\circ} \\
+                                       &amp; = &amp; - \cos 36^{\circ}
+\\
+                                       &amp; = &amp; -1 + 2
+\mathop{\mathrm{sen}}^2 18^{\circ}\end{aligned}\]</span> Se <span
+class="math inline">\(x = \mathop{\mathrm{sen}}18^{\circ}\)</span>,
+temos <span class="math inline">\(4x^3 -2x^2   - 3x +1 = 0\)</span>.
+Como <span class="math inline">\(x = 1\)</span> é raiz, segue que <span
+class="math inline">\(4x^3 -2x^2   - 3x +1 = \left( x - 1 \right) \cdot
+\left( 4x^2 +2x -1 \right) =0\)</span>. Daí, como <span
+class="math inline">\(\mathop{\mathrm{sen}}18^{\circ} \neq 1\)</span>,
+temos <span class="math inline">\(\mathop{\mathrm{sen}}18^{\circ} =
+\dfrac{-1 \pm \sqrt{5}}{4}\)</span>. Dado que <span
+class="math inline">\(\mathop{\mathrm{sen}}18^{\circ} &gt; 0\)</span>,
+obtemos <span class="math inline">\(\mathop{\mathrm{sen}}18^{\circ} =
+\dfrac{\sqrt{5}-1}{4}\)</span>.</p>
+<h1 id="considerações-sobre-equações-de-graus-maiores">Considerações
+sobre equações de graus maiores</h1>
+<p>Para equações do 4<sup><u>o</u></sup> grau, também existe um método
+para a obtenção de fórmulas para as raízes por meio de radicais
+conhecido como método de Ferrari. Para equações de grau <span
+class="math inline">\(\geqslant 5\)</span>, tem-se o teorema de
+Abel-Ruffini que afirma que não há uma solução geral através de
+operações com radicais, incluindo soma, subtração, multiplicação e
+divisão envolvendo os coeficientes da equação polinomial.</p>
+<p>Notemos que isso não significa que é impossível resolver qualquer uma
+dessas equações de grau <span class="math inline">\(\geqslant
+5\)</span>. Por exemplo, a equação do 6<sup><u>o</u></sup> grau <span
+class="math display">\[x^6 - 9x^3 + 8 = 0\]</span> pode ser
+completamente resolvida e reduzida para um caso já estudado realizando a
+troca de <span class="math inline">\(x^3\)</span> por <span
+class="math inline">\(y\)</span>. A nova equação possui raízes <span
+class="math inline">\(y=1\)</span> e <span
+class="math inline">\(y=8\)</span>. Daí, <span
+class="math display">\[\Rightarrow \begin{cases}
+             y =x^3 = 1 \Rightarrow x = 1, \omega, \omega^2 \\
+             y = x^3 = 8 \Rightarrow x = 2, 2\omega, 2\omega^2
+            \end{cases}\]</span></p>
+<p>Além disso, por vezes, podemos adaptar as ideias apresentadas para
+situações parecidas. Por exemplo, para a equação do
+5<sup><u>o</u></sup> grau <span class="math display">\[x^5 + px^3 +
+\dfrac{p^2}{5} x + q = 0,\]</span> sendo <span
+class="math inline">\(p\)</span> um valor dado, podemos fazer a mudança
+<span class="math inline">\(x = u + v\)</span> para obter que <span
+class="math display">\[\begin{gathered}
+\left( u + v \right)^5 + p \cdot \left( u + v \right)^3 + \dfrac{p^2}{5}
+\cdot \left( u + v \right) + q = 0 \\
+\therefore \left( u^5 + v^5 \right) + 5uv \left( u + v \right)^3 -
+5u^2v^2 \left( u + v \right) + p \left( u + v \right)^3 \\
++ \dfrac{p^2}{5} \left( u + v \right) + q = 0 \\
+\Rightarrow \begin{cases}
+              u^5 + v^5 = -q \\
+              5uv = -p \Rightarrow u^5 v^5 = -\dfrac{p^5}{5^5}
+             \end{cases} \\
+             \Rightarrow u^5, v^5 \text{ são raízes de } z^2 + qz -
+\dfrac{p^5}{5^5} = 0\end{gathered}\]</span></p>
+<div class="problema">
+<p><strong><strong>Problema</strong> 5</strong>. <em><em>(Bulgária/2023
+- Outono)</em> Encontre todas as soluções da equação <span
+class="math display">\[\left( x+1 \right) \sqrt{x^2+2x+2} + x
+\sqrt{x^2+1} = 0.\]</span></em></p>
+</div>
+<p><strong>Solução:</strong> Passando o segundo termo para o outro lado
+e elevando ao quadrado, temos que <span class="math display">\[\left(
+x+1 \right)^2 \left[ \left( x + 1 \right)^2 + 1 \right] = x^2 \left( x^2
++ 1 \right)\]</span></p>
+<p>A expressão <span class="math inline">\(t \left( t +1
+\right)\)</span> é crescente para <span class="math inline">\(t
+\geqslant 0\)</span>.</p>
+<p>Logo, temos que <span class="math display">\[\left( x + 1 \right)^2 =
+x^2 \Rightarrow \boxed{ x = -\dfrac{1}{2} }\]</span></p>
+<p>que é a única solução. <span
+class="math inline">\(\blacksquare\)</span><br />
+Para finalizar, deixaremos duas questões de equações de
+3<sup><u>o</u></sup> grau de treino para o leitor.</p>
+<div class="problema">
+<p><strong><strong>Problema</strong> 6</strong>. <em>Determine todas as
+raízes das equações do 3<sup><u>o</u></sup> grau a seguir:</em></p>
+<ol>
+<li><p><em><span class="math inline">\(t^3 - 6t -
+9=0\)</span>;</em></p></li>
+<li><p><em><span class="math inline">\(t^3 - 6t -
+4=0\)</span>.</em></p></li>
+</ol>
+</div>
+<div class="problema">
+<p><strong><strong>Problema</strong> 7</strong>. <em><em>(Hong Kong/2014
+- adaptada)</em> Determine o valor simplificado de <span
+class="math inline">\(\left( \sqrt[3]{\sqrt{5}+ 2} +
+\sqrt[3]{\sqrt{5}-2} \right)^{2014}\)</span>.</em></p>
+</div>
+<h1 id="respostas">Respostas</h1>
+<div class="problema">
+<p><strong><strong>Problema</strong> 8</strong>. </p>
+<ol>
+<li><p><em><span class="math inline">\(3\)</span> e <span
+class="math inline">\(-\dfrac{3}{2} \pm
+\dfrac{\sqrt{3}}{2}i\)</span>;</em></p></li>
+<li><p><em><span class="math inline">\(-2\)</span> e <span
+class="math inline">\(1 \pm \sqrt{3}\)</span>.</em></p></li>
+</ol>
+</div>
+<div class="problema">
+<p><strong><strong>Problema</strong> 9</strong>. <em><span
+class="math inline">\(5^{1007}\)</span>. Uma ideia é fazer <span
+class="math inline">\(a = \sqrt[3]{\sqrt{5}+ 2}\)</span>, <span
+class="math inline">\(b= \sqrt[3]{\sqrt{5}- 2}\)</span> e <span
+class="math inline">\(x= a + b\)</span> para chegar a <span
+class="math display">\[x^3 = a^3 + b^3 + 3ab \left( a + b \right) =
+2\sqrt{5} + 3x.\]</span></em></p>
+</div>
+<p>Daí, basta perceber que <span class="math inline">\(x =
+\sqrt{5}\)</span> é raiz e as outras raízes são complexas, podendo só
+dividir por <span class="math inline">\(\left( x - \sqrt{5}
+\right)\)</span> para concluir isso.</p>
+<p>Portanto, <span class="math inline">\(x = \sqrt{5}\)</span> e <span
+class="math inline">\(x^{2014} = \boxed{ 5^{1007} }\)</span>.</p>
+<h1>Bibliografia</h1>
+<div class="thebibliography">
+<p>Toscano, Fábio. <em>A Fórmula Secreta</em>. Editora
+Unicamp, São Paulo, 2012.</p>
+</div>
+<div class="wrapfigure">
+<p><img src="armando.jpg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>José Armando Barbosa Filho é iteano, ex-olímpico e trabalha
+olimpíadas de matemática desde 2012. Os principais destaques de sua
+carreira são os livros da coleção IME/ITA/Cone Sul/EGMO, da qual se
+orgulha de ser o autor, e ter sido vice-líder da equipe do Brasil na
+IMO/2018. Atualmente, está vivendo os primeiros dias de pai do José
+Heitor. Muito <em>nerd</em> a ponto de ser fã do personagem Leonard
+Hofstadter, da série <em>The Big Bang Theory</em>.</p>

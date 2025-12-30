@@ -1,0 +1,6 @@
+---
+layout: artigo
+title: "Composições Geométricas: Unindo Arte e Matemática"
+subtitle: Didática
+author: Maiara Santos e Vinícius Mello
+---

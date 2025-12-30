@@ -1,0 +1,6 @@
+---
+layout: artigo
+title: "Natureza e Matemática"
+subtitle: Fotografia
+author: Cristina Lizana
+---

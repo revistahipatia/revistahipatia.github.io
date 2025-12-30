@@ -1,0 +1,6 @@
+---
+layout: artigo
+title: "Eventos DMAT Janeiro a Dezembro/25"
+subtitle: Simpósio
+author: Cristina Lizana, Elaís Cidely Malheiro, Henrique da Costa, Roberto Sant'Anna
+---
