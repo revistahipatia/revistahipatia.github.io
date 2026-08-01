@@ -1,0 +1,791 @@
+---
+layout: artigo
+title: "Um Passeio com Primos e Outros Caras Bacanas"
+subtitle: Técnica
+author: Rafael Filipe dos Santos
+---
+<h1 id="introdução">Introdução</h1>
+<p>A infinitude dos números primos é um fato conhecido desde a
+Antiguidade, cuja demonstração mais célebre remonta ao argumento
+clássico de Euclides.</p>
+<div id="thm:euclides" class="theorem*">
+<p><strong>Teorema 1</strong>. <em>[Euclides] Existem infinitos
+primos.</em></p>
+</div>
+<div class="proof">
+<p><em>Prova.</em> Suponha por absurdo que haja um número finito de
+primos e sejam <span class="math inline">\(p_1, p_2, \ldots,
+p_k\)</span> todos os primos. Considere o número <span
+class="math inline">\(N=p_1p_2\ldots p_k + 1\)</span> e observe que,
+pelo teorema fundamental da aritmética, <span
+class="math inline">\(N\)</span> possui algum fator primo <span
+class="math inline">\(p_j\)</span>. Mas então <span
+class="math inline">\(p_j\)</span> divide <span
+class="math inline">\(N-p_1\cdot p_2 \ldots p_k = 1\)</span>, um
+absurdo. ◻</p>
+</div>
+<p>E se quisermos provar que existem infinitos primos em uma certa
+progressão aritmética? Por exemplo, será que existem infinitos primos da
+forma <span class="math inline">\(4k+1\)</span>? A resposta é afirmativa
+e é possível adaptar a ideia de Euclides!</p>
+<div id="thm:4k+1" class="theorem*">
+<p><strong>Teorema 2</strong>. <em>Existem infinitos números primos da
+forma <span class="math inline">\(4k+1\)</span>, com <span
+class="math inline">\(k \in
+\mathop{\mathrm{\mathbb{Z}}}\)</span>.</em></p>
+</div>
+<div class="proof">
+<p><em>Prova.</em> Suponha por absurdo que haja um número finito de
+primos e sejam <span class="math inline">\(p_1, p_2, \ldots,
+p_k\)</span> todos os primos congruentes a <span
+class="math inline">\(1\)</span> módulo <span
+class="math inline">\(4\)</span>. Considere o número <span
+class="math display">\[N=(p_1p_2\ldots p_k)^2 + 1.\]</span> Sabemos que
+todo número da forma <span class="math inline">\(x^2+1\)</span> com
+<span class="math inline">\(x&gt;1\)</span> possui um fator primo
+congruente a <span class="math inline">\(1\)</span> módulo <span
+class="math inline">\(4\)</span>. Logo, <span
+class="math inline">\(N\)</span> deve possuir algum fator primo <span
+class="math inline">\(p_j\)</span>. Mas então <span
+class="math inline">\(p_j\)</span> divide <span
+class="math inline">\(N-(p_1p_2\ldots p_k)^2=1\)</span>, um
+absurdo. ◻</p>
+</div>
+<p>Um questionamento interessante é se é possível generalizar as ideias
+das soluções acima para mostrar que existem infinitos primos em uma
+progressão aritmética mais geral, da forma <span
+class="math inline">\(ak+b\)</span> com <span
+class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> inteiros fixados tais que <span
+class="math inline">\(\text{mdc}(a,b)=1\)</span>? Note que a condição de
+<span class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> serem primos entre si é necessária,
+pois do contrário qualquer fator comum de <span
+class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> dividiria <span
+class="math inline">\(ak+b\)</span>.</p>
+<p>A resposta para essa pergunta é afirmativa e é o famoso <em>teorema
+de Dirichlet</em>, provado em <span
+class="math inline">\(1837\)</span>.</p>
+<div class="theorem*">
+<p><strong>Teorema 3</strong> (Dirichlet, 1837). <em>Sejam <span
+class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> inteiros positivos com <span
+class="math inline">\(\text{mdc}(a,b)=1\)</span>. Existem infinitos
+números primos da forma <span class="math inline">\(ak+b\)</span>, com
+<span class="math inline">\(k \in
+\mathop{\mathrm{\mathbb{Z}}}\)</span>.</em></p>
+</div>
+<p>As principais demonstrações desse teorema utilizam variáveis
+complexas e não vão na linha dos argumentos apresentados acima.</p>
+<p>O objetivo deste material é, inicialmente, apresentar alguns
+contextos em que os argumentos utilizados nas demonstrações dos
+Teoremas <a href="#thm:euclides" data-reference-type="ref"
+data-reference="thm:euclides">1</a> e <a href="#thm:4k+1"
+data-reference-type="ref" data-reference="thm:4k+1">2</a> se mostram
+particularmente interessantes. Em seguida, mudamos ligeiramente o foco
+para discutir resultados sobre os fatores primos de sequências mais
+gerais de inteiros. Por fim, comentamos alguns aspectos relevantes
+relacionados à distribuição dos números primos.</p>
+<h1 id="primos-em-uma-progressão-aritmética">Primos em Uma Progressão
+Aritmética</h1>
+<p>Nesta seção discutiremos de modo mais aprofundado alguns pontos por
+trás das demonstrações de Euclides e do caso <span
+class="math inline">\(4k+1\)</span> apresentadas acima.</p>
+<p>Para adaptar as ideias para o caso <span
+class="math inline">\(ak+b\)</span>, podemos procurar um polinômio <span
+class="math inline">\(f(x) \in \mathop{\mathrm{\mathbb{Z}}}[x]\)</span>
+para o qual <span class="math inline">\(f(m)\)</span> possua algum fator
+da forma <span class="math inline">\(ak+b\)</span> para todo <span
+class="math inline">\(m\)</span> suficientemente grande. No caso da
+prova de Euclides, como não temos restrições para o primo, usamos
+simplesmente <span class="math inline">\(f(x)=x+1\)</span>. Já no
+segundo caso, foi fundamental escolher <span
+class="math inline">\(f(x)=x^2+1\)</span>.</p>
+<p>Se existisse um número finito de primos da forma <span
+class="math inline">\(ak+b\)</span>, digamos <span
+class="math inline">\(p_1, p_2, \ldots, p_t\)</span> e se existisse tal
+<span class="math inline">\(f\)</span> com a propriedade de que, para
+<span class="math inline">\(m\)</span> suficientemente grande, <span
+class="math inline">\(f(m)\)</span> sempre possui algum fator da forma
+<span class="math inline">\(ak+b\)</span>, poderíamos tomar <span
+class="math display">\[N=f((p_1p_2\ldots p_t)^\ell),\]</span> com <span
+class="math inline">\(\ell\)</span> suficientemente grande de modo que
+<span class="math inline">\(N&gt;1\)</span>. Pela propriedade de <span
+class="math inline">\(f\)</span>, concluiríamos que <span
+class="math inline">\(N\)</span> deve possuir algum fator primo <span
+class="math inline">\(p_j\)</span>. Dessa forma, lembrando que <span
+class="math inline">\(x-y \mid f(x) - f(y)\)</span>, concluímos que
+<span class="math inline">\(p_j\)</span> também divide <span
+class="math inline">\(f((p_1p_2\ldots p_k)^\ell)-f(0)=N-f(0)\)</span> e,
+portanto, <span class="math inline">\(p_j\)</span> divide <span
+class="math inline">\(f(0)\)</span>. Isso em princípio não
+necessariamente produz um absurdo, mas se encontrarmos <span
+class="math inline">\(f\)</span> tal que <span
+class="math inline">\(f(0)=1\)</span>, resolvemos nosso problema
+chegando a uma contradição.</p>
+<p>Uma outra opção seria encontrar <span
+class="math inline">\(f\)</span> tal que, para <span
+class="math inline">\(m\)</span> suficientemente grande, <em>todos</em>
+os fatores primos de <span class="math inline">\(f(m)\)</span> sejam
+congruentes a <span class="math inline">\(b\)</span> módulo <span
+class="math inline">\(a\)</span>, à exceção, possivelmente, de uma
+quantidade finita de primos, como ocorre em <span
+class="math inline">\(f(x)=x^2+1\)</span>, para o caso <span
+class="math inline">\(4k+1\)</span>. De fato, tomando <span
+class="math inline">\(m_\ell=(Pp_1p_2\ldots p_t)^{\ell}\)</span>, em que
+<span class="math inline">\(P\)</span> é o produto dos primos que são
+possíveis exceções, observe que, para <span
+class="math inline">\(\ell\)</span> suficientemente grande, os expoentes
+da fatoração em primos de <span class="math inline">\(f(m_\ell)\)</span>
+estão limitados pelo expoente do termo independente <span
+class="math inline">\(f(0)\)</span> (podemos supor <span
+class="math inline">\(f(0) \ne 0\)</span>, tomando <span
+class="math inline">\(f\)</span> irredutível em <span
+class="math inline">\(\mathop{\mathrm{\mathbb{Z}}}[x]\)</span>). Isso
+significa que a sequência <span class="math inline">\((a_\ell)\)</span>
+definida por <span class="math inline">\(a_\ell=|f(m_\ell)|\)</span> é
+limitada. Porém, para <span class="math inline">\(f\)</span> não
+constante e <span class="math inline">\(\ell\)</span> arbitrariamente
+grande, ela deveria “explodir”.</p>
+<p>A principal dificuldade dessas abordagens reside, em geral, na
+construção de polinômios com as propriedades desejadas. Ainda assim,
+essa ideia pode ser explorada em outros contextos. Encerramos a
+discussão apresentando um caso particularmente interessante em que tal
+abordagem é possível, a saber, a existência de infinitos primos da forma
+<span class="math inline">\(nk+1\)</span>, para um inteiro positivo fixo
+<span class="math inline">\(n\)</span>. A demonstração utiliza a noção
+de <em>polinômios ciclotômicos</em>. Para saber mais a respeito, veja
+[4].</p>
+<div class="theorem*">
+<p><strong>Teorema 4</strong>. <em>Seja <span
+class="math inline">\(n\)</span> um inteiro positivo. Existem infinitos
+números primos da forma <span class="math inline">\(nk+1\)</span>, com
+<span class="math inline">\(k \in
+\mathop{\mathrm{\mathbb{Z}}}\)</span>.</em></p>
+</div>
+<div class="proof">
+<p><em>Prova.</em> Suponha que haja um número finito de primos
+congruentes a <span class="math inline">\(1\)</span> módulo <span
+class="math inline">\(n\)</span> e sejam <span
+class="math inline">\(p_1, p_2, \ldots, p_k\)</span> estes primos.
+Defina <span class="math inline">\(a=(np_1p_2\ldots
+p_k)^{\ell}\)</span>. Para definir o polinômio <span
+class="math inline">\(f\)</span>, precisaremos recorrer aos polinômios
+ciclotômicos. Seja <span class="math inline">\(\phi_n(x)\)</span> o
+<span class="math inline">\(n\)</span>-ésimo polinômio ciclotômico.
+Vamos mostrar que <span class="math inline">\(\phi_n(a)\)</span> possui
+um fator primo congruente a <span class="math inline">\(1\)</span>
+módulo <span class="math inline">\(n\)</span>. Isso produz a contradição
+desejada, pois argumentando como anteriormente, se <span
+class="math inline">\(q\)</span> é um fator de <span
+class="math inline">\(\phi_n(a)\)</span> congruente a <span
+class="math inline">\(1\)</span> módulo <span
+class="math inline">\(n\)</span>, teremos que <span
+class="math inline">\(q \mid a\)</span> e, como <span
+class="math inline">\(a = a - 0 \mid \phi_n(a) - \phi_n(0)\)</span>,
+concluímos que <span class="math inline">\(q \mid \phi_n(0)\)</span>,
+porém sabemos que <span
+class="math inline">\(|\phi_n(0)|=1\)</span>.</p>
+<p>Na verdade, vamos mostrar algo mais forte: todo fator primo de <span
+class="math inline">\(\phi_n(a)\)</span> é congruente a <span
+class="math inline">\(1\)</span> módulo <span
+class="math inline">\(n\)</span>. Observe primeiramente que podemos
+tomar <span class="math inline">\(\ell\)</span> suficientemente grande
+de modo que <span class="math inline">\(|\phi_n(a)|&gt;1\)</span>, para
+garantir que <span class="math inline">\(\phi_n(a)\)</span> tem pelo
+menos um fator primo. Seja então <span class="math inline">\(q\)</span>
+um fator primo de <span class="math inline">\(\phi_n(a)\)</span>.
+Sabemos das propriedades de polinômios ciclotômicos que <span
+class="math display">\[\prod_{d|n}\phi_d(x) = x^n - 1.\]</span> Em
+particular, para <span class="math inline">\(x=a\)</span>, temos que
+<span class="math inline">\(q \mid a^n - 1\)</span> e então, para
+mostrar que <span class="math inline">\(q\)</span> é congruente a <span
+class="math inline">\(1\)</span> módulo <span
+class="math inline">\(n\)</span>, é suficiente verificar que <span
+class="math inline">\(\text{ord}_q(a)=n\)</span>, pois, como pelo
+teorema de Fermat temos <span class="math inline">\(a^{q-1} \equiv
+1\pmod{q}\)</span>, segue que <span class="math inline">\(q \equiv 1
+\pmod n\)</span>.</p>
+<p>Suponha que <span class="math inline">\(\text{ord}_q(a)=h \ne
+n\)</span>. Como <span class="math inline">\(q\mid a^n - 1\)</span>,
+temos que <span class="math inline">\(h \mid n\)</span>. Logo, a equação
+anterior implica que <span class="math inline">\(x^n - 1=(x^h -
+1)\phi_n(x)p(x)\)</span> para algum polinômio <span
+class="math inline">\(p(x)\)</span>. Analisando módulo <span
+class="math inline">\(q\)</span>, podemos escrever <span
+class="math inline">\(x^n - a^n \equiv (x^h - a^h)\phi_n(x)p(x)
+\pmod{q}\)</span>. Pela fatoração única em <span
+class="math inline">\(\mathop{\mathrm{\mathbb{Z}}}_q\)</span>, podemos
+cancelar um fator <span class="math inline">\((x-a)\)</span> em ambos os
+lados, obtendo <span
+class="math display">\[x^{n-1}+x^{n-2}a+\ldots+xa^{n-2}+a^{n-1}\]</span>
+<span class="math display">\[\equiv
+(x^{h-1}+x^{h-2}a+\ldots+xa^{h-2}+a^{h-1})\phi_n(x)p(x)
+\pmod{q}.\]</span> Fazendo <span class="math inline">\(x=a\)</span> e
+lembrando que <span class="math inline">\(q \mid \phi_n(a)\)</span>,
+concluímos que <span class="math inline">\(na^{n-1} \equiv 0
+\pmod{q}\)</span>, um absurdo, pois <span class="math inline">\(q \mid
+a^n - 1\)</span> e <span class="math inline">\(n \mid a\)</span>, de
+modo que <span class="math inline">\(\text{mdc}(na^{n-1},q)=1\)</span>.
+Isso conclui a demonstração. ◻</p>
+</div>
+<h1 id="fatores-primos-de-uma-sequência">Fatores Primos de uma
+Sequência</h1>
+<p>Uma forma alternativa e bastante útil de interpretar as ideias
+anteriores consiste em evitar o argumento por contradição, isto é, em
+vez de supor que há apenas um número finito de primos de uma dada forma,
+buscamos construir explicitamente uma sequência <span
+class="math inline">\((a_n)\)</span> com a seguinte propriedade: para
+cada termo <span class="math inline">\(a_n\)</span>, existe um primo
+<span class="math inline">\(p_n \equiv b \pmod{a}\)</span> tal que <span
+class="math inline">\(p_n \mid a_n\)</span> e <span
+class="math inline">\(p_n \notin \{p_1,\ldots,p_{n-1}\}\)</span>. Dessa
+forma, garantimos a produção sucessiva de novos primos da forma
+desejada.</p>
+<p>Uma maneira natural de construir tal sequência é por meio de uma
+recorrência adequada do tipo <span
+class="math inline">\(a_{n+1}=f(a_n)\)</span>. Por exemplo, na
+demonstração do caso <span class="math inline">\(4k+1\)</span>, pode-se
+considerar a recorrência <span class="math display">\[a_{n+1}=(a_1\cdots
+a_n)^2+1.\]</span> Por indução, nota-se facilmente que <span
+class="math inline">\(a_{n+1}=a_n^3-a_n^2+1\)</span>, com <span
+class="math inline">\(a_1=5\)</span>. Dessa forma, teríamos <span
+class="math inline">\(f(x)=x^3-x^2+1\)</span>.</p>
+<p>Diversas questões podem ser formuladas a respeito dos fatores primos
+de sequências de inteiros. Em muitos casos, é possível caracterizá-los,
+especialmente para sequências definidas por recorrências do tipo <span
+class="math inline">\(a_{n+1}=f(a_n)\)</span>, em que <span
+class="math inline">\(f\)</span> é um polinômio bem compreendido.</p>
+<p>Outra questão natural consiste em determinar se o conjunto dos
+divisores primos dos termos da sequência é infinito. Um resultado
+clássico relacionado a esse problema é o <em>teorema de Schur</em>.</p>
+<div class="theorem*">
+<p><strong>Teorema 5</strong>. <em>(Schur) Seja <span
+class="math inline">\(P(x) \in \mathop{\mathrm{\mathbb{Z}}}[x]\)</span>
+um polinômio não constante. Então o conjunto dos fatores primos da
+sequência <span class="math inline">\((a_n)\)</span>, definida por <span
+class="math inline">\(a_n=P(n)\)</span> é infinito.</em></p>
+</div>
+<div class="proof">
+<p><em>Prova.</em> Suponha que exista apenas um número finito de primos
+que dividem algum termo da sequência e sejam <span
+class="math inline">\(p_1, p_2, \ldots, p_k\)</span> tais primos. Se
+<span class="math inline">\(P(0)=0\)</span>, então <span
+class="math inline">\(n\mid P(n)\)</span> e o resultado é trivial.
+Suponha então <span class="math inline">\(P(0) = m \ne 0\)</span> e
+defina <span class="math inline">\(n_\ell = (p_1p_2\ldots
+p_k)^{\ell}\)</span>, com <span class="math inline">\(\ell &gt;
+\max\{\nu_{p_1}(m), \ldots, \nu_{p_k}(m)\}\)</span>. Observe que <span
+class="math inline">\(\nu_{p_i}(a_{n_\ell})=\nu_{p_i}(m)\)</span>, o que
+implica que <span class="math inline">\(|a_{n_\ell}| \le m\)</span>, já
+que os fatores primos de <span class="math inline">\(a_{n_\ell}\)</span>
+pertencem ao conjunto <span class="math inline">\(\{p_1, p_2, \ldots,
+p_k\}\)</span>. Mas tomando <span class="math inline">\(\ell\)</span>
+arbitrariamente grande, como <span class="math inline">\(P\)</span> é
+não constante, <span
+class="math inline">\(|P(n_\ell)|=|a_{n_{\ell}}|\)</span> fica
+eventualmente maior que <span class="math inline">\(m\)</span>, um
+absurdo. ◻</p>
+</div>
+<p>Outro resultado relacionado é o <em>teorema de Kobayashi</em>.</p>
+<div class="theorem*">
+<p><strong>Teorema 6</strong>. <em>(Kobayashi) Seja <span
+class="math inline">\((x_n)\)</span> uma sequência de inteiros positivos
+ilimitada cujo conjunto dos divisores primos é finito. Então, para todo
+inteiro <span class="math inline">\(y \ne 0\)</span>, o conjunto dos
+fatores primos da sequência <span class="math inline">\((x_n+y)\)</span>
+é infinito.</em></p>
+</div>
+<p>Sua demonstração original recorre a ferramentas de geometria
+algébrica. Entretanto, existe uma abordagem alternativa baseada no
+<em>teorema de Thue</em>.</p>
+<div class="theorem*">
+<p><strong>Teorema 7</strong>. <em>(Thue) Seja <span
+class="math inline">\(d \ge 3\)</span> e <span class="math inline">\(k
+\in \mathop{\mathrm{\mathbb{Z}}}\)</span>. Se <span
+class="math inline">\(f\)</span> é um polinômio homogêneo irredutível de
+grau <span class="math inline">\(d\)</span>, então existe uma quantidade
+finita de soluções inteiras para a equação <span
+class="math inline">\(f(x,y)=k\)</span>.</em></p>
+</div>
+<p>Embora o teorema de Thue ainda não seja elementar por utilizar teoria
+de aproximações diofantinas, ele permite uma prova relativamente simples
+do teorema de Kobayashi. Finalizamos a seção apresentando tal
+demonstração.</p>
+<div class="proof">
+<p><em>Prova do teorema de Kobayashi.</em> Escreva <span
+class="math inline">\(a_n=ax^3\)</span> e <span
+class="math inline">\(a_n + t = by^3\)</span>, com <span
+class="math inline">\(a, b\)</span> livre de cubos. Se <span
+class="math inline">\((a_n)\)</span> e <span
+class="math inline">\((a_n+t)\)</span> possuem uma quantidade finita de
+divisores primos, então há uma quantidade finita de possibilidades para
+<span class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span>, de modo que há uma quantidade finita
+de equações da forma <span class="math inline">\(by^3-ax^3=t\)</span>.
+Mas então, pelo teorema de Thue, temos uma quantidade finita de soluções
+para essas equações e, em particular, uma quantidade finita de
+possibilidades para <span class="math inline">\(x\)</span>, o que
+contradiz o fato de <span class="math inline">\((a_n)\)</span> ser
+ilimitada. ◻</p>
+</div>
+<h2 class="unnumbered" id="exercícios">Exercícios</h2>
+<p><span><strong>Problema . </strong></span> (OBM 2016 - N2) Seja <span
+class="math inline">\(a_0=a&gt;1\)</span> um inteiro e, para <span
+class="math inline">\(n \ge 0\)</span>, defina <span
+class="math inline">\(a_{n+1}=2^{a_n}-1\)</span>. Mostre que o conjunto
+dos divisores primos dos termos da sequência <span
+class="math inline">\(a_n\)</span> é infinito.</p>
+<p><span><strong>Problema . </strong></span> (IMO SL 2009) Seja <span
+class="math inline">\(f\)</span> uma função não-constante dos inteiros
+positivos nos inteiros positivos tal que <span
+class="math inline">\(a-b\)</span> divide <span
+class="math inline">\(f(a)-f(b)\)</span> para quaisquer inteiros
+positivos <span class="math inline">\(a\)</span>, <span
+class="math inline">\(b\)</span> distintos. Prove que existem infinitos
+números primos <span class="math inline">\(p\)</span> tais que <span
+class="math inline">\(p\)</span> divide <span
+class="math inline">\(f(c)\)</span> para algum inteiro positivo <span
+class="math inline">\(c\)</span>.</p>
+<p><span><strong>Problema . </strong></span> (OIMU 2003) Prove que se
+<span class="math inline">\(P(x)\)</span> é um polinômio não constante
+com coeficientes inteiros, então existe <span
+class="math inline">\(n\)</span> inteiro tal que <span
+class="math inline">\(P(n)\)</span> tem mais de <span
+class="math inline">\(2003\)</span> fatores primos distintos.</p>
+<p><span><strong>Problema . </strong></span> (Ibero 2019) Sejam <span
+class="math inline">\(a_1, a_2, \dots, a_{2019}\)</span> inteiros
+positivos e <span class="math inline">\(P\)</span> um polinômio com
+coeficientes inteiros tal que, para todo o inteiro positivo <span
+class="math inline">\(n\)</span>, <span
+class="math inline">\(P(n)\)</span> divide <span
+class="math inline">\(a_1^n + a_2^n + \dots + a_{2019}^n\)</span>. Prove
+que <span class="math inline">\(P\)</span> é um polinômio constante.</p>
+<p><span><strong>Problema . </strong></span> (Irã 2011) Seja <span
+class="math inline">\(P(x)\)</span> um polinômio não nulo com
+coeficientes inteiros. Prove que existem infinitos primos <span
+class="math inline">\(q\)</span> tais que <span
+class="math inline">\(q\)</span> divide <span
+class="math inline">\(2^n+P(n)\)</span> para algum <span
+class="math inline">\(n\)</span> natural.</p>
+<p><span><strong>Problema . </strong></span> (TST Irã 2024) Seja <span
+class="math inline">\(\{a_n\}\)</span> uma sequência de números naturais
+tal que todo número primo maior que <span
+class="math inline">\(1402\)</span> divide algum termo da sequência.
+Prove que o conjunto dos divisores primos dos termos da sequência <span
+class="math inline">\(\{b_n\}\)</span>, definida por <span
+class="math inline">\(b_n = a_1 a_2 \cdots a_n - 1\)</span>, é
+infinito.</p>
+<p><span><strong>Problema . </strong></span> (OBMU 2017) Fixados os
+inteiros positivos <span class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span>, mostre que o conjunto dos divisores
+primos dos termos da sequência <span class="math inline">\(a_n=a\cdot
+2017^n+b \cdot 2016^n\)</span> é infinito.</p>
+<h1 id="sobre-a-distribuição-dos-primos">Sobre a Distribuição dos
+Primos</h1>
+<p>Nesta seção vamos apresentar demonstrações para o <em>postulado de
+Bertrand</em> e para provar o <em>teorema de Chebyshev</em>. A prova do
+postulado de Bertrand apresentada é devida a Erdős e os dois lemas
+utilizados também servem para provar o teorema de Chebyshev.</p>
+<p>No que segue, todos os logaritmos são na base natural. Sabendo da
+existência de infinitos números primos, torna-se natural procurar
+entender a respeito da <em>distribuição</em> dos primos nos inteiros
+positivos. Mais precisamente, dado um inteiro positivo <span
+class="math inline">\(n\)</span>, definindo <span
+class="math inline">\(\pi(n)\)</span> como a quantidade de números
+primos no conjunto <span
+class="math inline">\([n]=\{1,2,3,\ldots,n\}\)</span>, seria
+interessante entender o comportamento assintótico desta função. O
+teorema de Chebyshev responde essa pergunta, provando que <span
+class="math inline">\(\pi(n)=\Theta(\frac{n}{\log n})\)</span>.</p>
+<div id="thm:Chebyshev" class="theorem*">
+<p><strong>Teorema 8</strong>. <em>(Chebyshev) Existem constantes
+positivas <span class="math inline">\(c&lt;C\)</span> tais que para todo
+<span class="math inline">\(x \ge 2\)</span> vale <span
+class="math display">\[c\frac{x}{\log x} &lt; \pi(x) &lt; C
+\frac{x}{\log x}.\]</span></em></p>
+</div>
+<p>Outra pergunta bastante natural é a respeito do comportamento da
+quantidade de números primos em um certo intervalo <span
+class="math inline">\([f(n),g(n)]\)</span>. Por exemplo, como
+consequência do teorema de Chebyshev, podemos facilmente concluir que a
+quantidade de primos no intervalo <span
+class="math inline">\([n,an]\)</span>, com <span
+class="math inline">\(a&gt;1\)</span> é pelo menos <span
+class="math display">\[\pi(an) - \pi(n) \ge c\frac{an}{\log (an)} -
+C\frac{n}{\log n} = \big(ca-C+o(1)\big)\frac{n}{\log n}.\]</span> Logo,
+quando <span class="math inline">\(a&gt;C/c\)</span>, conseguimos muitos
+primos em intervalos da forma <span
+class="math inline">\([n,an]\)</span> para <span
+class="math inline">\(n\)</span> suficientemente grande. Na demonstração
+apresentada, teremos <span class="math inline">\(C=5\log 2\)</span> e
+<span class="math inline">\(c=\frac{\log2}{2}\)</span>, o que implica
+<span class="math inline">\(a&gt;10\)</span>. Mas para valores menores
+de <span class="math inline">\(a\)</span>, em princípio sequer sabemos
+se podemos garantir a existência um primo no intervalo para <span
+class="math inline">\(n\)</span> grande. O postulado de Bertrand
+responde essa pergunta quando <span
+class="math inline">\(a=2\)</span>.</p>
+<div id="thm:Bertrand" class="theorem*">
+<p><strong>Teorema 9</strong>. <em>(Postulado de Bertrand) Seja <span
+class="math inline">\(n\)</span> um inteiro positivo. Existe um primo
+<span class="math inline">\(p \in [n,2n]\)</span>.</em></p>
+</div>
+<p>Antes de provar os Teoremas <a href="#thm:Chebyshev"
+data-reference-type="ref" data-reference="thm:Chebyshev">8</a> e <a
+href="#thm:Bertrand" data-reference-type="ref"
+data-reference="thm:Bertrand">9</a>, vamos enunciar dois lemas
+necessários para prová-los.</p>
+<div id="aff:1" class="lemma*">
+<p><strong>Lema 1</strong>. <em>Sejam <span class="math inline">\(n \in
+\mathop{\mathrm{\mathbb{Z}}}_{&gt;0}\)</span> e <span
+class="math inline">\(p\)</span> um número primo. Seja <span
+class="math inline">\(\theta_p\)</span> o inteiro tal que <span
+class="math inline">\(p^{\theta_p} \le 2n &lt; p^{\theta_p+1}\)</span>.
+Então<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> <span
+class="math display">\[\nu_p\left(\binom{2n}{n}\right)
+\le\theta_p.\]</span> Em particular, se <span
+class="math inline">\(p&gt;\sqrt{2n}\)</span>, então o expoente de <span
+class="math inline">\(p\)</span> em <span
+class="math inline">\(\binom{2n}{n}\)</span> é <span
+class="math inline">\(1\)</span>, e se <span
+class="math inline">\(\frac{2n}{3} &lt; p &lt; n\)</span>, então <span
+class="math inline">\(p\)</span> não divide <span
+class="math inline">\(\binom{2n}{n}\)</span>.</em></p>
+</div>
+<div class="proof">
+<p><em>Prova.</em> Observe que <span
+class="math display">\[\begin{aligned}
+    \nu_p\left(\binom{2n}{n}\right)&amp;=\nu_p((2n)!)-2\nu_p(n!) \\
+    &amp;=\sum_{i=1}^{\theta_p}\left(\left\lfloor{\frac{2n}{p^i}}\right\rfloor-2\left\lfloor{\frac{n}{p^i}}\right\rfloor\right)\le
+\theta_p,
+\end{aligned}\]</span> pois cada parcela é sempre <span
+class="math inline">\(0\)</span> ou <span
+class="math inline">\(1\)</span>. Se <span
+class="math inline">\(p&gt;\sqrt{2n}\)</span>, temos que <span
+class="math inline">\(\theta_p=1\)</span> e o resultado segue. Além
+disso, se <span class="math inline">\(\frac{2n}{3}&lt;p&lt;n\)</span>, é
+fácil ver que todas as parcelas são <span
+class="math inline">\(0\)</span> e então <span
+class="math inline">\(p\)</span> não divide <span
+class="math inline">\(\binom{2n}{n}\)</span>. ◻</p>
+</div>
+<div id="aff:2" class="lemma*">
+<p><strong>Lema 2</strong>. <em>Para todo inteiro positivo <span
+class="math inline">\(n\)</span>, temos <span
+class="math display">\[\prod_{\substack{p \le n\\p\text{ primo}}}p \le
+4^n.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Prova.</em> A prova segue por indução em <span
+class="math inline">\(n\)</span>. Para <span
+class="math inline">\(n\)</span> pequeno o resultado é claro. Suponha
+válido para todo <span class="math inline">\(k &lt; n\)</span>. Se <span
+class="math inline">\(n\)</span> é par, temos que <span
+class="math display">\[\prod_{\substack{p \le n\\p\text{ primo}}}p =
+\prod_{\substack{p \le n-1\\p\text{ primo}}}p \le 4^{n-1} &lt;
+4^n.\]</span> Suponha então <span class="math inline">\(n\)</span> ímpar
+e seja <span class="math inline">\(n=2m+1\)</span>. Observe que <span
+class="math display">\[\begin{aligned}
+    \prod_{\substack{p \le n\\p\text{ primo}}}p &amp;=
+\prod_{\substack{p \le m+1\\p\text{ primo}}}p\cdot\prod_{\substack{m+2
+\le p \le 2m+1\\p\text{ primo}}}p \\
+    &amp;\le 4^{m+1}\binom{2m+1}{m+1} \le 4^{m+1}2^{2m}=4^n.
+\end{aligned}\]</span> A primeira desigualdade segue da hipótese de
+indução e do fato de todos os primos <span
+class="math inline">\(p\)</span> entre <span
+class="math inline">\(m+2\)</span> e <span
+class="math inline">\(2m+1\)</span> dividirem <span
+class="math inline">\(\binom{2m+1}{m+1}\)</span>. A cota no binomial
+segue de <span class="math inline">\(\sum_{i=1}^{2m+1}
+\binom{2m+1}{i}=2^{2m+1}\)</span> e de <span
+class="math inline">\(\binom{2m+1}{m+1}=\binom{2m+1}{m}\)</span>. ◻</p>
+</div>
+<p>Com esses dois resultados em mãos, podemos provar os Teoremas <a
+href="#thm:Chebyshev" data-reference-type="ref"
+data-reference="thm:Chebyshev">8</a> e <a href="#thm:Bertrand"
+data-reference-type="ref" data-reference="thm:Bertrand">9</a>.
+Ressaltamos que a prova do teorema de Bertrand apresentada é devida a
+Paul Erdős.</p>
+<div class="proof">
+<p><em>Prova do Teorema <a href="#thm:Bertrand"
+data-reference-type="ref" data-reference="thm:Bertrand">9</a>.</em>
+Suponha que exista <span class="math inline">\(n \ge 2\)</span> para o
+qual não há primos no intervalo <span
+class="math inline">\([n,2n]\)</span>. Pelas Afirmações <a href="#aff:1"
+data-reference-type="ref" data-reference="aff:1">1</a> e <a
+href="#aff:2" data-reference-type="ref" data-reference="aff:2">2</a>,
+junto com o fato de que até <span
+class="math inline">\(\sqrt{2n}\)</span> temos no máximo <span
+class="math inline">\(\sqrt{2n}/2 - 1\)</span> primos e que <span
+class="math inline">\(p^{\theta_p} \le 2n\)</span>, temos que <span
+class="math display">\[\begin{aligned}
+\binom{2n}{n} &amp;\le \prod_{\substack{p \le \sqrt{2n}\\p\text{
+primo}}} p^{\theta_p} \cdot
+\prod_{\substack{\sqrt{2n}&lt;p\le\frac{2n}{3}\\p\text{ primo}}}p \\
+&amp;=\prod_{\substack{p \le \sqrt{2n}\\p\text{ primo}}} p^{\theta_p}
+\cdot \prod_{\substack{p\le\frac{2n}{3}\\p\text{
+primo}}}p\le(2n)^{\sqrt{2n}/2-1}\cdot4^{2n/3}.
+\end{aligned}\]</span></p>
+<p>Por outro lado, pela relação de Stifel, temos que <span
+class="math display">\[\begin{aligned}
+    n\binom{2n}{n}&amp;=n\binom{2n-1}{n}+n\binom{2n-1}{n-1} \\
+    &amp;&gt;(1+1)^{2n-1},    
+\end{aligned}\]</span> o que implica <span
+class="math inline">\(\binom{2n}{n} &gt; \frac{2^{2n-1}}{n}\)</span>.
+Concluímos então que <span
+class="math display">\[\frac{2^{2n-1}}{n}&lt;(2n)^{\sqrt{2n}/2-1}\cdot4^{2n/3}
+\iff 2^{2n/3} &lt; (2n)^{\sqrt{n/2}}.\]</span> Tomando logaritmo na base
+<span class="math inline">\(2\)</span>, ficamos com a desigualdade <span
+class="math inline">\(2\sqrt{2n}&lt;3\log_2(n)+3\)</span>, que é falsa
+para todo <span class="math inline">\(n \ge 50\)</span>. Portanto, para
+finalizar, basta verificar até <span
+class="math inline">\(2\cdot50=100\)</span> e não é difícil observar que
+os primos <span class="math inline">\(2,5,11,23,47,79,101\)</span>
+cobrem todos os intervalos da forma <span
+class="math inline">\([n,2n]\)</span> com <span class="math inline">\(1
+\le n \le 50\)</span>. ◻</p>
+</div>
+<p>Agora vejamos a demonstração do teorema de Chebyshev.</p>
+<div class="proof">
+<p><em>Prova do Teorema <a href="#thm:Chebyshev"
+data-reference-type="ref" data-reference="thm:Chebyshev">8</a>.</em>
+Basta mostrar uma cota inferior do tipo <span
+class="math display">\[\pi(x) \ge c\frac{x}{\log x}\]</span> para <span
+class="math inline">\(x=2n\)</span>, pois <span
+class="math inline">\(\pi(2n-1)=\pi(2n)\)</span> e <span
+class="math inline">\(\frac{x}{\log x}\)</span> é crescente para <span
+class="math inline">\(x \ge 3\)</span>. Vamos cotar a quantidade de
+números primos menores ou iguais a <span
+class="math inline">\(2n\)</span> pelos primos que dividem <span
+class="math inline">\(\binom{2n}{n}\)</span>. Pela Afirmação <a
+href="#aff:1" data-reference-type="ref" data-reference="aff:1">1</a>,
+temos que <span class="math display">\[\begin{aligned}
+\label{eq:4}
+\binom{2n}{n}\le&amp;\prod_{\substack{p \le 2n\\p\text{ primo}}}
+p^{\theta_p}\le (2n)^{\pi(2n)} \\
+\Rightarrow &amp;\pi(2n) \ge \dfrac{\log\binom{2n}{n}}{\log (2n)} \ge
+\dfrac{n\log 2}{\log (2n)},
+\end{aligned}\]</span> em que a última desigualdade segue de <span
+class="math display">\[\begin{aligned}
+    \binom{2n}{n}&amp;=\binom{n}{0}^2+\ldots+\binom{n}{n}^2\\
+    &amp;\ge\binom{n}{0}+\ldots+\binom{n}{n}=2^n.
+\end{aligned}\]</span></p>
+<p>Portanto, concluímos que <span class="math display">\[\pi(2n)
+\ge  \dfrac{n\log 2}{\log (2n)} \Rightarrow \pi(x) \ge
+\frac{\log2}{2}\frac{x}{\log x}.\]</span> Resta provarmos a cota
+superior. Veja que também temos <span
+class="math display">\[\binom{2n}{n}=\binom{n}{0}^2+\ldots+\binom{n}{n}^2&lt;\left(\binom{n}{0}+\ldots+\binom{n}{n}\right)^2=2^{2n}.\]</span>
+Portanto, em particular, o produto dos primos entre <span
+class="math inline">\(n\)</span> e <span
+class="math inline">\(2n\)</span> é menor que <span
+class="math inline">\(2^{2n}\)</span> e então <span
+class="math display">\[\begin{aligned}
+n^{\pi(2n)-\pi(n)}&lt;&amp; \prod_{\substack{n&lt;p\le 2n\\p\text{
+primo}}}p&lt;2^{2n}\\
+\iff &amp;\pi(2n)-\pi(n) &lt;\frac{2n\log 2}{\log n},
+\end{aligned}\]</span> o que implica, por indução, que <span
+class="math display">\[\pi(2^{k+1}) \le \frac{5 \cdot 2^k}{k}.\]</span>
+Finalmente, se <span class="math inline">\(2^k &lt; x \le
+2^{k+1}\)</span>, temos que <span class="math display">\[\pi(x) \le
+\pi(2^{k+1}) \le \frac{5\cdot 2^k}{k} \le 5\log2\frac{x}{\log
+x}.\qedhere\]</span> ◻</p>
+</div>
+<p>Para concluir esta seção, apresentamos o celebrado teorema dos
+números primos, provado independentemente por Jacques Hadamard e Charles
+Jean de la Vallée Poussin, em 1896. Sua demonstração usual também
+utiliza variáveis complexas e não será apresentada aqui.</p>
+<div class="theorem*">
+<p><strong>Teorema 10</strong>. <em>(Teorema dos Números Primos) Tem-se
+que <span class="math display">\[\lim_{x \to \infty}
+\frac{\pi(x)}{x/\log x}=1.\]</span></em></p>
+</div>
+<p>Em outras palavras, para todo <span
+class="math inline">\(\varepsilon&gt;0\)</span>, existe <span
+class="math inline">\(n_0&gt;0\)</span> tal que se <span
+class="math inline">\(n \ge n_0\)</span>, então <span
+class="math display">\[(1-\varepsilon)\frac{n}{\log n} &lt; \pi(n) &lt;
+(1+\varepsilon)\frac{n}{\log n}.\]</span> Em particular, para todo <span
+class="math inline">\(n \ge n_0\)</span>, temos <span
+class="math inline">\(\Theta(\frac{n}{\log n})\)</span> primos no
+intervalo <span class="math inline">\([n, (1+\delta)n]\)</span>, com
+<span class="math inline">\(\delta&gt;0\)</span> fixado.</p>
+<h1 id="a-soma-dos-inversos-dos-primos">A Soma dos Inversos dos
+Primos</h1>
+<p>Nesta seção apresentaremos uma demonstração sobre o fato bastante
+útil de que a série da soma dos inversos dos primos <span
+class="math display">\[\frac{1}{2}+\frac{1}{3}+\frac{1}{5}+\ldots\]</span>
+é divergente.</p>
+<p>Antes de apresentarmos o argumento, será útil discutir a demonstração
+de Erdős para a infinitude dos números primos. Essa prova baseia-se,
+essencialmente, na noção de densidade nos inteiros positivos, cuja ideia
+pode ser descrita da seguinte forma: dado um inteiro positivo <span
+class="math inline">\(M\)</span>, estimamos, em função de <span
+class="math inline">\(M\)</span>, quantos números no intervalo <span
+class="math inline">\([1,M]\)</span> satisfazem determinada propriedade.
+Ao fazer <span class="math inline">\(M \to \infty\)</span>, buscamos
+compreender se há infinitos inteiros que a satisfazem (ou,
+alternativamente, que não a satisfazem).</p>
+<div class="proof">
+<p><em>Segunda prova do Teorema <a href="#thm:euclides"
+data-reference-type="ref" data-reference="thm:euclides">1</a>.</em>
+Suponha que a quantidade de primos seja finita e sejam <span
+class="math inline">\(p_1, p_2, \ldots, p_k\)</span>. Fixado um inteiro
+<span class="math inline">\(M\)</span>, escreva cada inteiro <span
+class="math inline">\(m \in [1,M]\)</span> na forma <span
+class="math inline">\(m=ax^2\)</span>, com <span
+class="math inline">\(a\)</span> livre de quadrados. Observe que para
+<span class="math inline">\(a\)</span> temos <span
+class="math inline">\(2^k\)</span> possibilidades, pois cada <span
+class="math inline">\(p_i\)</span> pode aparecer ou não na fatoração
+dele. Por outro lado, para <span class="math inline">\(x\)</span> temos
+no máximo <span class="math inline">\(\sqrt{M}\)</span> possibilidades.
+Dessa forma, concluímos que <span class="math inline">\(2^k\sqrt{M} \ge
+M\)</span>, o que equivale a <span class="math inline">\(2^{2k} \ge
+M\)</span>. Mas como <span class="math inline">\(M\)</span> é qualquer,
+tomando <span class="math inline">\(M&gt;2^{2k}\)</span>, temos um
+absurdo. ◻</p>
+</div>
+<p>Com a ideia da prova anterior em mente, podemos agora apresentar a
+demonstração de Paul Erdős de que a soma dos inversos dos primos
+diverge.</p>
+<div class="theorem*">
+<p><strong>Teorema 11</strong>. <em>A série <span
+class="math display">\[\sum_{p\text{
+primo}}\frac{1}{p}=\frac{1}{2}+\frac{1}{3}+\frac{1}{5}+\ldots\]</span>
+diverge.</em></p>
+</div>
+<div class="proof">
+<p><em>Prova.</em> Suponha que a série converge. Então existe <span
+class="math inline">\(N&gt;0\)</span> tal que <span
+class="math display">\[\sum_{\substack{p \ge N \\p\text{
+primo}}}\frac{1}{p}&lt;\frac{1}{2}.\]</span> Considere a partição dos
+naturais <span class="math inline">\(\mathbb{N}=A \cup B\)</span>, em
+que <span class="math inline">\(B=\mathbb{N}\setminus A\)</span> e <span
+class="math display">\[A=\{n \in \mathbb{N} : p \mid n,\ p\text{
+primo}\Rightarrow p&lt;N\}.\]</span></p>
+<p>Sendo <span class="math inline">\(M \in \mathbb{N}\)</span> e <span
+class="math inline">\(n \le M\)</span>, note que o expoente de um fator
+primo na fatoração de <span class="math inline">\(n\)</span> é no máximo
+<span class="math inline">\(\frac{\log M}{\log 2}\)</span>. Portanto, a
+quantidade de inteiros positivos que utilizam apenas fatores menores que
+<span class="math inline">\(N\)</span> é <span class="math display">\[|A
+\cap [1,n]| \le \Big(1+\frac{\log M}{\log 2}\Big)^{\pi(N)}.\]</span></p>
+<p>Por outro lado, todo elemento de <span
+class="math inline">\(B\)</span> possui um fator primo maior ou igual a
+<span class="math inline">\(N\)</span> e então <span
+class="math display">\[|B \cap [1,M]| \le \sum_{\substack{p \ge
+N\\p\text{ primo}}} \le M\sum_{\substack{p \ge N \\p\text{
+primo}}}\frac{1}{p}&lt;\frac{M}{2}.\]</span> Dessa forma, temos que
+<span class="math display">\[\begin{aligned}
+M&amp;=|A\cap[1,M]|+|B\cap[1,M]|\\
+&amp;&lt;\Big(1+\dfrac{\log M}{\log 2}\Big)^{\pi(N)}+\dfrac{M}{2},
+\end{aligned}\]</span> e então <span
+class="math display">\[\dfrac{M}{2}&lt;\Big(1+\dfrac{\log M}{\log
+2}\Big)^{\pi(N)},\]</span> que é claramente absurdo para <span
+class="math inline">\(M\)</span> suficientemente grande. ◻</p>
+</div>
+<h2 class="unnumbered" id="exercícios-1">Exercícios</h2>
+<p><span><strong>Problema . </strong></span> (IMC 2012) O conjunto dos
+inteiros positivos <span class="math inline">\(n\)</span> tais que <span
+class="math inline">\(n!+1\)</span> divide <span
+class="math inline">\((2012n)!\)</span> é finito ou infinito?</p>
+<p><span><strong>Problema . </strong></span> (IMO SL 2007) Encontre
+todas as funções sobrejetivas <span class="math inline">\(f: \mathbb{N}
+\to \mathbb{N}\)</span> tais que, para quaisquer <span
+class="math inline">\(m,n \in \mathbb{N}\)</span> e para todo primo
+<span class="math inline">\(p\)</span>, o número <span
+class="math inline">\(f(m+n)\)</span> é divisível por <span
+class="math inline">\(p\)</span> se, e somente se, <span
+class="math inline">\(f(m)+f(n)\)</span> é divisível por <span
+class="math inline">\(p\)</span>.</p>
+<p><span><strong>Problema . </strong></span> Sejam <span
+class="math inline">\(k\)</span> e <span
+class="math inline">\(n\)</span> inteiros positivos com <span
+class="math inline">\(n&gt;2^k\)</span>. Prove que os <span
+class="math inline">\(k\)</span> primeiros números que são maiores do
+que <span class="math inline">\(n\)</span> e primos relativos com <span
+class="math inline">\(n!\)</span> são primos.</p>
+<p><span><strong>Problema . </strong></span> (Sylvester-Schur) Sejam
+<span class="math inline">\(n,k\in
+\mathop{\mathrm{\mathbb{Z}}}_{&gt;0}\)</span>, <span
+class="math inline">\(n \ge 2k\)</span>. Então <span
+class="math inline">\(\binom{n}{k}\)</span> tem um fator primo <span
+class="math inline">\(p&gt;k\)</span>.</p>
+<p><span><strong>Problema . </strong></span> (Erdős-Pálify) Sejam <span
+class="math inline">\(a\)</span> e <span
+class="math inline">\(b\)</span> inteiros positivos tais que quando os
+dividimos por qualquer primo <span class="math inline">\(p\)</span>, o
+resto de <span class="math inline">\(a\)</span> é sempre menor ou igual
+ao resto de <span class="math inline">\(b\)</span>. Prove que <span
+class="math inline">\(a=b\)</span>.</p>
+<p><span><strong>Problema . </strong></span> Sejam <span
+class="math inline">\((p_n)\)</span> a sequência dos primos. Prove que
+<span
+class="math display">\[\Big(1-\frac{1}{p_1}\Big)\cdot\Big(1-\frac{1}{p_2}\Big)\cdot\Big(1-\frac{1}{p_3}\Big)\cdot\ldots=0.\]</span></p>
+<p><span><strong>Problema . </strong></span> Seja <span
+class="math inline">\(\lambda &gt; 1\)</span> um número real. Denote por
+<span class="math inline">\(p_n\)</span> o <span
+class="math inline">\(n\)</span>-ésimo número primo em ordem crescente.
+Prove que a sequência <span class="math inline">\((\lfloor \lambda p_n
+\rfloor)\)</span> possui infinitos divisores primos.</p>
+<p><span><strong>Problema . </strong></span> (Rioplatense 1999) Sejam
+<span class="math inline">\(p_1, p_2, \ldots, p_k\)</span> <span
+class="math inline">\(k\)</span> números primos distintos. Consideramos
+todos os inteiros positivos que utilizam apenas esses primos (não
+necessariamente todos) em sua fatoração em primos e organizamos esses
+números em ordem crescente, formando uma sequência infinita <span
+class="math inline">\(a_1 &lt; a_2 &lt; \cdots &lt; a_n &lt;
+\cdots\)</span>. Prove que, para todo número <span
+class="math inline">\(c\)</span>, existe um <span
+class="math inline">\(n\)</span> tal que <span
+class="math inline">\(a_{n+1} - a_n &gt; c\)</span>.</p>
+<p><span><strong>Problema . </strong></span> (CIIM 2024) Dado um inteiro
+positivo <span class="math inline">\(n\)</span>, seja <span
+class="math inline">\(\varphi(n)\)</span> o número de inteiros positivos
+menores ou iguais a <span class="math inline">\(n\)</span> que são
+relativamente primos com <span class="math inline">\(n\)</span>.
+Determine todos os inteiros positivos <span
+class="math inline">\(k\)</span> para os quais existem inteiros
+positivos <span class="math inline">\(1 \le a_1 &lt; a_2 &lt; \dots &lt;
+a_k\)</span> tais que <span class="math display">\[\left\lfloor
+\frac{\varphi(a_1)}{a_1} + \frac{\varphi(a_2)}{a_2} + \dots +
+\frac{\varphi(a_k)}{a_k}
+\right\rfloor = 2024.\]</span></p>
+<h1 id="bibliografia">Bibliografia</h1>
+<div class="thebibliography">
+<p>[1] David Galvin. Erdos’s proof of bertrand’s postulate. 2013.</p>
+<p>[2] FB MARTINEZ, CG MOREIRA, N Saldanha, and Eduardo Tengan. Teoria
+dos n<span>ú</span>meros: um passeio com primos e outros
+n<span>ú</span>meros. <span><em>IMPA, Rio de Janeiro,
+5<span><sup>a</sup></span> edi<span>ç</span><span>ã</span>o</em></span>,
+2018.</p>
+<p>[3] CJ Quines. Sledgehammers in number theory, June 2023.
+Manuscript.</p>
+<p>[4] Carlo Sanna. A survey on coefficients of cyclotomic polynomials.
+<span><em>Expositiones Mathematicae</em></span>, 40(3):469–494,
+2022.</p>
+</div>
+<div class="wrapfigure">
+<p><img src="Rafael_portrait.jpeg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Rafael Filipe dos Santos é natural do Rio de Janeiro, formado em
+Engenharia da Computação pelo Instituto Militar de Engenharia (IME) e
+mestre em Matemática Pura pelo Instituto de Matemática Pura e Aplicada
+(IMPA), onde cursa doutorado em Combinatória. Participou de olimpíadas
+de matemática, com medalha de bronze na IMO e duas de ouro na IMC. Hoje
+atua na Comissão Nacional de Olimpíadas da OBM.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><em><span class="math inline">\(\nu_p(n)\)</span> é o
+maior número <span class="math inline">\(m\)</span> tal que <span
+class="math inline">\(p^m\)</span> divide <span
+class="math inline">\(n\)</span>. (N. do E.)</em><a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

@@ -7,3 +7,6 @@ gem "jekyll"
 group :jekyll_plugins do
   gem 'jekyll-commonmark-ghpages'
 end
+gem "base64"
+gem 'bigdecimal'
+

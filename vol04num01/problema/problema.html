@@ -1,0 +1,1085 @@
+---
+layout: artigo
+title: "O Jogo do EL e Outros Problemas"
+subtitle: Problema
+author: Yure Carneiro e Samuel Feitosa
+---
+<h1 id="soluções-da-edição-anterior">Soluções da Edição Anterior</h1>
+<h1 id="problemas-universitários">Problemas Universitários</h1>
+<div class="problem*">
+<p><strong>Problema 1</strong>. <em>Mostre que para qualquer primo <span
+class="math inline">\(p &gt; 17\)</span>, o número <span
+class="math display">\[p^{32} - 1\]</span> é divisível por <span
+class="math inline">\(16320\)</span>.</em></p>
+</div>
+<p><strong>Solução</strong> (Solução de Vinícius Leite).</p>
+<p><strong>1<sup><u>o</u></sup> Método: Pequeno Teorema de Fermat e
+Fatoração</strong></p>
+<p> </p>
+<p>A fatoração em primos de <span class="math inline">\(16320\)</span> é
+<span class="math inline">\(2^6 \cdot 3 \cdot 5 \cdot 17\)</span>. Como
+os fatores são potências de primos distintos, eles são coprimos entre
+si. Logo, basta demonstrar que <span
+class="math inline">\(p^{32}-1\)</span> é divisível por cada um deles
+individualmente.</p>
+<p> </p>
+<p><strong>Divisibilidade por 3, 5 e 17:</strong></p>
+<p>Pelo Pequeno Teorema de Fermat, se <span
+class="math inline">\(q\)</span> é um número primo e <span
+class="math inline">\(\text{mdc}(a,q)=1\)</span>, então <span
+class="math inline">\(a^{q-1} \equiv 1 \pmod q\)</span>. Como <span
+class="math inline">\(p &gt; 17\)</span> é primo, ele é coprimo com 3, 5
+e 17.</p>
+<p>Aplicando o teorema:</p>
+<ul>
+<li><p>Para <span class="math inline">\(q=3\)</span>: <span
+class="math inline">\(p^2 \equiv 1 \pmod 3 \implies (p^2)^{16} \equiv
+1^{16} \pmod 3 \implies p^{32} \equiv 1 \pmod 3\)</span>.</p></li>
+<li><p>Para <span class="math inline">\(q=5\)</span>: <span
+class="math inline">\(p^4 \equiv 1 \pmod 5 \implies (p^4)^8 \equiv 1^8
+\pmod 5 \implies p^{32} \equiv 1 \pmod 5\)</span>.</p></li>
+<li><p>Para <span class="math inline">\(q=17\)</span>: <span
+class="math inline">\(p^{16} \equiv 1 \pmod{17} \implies (p^{16})^2
+\equiv 1^2 \pmod{17} \implies p^{32} \equiv 1
+\pmod{17}\)</span>.</p></li>
+</ul>
+<p>Isso garante que 3, 5 e 17 dividem <span
+class="math inline">\(p^{32}-1\)</span>.</p>
+<p><strong>Divisibilidade por <span
+class="math inline">\(2^6\)</span>:</strong></p>
+<p>Fatorando a expressão recursivamente por diferença de quadrados,
+obtemos <span class="math display">\[p^{32} - 1 = (p - 1)(p + 1)(p^2 +
+1)(p^4 + 1)(p^8 + 1)(p^{16} + 1).\]</span></p>
+<p>Como <span class="math inline">\(p\)</span> é um primo maior que 17,
+<span class="math inline">\(p\)</span> é ímpar. Os termos <span
+class="math inline">\((p - 1)\)</span> e <span class="math inline">\((p
++ 1)\)</span> são inteiros pares consecutivos. Um deles é
+necessariamente múltiplo de 2 e o outro é múltiplo de 4. O produto <span
+class="math inline">\((p - 1)(p + 1)\)</span>, portanto, é múltiplo de 8
+(ou seja, divisível por <span class="math inline">\(2^3\)</span>).</p>
+<p>Os quatro termos restantes da forma <span class="math inline">\((p^k
++ 1)\)</span> representam a soma de uma potência de base ímpar com 1,
+resultando sempre em números pares. Cada um desses quatro parênteses
+contribui com, pelo menos, um fator 2, totalizando um fator de <span
+class="math inline">\(2^4\)</span>.</p>
+<p>Multiplicando todas as contribuições, garantimos que <span
+class="math inline">\(p^{32}-1\)</span> é múltiplo de <span
+class="math inline">\(2^3 \cdot 2^4 = 2^7\)</span>. Sendo divisível por
+<span class="math inline">\(2^7\)</span>, é trivialmente divisível por
+<span class="math inline">\(2^6\)</span>.</p>
+<p>Conclui-se que <span class="math inline">\(16320 \mid
+(p^{32}-1)\)</span>.</p>
+<p><strong>2<sup><u>o</u></sup> Método: Função de
+Carmichael</strong></p>
+<p>O problema equivale a provar a congruência <span
+class="math inline">\(p^{32} \equiv 1 \pmod{16320}\)</span>. Para isso,
+utilizaremos a Função de Carmichael, denotada por <span
+class="math inline">\(\lambda(n)\)</span>, que estabelece o menor
+expoente estritamente positivo tal que <span
+class="math inline">\(a^{\lambda(n)} \equiv 1 \pmod n\)</span> para todo
+<span class="math inline">\(a\)</span> coprimo com <span
+class="math inline">\(n\)</span>. Sabendo que <span
+class="math inline">\(16320 = 2^6 \cdot 3 \cdot 5 \cdot 17\)</span>, o
+valor de <span class="math inline">\(\lambda(16320)\)</span> é dado pelo
+mínimo múltiplo comum das funções de seus fatores primos:</p>
+<p><span class="math display">\[\lambda(16320) =
+\mathop{\mathrm{mmc}}(\lambda(2^6), \lambda(3), \lambda(5),
+\lambda(17)).\]</span></p>
+<p>Pelas propriedades da função:</p>
+<ul>
+<li><p>Para potências de base 2 com expoente <span
+class="math inline">\(k \ge 3\)</span>: <span
+class="math inline">\(\lambda(2^k) = 2^{k-2}\)</span>. Logo, <span
+class="math inline">\(\lambda(2^6) = 2^4 = 16\)</span>.</p></li>
+<li><p>Para primos ímpares <span class="math inline">\(q\)</span>: <span
+class="math inline">\(\lambda(q) = q-1\)</span>. Logo, <span
+class="math inline">\(\lambda(3) = 2\)</span>, <span
+class="math inline">\(\lambda(5) = 4\)</span> e <span
+class="math inline">\(\lambda(17) = 16\)</span>.</p></li>
+</ul>
+<p>Substituindo esses valores, encontramos o expoente universal do grupo
+multiplicativo: <span class="math display">\[\lambda(16320) =
+\mathop{\mathrm{mmc}}(16, 2, 4, 16) = 16.\]</span></p>
+<p>Isto significa que, para todo inteiro coprimo com 16320, a elevação à
+<span class="math inline">\(16^{\text{a}}\)</span> potência resulta em
+congruência a 1. Como <span class="math inline">\(p &gt; 17\)</span> é
+primo, temos que <span class="math inline">\(\mathop{\mathrm{mdc}}(p,
+16320) = 1\)</span>. Portanto:</p>
+<p><span class="math display">\[p^{16} \equiv 1
+\pmod{16320}.\]</span></p>
+<p>Elevando ambos os membros da congruência ao quadrado, obtemos
+diretamente o resultado exigido pela questão:</p>
+<p><span class="math display">\[(p^{16})^2 \equiv 1^2 \pmod{16320}
+\implies p^{32} \equiv 1 \pmod{16320}.\]</span></p>
+<div class="problem*">
+<p><strong>Problema 2</strong>. <em>Sejam <span
+class="math inline">\(c\)</span> e <span
+class="math inline">\(x_0\)</span> números reais positivos fixados.
+Defina a sequência <span class="math display">\[x_n = \frac{1}{2}\left(
+x_{n-1} + \frac{c}{x_{n-1}}\right), \ \mbox{para} \ n \geq 1.\]</span>
+Prove que a sequência converge e que o limite é <span
+class="math inline">\(\sqrt{c}\)</span>.</em></p>
+</div>
+<p><strong>Solução</strong> (Solução de Yan Lima Machado). A princípio,
+pela desigualdade das médias, tem-se que:</p>
+<div class="center">
+<p><span class="math inline">\(\dfrac{x_{n-1}+\dfrac{c}{x_{n-1}}}{2}\geq
+\sqrt{x_{n-1}\cdot \dfrac{c}{x_{n-1}}}\)</span>.</p>
+</div>
+<div class="center">
+<p><span class="math inline">\(\Leftrightarrow x_n \geq
+\sqrt{c}\)</span>.</p>
+</div>
+<p>Portanto, tem-se que a sequência é limitada inferiormente por <span
+class="math inline">\(\sqrt{c}\)</span>.</p>
+<p>Desenvolvendo a expressão dada pelo enunciado, tem-se que:</p>
+<div class="center">
+<p><span class="math inline">\(x_n = \dfrac{x_{n-1}^2 +
+c}{2x_{n-1}}\)</span>.</p>
+</div>
+<p>Fazendo <span class="math inline">\(x_n-x_{n-1}\)</span>:</p>
+<div class="center">
+<p><span
+class="math inline">\(x_n-x_{n-1}=\dfrac{x_{n-1}^2+c}{2x_{n-1}}-\dfrac{2x_{n-1}^2}{2x_{n-1}}\)</span>.</p>
+</div>
+<div class="center">
+<p><span
+class="math inline">\(x_n-x_{n-1}=\dfrac{c-x_{n-1}^2}{2x_{n-1}}\)</span>.</p>
+</div>
+<div class="center">
+<p><span
+class="math inline">\(x_n-x_{n-1}=-\left[\dfrac{(x_{n-1}+\sqrt{c})(x_{n-1}-\sqrt{c})}{2x_{n-1}}\right]\)</span>.</p>
+</div>
+<p>Como <span class="math inline">\(x_{n-1}&gt;0\)</span>, <span
+class="math inline">\(x_{n-1}+\sqrt{c}&gt;0\)</span>.</p>
+<p>Ademais, como visto no início da solução, <span
+class="math inline">\(x_{n-1}\geq\sqrt{c}\)</span>, daí <span
+class="math inline">\(x_{n-1}-\sqrt{c}\geq0\)</span>.</p>
+<p>Logo, <span class="math inline">\(x_n-x_{n-1}\leq 0 \Rightarrow
+x_n\leq x_{n-1}\)</span>.</p>
+<p>Como a sequência é limitada inferiormente por <span
+class="math inline">\(\sqrt{c}\)</span> e decrescente a partir do
+primeiro termo <span class="math inline">\(n\geq1\)</span>, ela
+converge.</p>
+<p>Como ela converge, <span class="math inline">\(\lim_{x\to \infty}x_n
+= \lim_{x\to \infty}x_{n-1} = L &gt; 0\)</span>.</p>
+<p>Daí, tem-se que</p>
+<div class="center">
+<p><span
+class="math inline">\(L=\dfrac{1}{2}(L+\dfrac{c}{L})\)</span></p>
+</div>
+<div class="center">
+<p><span
+class="math inline">\(\Leftrightarrow2L=L+\dfrac{c}{L}\)</span></p>
+</div>
+<div class="center">
+<p><span class="math inline">\(\Leftrightarrow2L^2=L^2+c\)</span></p>
+</div>
+<div class="center">
+<p><span class="math inline">\(\Leftrightarrow L^2=c\)</span></p>
+</div>
+<div class="center">
+<p><span class="math inline">\(\Leftrightarrow L=\sqrt{c}\)</span>.</p>
+</div>
+<p>Portanto, está mostrado que o limite da sequência é <span
+class="math inline">\(\sqrt{c}\)</span>.</p>
+<p>Curiosidade: A questão apresenta o método de Herão, também conhecido
+como método babilônico, um algoritmo utilizado para calcular
+aproximações de raízes quadradas. Ele homenageia o matemático grego
+Herão de Alexandria, que descreveu o procedimento em seus escritos. O
+método começa com uma estimativa inicial para a raiz desejada e, em
+seguida, utiliza uma fórmula iterativa para obter aproximações cada vez
+melhores. Por essa razão, ele é considerado um dos métodos numéricos
+mais antigos e importantes da história da matemática.</p>
+<div class="problem*">
+<p><strong>Problema 3</strong>. <em>Calcule o determinante da matriz
+quadrada de ordem <span class="math inline">\(n\)</span>, <span
+class="math inline">\(A = (a_{ij})_{ij}\)</span>, definida por <span
+class="math display">\[a_{ij} = \begin{cases}
+    (-1)^{|i-j|}, \ \ \mbox{se} \ i \neq j \\ 2, \ \ \mbox{se} \ i=j
+\end{cases}.\]</span></em></p>
+</div>
+<p><strong>Solução</strong> (Solução de Victor Leite).</p>
+<p><strong>Análise dos Casos Iniciais e Formulação da
+Hipótese</strong></p>
+<p>Para começar, testaremos os casos para <span
+class="math inline">\(n=1, 2, 3\)</span> a fim de identificar um padrão
+útil para ser explorado.</p>
+<p>Para <span class="math inline">\(n=1\)</span>: <span
+class="math display">\[A_1 = [2] \implies \det(A_1) = 2\]</span></p>
+<p>Para <span class="math inline">\(n=2\)</span>: <span
+class="math display">\[A_2 = \begin{bmatrix} 2 &amp; -1 \\ -1 &amp; 2
+\end{bmatrix} \implies \det(A_2) = (2)(2) - (-1)(-1) = 3\]</span></p>
+<p>Para <span class="math inline">\(n=3\)</span>: <span
+class="math display">\[A_3 = \begin{bmatrix} 2 &amp; -1 &amp; 1 \\ -1
+&amp; 2 &amp; -1 \\ 1 &amp; -1 &amp; 2 \end{bmatrix}\]</span></p>
+<p>Calculando o determinante pela Regra de Sarrus: <span
+class="math display">\[\begin{aligned}
+\det(A_3) &amp;= [(2)(2)(2) + (-1)(-1)(1) + (1)(-1)(-1)] \\
+          &amp;\quad - [(1)(2)(1) + (-1)(-1)(2) + (2)(-1)(-1)] \\
+          &amp;= [8 + 1 + 1] - [2 + 2 + 2] \\
+          &amp;= 10 - 6 = 4
+\end{aligned}\]</span></p>
+<p>A sequência de determinantes <span class="math inline">\((2, 3,
+4)\)</span> para matrizes de ordem <span class="math inline">\((1, 2,
+3)\)</span> sugere uma progressão aritmética. Formulamos a seguinte
+hipótese para o caso geral de ordem <span
+class="math inline">\(n\)</span>: <span class="math display">\[\det(A_n)
+= n+1\]</span></p>
+<p><strong>Demonstração via Teorema de Jacobi</strong></p>
+<p>Para provar que <span class="math inline">\(\det(A_n) = n+1\)</span>
+para qualquer <span class="math inline">\(n \ge 1\)</span>, aplicaremos
+o Teorema de Jacobi:</p>
+<p><em>Seja <span class="math inline">\(A\)</span> uma matriz quadrada
+de ordem <span class="math inline">\(n\)</span> (<span
+class="math inline">\(n \ge 2\)</span>). Se a uma fila (linha ou coluna)
+de <span class="math inline">\(A\)</span> for adicionado um múltiplo
+escalar de outra fila paralela a ela, obtemos uma matriz <span
+class="math inline">\(B\)</span> tal que</em> <span
+class="math display">\[\det(A) = \det(B).\]</span></p>
+<p>Em outras palavras: somar a uma linha (ou coluna) qualquer múltiplo
+de outra linha (ou coluna) não altera o valor do determinante. Isso nos
+ajudará a simplificar o cálculo do determinante da matriz genérica <span
+class="math inline">\(A_n\)</span>.</p>
+<p>A representação expandida da matriz original <span
+class="math inline">\(A_n\)</span> é <span><span
+class="math display">\[A_n = \begin{bmatrix}
+2 &amp; -1 &amp; 1 &amp; -1 &amp; \cdots &amp; (-1)^{n-1} \\
+-1 &amp; 2 &amp; -1 &amp; 1 &amp; \cdots &amp; (-1)^{n-2} \\
+1 &amp; -1 &amp; 2 &amp; -1 &amp; \cdots &amp; (-1)^{n-3} \\
+-1 &amp; 1 &amp; -1 &amp; 2 &amp; \cdots &amp; (-1)^{n-4} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots
+\\
+(-1)^{n-1} &amp; (-1)^{n-2} &amp; (-1)^{n-3} &amp; (-1)^{n-4} &amp;
+\cdots &amp; 2
+\end{bmatrix}.\]</span></span></p>
+<p><strong>1. Operações nas Linhas:</strong></p>
+<p>Note que a presença de vários termos 1 e -1 alternados nos permite
+zerar grande parte da matriz simplesmente somando ou subtraindo as
+linhas entre si, logo, para toda linha <span
+class="math inline">\(L_k\)</span> exceto a primeira, aplicaremos a
+transformação <span class="math inline">\(L_k \leftarrow L_k + (-1)^k
+L_1\)</span>. Note que <span class="math inline">\((-1)^k\)</span> nos
+permite alternar entre soma e subtração com base na paridade da linha,
+resolvendo a alternância entre 1 e -1 e transformando a maior parte em
+0, de brinde transformando (quase) todos os elementos da diagonal
+principal em 1.</p>
+<p>Para o elemento da diagonal <span
+class="math inline">\((j=k)\)</span>: <span
+class="math display">\[a&#39;_{kk} = 2 + (-1)^k(-1)^{k-1} = 2 -
+(-1)^{2k} = 2 - 1 = 1.\]</span></p>
+<p>Para a primeira coluna <span class="math inline">\((j=1)\)</span>:
+<span class="math display">\[a&#39;_{k1} = (-1)^{k-1} + (-1)^k(2) =
+-(-1)^k + 2(-1)^k = (-1)^k.\]</span></p>
+<p>Após essas operações, a matriz assume a forma <span
+class="math inline">\(A&#39;_n\)</span>: <span
+class="math display">\[A&#39;_n = \begin{bmatrix}
+2 &amp; -1 &amp; 1 &amp; -1 &amp; \cdots &amp; (-1)^{n-1} \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+-1 &amp; 0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots
+\\
+(-1)^{n} &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1
+\end{bmatrix}\]</span></p>
+<p><strong>2. Operações nas Colunas:</strong></p>
+<p>Seria muito agradável zerar todos os elementos da coluna 1 (exceto o
+primeiro), pois isso tornaria a matriz triangular superior. Note que,
+novamente, realizando somas e subtrações entre a primeira coluna e as
+demais colunas, podemos usar os elementos 1 da diagonal principal para
+zerar os elementos da primeira coluna. Para isso, aplicamos a
+transformação <span class="math inline">\(C_1 \leftarrow C_1 -
+\sum_{k=2}^n (-1)^k C_k\)</span>. Note que, novamente, o <span
+class="math inline">\((-1)^k\)</span> permite que alternemos entre soma
+e subtração, resolvendo a alternância entre 1 e -1 e zerando todos os
+elementos da primeira coluna, exceto o primeiro. Como as colunas <span
+class="math inline">\(C_k\)</span> (<span class="math inline">\(k \ge
+2\)</span>) possuem apenas o elemento 1 na linha <span
+class="math inline">\(k\)</span> e 0 nas demais posições abaixo da
+primeira linha, essa operação zera completamente todos os <span
+class="math inline">\(a&#39;_{k1}\)</span> para <span
+class="math inline">\(k \ge 2\)</span>. O elemento <span
+class="math inline">\(a_{11}\)</span> sofre a seguinte alteração:</p>
+<p><span class="math display">\[\begin{aligned}
+    a&#39;&#39;_{11} &amp;= 2 - \sum_{k=2}^n (-1)^k a_{1k} \\ &amp;= 2 -
+\sum_{k=2}^n (-1)^k (-1)^{k-1} \\ &amp;= 2 - \sum_{k=2}^n (-1)^{2k-1}.
+\end{aligned}\]</span></p>
+<p>Como <span class="math inline">\(2k-1\)</span> é sempre um número
+ímpar, <span class="math inline">\((-1)^{2k-1} = -1\)</span>. Logo <span
+class="math display">\[a&#39;&#39;_{11} = 2 - \sum_{k=2}^n (-1) = 2 +
+\sum_{k=2}^n 1 = 2 + (n-1) = n+1.\]</span></p>
+<p>A matriz final <span class="math inline">\(A&#39;&#39;_n\)</span>
+torna-se estritamente triangular superior: <span
+class="math display">\[A&#39;&#39;_n = \begin{bmatrix}
+n+1 &amp; -1 &amp; 1 &amp; -1 &amp; \cdots &amp; (-1)^{n-1} \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots
+\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1
+\end{bmatrix}.\]</span></p>
+<p>Como o determinante de uma matriz triangular é dado pelo produto dos
+elementos de sua diagonal principal, <span
+class="math display">\[\det(A_n) = (n+1) \cdot \prod_{k=2}^n 1 =
+n+1.\]</span></p>
+<p>Isso conclui a demonstração formal da hipótese.</p>
+<p><strong>Solução</strong> (Solução de Vinícius Mello).</p>
+<p>A matriz <span class="math inline">\(A\)</span> é uma matriz pode ser
+escrita como <span class="math display">\[A=I+u_n u_n^T,\]</span> onde
+<span class="math inline">\(I\)</span> é a matriz identidade de ordem
+<span class="math inline">\(n\)</span> e                <span
+class="math inline">\(u_n^T=[1 \ \  -1 \ \ 1 \ \  -1 \ldots
+(-1)^{n-1}]\)</span>, ou seja, <span class="math inline">\(u_n\)</span>
+é uma matriz coluna cujas entradas alternam entre <span
+class="math inline">\(1\)</span> e <span
+class="math inline">\(-1\)</span>. Por exemplo, para <span
+class="math inline">\(n=4\)</span> temos <span
+class="math display">\[\begin{aligned}
+    A &amp; =  \begin{pmatrix}
+2 &amp; -1 &amp; 1 &amp; -1 \\
+-1 &amp; 2 &amp; -1 &amp; 1 \\
+1 &amp; -1 &amp; 2 &amp; -1 \\
+-1 &amp; 1 &amp; -1 &amp; 2
+\end{pmatrix} \\ &amp; =  \begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix} + \begin{pmatrix}
+1 \\ -1 \\ 1 \\ -1
+\end{pmatrix} \begin{pmatrix}1 &amp; -1 &amp; 1 &amp; -1
+\end{pmatrix}.
+\end{aligned}\]</span> Portanto, pela conhecida identidade <span
+class="math display">\[\det(I+uv^T) = 1 + v^Tu,\]</span> aplicando-a com
+<span class="math inline">\(u=u_n\)</span> e <span
+class="math inline">\(v=u_n\)</span>, temos <span
+class="math display">\[\det(A) = \det(I+u_n u_n^T) = 1 + u_n^T u_n = 1 +
+n.\]</span> Se a identidade <span class="math inline">\(\det(I+uv^T) = 1
++ v^Tu\)</span> não for tão conhecida assim, podemos demonstrá-la
+rapidamente com a seguinte ideia: se <span
+class="math inline">\(u=0\)</span>, não há nada a demostrar. Caso
+contrário, é fácil ver que <span class="math inline">\(u\)</span> é um
+autovetor de <span class="math inline">\(I+uv^T\)</span> com autovalor
+<span class="math inline">\(1+v^Tu\)</span>, pois <span
+class="math display">\[(I+uv^T)u = u + u(v^Tu) = (1+v^Tu)u.\]</span>
+Além disso, se <span class="math inline">\(x\)</span> é um vetor tal que
+<span class="math inline">\(v^Tx=0\)</span>, então <span
+class="math inline">\((I+uv^T)x = x\)</span>, ou seja, <span
+class="math inline">\(x\)</span> é um autovetor de <span
+class="math inline">\(I+uv^T\)</span> com autovalor <span
+class="math inline">\(1\)</span>. Como o espaço vetorial <span
+class="math inline">\(\mathbb{R}^n\)</span> tem dimensão <span
+class="math inline">\(n\)</span>, podemos escolher <span
+class="math inline">\(n-1\)</span> vetores linearmente independentes
+<span class="math inline">\(x_1, \ldots, x_{n-1}\)</span> tais que <span
+class="math inline">\(v^Tx_i=0\)</span> para todo <span
+class="math inline">\(i\)</span>. Assim, os autovalores de <span
+class="math inline">\(I+uv^T\)</span> são <span
+class="math inline">\(1+v^Tu\)</span> e <span
+class="math inline">\(1\)</span> (com multiplicidade <span
+class="math inline">\(n-1\)</span>). Portanto, como o determinante de
+uma matriz é o produto de seus autovalores, temos <span
+class="math display">\[\det(I+uv^T) = (1+v^Tu) \cdot 1^{n-1} = 1 +
+v^Tu.\]</span></p>
+<div class="problem*">
+<p><strong>Problema 4</strong>. <em>Considere uma esfera de raio
+unitário centrada na origem de um sistema de coordenadas <span
+class="math inline">\(xyz\)</span>. Seja <span
+class="math inline">\(C\)</span> um pentágono regular inscrito na esfera
+e contido no plano <span class="math inline">\(xy\)</span>. Determine a
+área da região contida na esfera cuja projeção com respeito à terceira
+coordenada coincide com a região delimitada por <span
+class="math inline">\(C\)</span>.</em></p>
+</div>
+<p><strong>Solução:</strong> Considere a projeção no plano <span
+class="math inline">\(xy\)</span> dada pela região poligonal limitada
+pelo pentágono na figura abaixo.</p>
+<figure>
+<img src="hipatia_pentagono1.png" style="width:65.0%" />
+<figcaption>Projeção no plano <span
+class="math inline">\(xy\)</span>.</figcaption>
+</figure>
+<p>Os pontos da esfera que são projetados nessa região (aqui contando as
+partes superior e inferior da esfera que se projetam na região
+poligonal) formam uma região cuja área pode ser calculada através de
+<span class="math display">\[A = 4\pi - 5 \cdot
+A_{\mbox{revolução}}\]</span> onde: <span
+class="math inline">\(4\pi\)</span> é a área da superfície esférica de
+raio 1 (<span class="math inline">\(4\pi R^2\)</span>), e <span
+class="math inline">\(A_{\mbox{revolução}}\)</span> é a área da
+superfície de revolução obtida pela rotação da curva que pode ser
+parametrizada por <span class="math display">\[\mathcal{C} :
+\begin{cases}
+    x(t) = \cos(t), \\ y(t) = \sin(t)
+\end{cases} \ \ \ 0 \leq t \leq \frac{\pi}{5}\]</span> (cujo traço é o
+arco em destaque na figura), em torno do eixo <span
+class="math inline">\(x\)</span>. Temos que <span
+class="math display">\[\begin{aligned}
+    A_{\mbox{revolução}} &amp;= 2\pi \int_{0}^{\frac{\pi}{5}}
+y(t)\sqrt{[x&#39;(t)]^2 + [y&#39;(t)]^2} \ dt \\ &amp;= 2\pi
+\int_{0}^{\frac{\pi}{5}} \sin(t)\sqrt{[-\sin(t)]^2 + [\cos(t)]^2} \ dt
+\\ &amp;= 2\pi \int_{0}^{\frac{\pi}{5}} \sin(t) \ dt \\ &amp;= 2\pi
+\left[-\cos(t)\bigg|_{0}^{\pi/5}\right] \\ &amp;= 2\pi(1 - \cos(\pi/5))
+= \frac{(3 - \sqrt{5})\pi}{2}
+\end{aligned}\]</span></p>
+<p>[O fato de que <span class="math inline">\(\cos(\pi/5) =
+\frac{1+\sqrt{5}}{4}\)</span> pode ser obtido usando relações
+trigonométricas em um triângulo isósceles de ângulos <span
+class="math inline">\(36^{\circ}, 72^{\circ}, 72^{\circ}\)</span> e base
+1]. Portanto, <span class="math display">\[A = \frac{8\pi - 5(3 -
+\sqrt{5})\pi}{2} = \frac{(5\sqrt{5} - 7)\pi}{2}.\]</span></p>
+<div class="problem*">
+<p><strong>Problema 5</strong>. <em>Seja <span
+class="math inline">\(f\)</span> diferenciável em <span
+class="math inline">\(x=a\)</span> com <span class="math inline">\(f(a)
+\neq 0\)</span>. Calcule: <span class="math display">\[\displaystyle
+\lim_{n \to \infty} \left [ \dfrac{f(a+1/n)}{f(a)} \right
+]^n.\]</span></em></p>
+</div>
+<p><strong>Solução:</strong> Basta calcular</p>
+<p><span class="math display">\[\lim_{x \to 0} \left[ \frac{f(a +
+x)}{f(a)} \right]^{1/x}.\]</span></p>
+<p>Como <span class="math inline">\(f\)</span> é contínua, para <span
+class="math inline">\(x\)</span> suficientemente pequeno, <span
+class="math inline">\(f(a + x)\)</span> e <span
+class="math inline">\(f(a)\)</span> têm o mesmo sinal, e daí segue
+que</p>
+<p><span class="math display">\[\log \left[ \lim_{x \to 0} \left(
+\frac{f(a + x)}{f(a)} \right)^{1/x} \right]
+=  \lim_{x \to 0} \left[ \log \left( \frac{|f(a + x)|}{|f(a)|}
+\right)^{1/x} \right]\]</span> <span class="math display">\[=  \lim_{x
+\to 0} \frac{\log |f(a + x)| - \log |f(a)|}{x}.\]</span> A última
+expressão à direita é a definição da derivada de <span
+class="math inline">\(\log |f(x)|\)</span> em <span
+class="math inline">\(x = a\)</span>, que sabemos ser igual a <span
+class="math inline">\(f&#39;(a)/f(a)\)</span>. Assim,</p>
+<p><span class="math display">\[\lim_{x \to 0} \left[ \frac{f(a +
+x)}{f(a)} \right]^{1/x} = e^{f&#39;(a)/f(a)}.\]</span></p>
+<div class="problem*">
+<p><strong>Problema 6</strong>. <em>Sejam <span class="math inline">\(A,
+B \in M(n, \mathbb{C})\)</span> e <span class="math inline">\(P \in
+\mathbb{C}[X]\)</span> um polinômio não constante tal que <span
+class="math inline">\(P(0) \neq 0\)</span> e <span
+class="math inline">\(A B=P(A)\)</span>. Prove que a matriz <span
+class="math inline">\(A\)</span> é invertível e que as matrizes <span
+class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span> comutam (isto é, que <span
+class="math inline">\(AB=BA\)</span>).</em></p>
+</div>
+<p>Podemos escrever <span class="math inline">\(P(X)\)</span> da
+seguinte forma: <span class="math display">\[P(X) = P(0) +
+XQ(X),\]</span> onde <span class="math inline">\(Q \in
+\mathbb{C}[X]\)</span>. Assim segue que <span
+class="math display">\[P(A) = P(0) \cdot I_n + AQ(A).\]</span> Agora,
+como <span class="math display">\[P(A) = AB,\]</span> temos que <span
+class="math display">\[AB = P(0) \cdot I_n + AQ(A)\]</span> e daí <span
+class="math inline">\(A[B - Q(A)] = P(0)I_n.\)</span> Mas, <span
+class="math display">\[P(0) \neq 0\]</span> implica que <span
+class="math display">\[A \cdot \frac{1}{P(0)}[B - Q(A)] = I_n \implies
+A^{-1} = \frac{1}{P(0)}[B - Q(A)].\]</span></p>
+<p>Logo <span class="math inline">\(A\)</span> é invertível e a
+expressão acima é a inversa de <span class="math inline">\(A\)</span>.
+Por outro lado, <span class="math display">\[AB = P(A) \iff B =
+A^{-1}P(A).\]</span> Então temos que <span class="math display">\[BA =
+A^{-1}P(A)A = A^{-1}AP(A) = I_nP(A) = P(A) = AB.\]</span></p>
+<p>Portanto as matrizes <span class="math inline">\(A\)</span> e <span
+class="math inline">\(B\)</span> comutam.</p>
+<h1 id="problemas-de-matemática-elementar">Problemas de Matemática
+Elementar</h1>
+<div class="problem*">
+<p><strong>Problema 7</strong>. <em>O produto dos números reais
+positivos <span class="math inline">\(a_1, a_2, \ldots, a_n\)</span> é
+igual a 1. Prove, <strong>sem ser por indução</strong>, que <span
+class="math display">\[(1+a_1)\cdot(1+a_2)\cdots (1+a_n) \geq
+2^n.\]</span></em></p>
+</div>
+<p><strong>Solução</strong> (Solução de Vinícius Leite).</p>
+<p><strong>Desigualdade das Médias (MA-MG)</strong></p>
+<p>A demonstração utiliza a Desigualdade das Médias Aritmética e
+Geométrica (MA-MG). Para quaisquer números reais positivos <span
+class="math inline">\(x\)</span> e <span
+class="math inline">\(y\)</span>, temos que <span
+class="math display">\[\frac{x+y}{2} \ge \sqrt{xy} \implies x+y \ge
+2\sqrt{xy}.\]</span></p>
+<p>Aplicando essa desigualdade individualmente para cada par formado por
+<span class="math inline">\(1\)</span> e <span
+class="math inline">\(a_i\)</span> (sabendo que <span
+class="math inline">\(a_i &gt; 0\)</span>), construímos o seguinte
+sistema de desigualdades: <span class="math display">\[\begin{aligned}
+    1+a_1 &amp;\ge 2\sqrt{a_1} \\
+    1+a_2 &amp;\ge 2\sqrt{a_2} \\
+    &amp;\ \ \vdots \\
+    1+a_n &amp;\ge 2\sqrt{a_n}.
+\end{aligned}\]</span></p>
+<p>Como todos os termos em ambos os lados das desigualdades são
+estritamente positivos, podemos multiplicar as <span
+class="math inline">\(n\)</span> desigualdades membro a membro sem
+alterar o sentido da relação: <span
+class="math display">\[(1+a_1)(1+a_2)\cdots(1+a_n) \ge
+(2\sqrt{a_1})(2\sqrt{a_2})\cdots(2\sqrt{a_n}).\]</span></p>
+<p>Agrupando os <span class="math inline">\(n\)</span> fatores <span
+class="math inline">\(2\)</span> e unificando as raízes no lado direito,
+obtemos <span class="math display">\[(1+a_1)(1+a_2)\cdots(1+a_n) \ge
+2^n\sqrt{a_1\cdot a_2 \cdots a_n}.\]</span></p>
+<p>Por hipótese, o produto de todos os termos <span
+class="math inline">\(a_i\)</span> é exatamente 1 (<span
+class="math inline">\(a_1\cdot a_2 \cdots a_n = 1\)</span>).
+Substituindo esse valor, a expressão sob a raiz resulta em 1 (elemento
+neutro da multiplicação): <span
+class="math display">\[(1+a_1)(1+a_2)\cdots(1+a_n) \ge
+2^n\sqrt{1}.\]</span></p>
+<p>O que demonstra diretamente a tese: <span
+class="math display">\[(1+a_1)(1+a_2)\cdots(1+a_n) \ge 2^n.\]</span></p>
+<div class="problem*">
+<p><strong>Problema 8</strong>. <em>Seja <span
+class="math inline">\(A\)</span> um subconjunto dos números naturais tal
+que, entre 100 números naturais consecutivos, existe um elemento de
+<span class="math inline">\(A\)</span>. Prove que podemos encontrar
+quatro números diferentes <span class="math inline">\(a, b, c\)</span> e
+<span class="math inline">\(d\)</span> em <span
+class="math inline">\(A\)</span> tais que <span
+class="math inline">\(a+b = c+d\)</span>.</em></p>
+</div>
+<p><strong>Solução</strong> (Solução de Victor Leite).</p>
+<p><strong>1<sup><u>o</u></sup> Passo: A infinitude do conjunto <span
+class="math inline">\(A\)</span></strong></p>
+<p>Dado que entre 100 naturais consecutivos existe, ao menos, um
+elemento de <span class="math inline">\(A\)</span>, podemos concluir que
+o número de elementos de <span class="math inline">\(A\)</span>
+equivale, no mínimo, à quantidade de partições de 100 elementos do
+conjunto dos naturais, que por sua vez é infinito. Logo, podemos afirmar
+que o conjunto <span class="math inline">\(A\)</span> possui infinitos
+termos, e podemos escrever <span class="math inline">\(A = \{ a_1, a_2,
+a_3, \ldots \}\)</span>, com <span class="math inline">\(a_i &lt;
+a_{i+1}\)</span>.</p>
+<p><strong>2<sup><u>o</u></sup> Passo: O Princípio da Casa dos
+Pombos</strong></p>
+<p>Provar que <span class="math inline">\(\exists \ a, b, c, d \in A
+\mid a+b = c+d\)</span> equivale a provar que para <span
+class="math inline">\(a, b, c, d \in A\)</span>, <span
+class="math inline">\(a-c = d-b\)</span>, o que, por sua vez, equivale a
+provar que a distância entre <span class="math inline">\(a\)</span> e
+<span class="math inline">\(c\)</span> equivale à distância entre <span
+class="math inline">\(d\)</span> e <span
+class="math inline">\(b\)</span>.</p>
+<p>Sabendo que a cada 100 naturais consecutivos existe sempre ao menos
+um elemento de <span class="math inline">\(A\)</span>, podemos afirmar
+que em qualquer intervalo fechado do tipo <span
+class="math inline">\([a_n, a_n+100]\)</span> existirão ao menos 2
+elementos de <span class="math inline">\(A\)</span>. Logo, a distância
+máxima possível entre dois elementos consecutivos <span
+class="math inline">\(a_n\)</span> e <span
+class="math inline">\(a_{n+1}\)</span> pertencentes ao conjunto <span
+class="math inline">\(A\)</span> é rigorosamente 100.</p>
+<p>Como as distâncias entre elementos consecutivos resultam em números
+inteiros, todas as distâncias possíveis pertencem ao intervalo <span
+class="math inline">\([1, 100]\)</span>. Portanto, o número máximo de
+distâncias distintas entre elementos consecutivos de <span
+class="math inline">\(A\)</span> é 100.</p>
+<p>Para aplicar o Princípio da Casa dos Pombos, analisamos os 202
+primeiros elementos de <span class="math inline">\(A\)</span>. Com eles,
+podemos formar exatamente 101 pares disjuntos de elementos consecutivos:
+<span class="math display">\[(a_1, a_2), (a_3, a_4), \dots, (a_{201},
+a_{202}).\]</span></p>
+<p>Temos 101 pares gerando 101 medidas de distância. Como existem no
+máximo 100 valores distintos possíveis para essas distâncias, o
+Princípio da Casa dos Pombos (Teorema de Dirichlet) garante que,
+inevitavelmente, ao menos 2 pares disjuntos possuirão exatamente a mesma
+distância.</p>
+<p>Sejam esses pares disjuntos <span class="math inline">\((c,
+a)\)</span> e <span class="math inline">\((b, d)\)</span>, ambos
+pertencentes a <span class="math inline">\(A\)</span>, tais que a
+distância do primeiro par seja igual à distância do segundo par: <span
+class="math display">\[a - c = d - b.\]</span></p>
+<p>Manipulando algebricamente a igualdade, obtemos diretamente: <span
+class="math display">\[a + b = c + d.\]</span></p>
+<p>Como os dois pares analisados são disjuntos e os elementos de <span
+class="math inline">\(A\)</span> podem ser dispostos em uma sequência
+estritamente crescente de naturais, os quatro números <span
+class="math inline">\(a, b, c\)</span> e <span
+class="math inline">\(d\)</span> são obrigatoriamente distintos, o que
+conclui a prova.</p>
+<div class="problem*">
+<p><strong>Problema 9</strong>. <em>Uma pilha tem 40 pedras. A pilha é
+dividida em duas partes, depois uma das partes é dividida em duas
+novamente, etc., até termos 40 pedras separadas (40 pilhas formadas com
+uma pedra cada). Depois de cada divisão de uma das pilhas em duas
+menores, escrevemos o produto dos números de pedras nestas duas pilhas
+em um quadro. Mostre que, no final, a soma de todos os números no quadro
+será igual a 780.</em></p>
+</div>
+<p><strong>Solução:</strong> Para mostrar o resultado desejado, vamos
+analisar o problema de um ponto de vista mais geral, para tentar achar
+algum padrão que possa ser generalizado e então resolver o caso
+particular de <span class="math inline">\(40\)</span> pedras. Seja <span
+class="math inline">\(n\)</span> o número de pedras no início da divisão
+e chamemos de <span class="math inline">\(S_n\)</span> a soma final
+obtida ao final do processo.</p>
+<ul>
+<li><p>Para <span class="math inline">\(n = 2\)</span>: a única opção de
+divisão é <span class="math inline">\(2 = 1 + 1\)</span>, cujo produto é
+<span class="math inline">\(S_2 = 1\)</span>;</p></li>
+<li><p>Para <span class="math inline">\(n = 3\)</span>: por simetria,
+podemos considerar a divisão inicial <span class="math inline">\(3 = 2 +
+1\)</span>, anotando no quadro o valor <span
+class="math inline">\(2\)</span>. Após isso, veja que os próximos
+números a serem anotados no quadro são os que podem ser gerados
+começando com <span class="math inline">\(2\)</span> pedras. Nesse caso,
+já sabemos o que ocorre. Assim, ao final teremos a soma <span
+class="math inline">\(S_3 = 2 + 1 = 3\)</span>;</p></li>
+<li><p>Para <span class="math inline">\(n = 4\)</span>: podemos começar
+com duas possíveis divisões iniciais <span class="math inline">\(4 = 2 +
+2\)</span> ou <span class="math inline">\(4 = 3 + 1\)</span>, anotando
+no quadro o valor <span class="math inline">\(4\)</span> ou <span
+class="math inline">\(3\)</span>, respectivamente. Após isso, veja que
+os próximos números a serem anotados no quadro são os que podem ser
+gerados começando com <span class="math inline">\(2\)</span> pedras ou
+<span class="math inline">\(3\)</span> pedras. Nesse caso, já sabemos o
+que ocorre. Assim, ao final teremos a soma <span
+class="math inline">\(S_4 = 4 + 1 + 1 = 6\)</span> (no primeiro caso) e
+<span class="math inline">\(S_4 = 3 + 3 = 6\)</span> (no segundo caso).
+Podemos ver que, de fato, a soma final <span
+class="math inline">\(S_n\)</span> parece não depender das escolhas de
+divisões feitas;</p></li>
+<li><p>Suponha que esse padrão de independência das escolhas de divisões
+não afete a soma final. Ao começar com <span
+class="math inline">\(n\)</span> pedras, façamos a divisão <span
+class="math inline">\(n = (n - 1) + 1\)</span>, anotando o produto <span
+class="math inline">\(n - 1\)</span>. Sucedendo nesse padrão de divisão,
+sempre separando apenas 1 pedra em cada etapa, teremos anotado os
+produtos <span class="math inline">\(n - 1, \ n - 2, \ldots, 2\)</span>
+e <span class="math inline">\(1\)</span>, cuja soma é <span
+class="math inline">\(S_n = \frac{n(n-1)}{2}\)</span>.</p></li>
+</ul>
+<p>Pronto, agora vamos provar em definitivo que, de fato, isso independe
+das escolhas de divisões iniciais e intermediárias. Provaremos, por
+indução, que <span class="math inline">\(S_n = \frac{n(n-1)}{2}\)</span>
+independe das escolhas de divisões.</p>
+<p> </p>
+<p>Para <span class="math inline">\(n = 2\)</span>, já temos o desejado.
+Agora, suponhamos que isso vale para todo <span
+class="math inline">\(k\)</span> natural entre <span
+class="math inline">\(2\)</span> e <span class="math inline">\(n -
+1\)</span>, isto é, que <span class="math inline">\(S_k =
+\frac{k(k-1)}{2}\)</span> independe das escolhas de divisões, <span
+class="math inline">\(k = 2, \ldots, n - 1\)</span>.</p>
+<p> </p>
+<p>Agora, partindo de <span class="math inline">\(n\)</span> pedras,
+podemos fazer a divisão inicial <span class="math inline">\(n = k + (n -
+k)\)</span> com <span class="math inline">\(k, n - k \leq n -
+1\)</span>. Temos que o produto inicial anotado no quadro é <span
+class="math inline">\(k(n - k)\)</span>. Mas, por hipótese de indução,
+vale que <span class="math inline">\(S_k = \frac{k(k-1)}{2}\)</span> e
+<span class="math inline">\(S_{n-k} = \frac{(n-k)(n-k-1)}{2}\)</span>
+(aqui supondo que <span class="math inline">\(S_1 = 0\)</span>). Assim,
+a soma dos produtos anotados no quadro é <span
+class="math display">\[k(n - k) + \frac{k(k-1)}{2} +
+\frac{(n-k)(n-k-1)}{2}\]</span> <span class="math display">\[=
+\frac{2k(n-k) + k^2 + (n-k)^2 - k - (n-k)}{2}\]</span> <span
+class="math display">\[= \frac{(k + (n-k))^2 - n}{2} = \frac{n^2 - n}{2}
+= \frac{n(n-1)}{2}.\]</span> Portanto, <span class="math inline">\(S_n =
+\frac{n(n-1)}{2}\)</span>, e o resultado vale para todo <span
+class="math inline">\(n \geq 2\)</span> (<span class="math inline">\(n
+\geq 1\)</span> se incluirmos <span class="math inline">\(S_1 =
+0\)</span>). Com isso, <span class="math inline">\(S_{40} = \frac{40
+\cdot 39}{2} = 780\)</span>, como queríamos demonstrar.</p>
+<div class="problem*">
+<p><strong>Problema 10</strong>. <em>A sequência de números inteiros
+<span class="math inline">\(x_n\)</span> é definida por <span
+class="math inline">\(x_1 = 4\)</span>, <span class="math inline">\(x_2
+= 6\)</span> e, para <span class="math inline">\(n \geq 3\)</span>,
+<span class="math inline">\(x_n\)</span> é o menor número composto maior
+que <span class="math inline">\(2x_{n-1} - x_{n-2}\)</span>. Encontre o
+valor de <span class="math inline">\(x_{2026}\)</span>.</em></p>
+</div>
+<p><strong>Solução:</strong></p>
+<p>Vamos calcular os primeiros termos da sequência:</p>
+<p><span class="math display">\[\begin{aligned}
+2x_{2} - x_1 = 8 &amp; \Rightarrow &amp; x_3 = 9 \\
+2x_{3} - x_2 = 12 &amp; \Rightarrow &amp; x_4 = 14 \\
+2x_{4} - x_3 = 19 &amp; \Rightarrow &amp; x_5 = 20 \\
+2x_{5} - x_4 = 26 &amp; \Rightarrow &amp; x_6 = 27 .\\
+\end{aligned}\]</span></p>
+<p>Note que</p>
+<p><span class="math display">\[\begin{aligned}
+x_4 - x_3 &amp; = &amp; 5 \\
+x_5 - x_4 &amp; = &amp; 6 \\
+x_6 - x_5 &amp; = &amp; 7 .\\
+\end{aligned}\]</span></p>
+<p>Isso nos permite conjecturar que</p>
+<p><span class="math display">\[x_{n} - x_{n-1} = n + 1.\]</span></p>
+<p>Realizando a soma telescópica da identidade anterior para <span
+class="math inline">\(n \in \{4,5, \ldots, k\}\)</span>, obtemos <span
+class="math display">\[\begin{aligned}
+x_i &amp; = &amp; x_3+ 5+6+\ldots+(i+1) \\
+    &amp; = &amp; 9 + [1 + 2 + 3 + 4 + \cdots + i + (i+1)] - (1 + 2 + 3
++ 4)\\
+    &amp; = &amp; \dfrac{(i+1)(i+2)}{2} - 1 \\
+    &amp; = &amp; \dfrac{i^2 + 3i}{2} = \dfrac{i(i+3)}{2}.
+\end{aligned}\]</span></p>
+<p>Provemos a afirmação anterior por indução. Suponha que ela vale para
+todos os inteiros <span class="math inline">\(i \in \{3,4, \ldots,
+k\}\)</span>. Para provar que também vale para <span
+class="math inline">\(k+1\)</span>, note que</p>
+<p><span class="math display">\[2x_k - x_{k-1} = 2 \cdot
+\dfrac{k(k+3)}{2} - \dfrac{(k-1)(k+2)}{2} = \dfrac{(k+1)(k+4)}{2} -
+1.\]</span> Se <span class="math inline">\(k \geq 3\)</span>, a depender
+da paridade de <span class="math inline">\(k\)</span>, podemos escrever
+<span class="math inline">\(\dfrac{(k+1)(k+4)}{2} = \dfrac{k+1}{2} \cdot
+(k+4)\)</span> ou <span class="math inline">\(\dfrac{k+4}{2} \cdot
+(k+1)\)</span>, garantindo assim que <span
+class="math display">\[x_{k+1} = \dfrac{(k+1)(k+4)}{2}.\]</span>
+Portanto, <span class="math inline">\(x_{2026} = \dfrac{2026 \cdot
+2029}{2}.\)</span></p>
+<div class="problem*">
+<p><strong>Problema 11</strong>. <em>Em uma festa, existem <span
+class="math inline">\(25\)</span> membros que satisfazem a seguinte
+condição: quando dois deles não se conhecem, então eles possuem algum
+amigo em comum. Sabemos que ninguém conhece todos na festa. Prove que a
+soma dos números de amigos de cada pessoa na festa é pelo menos <span
+class="math inline">\(72\)</span>.</em></p>
+</div>
+<p><strong>Solução:</strong></p>
+<p>Primeiramente observe que se uma pessoa da festa conhecer apenas uma
+outra, então essa última será obrigada a conhecer todos os demais da
+festa. Portanto, todos na festa conhecem pelo menos duas pessoas.
+Suponha, por absurdo, que a soma dos números de amigos de cada um é
+menor que <span class="math inline">\(72\)</span>. Como ela deve ser um
+número par, ela é no máximo <span class="math inline">\(70\)</span>.
+Dado que <span class="math inline">\(70/3 &lt; 25\)</span>, pelo
+Princípio da Casa dos Pombos, há uma pessoa, digamos <span
+class="math inline">\(A\)</span>, que conhece exatamente duas outras
+pessoas, digamos <span class="math inline">\(B\)</span> e <span
+class="math inline">\(C\)</span>. As outras <span
+class="math inline">\(22\)</span> pessoas que não conhecem <span
+class="math inline">\(A\)</span> obrigatoriamente devem conhecer <span
+class="math inline">\(B\)</span> ou <span
+class="math inline">\(C\)</span>. Assim, a soma dos números de amigos de
+<span class="math inline">\(A\)</span>, <span
+class="math inline">\(B\)</span> e <span
+class="math inline">\(C\)</span> é pelo menos <span
+class="math inline">\(2+1+1+22 = 26\)</span>. Cada uma das outras <span
+class="math inline">\(22\)</span> pessoas conhece pelo menos duas
+outras, e assim a soma dos números de amigos de todos é pelo menos <span
+class="math inline">\(22\cdot 2 + 26 = 70\)</span>. Para que ocorra essa
+igualdade, <span class="math inline">\(B\)</span> e <span
+class="math inline">\(C\)</span> não devem se conhecer, e cada um dos
+demais membros deve conhecer exatamente um dos dois. Isso nos permite
+classificar os <span class="math inline">\(22\)</span> membros que não
+estão em <span class="math inline">\(\{A,B,C\}\)</span> em dois grupos:
+o grupo <span class="math inline">\(G_B\)</span> (dos que conhecem <span
+class="math inline">\(B\)</span>) e o grupo <span
+class="math inline">\(G_C\)</span> (dos que conhecem <span
+class="math inline">\(C\)</span>). Pelo Princípio da Casa dos Pombos,
+pelo menos um desses grupos, digamos <span
+class="math inline">\(G_B\)</span>, possui <span
+class="math inline">\(11\)</span> membros. Se <span
+class="math inline">\(C\)</span> conhecer qualquer um deles, a soma
+anterior irá ultrapassar <span class="math inline">\(70\)</span>. Para
+que isso não ocorra, <span class="math inline">\(C\)</span> deve possuir
+um amigo em comum com cada um dos membros de <span
+class="math inline">\(G_B\)</span>, que necessariamente devem ser
+distintos, porque cada um deles conhece apenas <span
+class="math inline">\(2\)</span> pessoas. Consequentemente, <span
+class="math inline">\(G_C\)</span> possui pelo menos <span
+class="math inline">\(11\)</span> membros. Isso é um absurdo, porque uma
+pessoa de <span class="math inline">\(G_B\)</span> que não conheça uma
+de <span class="math inline">\(G_C\)</span> não poderá ter um amigo em
+comum com ela.</p>
+<div class="problem*">
+<p><strong>Problema 12</strong>. <em>Seja <span
+class="math inline">\(ABCD\)</span> um quadrilátero inscritível e <span
+class="math inline">\(P=BD \cap AC\)</span>. Os pés das perpendiculares
+de <span class="math inline">\(P\)</span> aos lados <span
+class="math inline">\(AB\)</span> e <span
+class="math inline">\(CD\)</span> são <span
+class="math inline">\(X\)</span> e <span
+class="math inline">\(Y\)</span>. Se <span
+class="math inline">\(M\)</span> e <span
+class="math inline">\(N\)</span> são os pontos médios dos lados <span
+class="math inline">\(BC\)</span> e <span
+class="math inline">\(AD\)</span>, prove que <span
+class="math inline">\(MN \perp XY\)</span>.</em></p>
+</div>
+<div class="center">
+<p><img src="tikz_circulo_abcd.png" style="width:85.0%"
+alt="image" /></p>
+</div>
+<p><strong>Solução</strong> (Solução de Roberto Sant’anna e Yan Lima
+Machado)</p>
+<p>Pelo enunciado, tem-se o seguinte esboço:</p>
+<p><img src="tikz_trapezio_esboco1.png" style="width:85.0%"
+alt="image" /></p>
+<p>Como <span class="math inline">\(ABCD\)</span> é inscritível, tem-se
+que <span class="math inline">\(\angle BDC = \angle CAB =
+\alpha\)</span>, <span class="math inline">\(\angle DBA = \angle DCA =
+\beta\)</span>, <span class="math inline">\(\angle ADB = \angle ACB =
+\gamma\)</span> e <span class="math inline">\(\angle DAC = \angle DBC =
+\lambda\)</span>. Ademais, tem-se que <span
+class="math inline">\(PX\)</span> e <span
+class="math inline">\(PY\)</span> são alturas dos triângulos <span
+class="math inline">\(ABP\)</span> e <span
+class="math inline">\(CDP\)</span>, respectivamente.</p>
+<p>Portanto, tem-se que os triângulos <span
+class="math inline">\(CDP\)</span> e <span
+class="math inline">\(ABP\)</span> são semelhantes e, daí, tem-se
+que:</p>
+<div class="center">
+<p><span
+class="math inline">\(\dfrac{AB}{CD}=\dfrac{XP}{YP}\)</span>.</p>
+</div>
+<p>Seja <span class="math inline">\(E\)</span> o ponto médio de <span
+class="math inline">\(AC\)</span> (esboço abaixo). Como <span
+class="math inline">\(M\)</span> e <span
+class="math inline">\(N\)</span> são pontos médios de <span
+class="math inline">\(AD\)</span> e <span
+class="math inline">\(BC\)</span> respectivamente, temos que <span
+class="math inline">\(EM\)</span> e <span
+class="math inline">\(EN\)</span> são bases médias de <span
+class="math inline">\(ABC\)</span> e <span
+class="math inline">\(CDA\)</span>, respectivamente, e, portanto</p>
+<div class="center">
+<p><span
+class="math inline">\(\dfrac{AB}{CD}=\dfrac{EM}{EN}=\dfrac{XP}{YP}\)</span>
+(1).</p>
+</div>
+<p><img src="tikz_trapezio_esboco2.png" style="width:85.0%"
+alt="image" /></p>
+<p>Ademais, <span class="math inline">\(EM \parallel AB\)</span> e <span
+class="math inline">\(EN \parallel CD\)</span>.</p>
+<p>Pela conclusão anterior, sem perda de generalidade, pode-se inferir
+que <span class="math inline">\(PX\)</span> é perpendicular à reta
+suporte de <span class="math inline">\(EM\)</span>, chamemo-la de <span
+class="math inline">\(r\)</span>. Analogamente, <span
+class="math inline">\(PY\)</span> é perpendicular à reta suporte de
+<span class="math inline">\(EN\)</span>, chamemo-la de <span
+class="math inline">\(s\)</span>.</p>
+<p>Analisando os ângulos <span class="math inline">\(\angle NEM\)</span>
+e <span class="math inline">\(\angle YPX\)</span>, tem-se que ambos são
+congruentes.</p>
+<p><strong>Prova</strong>: Como <span class="math inline">\(EM \parallel
+AB\)</span> e <span class="math inline">\(EN \parallel CD\)</span>, ao
+prolongar os lados AB e CD, eles se encontram num ponto F, o ângulo
+obtuso formado entre os prolongamentos é congruente ao ângulo <span
+class="math inline">\(\angle NEM\)</span>.</p>
+<p><img src="tikz_quadrilatero_fypx.png" style="width:85.0%"
+alt="image" /></p>
+<p>Analisando o quadrilátero <span class="math inline">\(FYPX\)</span>
+formado, tem-se, na soma dos ângulos internos, que:</p>
+<div class="center">
+<p><span class="math inline">\(\angle XFY + 90^o + 90^o + \angle YPX =
+360^o\)</span></p>
+</div>
+<div class="center">
+<p><span class="math inline">\(\Leftrightarrow \angle YPX = 180^o -
+\angle XFY\)</span></p>
+</div>
+<div class="center">
+<p><span class="math inline">\(\Leftrightarrow \angle YPX = \angle
+NEM\)</span> (2)</p>
+</div>
+<p>Logo, pelas equações (1) e (2), tem-se que <span
+class="math inline">\(NEM\)</span> e <span
+class="math inline">\(XYP\)</span> são triângulos semelhantes devido ao
+caso LAL de semelhança.</p>
+<p>Como visto anteriormente, <span class="math inline">\(PX \perp r
+\supset EM\)</span> e <span class="math inline">\(PY \perp s \supset
+EN\)</span>; então, obrigatoriamente, <span class="math inline">\(MN
+\perp XY\)</span>. Isso é comprovado pelo fato de que a relação de
+semelhança consiste em realizar, no máximo, rotações e translações.
+Assim, ao realizar algum desses movimentos de tal forma que dois pares
+de lados homólogos sejam perpendiculares entre si, então o terceiro par
+também será perpendicular.</p>
+<p><strong>Segunda solução:</strong></p>
+<figure>
+<img src="W2.png" />
+</figure>
+<p>Sejam <span class="math inline">\(R\)</span> e <span
+class="math inline">\(S\)</span> os pontos médios de <span
+class="math inline">\(BP\)</span> e <span
+class="math inline">\(CP\)</span>, respectivamente. Os triângulos <span
+class="math inline">\(XRN\)</span> e <span
+class="math inline">\(NSY\)</span> são congruentes pelo caso <span
+class="math inline">\(LAL\)</span>. Daí <span
+class="math inline">\(XN=NY\)</span>. De forma análoga, <span
+class="math inline">\(MX=MY\)</span>. Portanto, <span
+class="math inline">\(MN\)</span> é a mediatriz de <span
+class="math inline">\(XY\)</span>.</p>
+<div class="problem*">
+<p><strong>Problema 13</strong>. <em>Uma máquina tem dois botões: um
+deles dobra um número inteiro e o outro o aumenta em <span
+class="math inline">\(1\)</span> unidade. Por exemplo, apertando os
+botões dessa máquina é possível realizar as seguintes
+operações:</em></p>
+<p><em><span class="math display">\[1 \rightarrow_{+1} 2
+\rightarrow_{\times 2} 4 \rightarrow_{+1} 5.\]</span></em></p>
+<p><em>Se no início você começa com o número <span
+class="math inline">\(0\)</span>, qual é o número mínimo de vezes que
+você precisa apertar botões dessa máquina para obter:</em></p>
+<ol type="a">
+<li><p><em><span class="math inline">\(100\)</span>?</em></p></li>
+<li><p><em><span class="math inline">\(2024\)</span>?</em></p></li>
+</ol>
+</div>
+<p><strong>Solução:</strong></p>
+<p>Podemos considerar o problema reverso de transformar o número inteiro
+<span class="math inline">\(n\)</span> em <span
+class="math inline">\(0\)</span> por meio de duas operações: dividir por
+<span class="math inline">\(2\)</span> ou subtrair <span
+class="math inline">\(1\)</span>. Seja <span
+class="math inline">\(r(n)\)</span> o número mínimo de movimentos para
+transformar <span class="math inline">\(n\)</span> em <span
+class="math inline">\(0\)</span> com essas duas operações. Claramente,
+<span class="math inline">\(r(2n+1) = r(2n) + 1\)</span>, pois não
+podemos dividir por <span class="math inline">\(2\)</span>. Vamos provar
+por indução que <span class="math inline">\(r(2k) = 1 + r(k)\)</span>.
+Para <span class="math inline">\(k = 1\)</span> é imediato. Suponha que
+já provamos para todos os números pares menores que <span
+class="math inline">\(2k\)</span>. Se aplicarmos a operação de subtrair
+<span class="math inline">\(1\)</span> de <span
+class="math inline">\(2k\)</span>, o número mínimo de operações para
+obter <span class="math inline">\(0\)</span> não será menor que <span
+class="math inline">\(1 + r(2k-1) = 2 + r(2k-2) = 3 + r(k-1)\)</span>.
+Por outro lado, se aplicarmos a operação de dividir por <span
+class="math inline">\(2\)</span> primeiro, o número de operações será
+<span class="math inline">\(1 + r(k) \leq 2 + r(k-1)\)</span>. Ou seja,
+começar dividindo por <span class="math inline">\(2\)</span> é mais
+vantajoso. Em geral, se <span class="math inline">\(n = 2^{k_1} +
+2^{k_1+k_2} + \ldots + 2^{k_1+k_2+\ldots+k_m}\)</span>, segue que <span
+class="math display">\[\begin{aligned}
+r(n) &amp; = &amp; k_1 + r(n/2^{k_1}) \\
+     &amp; \ldots  &amp; \\
+    &amp; = &amp; (k_1 + k_2 + \ldots + k_m) + m.
+\end{aligned}\]</span></p>
+<ol type="a">
+<li><p>Como <span class="math inline">\(100 = 2^6 + 2^5 + 2^2\)</span>,
+segue que <span class="math inline">\(r(100) = 6 + 3 =
+9\)</span>.</p></li>
+<li><p>Como <span class="math inline">\(2024 = 2^{10} + 2^9 + 2^8 + 2^7
++ 2^6 + 2^5 + 2^3\)</span>, segue que <span
+class="math inline">\(r(2024) = 17\)</span>.</p></li>
+</ol>
+<h1 id="novos-problemas">Novos Problemas</h1>
+<h1 class="unnumbered" id="problemas-universitários-1">Problemas
+Universitários</h1>
+<div class="problem*">
+<p><strong>Problema 14</strong>. <em>Considere a matriz <span
+class="math display">\[A = \begin{pmatrix} 3 &amp; -4 &amp; 0 \\ 1 &amp;
+-1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}.\]</span> Determine a soma
+dos elementos da matriz <span
+class="math inline">\(A^{2026}\)</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 15</strong>. <em>Calcule <span
+class="math display">\[\displaystyle \int_{-1}^{1} \frac{x + 1 + \sqrt{1
++ x^2}}{2(1 + x^2)\left(1 + \sqrt{1 + x^2}\right)} dx\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 16</strong>. <em>Seja <span
+class="math inline">\(p\)</span> um primo e <span
+class="math inline">\(0 \leq k \leq p-1\)</span> um inteiro. Mostre que
+<span class="math display">\[\binom{p-1}{k} \equiv (-1)^k \ \
+(\text{mod} \ p)\]</span></em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 17</strong>. <em>Seja <span class="math inline">\(A
+\in M_2(\mathbb{R})\)</span> tal que <span class="math inline">\(\det A
+= -1\)</span>. Mostre que <span class="math inline">\(\det(A^2 + I_2)
+\geq 4\)</span>. Quando a igualdade é válida ?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 18</strong>. <em>Para cada função contínua <span
+class="math inline">\(f: [0,1] \rightarrow \mathbb{R}\)</span>, seja
+<span class="math inline">\(I(f) = \int_0^1 x^2f(x) \ dx\)</span> e
+<span class="math inline">\(J(f) = \int_0^1 xf^2(x) \ dx\)</span>.
+Encontre o valor máximo de <span class="math inline">\(I(f) -
+J(f)\)</span> sobre todas essas funções.</em></p>
+</div>
+<h1 class="unnumbered"
+id="problemas-de-matemática-elementar-1">Problemas de Matemática
+Elementar</h1>
+<div class="problem*">
+<p><strong>Problema 19</strong>. <em>Qual é o primeiro algarismo após a
+vírgula da representação decimal de <span class="math inline">\(\sqrt{9
+\cdot 100^2 + 4 \cdot 100}\)</span>?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 20</strong>. <em>A função <span
+class="math inline">\(f: \mathbb{N} \rightarrow \mathbb{R}\)</span>
+satisfaz <span class="math inline">\(f(1) = 2027\)</span> e, para <span
+class="math inline">\(n &gt; 1\)</span>, <span
+class="math display">\[f(1) + f(2) + \ldots + f(n) = n^2 \cdot
+f(n).\]</span> Qual é o valor de <span
+class="math inline">\(f(2027)\)</span>?</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 21</strong>. <em>Elaís observa “palavras” compostas
+por <span class="math inline">\(n\)</span> caracteres, cada um igual a
+‘E’ ou ‘L’. Em cada jogada, Elaís pode substituir ‘EL’ em qualquer lugar
+da palavra por ‘LE’. Por exemplo, em duas jogadas, ela transforma a
+palavra ‘LEELEELLE’ na palavra ‘LEELELLEE’. <span
+class="math display">\[LEELE{\bf EL}LE \rightarrow LEELEL{\bf EL}E
+\rightarrow LEELELLEE\]</span> Se não houver ‘L’ imediatamente à direita
+de um ‘E’, Elaís não pode fazer uma jogada.</em></p>
+<ol>
+<li><p><em>Qual é o número máximo de jogadas que Elaís pode fazer na
+palavra <span class="math inline">\(LEELEELLE\)</span>?</em></p></li>
+<li><p><em>Dentre todas as palavras de <span
+class="math inline">\(20\)</span> letras, qual é o valor máximo possível
+de jogadas que ela pode fazer?</em></p></li>
+</ol>
+</div>
+<div class="problem*">
+<p><strong>Problema 22</strong>. <em>Estão escritas no quadro <span
+class="math inline">\(n\)</span> unidades consecutivas. Entre algumas
+delas, colocam-se sinais “+” e calcula-se a soma obtida. Por exemplo, se
+estiverem escritas 10 unidades, pode-se obter a soma 136: <span
+class="math display">\[1 + 1 + 111 + 11 + 11 + 1 =
+136.\]</span></em></p>
+<ol>
+<li><p><em>Se <span class="math inline">\(n = 53\)</span>, é possível
+obter a soma 116?</em></p></li>
+<li><p><em>Se <span class="math inline">\(n = 53\)</span>, é possível
+obter a soma 117?</em></p></li>
+<li><p><em>Qual é a maior soma de quatro algarismos que se pode obter se
+<span class="math inline">\(n = 53\)</span>?</em></p></li>
+</ol>
+</div>
+<div class="problem*">
+<p><strong>Problema 23</strong>. <em>Prove que <span
+class="math display">\[\left(1 - \frac{1}{4}\right) \cdot \left(1 -
+\frac{1}{9}\right) \cdot \left(1 - \frac{1}{16}\right) \cdots \left(1 -
+\frac{1}{n^2}\right) &gt; \frac{1}{2}\]</span> para todo <span
+class="math inline">\(n \geq 2\)</span>.</em></p>
+</div>
+<div class="problem*">
+<p><strong>Problema 24</strong>. <em>Suponha que <span
+class="math inline">\(x\)</span> e <span
+class="math inline">\(y\)</span> são maiores que <span
+class="math inline">\(0\)</span>. Vamos denotar o mínimo de <span
+class="math inline">\(x, \frac{1}{y}\)</span> e <span
+class="math inline">\(y + \frac{1}{x}\)</span> por <span
+class="math inline">\(S\)</span>, isto é, <span class="math inline">\(S
+= \min\{ x, \frac{1}{y}, y + \frac{1}{x}\}\)</span>. Qual é o valor
+máximo possível para <span class="math inline">\(S\)</span>?</em></p>
+</div>
+<div class="wrapfigure">
+<p><img src="Samuel.jpeg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Samuel Feitosa é professor na Universidade Federal da Bahia desde
+2012. Foi medalhista de Bronze na Olimpíada Internacional de Matemática
+em 2003 e é membro da Comissão Nacional de Olimpíadas de Matemática da
+Sociedade Brasileira de Matemática (SBM). Contribui ativamente na
+organização de olimpíadas e treinamentos de alunos para diversas
+competições matemáticas nacionais e internacionais.</p>
+<div class="wrapfigure">
+<p><img src="yure.jpeg"
+style="width:2cm" alt="image" /></p>
+</div>
+<p>Yure Carneiro de Oliveira graduou-se e fez mestrado em matemática na
+UFBA, onde também realiza seu doutorado em matemática na área de
+Probabilidade. Após quase concluir um mestrado em estatística, ingressar
+em uma outra graduação e começar a estudar violino, agora está focado na
+conclusão do doutorado.</p>
