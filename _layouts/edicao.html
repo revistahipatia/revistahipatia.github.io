@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{page.edition}}</title>
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet.css" media="screen" />
+    {% include favicon.html %}
     {% include font.html %}
     {% seo title=false %}
   </head>
@@ -20,7 +21,7 @@
         <li>
           <div class="sec_name"> {{item.section}}</div>
           <a href="{{ item.url }}/{{ item.url }}.html" target="_top">{{ item.title }}</a>
-          <a href="{{ item.url }}/{{ item.url }}.pdf" download target="_top"> (pdf) </a>
+          <a class="pdf-link" href="{{ item.url }}/{{ item.url }}.pdf" download target="_top"> (pdf) </a>
           <div class="sec_author"> {{item.author}}</div>
         </li>
         {% endfor %}

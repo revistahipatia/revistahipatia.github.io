@@ -1,3 +1,10 @@
+a {
+    color: #3f5765;
+}
+a:hover, a:focus {
+    color: #1f271c;
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -69,6 +76,11 @@ article.article p {
     width: 95%;
     margin: 10px auto;
     text-align: justify;
+    line-height: 1.6;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
 }
 
 article.article h1 {
@@ -86,11 +98,78 @@ h1.title {
 p.author {
     font-style: italic;
 } 
+summary ul {
+    list-style: none;
+    padding-left: 0;
+}
+summary li {
+    padding: 0.9em 0;
+    border-bottom: 1px solid #ddd;
+}
+summary li:last-child {
+    border-bottom: none;
+}
+summary li a {
+    font-size: 1.2em;
+}
 div.sec_name {
     font-variant: small-caps;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    color: #3f5765;
+    font-size: 0.9em;
+    margin-bottom: 0.15em;
+}
+div.sec_author {
+    font-style: italic;
+    color: #555;
+    margin-top: 0.15em;
+}
+a.pdf-link {
+    font-size: 0.85em;
+    color: #777;
 }
 span.smallcaps {
     font-variant: small-caps;
+}
+article.article .thebibliography p {
+  margin-left: 2em;
+  text-indent: -2em;
+}
+
+/* Caixas de destaque para teoremas, definições, lemas e problemas */
+article.article div.theorem,
+article.article div.theorem\*,
+article.article div.lemma,
+article.article div.lemma\*,
+article.article div.proposition,
+article.article div.corollary,
+article.article div.definition,
+article.article div.problem\*,
+article.article div.conjecture,
+article.article div.notation {
+  margin: 1.6em 0;
+  padding: 0.2em 1.2em;
+  background-color: #eef3f4;
+  border-left: 4px solid #3f5765;
+}
+article.article div.theorem p,
+article.article div.theorem\* p,
+article.article div.lemma p,
+article.article div.lemma\* p,
+article.article div.proposition p,
+article.article div.corollary p,
+article.article div.definition p,
+article.article div.problem\* p,
+article.article div.conjecture p,
+article.article div.notation p {
+  width: 100%;
+  margin: 0.6em 0;
+}
+article.article div.proof {
+  margin: 1em 0 1.6em;
+  padding-top: 0.4em;
+  border-top: 1px solid #ccc;
 }
 div.csl-bib-body { }
 div.csl-entry {
