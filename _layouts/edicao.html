@@ -1,15 +1,16 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{page.edition}}</title>
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet.css" media="screen" />
     {% include font.html %}
+    {% seo title=false %}
   </head>
   <body>
     <header>
-      <a href="/"><img class="banner" src="/assets/banner.png" alt="Logo"></a> 
+      <a href="/" target="_top"><img class="banner" src="/assets/banner.png" alt="Logo"></a>
     </header>
     <main>
       <summary>
@@ -18,8 +19,8 @@
         {% for item in page.sections %}
         <li>
           <div class="sec_name"> {{item.section}}</div>
-          <a href="{{ item.url }}/{{ item.url }}.html">{{ item.title }}</a> 
-          <a href="{{ item.url }}/{{ item.url }}.pdf" download> (pdf) </a> 
+          <a href="{{ item.url }}/{{ item.url }}.html" target="_top">{{ item.title }}</a>
+          <a href="{{ item.url }}/{{ item.url }}.pdf" download target="_top"> (pdf) </a>
           <div class="sec_author"> {{item.author}}</div>
         </li>
         {% endfor %}
@@ -28,7 +29,7 @@
     </main>
     <aside>
       <figure>
-      <a href="{{page.pdfurl}}" download><img class="cover" src="capa.png" alt="Capa"></a>
+      <a href="{{page.pdfurl}}" download target="_top"><img class="cover" src="capa.png" alt="Capa"></a>
       <figcaption>Clique para baixar o PDF. </figcaption>
       </figure>
     </aside>

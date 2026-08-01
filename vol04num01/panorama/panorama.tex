@@ -31,20 +31,20 @@
 \usepackage{todonotes}
 \usepackage{mathrsfs}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem*{maintheorem}{Main Theorem}
-\newtheorem*{addendum}{Addendum}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{problem}[theorem]{Problem}
+\newtheorem{theorem}{Teorema}
+\newtheorem*{maintheorem}{Teorema Principal}
+\newtheorem*{addendum}{Adendo}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposição}
+\newtheorem{corollary}[theorem]{Corolário}
+\newtheorem{problem}[theorem]{Problema}
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{notation}[theorem]{Notation}
-\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definição}
+\newtheorem{notation}[theorem]{Notação}
+\newtheorem{conjecture}[theorem]{Conjectura}
 
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{\bf Remark}
+\newtheorem{remark}[theorem]{\bf Observação}
 
 \numberwithin{equation}{section}
 \numberwithin{theorem}{section}
@@ -221,7 +221,7 @@ Para melhor entender o efeito da borda da mesa no movimento das bolas, no que se
 \end{enumerate}
 Neste caso, $\alpha=\beta$. Este contexto caracteriza o que chamaremos de um {\bf bilhar dinâmico:} dado um domínio compacto $D$ do plano $\mathbb R^2$ ou do toro bidimensional $\mathbb T^2$, que chamaremos de {\bf mesa de bilhar}, consideramos uma partícula que se move com velocidade constante sobre a mesa e se choca com a borda da mesa, tal que o ângulo de incidência é igual ao de reflexão em cada colisão.
 No que segue, discutiremos diferentes classes de bilhares dinâmicos.
-O leitor interessado pode consultar o livro [6] para uma discussão detalhada do
+O leitor interessado pode consultar o livro \cite{chernov-markarian} para uma discussão detalhada do
 tópico.
 
 
@@ -286,7 +286,7 @@ Seja $\mathcal E$ uma elipse de focos $F_1,F_2$. Dado um ponto $A$ da elipse, se
 Pelo teorema acima, se $AB$ passa por $F_1$, então todas as cordas definidas por batidas sucessivas passam pelos focos, alternadamente. Neste caso, podemos considerar os pontos $F_1$ e $F_2$ como cáusticas dessas trajetórias.
 
 As propriedades do círculo e elipse valem, de fato, para qualquer mesa de bilhar convexa (e suficientemente regular). Estes são resultados profundos, decorrentes de argumentos em dinâmica conservativa e teoria KAM (devida a Kolomogorov, Arnold e Moser). O leitor interessado pode consultar
-[5] sobre este tópico.
+\cite{fejoz} sobre este tópico.
 
 
 
@@ -328,7 +328,7 @@ Assim, em uma mesa quatro vezes maior, a trajetória da partícula sempre segue 
 Este método pode ser aplicado a qualquer mesa de bilhar poligonal em que os ângulos internos
 são múltiplos racionais de $\pi$. Neste caso, o grupo de simetria do polígono é finito,
 e todas as reflexões possíveis definem uma {\bf superfície de translação}, onde a trajetória original do bilhar é identificada com uma trajetória retilínea. O estudo de superfícies de translação é uma área que relaciona Geometria, Sistemas Dinâmicos e Topologia, e a partir dela podemos deduzir diversas propriedades interessantes de tais mesas de bilhar. Notamos, porém, que se algum ângulo interno for um múltiplo irracional de $\pi$, então o problema ainda não possui 
-compreensão satisfatória. O livro [1] possui uma excelente introdução ao tópico de superfícies
+compreensão satisfatória. O livro \cite{translation} possui uma excelente introdução ao tópico de superfícies
 de translação.
 
 
@@ -422,7 +422,7 @@ Intuitivamente, se a entropia de $\mu$ é $h$, então tipicamente o número de s
 observáveis de comprimento $n$ cresce como $e^{hn}$. Portanto, quanto maior $h$,
 maior a riqueza de trajetórias.
 
-Uma discussão mais precisa sobre este conceito pode ser encontrada em [9].
+Uma discussão mais precisa sobre este conceito pode ser encontrada em \cite{viana-oliveira}.
 
 \subsection{Medidas de máxima entropia}
 
@@ -442,11 +442,11 @@ para diversas classes de modelos diferentes. Nos últimos dez anos, presenciamos
 para os bilhares dispersivos (sim, apenas recentemente estas perguntas foram respondidas, ainda que de modo
 parcial). Hoje em dia, diversos trabalhos contribuíram para uma melhor compreensão desta pergunta:
 \begin{enumerate}[$\circ$]
-\item Baladi e Demers provaram que uma grande classe de bilhares dispersivos possuem uma única medida de máxima entropia [2].
+\item Baladi e Demers provaram que uma grande classe de bilhares dispersivos possuem uma única medida de máxima entropia \cite{baladi-demers}.
 \item Baladi, Buzzi, Demers, Lima e Matheus mostraram que o número de trajetórias periódicas desta grande classe de bilhares dispersivos cresce exponencialmente rápido como $e^{hn}$, onde $h$ é a entropia máxima
-[2,3,7].
-\item Lima, Obata e Poletti mostraram que os bilhares dispersivos possuem no máximo uma medida de máxima entropia ``bem comportada'' (chamada de adaptada) [8].
-\item Em 2026, Climenhaga e Day forneceram uma prova de que os bilhares dispersivos sempre possuem uma única medida de máxima entropia [4].
+\cite{baladi-demers,buzzi,lima-matheus}.
+\item Lima, Obata e Poletti mostraram que os bilhares dispersivos possuem no máximo uma medida de máxima entropia ``bem comportada'' (chamada de adaptada) \cite{lop}.
+\item Em 2026, Climenhaga e Day forneceram uma prova de que os bilhares dispersivos sempre possuem uma única medida de máxima entropia \cite{climenhaga-day}.
 \end{enumerate}
 Notamos que uma trajetória periódica do bilhar não significa apenas que a trajetória passa novamente pelo mesmo ponto de partida da mesa, mas que ela deve voltar também com o mesmo ângulo! Até em bilhares dispersivos simples, identificar tais trajetórias não é uma tarefa simples.
 
@@ -459,54 +459,52 @@ então não se sabe se existem trajetórias periódicas.
 
 
 
-\section{Bibliografia}
-
 \begin{thebibliography}{99}
 
-[1]
+\bibitem{translation}
 Athreya, Jayadev S. e Masur, Howard,
 \emph{Translation surfaces}, Graduate Studies in Mathematics \textbf{242}
 (2024).
 
-[2]
+\bibitem{baladi-demers}
 V. Baladi e M. Demers, \emph{On the measure of maximal entropy for finite horizon {S}inai
               billiard maps}, J. Amer. Math. Soc. {\bf 33} (2020).
 
-[3]
+\bibitem{buzzi}
 J. Buzzi,
 \emph{The degree of Bowen factors and injective codings of diffeomorphisms},
 J. Mod. Dyn. {\bf 16} (2020).
 
-[4]
+\bibitem{climenhaga-day}
 Vaughn Climenhaga e Jason Day,
 \emph{Every finite horizon Sinai billiard map has a unique measure of maximal entropy}, arxiv:2604.25881
 
 
 
-[5]
+\bibitem{fejoz}
 J. Fejoz, Introduction to KAM theory, with a view to celestial mechanics,
 in \emph{Variational methods in imaging and geometric control
 Radon Series on Comput. and Applied Math.} \textbf{18}, (2016).
 
 
-[6]
+\bibitem{chernov-markarian}
 N. Chernov e R. Markarian, \emph{Chaotic billiards}.
 Math. Surveys Monogr. {\bf 127} (2006).
 
 
-[7]
+\bibitem{lima-matheus}
 Y. Lima e C. Matheus,
 \emph{Symbolic dynamics for non-uniformly hyperbolic surface maps with discontinuities},
 Ann. Sci. Éc. Norm. Supér. (4) {\bf 51} (2018).
 
-[8]
+\bibitem{lop}
 Yuri Lima, Davi Obata e Mauricio Poletti,
 \emph{Measures of maximal entropy for non-uniformly hyperbolic maps},
 aceito em JEMS (2026).
 
 
 
-[9]
+\bibitem{viana-oliveira}
 M. Viana e K. Oliveira, \emph{Fundamentos da Teoria Ergódica}.
 Sociedade Brasileira de Matemática (2019).
 

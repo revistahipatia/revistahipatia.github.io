@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Revista de Matemática Hipátia</title>
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet.css" media="screen" />
     {% include font.html %}
+    {% seo title=false %}
   </head>
   <body>
     <header>
@@ -32,7 +33,7 @@
           <ul>
           {% for item in page.editions %}
             <li>
-              <a href="{{ item.url }}/index.html">{{ item.volnum }}</a>
+              <a href="{{ item.url }}/index.html" target="_top">{{ item.volnum }}</a>
             </li>
           {% endfor %}
           </ul>
@@ -41,8 +42,8 @@
       <section>
         <h2>Links</h2>
         <ul>
-          <li><a href="/equipe.html">Equipe</a></li>
-          <li><a href="/submissao.html">Submissão</a></li>
+          <li><a href="/equipe.html" target="_top">Equipe</a></li>
+          <li><a href="/submissao.html" target="_top">Submissão</a></li>
         </ul>
       </section>
     </aside>

@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="{{ page.author }}" />
-    <title>{{ page.title }}</title>  
+    <title>{{ page.title }}</title>
     <link rel="stylesheet" type="text/css" href="/assets/stylesheet.css" media="screen" />
     {% include font.html %}
+    {% seo title=false %}
   </head>
   <script>
   window.MathJax = {
@@ -17,7 +18,7 @@
   </script>
   <body>
     <header>
-      <a href="/"><img class="banner" src="/assets/banner.png" alt="Logo"></a> 
+      <a href="/" target="_top"><img class="banner" src="/assets/banner.png" alt="Logo"></a>
     </header>
     <main class="article">
       <article class="article">

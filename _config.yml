@@ -3,3 +3,21 @@ markdown: CommonMarkGhPages
 commonmark:
   options: ["DEFAULT", "SMART", "FOOTNOTES"]
   extensions: ["strikethrough", "autolink", "table", "tagfilter"]
+
+url: "https://revistahipatia.github.io"
+title: Revista de Matemática Hipátia
+description: >-
+  A Revista de Matemática Hipátia é uma publicação semestral do
+  Departamento de Matemática do Instituto de Matemática e Estatística
+  da UFBA, voltada à divulgação matemática para professores e
+  estudantes do ensino fundamental e médio.
+lang: pt-BR
+locale: pt_BR
+logo: /assets/banner.png
+author: Departamento de Matemática - UFBA
+social:
+  name: Revista de Matemática Hipátia
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap

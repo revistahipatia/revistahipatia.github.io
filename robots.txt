@@ -1,0 +1,4 @@
+Sitemap: https://revistahipatia.github.io/sitemap.xml
+
+User-agent: *
+Allow: /
